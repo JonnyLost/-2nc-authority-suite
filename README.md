@@ -1,4 +1,4 @@
-# 2NC Authority Suite v3.3
+# 2NC Authority Suite v3.4
 
 Unified Instrument Tags layout release.
 
@@ -16,3 +16,6 @@ Upload the contents of this folder to the repository root and commit. Then open:
 `https://jonnylost.github.io/2nc-authority-suite/?v=3.3`
 
 Refresh once and fully reopen any Home Screen installation.
+
+## v3.4 layout correction
+Instrument Tags now follows the same column order as every other production page: inputs on the left, live preview in the center, and print queue on the right.

@@ -1,13 +1,6 @@
 {
-  "version": "3.3.0",
-  "release": "Unified Instrument Tags Layout",
-  "build": "2026-07-27-instrument-layout",
-  "databaseSchema": 3,
-  "minimumRecords": {
-    "music": 4500,
-    "comic": 2000
-  },
-  "comicRecords": 2043,
-  "decadeAuthoritiesRemoved": 2,
-  "decadeChildrenPromoted": 22
+  "version": "3.4.0",
+  "name": "Instrument Column Order",
+  "release": "2NC Authority Suite GitHub v3.4",
+  "notes": "Instrument Tags now uses the same left-input, center-preview, right-queue column order as Vinyl, CD, and Comics."
 }

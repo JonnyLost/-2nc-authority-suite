@@ -1,4 +1,4 @@
-2NC Authority Suite v3.3 — Preflight Report
+2NC Authority Suite v3.4 — Preflight Report
 
 PASS
 - Instrument Tags uses the shared three-panel application grid.
@@ -6,4 +6,4 @@ PASS
 - Live preview occupies the center panel.
 - Existing print queue remains in the right panel.
 - 6 × 4 inch tag geometry and official logo are unchanged.
-- Cache/version identifiers updated to v3.3.0.
+- Cache/version identifiers updated to v3.4.0.
