@@ -1,1 +1,7 @@
-{"version":"2.5.0","release":"Full database reset and cache recovery","databaseSchema":2}
+{
+  "version": "3.0.0",
+  "release": "Stable Foundation",
+  "build": "2026-07-27-stable-foundation",
+  "databaseSchema": 3,
+  "minimumRecords": { "music": 4500, "comic": 2000 }
+}

@@ -1,92 +1,80 @@
-const DB_NAME='2nc-authority-db-v2-5',DB_VERSION=1;let db;let MUSIC_DATA=[],COMIC_DATA=[];
-const state={mode:'vinyl',selected:null,queue:JSON.parse(localStorage.getItem('2ncQueue')||'[]'),query:'',level:'',category:'',sort:'name',managerDataset:'music',managerSelected:null};
-const profiles={vinyl:{title:'Vinyl Dividers',sub:'Search the internal Music Authority',dim:'5 × 0.675 in'},cd:{title:'CD Dividers',sub:'Search the internal Music Authority',dim:'2 × 0.675 in'},comic:{title:'Comic Dividers',sub:'Search the internal Comic Authority',dim:'3.5 × 0.675 in'},instrument:{title:'Instrument Tags',sub:'Create 4 × 6 retail instrument tags',dim:'6 × 4 in'},manager:{title:'Authority Manager',sub:'Add, edit, retire, import, and back up authority data',dim:'Internal database'}};
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const escapeHtml=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,DB_VERSION);req.onupgradeneeded=e=>{const d=e.target.result;['music','comic'].forEach(n=>{if(!d.objectStoreNames.contains(n)){const s=d.createObjectStore(n,{keyPath:'id'});s.createIndex('status','status');s.createIndex('display','display')}})};req.onsuccess=()=>{db=req.result;resolve()};req.onerror=()=>reject(req.error)})}
-function tx(store,mode='readonly'){return db.transaction(store,mode).objectStore(store)}
-function getAll(store){return new Promise((res,rej)=>{const r=tx(store).getAll();r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
-function put(store,obj){return new Promise((res,rej)=>{const r=tx(store,'readwrite').put(obj);r.onsuccess=()=>res(obj);r.onerror=()=>rej(r.error)})}
-function del(store,id){return new Promise((res,rej)=>{const r=tx(store,'readwrite').delete(id);r.onsuccess=()=>res();r.onerror=()=>rej(r.error)})}
-async function fetchBundled(kind){const url=`data/${kind==='music'?'music':'comics'}.json?v=2.5.0`;const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`Could not load ${kind} database (${response.status})`);return response.json()}
-async function seed(){
-  for(const kind of ['music','comic']){
-    const rows=await fetchBundled(kind);
-    if(!Array.isArray(rows)||!rows.length)throw new Error(`${kind} database file is empty`);
-    const existing=await getAll(kind);
-    const existingMap=new Map(existing.map(r=>[r.id,r]));
-    const t=db.transaction(kind,'readwrite'),store=t.objectStore(kind);
-    rows.forEach(r=>{
-      const old=existingMap.get(r.id)||{};
-      store.put({...r,status:old.status||'active',notes:old.notes||r.notes||'',updatedAt:old.updatedAt||new Date().toISOString()});
-    });
-    await new Promise((res,rej)=>{t.oncomplete=res;t.onerror=()=>rej(t.error)});
+/* 2NC Authority Suite v3.0 — stable startup orchestrator */
+(function () {
+  const stages = [
+    ['Preparing interface', 12],
+    ['Opening internal database', 30],
+    ['Validating bundled authority data', 58],
+    ['Loading Music and Comic records', 78],
+    ['Starting application', 92]
+  ];
+  let forceRepair = false;
+
+  function setStage(index, customMessage) {
+    const [message, percent] = stages[Math.min(index, stages.length - 1)];
+    const label = document.getElementById('startupMessage');
+    const bar = document.getElementById('startupBar');
+    if (label) label.textContent = customMessage || message;
+    if (bar) bar.style.width = `${percent}%`;
+    AppLog.info(customMessage || message);
   }
-}
-async function syncMusicDescriptors(){const bundled=await fetchBundled('music');const map=new Map(bundled.map(r=>[r.id,r]));const current=await getAll('music');let changed=false;const t=db.transaction('music','readwrite'),store=t.objectStore('music');current.forEach(r=>{const b=map.get(r.id);if(!b)return;const next={...r};if(!next.primarySubgenre)next.primarySubgenre=b.primarySubgenre||b.subgenre||'';if(!next.secondarySubgenre)next.secondarySubgenre=b.secondarySubgenre||'';if(!next.subgenre)next.subgenre=next.primarySubgenre||'';if(!next.genre)next.genre=b.genre||'';if(JSON.stringify(next)!==JSON.stringify(r)){store.put(next);changed=true}});await new Promise((res,rej)=>{t.oncomplete=res;t.onerror=()=>rej(t.error)});return changed}
-function musicSubgenreLine(r){return [r.primarySubgenre||r.subgenre,r.secondarySubgenre].filter(Boolean).join(' • ')}
-async function refreshData(){MUSIC_DATA=(await getAll('music')).filter(r=>r.status!=='retired');COMIC_DATA=(await getAll('comic')).filter(r=>r.status!=='retired');const badge=document.getElementById('dbStatus');if(badge)badge.textContent=`Music ${MUSIC_DATA.length.toLocaleString()} · Comics ${COMIC_DATA.length.toLocaleString()}`;if(state.mode!=='manager'){renderResults();renderPreview()}renderManager()}
-function cleanSeries(parent,series){let s=(series||'').trim();if(!parent)return s;const esc=parent.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');s=s.replace(new RegExp('^'+esc+'\\s*[:\\-–—]?\\s*','i'),'');return s||series}
-function currentData(){return state.mode==='comic'?COMIC_DATA:MUSIC_DATA}
-function recordCategory(r){return state.mode==='comic'?(r.publisher||'Unknown Publisher'):(r.genre||'Uncategorized')}
-function matches(r){const q=state.query.toLowerCase();const hay=state.mode==='comic'?[r.display,r.parent,r.series,r.publisher,r.type].join(' '):[r.name,r.display,r.genre,r.primarySubgenre||r.subgenre,r.secondarySubgenre,r.type].join(' ');return(!q||hay.toLowerCase().includes(q))&&(!state.level||r.level===state.level)&&(!state.category||recordCategory(r)===state.category)}
-function resultName(r){return state.mode==='comic'?(r.primary?r.display:cleanSeries(r.parent,r.series)):r.name}function resultSub(r){return state.mode==='comic'?(r.primary?`${r.publisher||''} · Primary authority`:`${r.parent||'Standalone'} · ${r.publisher||''}`):[r.genre,musicSubgenreLine(r),r.level].filter(Boolean).join(' · ')}
-function renderResults(){if(['instrument','manager'].includes(state.mode))return;const all=currentData().filter(matches);const levelRank={Primary:0,Essential:1,Recommended:2,Optional:3,'Reference Only':4};all.sort((a,b)=>{if(state.sort==='category')return recordCategory(a).localeCompare(recordCategory(b))||resultName(a).localeCompare(resultName(b));if(state.sort==='level')return (levelRank[a.level]??9)-(levelRank[b.level]??9)||resultName(a).localeCompare(resultName(b));return resultName(a).localeCompare(resultName(b));});const rows=all.slice(0,400);$('#resultCount').textContent=`${all.length} results${all.length>400?' (showing first 400)':''}`;$('#results').innerHTML=rows.map((r,i)=>`<div class="resultCard ${state.selected?.id===r.id?'selected':''}" data-i="${i}"><div><strong>${escapeHtml(resultName(r))}</strong><br><small>${escapeHtml(resultSub(r))}</small></div><span class="badge">${escapeHtml(r.level||r.type||'')}</span></div>`).join('')||'<div class="empty">No matching records</div>';$$('.resultCard').forEach(el=>el.onclick=()=>{state.selected=rows[+el.dataset.i];renderResults();renderPreview()})}
-function renderPreview(){if(['instrument','manager'].includes(state.mode))return;const box=$('#labelPreview');if(!state.selected){box.className='label vinylLabel';box.innerHTML='<strong>Select a record</strong>';$('#addSelected').disabled=true;return}$('#addSelected').disabled=false;const r=state.selected;if(state.mode==='comic'){box.className='label comicLabel '+(r.primary?'primaryComic':'');box.innerHTML=r.primary?`<div class="series">${escapeHtml(r.display)}</div>`:`<div class="cue">${escapeHtml(r.parent)}</div><div class="series">${escapeHtml(cleanSeries(r.parent,r.series))}</div>`;$('#addHierarchy').classList.toggle('hidden',!r.parent&&!r.primary)}else{box.className='label '+(state.mode==='cd'?'cdLabel':'vinylLabel');box.innerHTML=`<div class="musicGenre">${escapeHtml(r.genre||'')}</div><strong>${escapeHtml(r.name)}</strong><div class="musicSubgenres">${escapeHtml(musicSubgenreLine(r))}</div>`;$('#addHierarchy').classList.add('hidden')}$('#selectedDetails').textContent=resultSub(r)}
-function queueRecord(r){return state.mode==='comic'?{uid:crypto.randomUUID(),mode:'comic',primary:r.primary,parent:r.parent||'',series:r.primary?r.display:cleanSeries(r.parent,r.series),name:r.display,publisher:r.publisher||''}:{uid:crypto.randomUUID(),mode:state.mode,name:r.name,genre:r.genre||'',primarySubgenre:r.primarySubgenre||r.subgenre||'',secondarySubgenre:r.secondarySubgenre||''}}
-function addSelected(){if(state.selected){state.queue.push(queueRecord(state.selected));saveQueue()}}function addAll(){currentData().filter(matches).forEach(r=>state.queue.push(queueRecord(r)));saveQueue()}function addHierarchy(){const r=state.selected;if(!r)return;const p=r.primary?r.display:r.parent;COMIC_DATA.filter(x=>(x.primary&&x.display===p)||(!x.primary&&x.parent===p)).forEach(x=>state.queue.push(queueRecord(x)));saveQueue()}
-function saveQueue(){localStorage.setItem('2ncQueue',JSON.stringify(state.queue));renderQueue()}function renderQueue(){$('#queuePill').textContent=`${state.queue.length} queued`;$('#queue').innerHTML=state.queue.map((r,i)=>`<div class="queueItem"><div><strong>${escapeHtml(r.mode==='comic'?(r.primary?r.name:r.series):r.mode==='instrument'?r.product:r.name)}</strong><br><small>${escapeHtml(r.mode==='comic'?(r.primary?'Primary authority':r.parent):r.mode==='instrument'?r.price:r.mode.toUpperCase())}</small></div><button data-i="${i}">×</button></div>`).join('')||'<div class="empty">Your print queue is empty.</div>';$$('.queueItem button').forEach(b=>b.onclick=()=>{state.queue.splice(+b.dataset.i,1);saveQueue()})}
-function populateCategoryFilter(){const select=$('#categoryFilter');if(!select)return;const isComic=state.mode==='comic';const values=[...new Set(currentData().map(recordCategory).filter(Boolean))].sort((a,b)=>a.localeCompare(b));select.innerHTML=`<option value="">${isComic?'All publishers':'All genres'}</option>`+values.map(v=>`<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('');select.value=state.category;$('#searchInput').placeholder=isComic?'Search characters, series, publishers...':'Search artists...';const sort=$('#sortFilter');sort.innerHTML=`<option value="name">Sort: Name A–Z</option><option value="category">Sort: ${isComic?'Publisher':'Genre'}</option><option value="level">Sort: Divider level</option>`;sort.value=state.sort}
-function setMode(mode){state.mode=mode;state.selected=null;state.query='';state.level='';state.category='';state.sort='name';const p=profiles[mode];$('#pageTitle').textContent=p.title;$('#pageSub').textContent=p.sub;$('#dimensionText').textContent=p.dim;$$('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));$('#searchPanel').classList.toggle('hidden',['instrument','manager'].includes(mode));$('.previewPanel').classList.toggle('hidden',['instrument','manager'].includes(mode));$('.queuePanel').classList.toggle('hidden',mode==='manager');$('#instrumentPanel').classList.toggle('hidden',mode!=='instrument');$('#managerPanel').classList.toggle('hidden',mode!=='manager');if(mode==='manager')renderManager();else{$('#searchInput').value='';$('#levelFilter').value='';populateCategoryFilter();renderResults();renderPreview()}}
-function openPrintWindow(html){const w=window.open('','_blank');if(!w)return alert('Please allow pop-ups for this site so the print sheet can open.');w.document.open();w.document.write(html);w.document.close();setTimeout(()=>w.print(),650)}
-function printQueue(){if(!state.queue.length)return alert('Add at least one item to the print queue.');const groups={vinyl:[],cd:[],comic:[],instrument:[]};state.queue.forEach(r=>groups[r.mode].push(r));openPrintWindow(buildPrintDocument(groups))}
-function printCalibration(){const mode=state.mode==='manager'?'vinyl':state.mode;openPrintWindow(buildCalibrationDocument(mode))}
-function printStyles(){return `
-<style>
-@page vinylPage{size:letter landscape;margin:.2in .5in}
-@page comicPage{size:letter landscape;margin:.2in .5in}
-@page cdPage{size:letter portrait;margin:.25in}
-@page instrumentPage{size:letter portrait;margin:.25in}
-*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-serif}
-.printNotice{padding:12px 16px;font-size:14px;background:#fff3cd;border:1px solid #e5c76b;margin:12px auto;width:calc(100% - 24px);max-width:900px}
-.sheet{break-after:page;page-break-after:always;display:grid;align-content:start;justify-content:center;margin:0 auto}
-.sheet:last-child{break-after:auto;page-break-after:auto}
-.sheet.vinyl{page:vinylPage;width:10in;height:8.1in;grid-template-columns:repeat(2,5in);grid-template-rows:repeat(12,.675in)}
-.sheet.comic{page:comicPage;width:7in;height:8.1in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(12,.675in)}
-.sheet.cd{page:cdPage;width:8in;height:10.125in;grid-template-columns:repeat(4,2in);grid-template-rows:repeat(15,.675in)}
-.sheet.instrument{page:instrumentPage;width:6in;grid-template-columns:6in;grid-auto-rows:4in;gap:.25in}
-.pl{height:.675in;border:.5pt dashed #999;display:flex;align-items:center;justify-content:center;text-align:center;padding:.0625in;overflow:hidden;line-height:1}
-.pl.vinyl{width:5in}.pl.cd{width:2in}.pl.comic{width:3.5in;flex-direction:column}
-.pl.vinyl,.pl.cd{flex-direction:column;justify-content:space-between;padding:.045in .0625in}
-.pl .musicGenre{font-weight:700;color:#555;line-height:1;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pl .musicSubgenres{color:#707070;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pl.vinyl .musicGenre{font-size:6.5pt}.pl.vinyl b{font-size:15.5pt;line-height:1}.pl.vinyl .musicSubgenres{font-size:6pt}
-.pl.cd .musicGenre{font-size:5.5pt}.pl.cd b{font-size:10pt;line-height:1}.pl.cd .musicSubgenres{font-size:5pt}
-.pl.comic small{font-size:7pt;color:#666;margin-bottom:2pt}.pl.comic b{font-size:16pt}
-.tag{width:6in;height:4in;position:relative;overflow:hidden;border:.5pt dashed #999;color:#df7748;background:#fff}
-.orange{position:absolute;left:0;top:0;width:2in;height:4in;border-radius:0 100% 100% 0;background:#df7748;color:white;overflow:hidden}
-.orange span{position:absolute;font-size:42pt;transform:rotate(-90deg);left:-.2in;top:1.55in;white-space:nowrap}
-.orange em{position:absolute;bottom:.15in;left:.15in;font-size:8pt;font-style:normal;font-weight:bold}
-.prod{position:absolute;left:2.1in;right:.2in;top:.25in;bottom:.5in;display:flex;align-items:center;justify-content:center;text-align:center;font-size:29pt;font-weight:bold;line-height:1.05}
-.tag footer{position:absolute;right:.15in;bottom:.12in;color:#555;font-size:7pt}
-.calibrationLabel{position:relative;background:#fff}.calibrationLabel:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt)),linear-gradient(0deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt));pointer-events:none}.calibrationLabel b{z-index:1}.ruler{position:absolute;left:.1in;bottom:.03in;font-size:6pt;color:#555}
-@media screen{body{padding:12px}.sheet{outline:1px solid #ddd;margin:12px auto}.printNotice{display:block}}
-@media print{.printNotice{display:none}body{padding:0}.sheet{outline:none;margin:0 auto}}
-</style>`}
-function buildPrintDocument(groups){let pages='';const perPage={vinyl:24,cd:60,comic:24,instrument:2};for(const[k,items]of Object.entries(groups)){if(!items.length)continue;for(let i=0;i<items.length;i+=perPage[k]){pages+=`<section class="sheet ${k}">`;items.slice(i,i+perPage[k]).forEach(r=>{if(k==='comic')pages+=`<div class="pl comic">${r.primary?`<b>${escapeHtml(r.name)}</b>`:`<small>${escapeHtml(r.parent)}</small><b>${escapeHtml(r.series)}</b>`}</div>`;else if(k==='instrument')pages+=`<div class="tag"><div class="orange"><span>${escapeHtml(r.price)}</span><em>2ND<br>& CHARLES</em></div><div class="prod">${escapeHtml(r.product).replace(/\n/g,'<br>')}</div><footer>2ndandcharles.com</footer></div>`;else pages+=`<div class="pl ${k}"><div class="musicGenre">${escapeHtml(r.genre||'')}</div><b>${escapeHtml(r.name)}</b><div class="musicSubgenres">${escapeHtml(musicSubgenreLine(r))}</div></div>`});pages+='</section>'}}return `<!doctype html><meta charset="utf-8"><title>2NC Labels</title>${printStyles()}<div class="printNotice"><strong>Print setting:</strong> choose Actual Size / 100%. Do not use Fit to Page or Scale to Fit.</div>${pages}`}
-function buildCalibrationDocument(mode){const cfg={vinyl:{count:24,label:'VINYL 5.00 × 0.675 IN'},cd:{count:60,label:'CD 2.00 × 0.675 IN'},comic:{count:24,label:'COMIC 3.50 × 0.675 IN'},instrument:{count:2,label:'INSTRUMENT TAG 6.00 × 4.00 IN'}}[mode]||{count:24,label:'VINYL 5.00 × 0.675 IN'};let labels='';for(let i=0;i<cfg.count;i++){if(mode==='instrument')labels+=`<div class="tag calibrationLabel"><div class="prod">${cfg.label}</div><div class="ruler">Measure the dashed edge after printing</div></div>`;else labels+=`<div class="pl ${mode} calibrationLabel"><b>${cfg.label}</b><span class="ruler">Actual size</span></div>`}return `<!doctype html><meta charset="utf-8"><title>2NC ${mode} Calibration</title>${printStyles()}<div class="printNotice"><strong>Calibration:</strong> print at Actual Size / 100%, then measure one dashed box.</div><section class="sheet ${mode}">${labels}</section>`}
-function showModal(t,h){$('#modalTitle').textContent=t;$('#modalBody').innerHTML=h;$('#modal').classList.remove('hidden')}function closeModal(){$('#modal').classList.add('hidden')}
-function customLabel(){if(state.mode==='instrument')return showInstrumentModal();const comic=state.mode==='comic';showModal('Create custom label',`<label>${comic?'Main authority':'Artist name'}<input id="customMain"></label>${comic?'<label>Series title<input id="customSub"></label>':''}<button id="saveCustom" class="primaryButton">Add to queue</button>`);$('#saveCustom').onclick=()=>{const m=$('#customMain').value.trim(),s=comic?$('#customSub').value.trim():'';if(!m)return;state.queue.push(comic?{uid:crypto.randomUUID(),mode:'comic',primary:!s,parent:s?m:'',series:s,name:m}:{uid:crypto.randomUUID(),mode:state.mode,name:m});saveQueue();closeModal()}}
-function showInstrumentModal(){showModal('Create instrument tag','<label>Price<input id="mPrice"></label><label>Product name<textarea id="mProduct" rows="5"></textarea></label><button id="saveTag" class="primaryButton">Add to queue</button>');$('#saveTag').onclick=()=>{addTagValues($('#mPrice').value,$('#mProduct').value);closeModal()}}
-function addTagValues(price,product){product=product.trim();if(!product)return;price=price.trim();if(price&&!price.startsWith('$'))price='$'+price;state.queue.push({uid:crypto.randomUUID(),mode:'instrument',price,product});saveQueue()}
-function makeId(kind){const p=kind==='music'?'MUS':'COM';return `${p}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,6).toUpperCase()}`}
-async function renderManager(){if(!db||state.mode!=='manager')return;const kind=$('#managerDataset').value||state.managerDataset;state.managerDataset=kind;const q=($('#managerSearch').value||'').toLowerCase(),status=$('#managerStatus').value||'active';let rows=await getAll(kind);rows=rows.filter(r=>(status==='all'||(r.status||'active')===status)&&(!q||JSON.stringify(r).toLowerCase().includes(q))).sort((a,b)=>(a.sort||a.display||a.name||'').localeCompare(b.sort||b.display||b.name||''));$('#managerCount').textContent=`${rows.length} records`;$('#managerResults').innerHTML=rows.slice(0,700).map((r,i)=>`<div class="resultCard ${state.managerSelected?.id===r.id?'selected':''}" data-id="${escapeHtml(r.id)}"><div><strong>${escapeHtml(r.display||r.name)}</strong><br><small>${escapeHtml(kind==='comic'?[r.parent,r.series,r.publisher].filter(Boolean).join(' · '):[r.genre,musicSubgenreLine(r),r.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(r.level||'')}</span>${r.status==='retired'?'<span class="flag retired">Retired</span>':''}</div></div></div>`).join('')||'<div class="empty">No records</div>';$$('#managerResults .resultCard').forEach(el=>el.onclick=()=>{state.managerSelected=rows.find(r=>r.id===el.dataset.id);fillEditor(state.managerSelected);renderManager()})}
-function fillEditor(r){$('#editorEmpty').classList.add('hidden');$('#authorityForm').classList.remove('hidden');const comic=state.managerDataset==='comic';$('#parentField').classList.toggle('hidden',!comic);$('#seriesField').classList.toggle('hidden',!comic);$('#publisherField').classList.toggle('hidden',!comic);$('#genreField').classList.toggle('hidden',comic);$('#musicDescriptorFields').classList.toggle('hidden',comic);$('#editId').value=r.id||'';$('#editDisplay').value=r.display||r.name||'';$('#editName').value=r.name||r.display||'';$('#editParent').value=r.parent||'';$('#editSeries').value=r.series||'';$('#editType').value=r.type||'';$('#editLevel').value=r.level||'Recommended';$('#editGenre').value=r.genre||'';$('#editPrimarySubgenre').value=r.primarySubgenre||r.subgenre||'';$('#editSecondarySubgenre').value=r.secondarySubgenre||'';$('#editPublisher').value=r.publisher||'';$('#editNotes').value=r.notes||'';$('#retireRecord').textContent=r.status==='retired'?'Restore':'Retire'}
-function newAuthority(){state.managerSelected={id:'',status:'active'};fillEditor(state.managerSelected)}
-async function saveAuthority(e){e.preventDefault();const kind=state.managerDataset,comic=kind==='comic';const old=state.managerSelected||{};const display=$('#editDisplay').value.trim();if(!display)return;const obj={...old,id:$('#editId').value||makeId(kind),display,name:$('#editName').value.trim()||display,type:$('#editType').value.trim(),level:$('#editLevel').value,status:old.status||'active',notes:$('#editNotes').value.trim(),updatedAt:new Date().toISOString()};if(comic){obj.parent=$('#editParent').value.trim();obj.series=$('#editSeries').value.trim();obj.publisher=$('#editPublisher').value.trim();obj.primary=!obj.series;obj.sort=obj.series||obj.display}else{obj.genre=$('#editGenre').value.trim();obj.primarySubgenre=$('#editPrimarySubgenre').value.trim();obj.secondarySubgenre=$('#editSecondarySubgenre').value.trim();obj.subgenre=obj.primarySubgenre;obj.sort=obj.display}await put(kind,obj);state.managerSelected=obj;await refreshData();alert('Authority saved.')}
-async function toggleRetire(){if(!state.managerSelected?.id)return;state.managerSelected.status=state.managerSelected.status==='retired'?'active':'retired';await put(state.managerDataset,state.managerSelected);await refreshData();fillEditor(state.managerSelected)}
-async function deleteSelected(){if(!state.managerSelected?.id||!confirm('Permanently delete this authority?'))return;await del(state.managerDataset,state.managerSelected.id);state.managerSelected=null;$('#authorityForm').classList.add('hidden');$('#editorEmpty').classList.remove('hidden');await refreshData()}
-async function exportBackup(){const payload={schema:1,exportedAt:new Date().toISOString(),music:await getAll('music'),comic:await getAll('comic')};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));a.download=`2NC_Authority_Backup_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href)}
-async function importBackup(file){const payload=JSON.parse(await file.text());if(!payload.music||!payload.comic)throw Error('Not a valid 2NC backup');if(!confirm('Replace the internal Music and Comic databases with this backup?'))return;for(const kind of ['music','comic']){const t=db.transaction(kind,'readwrite'),s=t.objectStore(kind);s.clear();payload[kind].forEach(r=>s.put(r));await new Promise((res,rej)=>{t.oncomplete=res;t.onerror=()=>rej(t.error)})}await refreshData();alert('Backup imported.')}
-function bind(){$$('[data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));$('#searchInput').oninput=e=>{state.query=e.target.value;renderResults()};$('#levelFilter').onchange=e=>{state.level=e.target.value;renderResults()};$('#categoryFilter').onchange=e=>{state.category=e.target.value;renderResults()};$('#sortFilter').onchange=e=>{state.sort=e.target.value;renderResults()};$('#clearSearch').onclick=()=>{$('#searchInput').value='';$('#levelFilter').value='';state.query='';state.level='';state.category='';state.sort='name';populateCategoryFilter();renderResults()};$('#addSelected').onclick=addSelected;$('#addAll').onclick=addAll;$('#addHierarchy').onclick=addHierarchy;$('#clearQueue').onclick=()=>{state.queue=[];saveQueue()};$('#printBtn').onclick=printQueue;$('#calibrationBtn').onclick=printCalibration;$('#customBtn').onclick=customLabel;$('#addTag').onclick=()=>addTagValues($('#priceInput').value,$('#productInput').value);$('#priceInput').oninput=e=>{$('.tagPrice').textContent=e.target.value?(e.target.value.startsWith('$')?e.target.value:'$'+e.target.value):'$239'};$('#productInput').oninput=e=>{$('.tagProduct').innerHTML=escapeHtml(e.target.value||'PRODUCT NAME').replace(/\n/g,'<br>')};$('#closeModal').onclick=closeModal;$('#modal').onclick=e=>{if(e.target.id==='modal')closeModal()};$('#aboutBtn').onclick=()=>showModal('About','<p><strong>2NC Authority Suite v2.5</strong></p><p>Full database reset and cache recovery release.</p><p id="aboutCounts"></p>');$('#managerDataset').onchange=()=>{state.managerSelected=null;renderManager()};$('#managerSearch').oninput=renderManager;$('#managerStatus').onchange=renderManager;$('#newAuthority').onclick=newAuthority;$('#authorityForm').onsubmit=saveAuthority;$('#retireRecord').onclick=toggleRetire;$('#deleteRecord').onclick=deleteSelected;$('#exportBackup').onclick=exportBackup;$('#importBackup').onchange=e=>importBackup(e.target.files[0]).catch(err=>alert(err.message))}
-(async()=>{try{await openDB();await seed();await syncMusicDescriptors();bind();await refreshData();renderQueue();setMode('vinyl');if('serviceWorker'in navigator){const reg=await navigator.serviceWorker.register('service-worker.js?v=2.5.0',{updateViaCache:'none'});reg.update()}}catch(err){console.error(err);document.body.insertAdjacentHTML('afterbegin',`<div style="position:fixed;z-index:9999;inset:12px 12px auto;background:#641b1b;color:white;padding:16px;border-radius:12px"><strong>Database load problem:</strong> ${escapeHtml(err.message)}<br>Refresh once. If this remains, use Authority Manager → Import backup.</div>`)}})();
+
+  function hideStartup() {
+    const overlay = document.getElementById('startupOverlay');
+    if (overlay) {
+      const bar = document.getElementById('startupBar');
+      if (bar) bar.style.width = '100%';
+      setTimeout(() => overlay.classList.add('hidden'), 180);
+    }
+  }
+
+  function showFatal(error) {
+    AppLog.error('Application startup failed', error);
+    document.getElementById('startupOverlay')?.classList.add('hidden');
+    const fatal = document.getElementById('fatalError');
+    const text = document.getElementById('fatalErrorText');
+    if (text) text.textContent = error.message || String(error);
+    if (fatal) fatal.classList.remove('hidden');
+  }
+
+  async function registerServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+    const registration = await navigator.serviceWorker.register(`service-worker.js?v=${APP_CONFIG.version}`, { updateViaCache: 'none' });
+    await registration.update();
+    AppLog.info('Service worker registered', registration.scope);
+  }
+
+  async function start() {
+    document.getElementById('fatalError')?.classList.add('hidden');
+    document.getElementById('startupOverlay')?.classList.remove('hidden');
+    try {
+      setStage(0);
+      if (!window.APP_CONFIG || !window.AppLog || !window.AuthorityDB || !window.LabelEngine || !window.AppUI) throw new Error('One or more application modules did not load. Refresh the page after GitHub Pages finishes publishing.');
+      setStage(1);
+      const counts = await AuthorityDB.initialize({ force: forceRepair });
+      AppLog.info('Database initialized', JSON.stringify(counts));
+      forceRepair = false;
+      setStage(3);
+      await AppUI.initialize();
+      setStage(4);
+      registerServiceWorker().catch(error => AppLog.warn('Service worker registration failed; the app can still run online', error));
+      hideStartup();
+    } catch (error) {
+      showFatal(error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const version = document.getElementById('startupVersion');
+    if (version && window.APP_CONFIG) version.textContent = `v${APP_CONFIG.version}`;
+    document.getElementById('retryStartup')?.addEventListener('click', () => location.reload());
+    document.getElementById('repairStartup')?.addEventListener('click', () => { forceRepair = true; start(); });
+    document.getElementById('openDiagnostics')?.addEventListener('click', () => {
+      if (window.AppUI) AppUI.showAbout();
+      else alert(JSON.stringify(AppLog.diagnostics(), null, 2));
+    });
+    start();
+  });
+
+  window.addEventListener('error', event => AppLog.error(`Runtime error: ${event.message}`, event.error));
+  window.addEventListener('unhandledrejection', event => AppLog.error('Unhandled promise rejection', event.reason));
+})();

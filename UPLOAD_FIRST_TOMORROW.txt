@@ -1,0 +1,13 @@
+2NC AUTHORITY SUITE v3.0 — MORNING UPLOAD
+
+1. Unzip this package.
+2. Upload ALL contents to the root of your GitHub repository.
+3. Commit directly to main.
+4. Wait 1-3 minutes.
+5. Open:
+   https://jonnylost.github.io/2nc-authority-suite/?v=3.0
+6. Confirm the header shows approximately:
+   Music 4,606 · Comics 2,045
+7. Test Vinyl, CD, Comics, and Calibration.
+
+If startup fails, use the on-screen Repair database button. Do not clear Safari website data.
