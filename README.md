@@ -1,28 +1,12 @@
-# 2NC Authority Suite GitHub v2.2
+# 2NC Authority Suite v2.4
 
-## Music label restoration
+Database repair and filter synchronization hotfix.
 
-Vinyl and CD labels once again print all three hierarchy lines:
+## Fixes
+- Restores embedded Music and Comic databases if a store is empty or badly incomplete.
+- Correctly binds Genre filters for Vinyl/CD and Publisher filters for Comics.
+- Forces the browser and installed PWA to fetch matching v2.4 app files.
+- Preserves IndexedDB edits and the local print queue.
+- Restores genre descriptors in queued and printed music labels.
 
-1. Primary Genre
-2. Artist Name
-3. Primary Subgenre • Secondary Subgenre
-
-The app automatically migrates existing browser databases so the restored descriptors appear without deleting local records or queues. Exact physical label dimensions from v2.1 are unchanged.
-
-# 2NC Authority Suite v2.0 — Internal Database Edition
-
-This release replaces Excel as the operational database.
-
-## What changed
-- Music and Comic authorities seed into IndexedDB on first launch.
-- Add, edit, retire, restore, and delete records inside the Authority Manager.
-- Export a complete JSON backup at any time.
-- Import a prior JSON backup to restore or move the database to another device.
-- Excel is not required for normal operation.
-
-## GitHub Pages upload
-Upload the **contents of this folder** to the repository root. `index.html` must be at the top level. Enable GitHub Pages from the `main` branch and root folder.
-
-## Important device note
-Each browser/device keeps its own local IndexedDB copy. Use **Export backup** and **Import backup** to move edits between devices. A future cloud-sync release can centralize edits across devices.
+Upload every file in this folder over the repository root and commit. Then fully close and reopen the installed app.
