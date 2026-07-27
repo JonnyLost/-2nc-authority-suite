@@ -1,11 +1,9 @@
-2NC Authority Suite v3.2 — Preflight Report
+2NC Authority Suite v3.3 — Preflight Report
 
-Changes verified:
-- Instrument-tag live preview uses assets/2nc-logo-white.png.
-- Printed instrument tags use the same official logo asset.
-- Old lower-left text treatment was removed from both preview and print templates.
-- Service worker cache updated to v3.2.0 and includes the logo asset.
-- VERSION.json and app configuration report v3.2.0.
-- All JavaScript files passed syntax checks.
-- Music and comic databases are unchanged from v3.1.
-- Exact physical label dimensions are unchanged.
+PASS
+- Instrument Tags uses the shared three-panel application grid.
+- Price/product editor occupies the left panel.
+- Live preview occupies the center panel.
+- Existing print queue remains in the right panel.
+- 6 × 4 inch tag geometry and official logo are unchanged.
+- Cache/version identifiers updated to v3.3.0.

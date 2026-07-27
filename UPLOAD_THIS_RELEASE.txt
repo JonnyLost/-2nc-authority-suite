@@ -1,9 +1,7 @@
-2NC AUTHORITY SUITE v3.2 — UPLOAD THIS RELEASE
+2NC AUTHORITY SUITE v3.3 — UPLOAD THIS RELEASE
 
-1. Unzip this package.
-2. Upload all files and folders inside this folder to the root of your GitHub repository.
-3. Commit the changes.
-4. Open your Pages site once with ?v=3.2 appended to the URL.
-5. Refresh once, then fully close and reopen any Home Screen installation.
-
-The instrument-tag preview and printed tags now use the official 2nd & Charles logo in the lower-left corner.
+1. Upload every file and folder inside this release to the repository root.
+2. Commit the changes to main.
+3. Wait for GitHub Pages to finish deploying.
+4. Open your site once with ?v=3.3 appended to the URL.
+5. Refresh once and fully close/reopen any installed Home Screen app.

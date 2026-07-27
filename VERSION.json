@@ -1,7 +1,7 @@
 {
-  "version": "3.2.0",
-  "release": "Official Instrument Tag Logo",
-  "build": "2026-07-27-instrument-tag-logo",
+  "version": "3.3.0",
+  "release": "Unified Instrument Tags Layout",
+  "build": "2026-07-27-instrument-layout",
   "databaseSchema": 3,
   "minimumRecords": {
     "music": 4500,
