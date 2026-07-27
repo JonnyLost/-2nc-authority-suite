@@ -1,4 +1,4 @@
-# 2NC Authority Suite v3.4
+# 2NC Authority Suite v3.5
 
 Unified Instrument Tags layout release.
 
@@ -17,5 +17,13 @@ Upload the contents of this folder to the repository root and commit. Then open:
 
 Refresh once and fully reopen any Home Screen installation.
 
-## v3.4 layout correction
+## v3.5 layout correction
 Instrument Tags now follows the same column order as every other production page: inputs on the left, live preview in the center, and print queue on the right.
+
+
+## New in v3.5
+- 2NC Treasures tag mode
+- 3.5 × 5 inch portrait tags
+- Product-name entry and live preview
+- Four tags per letter-size page
+- Calibration support

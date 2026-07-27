@@ -1,6 +1,6 @@
 {
-  "version": "3.4.0",
-  "name": "Instrument Column Order",
-  "release": "2NC Authority Suite GitHub v3.4",
-  "notes": "Instrument Tags now uses the same left-input, center-preview, right-queue column order as Vinyl, CD, and Comics."
+  "version": "3.5.0",
+  "name": "2NC Treasures Tags",
+  "release": "2NC Authority Suite GitHub v3.5",
+  "notes": "Adds 3.5 x 5 inch portrait 2NC Treasures tags with product entry, live preview, queueing, calibration, and four-up printing."
 }

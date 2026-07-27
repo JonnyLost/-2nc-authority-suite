@@ -9,6 +9,7 @@
     cd: { title: 'CD Dividers', sub: 'Search the internal Music Authority', dim: '2 × 0.675 in' },
     comic: { title: 'Comic Dividers', sub: 'Search the internal Comic Authority', dim: '3.5 × 0.675 in' },
     instrument: { title: 'Instrument Tags', sub: 'Create 4 × 6 retail instrument tags', dim: '6 × 4 in' },
+    treasure: { title: '2NC Treasures Tags', sub: 'Create 3.5 × 5 portrait Treasures tags', dim: '3.5 × 5 in' },
     manager: { title: 'Authority Manager', sub: 'Add, edit, retire, import, and back up authority data', dim: 'Internal database' }
   };
 
@@ -54,7 +55,7 @@
   }
 
   function renderResults() {
-    if (['instrument', 'manager'].includes(state.mode)) return;
+    if (['instrument', 'treasure', 'manager'].includes(state.mode)) return;
     const levelRank = { Primary: 0, Essential: 1, Recommended: 2, Optional: 3, 'Reference Only': 4 };
     const all = currentData().filter(matches);
     all.sort((a, b) => {
@@ -72,7 +73,7 @@
   }
 
   function renderPreview() {
-    if (['instrument', 'manager'].includes(state.mode)) return;
+    if (['instrument', 'treasure', 'manager'].includes(state.mode)) return;
     const box = requireElement('#labelPreview');
     const addButton = requireElement('#addSelected');
     const hierarchy = $('#addHierarchy');
@@ -109,7 +110,7 @@
   function saveQueue() { localStorage.setItem('2ncQueue', JSON.stringify(state.queue)); renderQueue(); }
   function renderQueue() {
     text('#queuePill', `${state.queue.length.toLocaleString()} queued`);
-    requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : row.parent) : row.mode === 'instrument' ? row.price : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
+    requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : row.parent) : row.mode === 'instrument' ? row.price : row.mode === 'treasure' ? '2NC TREASURES' : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
     $$('.queueItem button').forEach(button => button.addEventListener('click', () => { state.queue.splice(Number(button.dataset.index), 1); saveQueue(); }));
   }
 
@@ -142,10 +143,11 @@
     const profile = profiles[mode];
     text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#dimensionText', profile.dim);
     $$('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode === mode));
-    show('#searchPanel', !['instrument', 'manager'].includes(mode));
-    show('.previewPanel', !['instrument', 'manager'].includes(mode));
+    show('#searchPanel', !['instrument', 'treasure', 'manager'].includes(mode));
+    show('.previewPanel', !['instrument', 'treasure', 'manager'].includes(mode));
     show('.queuePanel', mode !== 'manager');
     show('#instrumentPanel', mode === 'instrument');
+    show('#treasurePanel', mode === 'treasure');
     show('#managerPanel', mode === 'manager');
     if (mode === 'manager') renderManager();
     else {
@@ -160,6 +162,7 @@
 
   function customLabel() {
     if (state.mode === 'instrument') return showInstrumentModal();
+    if (state.mode === 'treasure') return;
     const comic = state.mode === 'comic';
     showModal('Create custom label', `<label>${comic ? 'Main authority' : 'Artist name'}<input id="customMain"></label>${comic ? '<label>Series title<input id="customSub"></label>' : ''}<button id="saveCustom" class="primaryButton">Add to queue</button>`);
     on('#saveCustom', 'click', () => {
@@ -179,6 +182,12 @@
     product = String(product).trim(); if (!product) return;
     price = String(price).trim(); if (price && !price.startsWith('$')) price = `$${price}`;
     state.queue.push({ uid: safeId(), mode: 'instrument', price, product }); saveQueue();
+  }
+
+
+  function addTreasureTag(product) {
+    product = String(product).trim(); if (!product) return;
+    state.queue.push({ uid: safeId(), mode: 'treasure', product }); saveQueue();
   }
 
   function makeId(kind) { return `${kind === 'music' ? 'MUS' : 'COM'}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`; }
@@ -265,8 +274,10 @@
     on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode); } catch (error) { alert(error.message); } });
     on('#customBtn', 'click', customLabel);
     on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
+    on('#addTreasureTag', 'click', () => addTreasureTag($('#treasureProductInput')?.value || ''));
     on('#priceInput', 'input', event => { const element = $('.tagPrice'); if (element) element.textContent = event.target.value ? (event.target.value.startsWith('$') ? event.target.value : `$${event.target.value}`) : '$239'; });
     on('#productInput', 'input', event => { const element = $('.tagProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
+    on('#treasureProductInput', 'input', event => { const element = $('.treasureProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
     on('#closeModal', 'click', closeModal); on('#modal', 'click', event => { if (event.target.id === 'modal') closeModal(); });
     on('#aboutBtn', 'click', showAbout); on('#debugBadge', 'click', showAbout);
     on('#managerDataset', 'change', () => { state.managerSelected = null; renderManager(); }); on('#managerSearch', 'input', renderManager); on('#managerStatus', 'change', renderManager);

@@ -1,13 +1,6 @@
-2NC Authority Suite GitHub v3.4
+2NC Authority Suite v3.5
 
-1. Upload every file and folder in this directory to the ROOT of your GitHub repository.
+1. Upload every file and folder in this directory to the repository root.
 2. Commit the changes to main.
-3. Wait for GitHub Pages to finish deploying.
-4. Open:
-   https://jonnylost.github.io/2nc-authority-suite/?v=3.4
-5. Refresh once, then fully close and reopen any Home Screen installation.
-
-Expected Instrument Tags order:
-LEFT: price and product inputs
-CENTER: live 6 x 4 tag preview
-RIGHT: print queue and PDF controls
+3. Open https://jonnylost.github.io/2nc-authority-suite/?v=3.5
+4. Refresh once, then fully close and reopen any Home Screen app.
