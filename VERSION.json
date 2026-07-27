@@ -1,6 +1,6 @@
 {
-  "version": "3.5.0",
-  "name": "2NC Treasures Tags",
-  "release": "2NC Authority Suite GitHub v3.5",
-  "notes": "Adds 3.5 x 5 inch portrait 2NC Treasures tags with product entry, live preview, queueing, calibration, and four-up printing."
+  "version": "3.6.0",
+  "name": "Generated Treasures Header",
+  "release": "2NC Authority Suite GitHub v3.6",
+  "notes": "Replaces the photographed Treasures header crop with crisp generated text and vector-style CSS in both preview and print output."
 }

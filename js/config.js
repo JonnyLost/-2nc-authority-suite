@@ -1,7 +1,7 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '3.5.0',
-  build: '2026-07-27-treasures-tags',
+  version: '3.6.0',
+  build: '2026-07-27-generated-treasures-header',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],

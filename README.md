@@ -1,4 +1,4 @@
-# 2NC Authority Suite v3.5
+# 2NC Authority Suite v3.6
 
 Unified Instrument Tags layout release.
 
@@ -22,7 +22,7 @@ Instrument Tags now follows the same column order as every other production page
 
 
 ## New in v3.5
-- 2NC Treasures tag mode
+- 2NC Treasures tag mode with generated, scalable header typography
 - 3.5 × 5 inch portrait tags
 - Product-name entry and live preview
 - Four tags per letter-size page
