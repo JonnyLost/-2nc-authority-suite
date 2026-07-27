@@ -1,7 +1,11 @@
-2NC Authority Suite v3.1 Preflight
-Comic records: 2043
-Decade authorities removed: 2
-Decade child records promoted: 22
-All comic records have printedTitle: True
-Luke Cage sample: Luke Cage, Hero for Hire
-John Constantine sample: John Constantine, Hellblazer
+2NC Authority Suite v3.2 — Preflight Report
+
+Changes verified:
+- Instrument-tag live preview uses assets/2nc-logo-white.png.
+- Printed instrument tags use the same official logo asset.
+- Old lower-left text treatment was removed from both preview and print templates.
+- Service worker cache updated to v3.2.0 and includes the logo asset.
+- VERSION.json and app configuration report v3.2.0.
+- All JavaScript files passed syntax checks.
+- Music and comic databases are unchanged from v3.1.
+- Exact physical label dimensions are unchanged.

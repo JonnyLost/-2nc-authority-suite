@@ -1,7 +1,9 @@
-2NC AUTHORITY SUITE v3.1
+2NC AUTHORITY SUITE v3.2 — UPLOAD THIS RELEASE
 
-Upload every file and folder inside this directory to the repository root.
-After deployment open:
-https://jonnylost.github.io/2nc-authority-suite/?v=3.1
+1. Unzip this package.
+2. Upload all files and folders inside this folder to the root of your GitHub repository.
+3. Commit the changes.
+4. Open your Pages site once with ?v=3.2 appended to the URL.
+5. Refresh once, then fully close and reopen any Home Screen installation.
 
-Expected header: v3.1.0, Music approximately 4,606, Comics approximately 2,043.
+The instrument-tag preview and printed tags now use the official 2nd & Charles logo in the lower-left corner.

@@ -1,4 +1,4 @@
-# 2NC Authority Suite v3.1 — Database-Driven Comic Titles
+# 2NC Authority Suite v3.2
 
 This release makes the Comic Authority database the sole editorial source for printed series names.
 
@@ -43,3 +43,9 @@ The internal v3 database will merge the corrected bundled comic records automati
 - Instrument tag: 6.00 × 4.00 inches
 
 Always print at **Actual Size / 100%**.
+
+
+## v3.2 instrument-tag branding
+- Replaced the lower-left text treatment on 4 × 6 instrument tags with the official 2nd & Charles logo supplied for this release.
+- Applied the logo to both the live preview and printed output.
+- Preserved all v3.1 database-driven comic title behavior and exact physical label dimensions.

@@ -1,7 +1,7 @@
 {
-  "version": "3.1.0",
-  "release": "Database-Driven Comic Titles",
-  "build": "2026-07-27-database-driven-comic-titles",
+  "version": "3.2.0",
+  "release": "Official Instrument Tag Logo",
+  "build": "2026-07-27-instrument-tag-logo",
   "databaseSchema": 3,
   "minimumRecords": {
     "music": 4500,

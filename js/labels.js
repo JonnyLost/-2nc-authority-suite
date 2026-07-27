@@ -1,6 +1,7 @@
 (function () {
   const escapeHtml = value => String(value ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const subgenreLine = row => [row.primarySubgenre || row.subgenre, row.secondarySubgenre].filter(Boolean).join(' • ');
+  const instrumentLogoUrl = new URL('assets/2nc-logo-white.png', window.location.href).href;
 
   function printStyles() {
     return `<style>
@@ -28,7 +29,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-se
 .tag{width:6in;height:4in;position:relative;overflow:hidden;border:.5pt dashed #999;color:#df7748;background:#fff}
 .orange{position:absolute;left:0;top:0;width:2in;height:4in;border-radius:0 100% 100% 0;background:#df7748;color:white;overflow:hidden}
 .orange span{position:absolute;font-size:42pt;transform:rotate(-90deg);left:-.2in;top:1.55in;white-space:nowrap}
-.orange em{position:absolute;bottom:.15in;left:.15in;font-size:8pt;font-style:normal;font-weight:bold}
+.orange .brandLogo{position:absolute;bottom:.12in;left:.14in;width:.68in;height:auto;object-fit:contain}
 .prod{position:absolute;left:2.1in;right:.2in;top:.25in;bottom:.5in;display:flex;align-items:center;justify-content:center;text-align:center;font-size:29pt;font-weight:bold;line-height:1.05}
 .tag footer{position:absolute;right:.15in;bottom:.12in;color:#555;font-size:7pt}
 .calibrationLabel{position:relative;background:#fff}.calibrationLabel:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt)),linear-gradient(0deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt));pointer-events:none}.calibrationLabel b{z-index:1}.ruler{position:absolute;left:.1in;bottom:.03in;font-size:6pt;color:#555}
@@ -48,7 +49,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-se
           if (kind === 'comic') {
             pages += `<div class="pl comic">${row.primary ? `<b>${escapeHtml(row.name)}</b>` : `<small>${escapeHtml(row.parent)}</small><b>${escapeHtml(row.printedTitle || row.series)}</b>`}</div>`;
           } else if (kind === 'instrument') {
-            pages += `<div class="tag"><div class="orange"><span>${escapeHtml(row.price)}</span><em>2ND<br>& CHARLES</em></div><div class="prod">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div><footer>2ndandcharles.com</footer></div>`;
+            pages += `<div class="tag"><div class="orange"><span>${escapeHtml(row.price)}</span><img class="brandLogo" src="${instrumentLogoUrl}" alt="2nd & Charles"></div><div class="prod">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div><footer>2ndandcharles.com</footer></div>`;
           } else {
             pages += `<div class="pl ${kind}"><div class="musicGenre">${escapeHtml(row.genre || '')}</div><b>${escapeHtml(row.name)}</b><div class="musicSubgenres">${escapeHtml(subgenreLine(row))}</div></div>`;
           }
