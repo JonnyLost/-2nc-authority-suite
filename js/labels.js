@@ -32,7 +32,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-se
 .tag{width:6in;height:4in;position:relative;overflow:hidden;color:#df7748;background:#fff}
 .tag:after{content:"";position:absolute;inset:0;border:.75pt dashed #777;pointer-events:none;z-index:20}
 .orange{position:absolute;left:0;top:0;width:1.55in;height:4in;background:#df7748;color:white;overflow:hidden}
-.orange span{position:absolute;font-size:39pt;transform:rotate(-90deg);left:-.32in;top:1.55in;white-space:nowrap}
+.orange span{position:absolute;left:50%;top:1.66in;transform:translate(-50%,-50%) rotate(-90deg);font-size:49pt;font-weight:800;line-height:1;letter-spacing:-.7pt;white-space:nowrap;text-align:center}
 .orange .brandLogo{position:absolute;bottom:.12in;left:.18in;width:.78in;height:auto;object-fit:contain}
 .prod{position:absolute;left:1.72in;right:.2in;top:.25in;bottom:.5in;display:flex;align-items:center;justify-content:center;text-align:center;font-size:29pt;font-weight:bold;line-height:1.05}
 .tag footer{position:absolute;right:.15in;bottom:.12in;color:#555;font-size:7pt}

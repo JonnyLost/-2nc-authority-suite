@@ -1,4 +1,4 @@
-# 2NC Authority Suite v3.8
+# 2NC Authority Suite v3.9
 
 Instrument-tag print update.
 
@@ -11,3 +11,7 @@ Instrument-tag print update.
 ## Publish
 
 Upload the contents of this folder to the root of the GitHub repository and commit. Then open the published app once with `?v=3.8`.
+
+
+## v3.9 update
+Instrument-tag prices are larger, bold, and centered in the orange side strip in both live preview and printed output.

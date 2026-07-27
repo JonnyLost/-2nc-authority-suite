@@ -1,7 +1,7 @@
-2NC Authority Suite v3.8 Preflight
+2NC Authority Suite v3.9 Preflight
 
 PASS - JavaScript syntax checks
-PASS - Version references synchronized to 3.8.0
+PASS - Version references synchronized to 3.9.0
 PASS - Instrument preview uses orange side strip
 PASS - Instrument print output uses orange side strip
 PASS - Full four-sided cut-guide overlay added to every 6 x 4 instrument tag

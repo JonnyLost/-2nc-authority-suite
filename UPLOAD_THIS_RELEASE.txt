@@ -1,4 +1,4 @@
-UPLOAD 2NC AUTHORITY SUITE v3.8
+UPLOAD 2NC AUTHORITY SUITE v3.9
 
 1. Upload every file and folder in this directory to the repository root.
 2. Commit the changes to main.
