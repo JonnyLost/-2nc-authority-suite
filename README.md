@@ -1,16 +1,13 @@
-# 2NC Authority Suite v3.7
+# 2NC Authority Suite v3.8
 
-Mobile safe-area and print cut-guide release.
+Instrument-tag print update.
 
-## What changed
-- Added extra iPhone bottom clearance so **Create custom label** and other queue actions remain fully reachable above the fixed mobile navigation and Safari safe area.
-- Added a dashed vertical cut guide between the two columns on Vinyl, Comic, and Treasures print sheets.
-- Existing horizontal cut guides remain unchanged.
-- Label dimensions, databases, generated Treasures header, and all v3.6 functions are unchanged.
+## Changes
 
-## Upload
-Upload the contents of this folder to the repository root and commit. Then open:
+- Replaced the instrument tag half-circle with a clean full-height orange strip.
+- Added dashed cut guides around all four sides of every 6 × 4 inch instrument tag.
+- Preserved the official 2nd & Charles logo, price orientation, product layout, exact tag dimensions, mobile safe area, databases, and all existing label modes.
 
-`https://jonnylost.github.io/2nc-authority-suite/?v=3.7`
+## Publish
 
-Refresh once and fully reopen any Home Screen installation.
+Upload the contents of this folder to the root of the GitHub repository and commit. Then open the published app once with `?v=3.8`.

@@ -29,11 +29,12 @@ html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-se
 .pl.vinyl .musicGenre{font-size:6.5pt}.pl.vinyl b{font-size:15.5pt;line-height:1}.pl.vinyl .musicSubgenres{font-size:6pt}
 .pl.cd .musicGenre{font-size:5.5pt}.pl.cd b{font-size:10pt;line-height:1}.pl.cd .musicSubgenres{font-size:5pt}
 .pl.comic small{font-size:7pt;color:#666;margin-bottom:2pt}.pl.comic b{font-size:16pt}
-.tag{width:6in;height:4in;position:relative;overflow:hidden;border:.5pt dashed #999;color:#df7748;background:#fff}
-.orange{position:absolute;left:0;top:0;width:2in;height:4in;border-radius:0 100% 100% 0;background:#df7748;color:white;overflow:hidden}
-.orange span{position:absolute;font-size:42pt;transform:rotate(-90deg);left:-.2in;top:1.55in;white-space:nowrap}
-.orange .brandLogo{position:absolute;bottom:.12in;left:.14in;width:.68in;height:auto;object-fit:contain}
-.prod{position:absolute;left:2.1in;right:.2in;top:.25in;bottom:.5in;display:flex;align-items:center;justify-content:center;text-align:center;font-size:29pt;font-weight:bold;line-height:1.05}
+.tag{width:6in;height:4in;position:relative;overflow:hidden;color:#df7748;background:#fff}
+.tag:after{content:"";position:absolute;inset:0;border:.75pt dashed #777;pointer-events:none;z-index:20}
+.orange{position:absolute;left:0;top:0;width:1.55in;height:4in;background:#df7748;color:white;overflow:hidden}
+.orange span{position:absolute;font-size:39pt;transform:rotate(-90deg);left:-.32in;top:1.55in;white-space:nowrap}
+.orange .brandLogo{position:absolute;bottom:.12in;left:.18in;width:.78in;height:auto;object-fit:contain}
+.prod{position:absolute;left:1.72in;right:.2in;top:.25in;bottom:.5in;display:flex;align-items:center;justify-content:center;text-align:center;font-size:29pt;font-weight:bold;line-height:1.05}
 .tag footer{position:absolute;right:.15in;bottom:.12in;color:#555;font-size:7pt}
 .treasureTagPrint{width:3.5in;height:5in;position:relative;overflow:hidden;border:.5pt dashed #999;background:#f58220;padding:.16in}
 .treasureInner{width:100%;height:100%;background:#fff;position:relative;overflow:hidden}

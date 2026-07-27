@@ -1,6 +1,6 @@
 {
-  "version": "3.7.0",
-  "name": "Mobile Safe Area and Cut Guides",
-  "release": "2NC Authority Suite GitHub v3.7",
-  "notes": "Keeps mobile queue actions above the iPhone bottom navigation and adds a dashed vertical cut guide between two-column print layouts."
+  "version": "3.8.0",
+  "name": "Instrument Strip and Full Cut Guides",
+  "release": "2NC Authority Suite GitHub v3.8",
+  "notes": "Replaces the instrument-tag half circle with a clean orange side strip and adds visible cut guides around all four edges of every instrument tag."
 }
