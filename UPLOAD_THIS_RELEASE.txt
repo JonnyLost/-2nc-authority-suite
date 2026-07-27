@@ -1,6 +1,1 @@
-2NC Authority Suite v3.6
-
-1. Upload every file and folder in this directory to the repository root.
-2. Commit the changes to main.
-3. Open https://jonnylost.github.io/2nc-authority-suite/?v=3.6
-4. Refresh once, then fully close and reopen any Home Screen app.
+Upload every file and folder inside this directory to the GitHub repository root. Commit, then open the Pages URL once with ?v=3.7 and refresh.

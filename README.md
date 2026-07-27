@@ -1,29 +1,16 @@
-# 2NC Authority Suite v3.6
+# 2NC Authority Suite v3.7
 
-Unified Instrument Tags layout release.
+Mobile safe-area and print cut-guide release.
 
 ## What changed
-- Instrument Tags now uses the same three-column workspace as Vinyl, CD, and Comics.
-- Left panel: price and product entry.
-- Center panel: live 6 × 4 inch preview.
-- Right panel: print queue and print controls.
-- Mobile layouts stack the same panels cleanly.
-- Instrument tag artwork, dimensions, logo, databases, and all v3.2 behavior are unchanged.
+- Added extra iPhone bottom clearance so **Create custom label** and other queue actions remain fully reachable above the fixed mobile navigation and Safari safe area.
+- Added a dashed vertical cut guide between the two columns on Vinyl, Comic, and Treasures print sheets.
+- Existing horizontal cut guides remain unchanged.
+- Label dimensions, databases, generated Treasures header, and all v3.6 functions are unchanged.
 
 ## Upload
 Upload the contents of this folder to the repository root and commit. Then open:
 
-`https://jonnylost.github.io/2nc-authority-suite/?v=3.3`
+`https://jonnylost.github.io/2nc-authority-suite/?v=3.7`
 
 Refresh once and fully reopen any Home Screen installation.
-
-## v3.5 layout correction
-Instrument Tags now follows the same column order as every other production page: inputs on the left, live preview in the center, and print queue on the right.
-
-
-## New in v3.5
-- 2NC Treasures tag mode with generated, scalable header typography
-- 3.5 × 5 inch portrait tags
-- Product-name entry and live preview
-- Four tags per letter-size page
-- Calibration support

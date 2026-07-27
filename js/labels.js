@@ -13,13 +13,14 @@
 *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-serif}
 .printNotice{padding:12px 16px;font-size:14px;background:#fff3cd;border:1px solid #e5c76b;margin:12px auto;width:calc(100% - 24px);max-width:900px}
-.sheet{break-after:page;page-break-after:always;display:grid;align-content:start;justify-content:center;margin:0 auto}
+.sheet{break-after:page;page-break-after:always;display:grid;align-content:start;justify-content:center;margin:0 auto;position:relative}
 .sheet:last-child{break-after:auto;page-break-after:auto}
 .sheet.vinyl{page:vinylPage;width:10in;height:8.1in;grid-template-columns:repeat(2,5in);grid-template-rows:repeat(12,.675in)}
 .sheet.comic{page:comicPage;width:7in;height:8.1in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(12,.675in)}
 .sheet.cd{page:cdPage;width:8in;height:10.125in;grid-template-columns:repeat(4,2in);grid-template-rows:repeat(15,.675in)}
 .sheet.instrument{page:instrumentPage;width:6in;grid-template-columns:6in;grid-auto-rows:4in;gap:.25in}
 .sheet.treasure{page:treasurePage;width:7.25in;height:10.25in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(2,5in);gap:.25in}
+.sheet.vinyl:after,.sheet.comic:after,.sheet.treasure:after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:.65pt dashed #999;pointer-events:none;z-index:5}
 .pl{height:.675in;border:.5pt dashed #999;display:flex;align-items:center;justify-content:center;text-align:center;padding:.0625in;overflow:hidden;line-height:1}
 .pl.vinyl{width:5in}.pl.cd{width:2in}.pl.comic{width:3.5in;flex-direction:column}
 .pl.vinyl,.pl.cd{flex-direction:column;justify-content:space-between;padding:.045in .0625in}
