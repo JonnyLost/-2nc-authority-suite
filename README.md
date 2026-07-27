@@ -1,3 +1,15 @@
+# 2NC Authority Suite GitHub v2.2
+
+## Music label restoration
+
+Vinyl and CD labels once again print all three hierarchy lines:
+
+1. Primary Genre
+2. Artist Name
+3. Primary Subgenre • Secondary Subgenre
+
+The app automatically migrates existing browser databases so the restored descriptors appear without deleting local records or queues. Exact physical label dimensions from v2.1 are unchanged.
+
 # 2NC Authority Suite v2.0 — Internal Database Edition
 
 This release replaces Excel as the operational database.
