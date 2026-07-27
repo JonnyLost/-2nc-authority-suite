@@ -1,5 +1,1 @@
-{
-  "version": "2.4.0",
-  "name": "Database Repair and Filter Sync",
-  "released": "2026-07-26"
-}
+{"version":"2.5.0","release":"Full database reset and cache recovery","databaseSchema":2}

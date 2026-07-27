@@ -1,12 +1,13 @@
-# 2NC Authority Suite v2.4
+# 2NC Authority Suite v2.5
 
-Database repair and filter synchronization hotfix.
+Full database reset and cache recovery release.
 
-## Fixes
-- Restores embedded Music and Comic databases if a store is empty or badly incomplete.
-- Correctly binds Genre filters for Vinyl/CD and Publisher filters for Comics.
-- Forces the browser and installed PWA to fetch matching v2.4 app files.
-- Preserves IndexedDB edits and the local print queue.
-- Restores genre descriptors in queued and printed music labels.
+## What this fixes
+- Forces a fresh internal browser database.
+- Reseeds all bundled Music and Comic records.
+- Shows live database counts at the top of the app.
+- Uses network-first loading for HTML, JavaScript, CSS, and database JSON files.
+- Removes all older service-worker caches during activation.
 
-Upload every file in this folder over the repository root and commit. Then fully close and reopen the installed app.
+## After uploading
+Open the site once with `?v=2.5` at the end of the URL, refresh, then close and reopen the Home Screen app.
