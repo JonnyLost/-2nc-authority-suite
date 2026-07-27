@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=3.0.0">
+  <link rel="stylesheet" href="styles.css?v=3.1.0">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <h1>Authority Suite</h1>
     <p id="startupMessage">Starting application…</p>
     <div class="startupProgress"><span id="startupBar"></span></div>
-    <small id="startupVersion">v3.0.0</small>
+    <small id="startupVersion">v3.1.0</small>
   </div>
 </div>
 <div id="fatalError" class="fatalError hidden" role="alert">
@@ -47,7 +47,7 @@
     <div><h1 id="pageTitle">Vinyl Dividers</h1><p id="pageSub">Search the internal Music Authority</p></div>
     <div class="topStatus">
       <button id="debugBadge" class="debugBadge" hidden>Debug</button>
-      <div class="versionBadge" id="versionBadge">v3.0.0</div>
+      <div class="versionBadge" id="versionBadge">v3.1.0</div>
       <div class="dbStatus" id="dbStatus">Loading databases…</div>
       <div class="queuePill" id="queuePill">0 queued</div>
     </div>
@@ -101,18 +101,18 @@
       </div>
       <div class="managerGrid">
         <section class="panel managerList"><div class="managerFilters"><select id="managerDataset"><option value="music">Music Authority</option><option value="comic">Comic Authority</option></select><input id="managerSearch" placeholder="Search records..."><select id="managerStatus"><option value="active">Active</option><option value="retired">Retired</option><option value="all">All</option></select></div><div id="managerCount" class="resultMeta"></div><div id="managerResults" class="results"></div></section>
-        <section class="panel editorPanel"><div id="editorEmpty" class="empty">Select a record or create a new authority.</div><form id="authorityForm" class="hidden"><input type="hidden" id="editId"><label>Display name<input id="editDisplay" required></label><label id="nameField">Filing / artist name<input id="editName"></label><label id="parentField" class="hidden">Parent authority<input id="editParent"></label><label id="seriesField" class="hidden">Series title<input id="editSeries"></label><div class="twoCol"><label>Type<input id="editType"></label><label>Divider level<select id="editLevel"><option>Primary</option><option>Essential</option><option>Recommended</option><option>Optional</option><option>Reference Only</option></select></label></div><div class="twoCol"><label id="genreField">Primary genre<input id="editGenre"></label><label id="publisherField" class="hidden">Publisher<input id="editPublisher"></label></div><div class="twoCol" id="musicDescriptorFields"><label>Primary subgenre<input id="editPrimarySubgenre"></label><label>Secondary subgenre<input id="editSecondarySubgenre"></label></div><label>Notes<textarea id="editNotes" rows="5"></textarea></label><div class="editorActions"><button type="submit" class="primaryButton">Save record</button><button type="button" id="retireRecord" class="secondaryButton">Retire</button><button type="button" id="deleteRecord" class="dangerButton">Delete</button></div></form></section>
+        <section class="panel editorPanel"><div id="editorEmpty" class="empty">Select a record or create a new authority.</div><form id="authorityForm" class="hidden"><input type="hidden" id="editId"><label>Display name<input id="editDisplay" required></label><label id="nameField">Filing / artist name<input id="editName"></label><label id="parentField" class="hidden">Parent authority<input id="editParent"></label><label id="seriesField" class="hidden">Series title<input id="editSeries"></label><label id="printTitleField" class="hidden">Printed divider title<input id="editPrintTitle"><small>Printed exactly as entered. The generator will not remove character names or punctuation.</small></label><div class="twoCol"><label>Type<input id="editType"></label><label>Divider level<select id="editLevel"><option>Primary</option><option>Essential</option><option>Recommended</option><option>Optional</option><option>Reference Only</option></select></label></div><div class="twoCol"><label id="genreField">Primary genre<input id="editGenre"></label><label id="publisherField" class="hidden">Publisher<input id="editPublisher"></label></div><div class="twoCol" id="musicDescriptorFields"><label>Primary subgenre<input id="editPrimarySubgenre"></label><label>Secondary subgenre<input id="editSecondarySubgenre"></label></div><label>Notes<textarea id="editNotes" rows="5"></textarea></label><div class="editorActions"><button type="submit" class="primaryButton">Save record</button><button type="button" id="retireRecord" class="secondaryButton">Retire</button><button type="button" id="deleteRecord" class="dangerButton">Delete</button></div></form></section>
       </div>
     </section>
   </main>
   <nav class="mobileNav" id="mobileNav"><button data-mode="vinyl" class="active">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="manager">Data</button></nav>
 </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=3.0.0"></script>
-<script src="js/logger.js?v=3.0.0"></script>
-<script src="js/db.js?v=3.0.0"></script>
-<script src="js/labels.js?v=3.0.0"></script>
-<script src="js/ui.js?v=3.0.0"></script>
-<script src="app.js?v=3.0.0"></script>
+<script src="js/config.js?v=3.1.0"></script>
+<script src="js/logger.js?v=3.1.0"></script>
+<script src="js/db.js?v=3.1.0"></script>
+<script src="js/labels.js?v=3.1.0"></script>
+<script src="js/ui.js?v=3.1.0"></script>
+<script src="app.js?v=3.1.0"></script>
 </body>
 </html>

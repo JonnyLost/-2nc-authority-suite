@@ -46,7 +46,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-se
         pages += `<section class="sheet ${kind}">`;
         items.slice(index, index + perPage[kind]).forEach(row => {
           if (kind === 'comic') {
-            pages += `<div class="pl comic">${row.primary ? `<b>${escapeHtml(row.name)}</b>` : `<small>${escapeHtml(row.parent)}</small><b>${escapeHtml(row.series)}</b>`}</div>`;
+            pages += `<div class="pl comic">${row.primary ? `<b>${escapeHtml(row.name)}</b>` : `<small>${escapeHtml(row.parent)}</small><b>${escapeHtml(row.printedTitle || row.series)}</b>`}</div>`;
           } else if (kind === 'instrument') {
             pages += `<div class="tag"><div class="orange"><span>${escapeHtml(row.price)}</span><em>2ND<br>& CHARLES</em></div><div class="prod">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div><footer>2ndandcharles.com</footer></div>`;
           } else {

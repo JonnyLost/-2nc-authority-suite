@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v3.0 — stable startup orchestrator */
+/* 2NC Authority Suite v3.1 — stable startup orchestrator */
 (function () {
   const stages = [
     ['Preparing interface', 12],

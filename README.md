@@ -1,51 +1,39 @@
-# 2NC Authority Suite v3.0 — Stable Foundation
+# 2NC Authority Suite v3.1 — Database-Driven Comic Titles
 
-This release rebuilds the GitHub/PWA foundation so the app cannot silently fail because one optional control, stale cache file, or incomplete local database is missing.
+This release makes the Comic Authority database the sole editorial source for printed series names.
 
-## What changed
+## Comic label rule
 
-- Staged startup sequence with visible progress
-- Separate interface, database, label/print, logging, and startup modules
-- Visible app version and live Music/Comic record counts
-- Bundled-data validation before the interface opens
-- Automatic reseeding when a local database is incomplete
-- Best-effort migration of custom records, retired status, and edited notes from the prior browser database
-- Manual **Repair bundled data** control in Authority Manager
-- Fatal error screen with Retry, Repair, and Diagnostics actions
-- Optional developer logging with copyable diagnostics
-- Network-first update strategy for app files
-- Version-matched HTML, JavaScript, CSS, database, and service-worker files
+- **Primary authority label:** prints the authority name.
+- **Series label:** prints the parent authority as the small cue and the exact **Printed divider title** as the large title.
+- The generator does **not** strip character names, commas, colons, punctuation, or prefixes.
 
-## Expected data counts
+Examples now print exactly as intended:
 
-- Music: 4,606 bundled records
-- Comics: 2,045 bundled records
+- Luke Cage / **Luke Cage, Hero for Hire**
+- John Constantine / **John Constantine, Hellblazer**
+- Nick Fury / **Nick Fury, Agent of S.H.I.E.L.D.**
+- Godzilla / **Godzilla, King of the Monsters**
 
-The header should show approximately those counts after startup. Retired or custom records may cause small differences.
+## Database changes
 
-## Upload to GitHub
+- Added `printedTitle` to every bundled comic record.
+- Removed the two decade authorities: `1980s-90s` and `2000s-2020s`.
+- Promoted 22 event records formerly filed under decade authorities to standalone primary authorities.
+- Bundled comic record count: 2,043.
+- Authority Manager now includes a **Printed divider title** field.
+
+## Upload
 
 1. Unzip this package.
-2. Open your `2nc-authority-suite` repository.
-3. Choose **Add file → Upload files**.
-4. Upload everything inside this folder to the repository root.
-5. Commit directly to `main`.
-6. Wait for GitHub Pages to finish publishing.
-7. Open the site once with `?v=3.0`, for example:
-   `https://jonnylost.github.io/2nc-authority-suite/?v=3.0`
+2. Upload everything inside the folder to the root of your GitHub repository.
+3. Commit directly to `main`.
+4. Wait for GitHub Pages to publish.
+5. Open once with:
+   `https://jonnylost.github.io/2nc-authority-suite/?v=3.1`
+6. Fully close and reopen the Home Screen app after the web version shows v3.1.0.
 
-Do not clear Safari website data. The release will create a new internal v3 database and attempt to preserve useful local changes from the previous database.
-
-## Diagnostics
-
-Open **About** to see:
-
-- Current app version/build
-- Loaded record counts
-- Browser/environment information
-- Startup and runtime log
-- Developer logging toggle
-- Copy Diagnostics button
+The internal v3 database will merge the corrected bundled comic records automatically while preserving edited notes and retired status where possible.
 
 ## Exact production sizes
 

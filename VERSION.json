@@ -1,7 +1,13 @@
 {
-  "version": "3.0.0",
-  "release": "Stable Foundation",
-  "build": "2026-07-27-stable-foundation",
+  "version": "3.1.0",
+  "release": "Database-Driven Comic Titles",
+  "build": "2026-07-27-database-driven-comic-titles",
   "databaseSchema": 3,
-  "minimumRecords": { "music": 4500, "comic": 2000 }
+  "minimumRecords": {
+    "music": 4500,
+    "comic": 2000
+  },
+  "comicRecords": 2043,
+  "decadeAuthoritiesRemoved": 2,
+  "decadeChildrenPromoted": 22
 }

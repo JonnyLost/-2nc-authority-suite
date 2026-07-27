@@ -33,17 +33,11 @@
   function text(selector, value) { const element = $(selector); if (element) element.textContent = value; }
   function show(selector, visible) { const element = $(selector); if (element) element.classList.toggle('hidden', !visible); }
   function musicSubgenreLine(row) { return LabelEngine.subgenreLine(row); }
-  function cleanSeries(parent, series) {
-    let value = String(series || '').trim();
-    if (!parent) return value;
-    const escaped = String(parent).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    value = value.replace(new RegExp(`^${escaped}\\s*[:\\-–—]?\\s*`, 'i'), '');
-    return value || series;
-  }
+  function comicPrintTitle(row) { return String(row.printedTitle || row.series || row.display || '').trim(); }
 
   function currentData() { return state.mode === 'comic' ? state.comic : state.music; }
   function recordCategory(row) { return state.mode === 'comic' ? (row.publisher || 'Unknown Publisher') : (row.genre || 'Uncategorized'); }
-  function resultName(row) { return state.mode === 'comic' ? (row.primary ? row.display : cleanSeries(row.parent, row.series)) : row.name; }
+  function resultName(row) { return state.mode === 'comic' ? (row.primary ? row.display : comicPrintTitle(row)) : row.name; }
   function resultSub(row) {
     return state.mode === 'comic'
       ? (row.primary ? `${row.publisher || ''} · Primary authority` : `${row.parent || 'Standalone'} · ${row.publisher || ''}`)
@@ -52,7 +46,7 @@
   function matches(row) {
     const query = state.query.toLowerCase();
     const haystack = state.mode === 'comic'
-      ? [row.display, row.parent, row.series, row.publisher, row.type].join(' ')
+      ? [row.display, row.parent, row.series, row.printedTitle, row.publisher, row.type].join(' ')
       : [row.name, row.display, row.genre, row.primarySubgenre || row.subgenre, row.secondarySubgenre, row.type].join(' ');
     return (!query || haystack.toLowerCase().includes(query))
       && (!state.level || row.level === state.level)
@@ -96,7 +90,7 @@
       box.className = `label comicLabel ${row.primary ? 'primaryComic' : ''}`;
       box.innerHTML = row.primary
         ? `<div class="series">${escapeHtml(row.display)}</div>`
-        : `<div class="cue">${escapeHtml(row.parent)}</div><div class="series">${escapeHtml(cleanSeries(row.parent, row.series))}</div>`;
+        : `<div class="cue">${escapeHtml(row.parent)}</div><div class="series">${escapeHtml(comicPrintTitle(row))}</div>`;
       if (hierarchy) hierarchy.classList.toggle('hidden', !row.parent && !row.primary);
     } else {
       box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'}`;
@@ -108,7 +102,7 @@
 
   function queueRecord(row) {
     return state.mode === 'comic'
-      ? { uid: safeId(), mode: 'comic', primary: row.primary, parent: row.parent || '', series: row.primary ? row.display : cleanSeries(row.parent, row.series), name: row.display, publisher: row.publisher || '' }
+      ? { uid: safeId(), mode: 'comic', primary: row.primary, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), name: row.display, publisher: row.publisher || '' }
       : { uid: safeId(), mode: state.mode, name: row.name, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
   }
 
@@ -198,16 +192,16 @@
     let rows = await AuthorityDB.getAll(dataset);
     rows = rows.filter(row => (status === 'all' || (row.status || 'active') === status) && (!query || JSON.stringify(row).toLowerCase().includes(query))).sort((a, b) => (a.sort || a.display || a.name || '').localeCompare(b.sort || b.display || b.name || ''));
     text('#managerCount', `${rows.length.toLocaleString()} records`);
-    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.publisher].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
+    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publisher].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
     $$('#managerResults .resultCard').forEach(element => element.addEventListener('click', () => { state.managerSelected = rows.find(row => row.id === element.dataset.id); fillEditor(state.managerSelected); renderManager(); }));
   }
 
   function fillEditor(row) {
     show('#editorEmpty', false); show('#authorityForm', true);
     const comic = state.managerDataset === 'comic';
-    show('#parentField', comic); show('#seriesField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
+    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
     const values = {
-      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
+      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
     };
     Object.entries(values).forEach(([id, value]) => { const element = document.getElementById(id); if (element) element.value = value; });
     text('#retireRecord', row.status === 'retired' ? 'Restore' : 'Retire');
@@ -219,7 +213,7 @@
     const kind = state.managerDataset, comic = kind === 'comic', old = state.managerSelected || {};
     const display = ($('#editDisplay')?.value || '').trim(); if (!display) return;
     const row = { ...old, id: $('#editId')?.value || makeId(kind), display, name: ($('#editName')?.value || '').trim() || display, type: ($('#editType')?.value || '').trim(), level: $('#editLevel')?.value || 'Recommended', status: old.status || 'active', notes: ($('#editNotes')?.value || '').trim(), updatedAt: new Date().toISOString() };
-    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.series; row.sort = row.series || row.display; }
+    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
     else { row.genre = ($('#editGenre')?.value || '').trim(); row.primarySubgenre = ($('#editPrimarySubgenre')?.value || '').trim(); row.secondarySubgenre = ($('#editSecondarySubgenre')?.value || '').trim(); row.subgenre = row.primarySubgenre; row.sort = row.display; }
     await AuthorityDB.put(kind, row); state.managerSelected = row; await reloadData(); alert('Authority saved.');
   }

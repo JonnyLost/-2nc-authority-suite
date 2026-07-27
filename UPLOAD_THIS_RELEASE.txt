@@ -1,0 +1,7 @@
+2NC AUTHORITY SUITE v3.1
+
+Upload every file and folder inside this directory to the repository root.
+After deployment open:
+https://jonnylost.github.io/2nc-authority-suite/?v=3.1
+
+Expected header: v3.1.0, Music approximately 4,606, Comics approximately 2,043.
