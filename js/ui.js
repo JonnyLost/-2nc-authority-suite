@@ -10,13 +10,16 @@
     comic: { title: 'Comic Dividers', sub: 'Search the internal Comic Authority', dim: '3.5 × 0.675 in' },
     instrument: { title: 'Instrument Tags', sub: 'Create 4 × 6 retail instrument tags', dim: '6 × 4 in' },
     treasure: { title: '2NC Treasures Tags', sub: 'Create 3.5 × 5 portrait Treasures tags', dim: '3.5 × 5 in' },
-    manager: { title: 'Authority Manager', sub: 'Add, edit, retire, import, and back up authority data', dim: 'Internal database' }
+    station: { title: 'Print Station', sub: 'Receive and print jobs from sales-floor devices', dim: 'Shared queue' },
+    manager: { title: 'Authority Manager', sub: 'Edit, back up, and synchronize authority data', dim: 'Authority database' }
   };
 
   const state = {
     mode: 'vinyl', selected: null, query: '', level: '', category: '', sort: 'name',
     queue: JSON.parse(localStorage.getItem('2ncQueue') || '[]'),
-    music: [], comic: [], managerDataset: 'music', managerSelected: null
+    music: [], comic: [], managerDataset: 'music', managerSelected: null,
+    stationJobs: [], stationTimer: null, stationBusy: false,
+    showComicEra: localStorage.getItem('2ncShowComicEra') !== 'false'
   };
 
   function requireElement(selector) {
@@ -35,19 +38,21 @@
   function show(selector, visible) { const element = $(selector); if (element) element.classList.toggle('hidden', !visible); }
   function musicSubgenreLine(row) { return LabelEngine.subgenreLine(row); }
   function comicPrintTitle(row) { return String(row.printedTitle || row.series || row.display || '').trim(); }
+  function comicMarker(row) { return String(row.publishingLine || row.publishingEra || '').trim(); }
+  function lengthClass(value) { const n = String(value || '').length; return n > 34 ? 'tight' : n > 22 ? 'compact' : ''; }
 
   function currentData() { return state.mode === 'comic' ? state.comic : state.music; }
   function recordCategory(row) { return state.mode === 'comic' ? (row.publisher || 'Unknown Publisher') : (row.genre || 'Uncategorized'); }
   function resultName(row) { return state.mode === 'comic' ? (row.primary ? row.display : comicPrintTitle(row)) : row.name; }
   function resultSub(row) {
     return state.mode === 'comic'
-      ? (row.primary ? `${row.publisher || ''} · Primary authority` : `${row.parent || 'Standalone'} · ${row.publisher || ''}`)
+      ? (row.primary ? `${row.publisher || ''} · Primary authority` : [row.parent || 'Standalone', comicMarker(row), row.publisher].filter(Boolean).join(' · '))
       : [row.genre, musicSubgenreLine(row), row.level].filter(Boolean).join(' · ');
   }
   function matches(row) {
     const query = state.query.toLowerCase();
     const haystack = state.mode === 'comic'
-      ? [row.display, row.parent, row.series, row.printedTitle, row.publisher, row.type].join(' ')
+      ? [row.display, row.parent, row.series, row.printedTitle, row.publishingEra, row.publishingLine, row.publisher, row.type].join(' ')
       : [row.name, row.display, row.genre, row.primarySubgenre || row.subgenre, row.secondarySubgenre, row.type].join(' ');
     return (!query || haystack.toLowerCase().includes(query))
       && (!state.level || row.level === state.level)
@@ -55,7 +60,7 @@
   }
 
   function renderResults() {
-    if (['instrument', 'treasure', 'manager'].includes(state.mode)) return;
+    if (['instrument', 'treasure', 'station', 'manager'].includes(state.mode)) return;
     const levelRank = { Primary: 0, Essential: 1, Recommended: 2, Optional: 3, 'Reference Only': 4 };
     const all = currentData().filter(matches);
     all.sort((a, b) => {
@@ -73,7 +78,7 @@
   }
 
   function renderPreview() {
-    if (['instrument', 'treasure', 'manager'].includes(state.mode)) return;
+    if (['instrument', 'treasure', 'station', 'manager'].includes(state.mode)) return;
     const box = requireElement('#labelPreview');
     const addButton = requireElement('#addSelected');
     const hierarchy = $('#addHierarchy');
@@ -88,13 +93,13 @@
     addButton.disabled = false;
     const row = state.selected;
     if (state.mode === 'comic') {
-      box.className = `label comicLabel ${row.primary ? 'primaryComic' : ''}`;
+      box.className = `label comicLabel ${row.primary ? 'primaryComic' : ''} ${lengthClass(row.primary ? row.display : comicPrintTitle(row))}`;
       box.innerHTML = row.primary
         ? `<div class="series">${escapeHtml(row.display)}</div>`
-        : `<div class="cue">${escapeHtml(row.parent)}</div><div class="series">${escapeHtml(comicPrintTitle(row))}</div>`;
+        : `<div class="cue">${escapeHtml(row.parent)}</div><div class="series">${escapeHtml(comicPrintTitle(row))}</div>${state.showComicEra && comicMarker(row) ? `<div class="era">${escapeHtml(comicMarker(row))}</div>` : ''}`;
       if (hierarchy) hierarchy.classList.toggle('hidden', !row.parent && !row.primary);
     } else {
-      box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'}`;
+      box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)}`;
       box.innerHTML = `<div class="musicGenre">${escapeHtml(row.genre || '')}</div><strong>${escapeHtml(row.name)}</strong><div class="musicSubgenres">${escapeHtml(musicSubgenreLine(row))}</div>`;
       if (hierarchy) hierarchy.classList.add('hidden');
     }
@@ -103,14 +108,14 @@
 
   function queueRecord(row) {
     return state.mode === 'comic'
-      ? { uid: safeId(), mode: 'comic', primary: row.primary, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), name: row.display, publisher: row.publisher || '' }
+      ? { uid: safeId(), mode: 'comic', primary: row.primary, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: state.showComicEra ? (row.publishingEra || '') : '', publishingLine: state.showComicEra ? (row.publishingLine || '') : '', name: row.display, publisher: row.publisher || '' }
       : { uid: safeId(), mode: state.mode, name: row.name, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
   }
 
   function saveQueue() { localStorage.setItem('2ncQueue', JSON.stringify(state.queue)); renderQueue(); }
   function renderQueue() {
     text('#queuePill', `${state.queue.length.toLocaleString()} queued`);
-    requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : row.parent) : row.mode === 'instrument' ? row.price : row.mode === 'treasure' ? '2NC TREASURES' : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
+    requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : [row.parent, comicMarker(row)].filter(Boolean).join(' · ')) : row.mode === 'instrument' ? row.price : row.mode === 'treasure' ? '2NC TREASURES' : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
     $$('.queueItem button').forEach(button => button.addEventListener('click', () => { state.queue.splice(Number(button.dataset.index), 1); saveQueue(); }));
   }
 
@@ -143,14 +148,22 @@
     const profile = profiles[mode];
     text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#dimensionText', profile.dim);
     $$('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode === mode));
-    show('#searchPanel', !['instrument', 'treasure', 'manager'].includes(mode));
-    show('.previewPanel', !['instrument', 'treasure', 'manager'].includes(mode));
-    show('.queuePanel', mode !== 'manager');
+    show('#searchPanel', !['instrument', 'treasure', 'station', 'manager'].includes(mode));
+    show('.previewPanel', !['instrument', 'treasure', 'station', 'manager'].includes(mode));
+    show('.queuePanel', !['station', 'manager'].includes(mode));
     show('#instrumentPanel', mode === 'instrument');
     show('#treasurePanel', mode === 'treasure');
+    show('#stationPanel', mode === 'station');
     show('#managerPanel', mode === 'manager');
-    if (mode === 'manager') renderManager();
-    else {
+    show('#eraToggleWrap', mode === 'comic');
+    if (mode === 'station') {
+      refreshStation().catch(error => showStationError(error));
+      startStationPolling();
+    } else {
+      stopStationPolling();
+      if (mode === 'manager') renderManager();
+    }
+    if (!['station', 'manager'].includes(mode)) {
       const search = $('#searchInput'); if (search) search.value = '';
       const level = $('#levelFilter'); if (level) level.value = '';
       populateCategoryFilter(); renderResults(); renderPreview();
@@ -164,12 +177,12 @@
     if (state.mode === 'instrument') return showInstrumentModal();
     if (state.mode === 'treasure') return;
     const comic = state.mode === 'comic';
-    showModal('Create custom label', `<label>${comic ? 'Main authority' : 'Artist name'}<input id="customMain"></label>${comic ? '<label>Series title<input id="customSub"></label>' : ''}<button id="saveCustom" class="primaryButton">Add to queue</button>`);
+    showModal('Create custom label', `<label>${comic ? 'Main authority' : 'Artist name'}<input id="customMain"></label>${comic ? '<label>Series title<input id="customSub"></label><label>Publishing era<select id="customEra"><option value="">None</option><option>The New 52</option><option>DC You</option><option>Rebirth</option><option>DC Universe</option><option>Future State</option><option>Infinite Frontier</option><option>Dawn of DC</option><option>DC All In</option><option>Absolute Universe</option></select></label><label>Publishing line / imprint<select id="customLine"><option value="">None</option><option>Vertigo</option><option>Black Label</option><option>Young Animal</option><option>Sandman Universe</option><option>Milestone</option><option>WildStorm</option><option>Elseworlds</option><option>Hill House Comics</option><option>Wonder Comics</option><option>America&#39;s Best Comics</option><option>All-Star</option><option>Impact</option><option>Hanna-Barbera Beyond</option><option>DC Horror</option></select></label>' : ''}<button id="saveCustom" class="primaryButton">Add to queue</button>`);
     on('#saveCustom', 'click', () => {
       const main = ($('#customMain')?.value || '').trim();
       const series = comic ? ($('#customSub')?.value || '').trim() : '';
       if (!main) return;
-      state.queue.push(comic ? { uid: safeId(), mode: 'comic', primary: !series, parent: series ? main : '', series, name: main } : { uid: safeId(), mode: state.mode, name: main, genre: '', primarySubgenre: '', secondarySubgenre: '' });
+      state.queue.push(comic ? { uid: safeId(), mode: 'comic', primary: !series, parent: series ? main : '', series, printedTitle: series, publishingEra: ($('#customEra')?.value || '').trim(), publishingLine: ($('#customLine')?.value || '').trim(), name: main } : { uid: safeId(), mode: state.mode, name: main, genre: '', primarySubgenre: '', secondarySubgenre: '' });
       saveQueue(); closeModal();
     });
   }
@@ -201,16 +214,16 @@
     let rows = await AuthorityDB.getAll(dataset);
     rows = rows.filter(row => (status === 'all' || (row.status || 'active') === status) && (!query || JSON.stringify(row).toLowerCase().includes(query))).sort((a, b) => (a.sort || a.display || a.name || '').localeCompare(b.sort || b.display || b.name || ''));
     text('#managerCount', `${rows.length.toLocaleString()} records`);
-    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publisher].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
+    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publishingLine, row.publishingEra, row.publisher].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
     $$('#managerResults .resultCard').forEach(element => element.addEventListener('click', () => { state.managerSelected = rows.find(row => row.id === element.dataset.id); fillEditor(state.managerSelected); renderManager(); }));
   }
 
   function fillEditor(row) {
     show('#editorEmpty', false); show('#authorityForm', true);
     const comic = state.managerDataset === 'comic';
-    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
+    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publishingEraField', comic); show('#publishingLineField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
     const values = {
-      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
+      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editPublishingEra: row.publishingEra || '', editPublishingLine: row.publishingLine || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
     };
     Object.entries(values).forEach(([id, value]) => { const element = document.getElementById(id); if (element) element.value = value; });
     text('#retireRecord', row.status === 'retired' ? 'Restore' : 'Retire');
@@ -221,12 +234,12 @@
     event.preventDefault();
     const kind = state.managerDataset, comic = kind === 'comic', old = state.managerSelected || {};
     const display = ($('#editDisplay')?.value || '').trim(); if (!display) return;
-    const row = { ...old, id: $('#editId')?.value || makeId(kind), display, name: ($('#editName')?.value || '').trim() || display, type: ($('#editType')?.value || '').trim(), level: $('#editLevel')?.value || 'Recommended', status: old.status || 'active', notes: ($('#editNotes')?.value || '').trim(), updatedAt: new Date().toISOString() };
-    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
+    const row = { ...old, id: $('#editId')?.value || makeId(kind), display, name: ($('#editName')?.value || '').trim() || display, type: ($('#editType')?.value || '').trim(), level: $('#editLevel')?.value || 'Recommended', status: old.status || 'active', notes: ($('#editNotes')?.value || '').trim(), updatedAt: new Date().toISOString(), _localEdited: true };
+    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.publishingEra = ($('#editPublishingEra')?.value || '').trim(); row.publishingLine = ($('#editPublishingLine')?.value || '').trim(); row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
     else { row.genre = ($('#editGenre')?.value || '').trim(); row.primarySubgenre = ($('#editPrimarySubgenre')?.value || '').trim(); row.secondarySubgenre = ($('#editSecondarySubgenre')?.value || '').trim(); row.subgenre = row.primarySubgenre; row.sort = row.display; }
     await AuthorityDB.put(kind, row); state.managerSelected = row; await reloadData(); alert('Authority saved.');
   }
-  async function toggleRetire() { if (!state.managerSelected?.id) return; state.managerSelected.status = state.managerSelected.status === 'retired' ? 'active' : 'retired'; await AuthorityDB.put(state.managerDataset, state.managerSelected); await reloadData(); fillEditor(state.managerSelected); }
+  async function toggleRetire() { if (!state.managerSelected?.id) return; state.managerSelected.status = state.managerSelected.status === 'retired' ? 'active' : 'retired'; state.managerSelected.updatedAt = new Date().toISOString(); state.managerSelected._localEdited = true; await AuthorityDB.put(state.managerDataset, state.managerSelected); await reloadData(); fillEditor(state.managerSelected); }
   async function deleteSelected() { if (!state.managerSelected?.id || !confirm('Permanently delete this authority?')) return; await AuthorityDB.remove(state.managerDataset, state.managerSelected.id); state.managerSelected = null; show('#authorityForm', false); show('#editorEmpty', true); await reloadData(); }
 
   async function exportBackup() {
@@ -239,8 +252,171 @@
   async function importBackup(file) { if (!file) return; const payload = JSON.parse(await file.text()); if (!confirm('Replace the internal Music and Comic databases with this backup?')) return; await AuthorityDB.importBackup(payload); await reloadData(); alert('Backup imported.'); }
 
   async function repairDatabase() {
-    if (!confirm('Repair the internal database from the bundled authority files? Your edited notes and retired status will be preserved when possible.')) return;
+    if (!confirm('Repair from the bundled authority files? All locally edited fields, custom records, retired records, and deletions will be preserved.')) return;
     await AuthorityDB.ensureSeeded({ force: true }); await reloadData(); alert('Database repair complete.');
+  }
+
+  function syncStatusText() {
+    if (!window.AuthoritySync) return 'GitHub sync module unavailable';
+    const status = AuthoritySync.status();
+    if (!status.settings.owner || !status.settings.repo) return 'Not connected';
+    const repo = `${status.settings.owner}/${status.settings.repo}`;
+    return status.lastSync ? `${repo} · Last sync ${new Date(status.lastSync).toLocaleString()}` : `${repo} · Ready to sync`;
+  }
+
+  function renderSyncStatus() { text('#syncStatus', syncStatusText()); }
+
+  function openSyncSettings() {
+    const status = AuthoritySync.status();
+    const value = status.settings;
+    showModal('Connection', `<p class="modalIntro">Connect authority data and the Print Station to the GitHub repository. The token is kept only for this browser session and is never included in backups.</p>
+      <div class="twoCol"><label>Repository owner<input id="syncOwner" autocomplete="off" value="${escapeHtml(value.owner)}"></label><label>Repository name<input id="syncRepo" autocomplete="off" value="${escapeHtml(value.repo)}"></label></div>
+      <div class="twoCol"><label>Authority branch<input id="syncBranch" autocomplete="off" value="${escapeHtml(value.branch)}"></label><label>This device name<input id="syncDeviceName" autocomplete="off" placeholder="Sales Floor iPad or Back Office PC" value="${escapeHtml(value.deviceName || '')}"></label></div>
+      <div class="twoCol"><label>Music file<input id="syncMusicPath" value="${escapeHtml(value.musicPath)}"></label><label>Comic file<input id="syncComicPath" value="${escapeHtml(value.comicPath)}"></label></div>
+      <div class="twoCol"><label>Print queue branch<input id="syncPrintBranch" value="${escapeHtml(value.printBranch || 'print-queue')}"></label><label>Print queue file<input id="syncPrintPath" value="${escapeHtml(value.printQueuePath || 'print-queue.json')}"></label></div>
+      <label>GitHub token<input id="syncToken" type="password" autocomplete="off" placeholder="${status.hasToken ? 'Token active for this session' : 'Fine-grained token with Contents access'}"></label>
+      <small>Use a fine-grained token limited to this repository with Contents read/write permission. The separate print-queue branch prevents print jobs from triggering a website deployment.</small>
+      <button id="saveSyncSettings" class="primaryButton">Save connection</button>`);
+    on('#saveSyncSettings', 'click', () => {
+      AuthoritySync.saveSettings({
+        owner: $('#syncOwner')?.value, repo: $('#syncRepo')?.value, branch: $('#syncBranch')?.value,
+        musicPath: $('#syncMusicPath')?.value, comicPath: $('#syncComicPath')?.value,
+        printBranch: $('#syncPrintBranch')?.value, printQueuePath: $('#syncPrintPath')?.value,
+        deviceName: $('#syncDeviceName')?.value, token: $('#syncToken')?.value
+      });
+      renderSyncStatus(); renderStationConnection(); closeModal(); alert('Connection saved for this device.');
+    });
+  }
+
+  function renderStationConnection() {
+    const status = AuthoritySync.status();
+    const name = status.settings.deviceName || 'Unnamed device';
+    text('#stationConnection', status.hasToken ? `${name} · Connected` : `${name} · Token needed`);
+  }
+
+  function jobTitle(job) {
+    if (job.note) return job.note;
+    const first = job.items?.[0];
+    const label = first ? (first.mode === 'comic' ? (first.primary ? first.name : first.series) : first.mode === 'instrument' || first.mode === 'treasure' ? first.product : first.name) : 'Print job';
+    return job.itemCount > 1 ? `${label} + ${job.itemCount - 1} more` : label;
+  }
+
+  function jobKinds(job) {
+    const counts = {};
+    (job.items || []).forEach(item => { counts[item.mode] = (counts[item.mode] || 0) + 1; });
+    return Object.entries(counts).map(([kind, count]) => `${count} ${kind}`).join(' · ');
+  }
+
+  function stationJobHtml(job) {
+    const active = job.status === 'pending' || job.status === 'printing';
+    const age = new Date(job.createdAt).toLocaleString();
+    const statusLabel = { pending: 'Waiting', printing: 'In progress', completed: 'Completed', cancelled: 'Cancelled' }[job.status] || job.status;
+    const action = job.status === 'pending'
+      ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print job</button><button class="secondaryButton stationCancel" data-id="${escapeHtml(job.id)}">Cancel</button>`
+      : job.status === 'printing'
+        ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print again</button><button class="secondaryButton stationComplete" data-id="${escapeHtml(job.id)}">Mark complete</button>`
+        : `<button class="secondaryButton stationReopen" data-id="${escapeHtml(job.id)}">Return to queue</button>`;
+    return `<article class="stationJob ${active ? 'active' : ''}" data-status="${escapeHtml(job.status)}">
+      <div class="stationJobMain"><div class="stationJobHeading"><span class="jobStatus">${escapeHtml(statusLabel)}</span><time>${escapeHtml(age)}</time></div>
+      <h3>${escapeHtml(jobTitle(job))}</h3><p>${escapeHtml(jobKinds(job))}</p><small>From ${escapeHtml(job.from || 'Sales floor device')}${job.station ? ` · ${escapeHtml(job.station)}` : ''}</small></div>
+      <div class="stationJobActions">${action}</div></article>`;
+  }
+
+  function bindStationJobActions() {
+    $$('.stationPrint').forEach(button => button.addEventListener('click', () => printStationJob(button.dataset.id)));
+    $$('.stationComplete').forEach(button => button.addEventListener('click', () => updateStationJob('complete', button.dataset.id)));
+    $$('.stationReopen').forEach(button => button.addEventListener('click', () => updateStationJob('reopen', button.dataset.id)));
+    $$('.stationCancel').forEach(button => button.addEventListener('click', () => updateStationJob('cancel', button.dataset.id)));
+  }
+
+  function renderStationJobs() {
+    const pending = state.stationJobs.filter(job => job.status === 'pending');
+    const printing = state.stationJobs.filter(job => job.status === 'printing');
+    const completed = state.stationJobs.filter(job => ['completed', 'cancelled'].includes(job.status));
+    text('#pendingJobCount', pending.length);
+    text('#printingJobCount', printing.length);
+    text('#completedJobCount', completed.length);
+    text('#stationUpdated', `Updated ${new Date().toLocaleTimeString()} · Refreshes automatically every 20 seconds`);
+    const ordered = [...pending, ...printing, ...completed.slice(0, 20)];
+    requireElement('#stationJobs').innerHTML = ordered.map(stationJobHtml).join('') || '<div class="empty">No print jobs are waiting.</div>';
+    bindStationJobActions();
+  }
+
+  function showStationError(error) {
+    AppLog.warn('Print Station refresh failed', error);
+    text('#stationUpdated', error.message || String(error));
+    renderStationConnection();
+  }
+
+  async function refreshStation() {
+    if (state.stationBusy) return;
+    state.stationBusy = true;
+    try {
+      renderStationConnection();
+      if (!AuthoritySync.hasToken()) throw new Error('Enter the GitHub token under Connection to load print jobs.');
+      state.stationJobs = await PrintStation.list();
+      renderStationJobs();
+    } finally { state.stationBusy = false; }
+  }
+
+  function startStationPolling() {
+    stopStationPolling();
+    state.stationTimer = setInterval(() => {
+      if (state.mode === 'station' && !document.hidden) refreshStation().catch(showStationError);
+    }, 20000);
+  }
+
+  function stopStationPolling() {
+    if (state.stationTimer) clearInterval(state.stationTimer);
+    state.stationTimer = null;
+  }
+
+  async function sendToStation() {
+    if (!state.queue.length) throw new Error('Add at least one item to the print queue.');
+    const note = prompt('Optional job name or note:', '') ?? '';
+    const job = await PrintStation.send(state.queue, note);
+    alert(`Sent ${job.itemCount} item${job.itemCount === 1 ? '' : 's'} to the Print Station.`);
+  }
+
+  async function sharePrintPacket() {
+    const result = await PrintPacket.share(state.queue);
+    if (!result.shared) alert(`The share sheet is not available in this browser, so ${result.name} was downloaded instead.`);
+  }
+
+  async function printStationJob(id) {
+    const job = state.stationJobs.find(item => item.id === id);
+    if (!job) return;
+    const popup = window.open('', '_blank');
+    if (!popup) return alert('Pop-ups are blocked. Allow pop-ups for this site so the print sheet can open.');
+    popup.document.write('<!doctype html><title>Preparing 2NC print job…</title><p style="font:16px system-ui;padding:24px">Preparing print job…</p>');
+    try {
+      if (job.status === 'pending') await PrintStation.claim(id);
+      LabelEngine.printQueue(job.items, popup);
+      await refreshStation();
+    } catch (error) {
+      popup.close();
+      alert(error.message);
+    }
+  }
+
+  async function updateStationJob(action, id) {
+    if (action === 'cancel' && !confirm('Cancel this print job?')) return;
+    await PrintStation[action](id);
+    await refreshStation();
+  }
+
+  async function pullFromGitHub() {
+    if (!confirm('Pull the latest Music and Comic authorities from GitHub? This replaces the database on this device.')) return;
+    const result = await AuthoritySync.pull();
+    await reloadData(); renderSyncStatus();
+    alert(`GitHub data pulled: ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records.`);
+  }
+
+  async function publishToGitHub() {
+    if (!confirm('Publish this device’s complete Music and Comic authorities to GitHub? This updates the live source files and may trigger a GitHub Pages deployment.')) return;
+    const result = await AuthoritySync.push();
+    renderSyncStatus();
+    alert(`Published ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records to GitHub.`);
   }
 
   function diagnosticsHtml() {
@@ -269,8 +445,11 @@
     on('#sortFilter', 'change', event => { state.sort = event.target.value; renderResults(); });
     on('#clearSearch', 'click', () => { state.query = ''; state.level = ''; state.category = ''; state.sort = 'name'; if ($('#searchInput')) $('#searchInput').value = ''; if ($('#levelFilter')) $('#levelFilter').value = ''; populateCategoryFilter(); renderResults(); });
     on('#addSelected', 'click', addSelected); on('#addAll', 'click', addAll); on('#addHierarchy', 'click', addHierarchy);
+    on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
     on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
     on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
+    on('#sharePdfBtn', 'click', () => sharePrintPacket().catch(error => { if (error.name !== 'AbortError') alert(error.message); }));
+    on('#sendStationBtn', 'click', () => sendToStation().catch(error => alert(error.message)));
     on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode); } catch (error) { alert(error.message); } });
     on('#customBtn', 'click', customLabel);
     on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
@@ -284,13 +463,22 @@
     on('#newAuthority', 'click', newAuthority); on('#authorityForm', 'submit', saveAuthority); on('#retireRecord', 'click', toggleRetire); on('#deleteRecord', 'click', deleteSelected);
     on('#exportBackup', 'click', exportBackup); on('#importBackup', 'change', event => importBackup(event.target.files[0]).catch(error => alert(error.message)));
     on('#repairDatabase', 'click', () => repairDatabase().catch(error => alert(error.message)));
+    on('#syncSettings', 'click', openSyncSettings);
+    on('#syncPull', 'click', () => pullFromGitHub().catch(error => alert(error.message)));
+    on('#syncPush', 'click', () => publishToGitHub().catch(error => alert(error.message)));
+    on('#stationRefresh', 'click', () => refreshStation().catch(showStationError));
+    on('#stationConnectionBtn', 'click', openSyncSettings);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && state.mode === 'station') refreshStation().catch(showStationError); });
   }
 
   async function initialize() {
     bindEvents();
+    const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
     await reloadData();
     renderQueue(); setMode('vinyl');
     text('#versionBadge', `v${APP_CONFIG.version}`);
+    renderSyncStatus();
+    renderStationConnection();
   }
 
   window.AppUI = { initialize, reloadData, setMode, showAbout, state };

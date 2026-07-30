@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v3.4 — stable startup orchestrator */
+/* 2NC Authority Suite v4.5 — DC publishing lines and imprints */
 (function () {
   const stages = [
     ['Preparing interface', 12],
@@ -48,7 +48,7 @@
     document.getElementById('startupOverlay')?.classList.remove('hidden');
     try {
       setStage(0);
-      if (!window.APP_CONFIG || !window.AppLog || !window.AuthorityDB || !window.LabelEngine || !window.AppUI) throw new Error('One or more application modules did not load. Refresh the page after GitHub Pages finishes publishing.');
+      if (!window.APP_CONFIG || !window.AppLog || !window.AuthorityDB || !window.AuthoritySync || !window.PrintStation || !window.PrintPacket || !window.LabelEngine || !window.AppUI) throw new Error('One or more application modules did not load. Refresh the page after GitHub Pages finishes publishing.');
       setStage(1);
       const counts = await AuthorityDB.initialize({ force: forceRepair });
       AppLog.info('Database initialized', JSON.stringify(counts));

@@ -1,6 +1,6 @@
 {
-  "version": "3.9.0",
-  "name": "Centered Bold Instrument Price",
-  "release": "2NC Authority Suite GitHub v3.9",
-  "notes": "Makes instrument-tag prices larger, bolder, and properly centered within the orange side strip in both preview and print output."
+  "version": "4.5.0",
+  "name": "DC Publishing Lines",
+  "release": "2NC Authority Suite GitHub v4.5",
+  "notes": "Adds curated DC publishing-line and imprint markers using the established comic-label design, with imprint markers taking priority over eras."
 }

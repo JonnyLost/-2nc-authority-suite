@@ -1,7 +1,7 @@
 {
   "name": "2NC Authority Suite",
   "short_name": "2NC Authority",
-  "description": "Music, comic, divider label, and instrument tag tools for 2NC.",
+  "description": "Authority databases, divider labels, retail tags, mobile PDF sharing, and synchronized print-station tools for 2NC.",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "standalone",

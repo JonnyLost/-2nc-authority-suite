@@ -1,17 +1,42 @@
-# 2NC Authority Suite v3.9
+# 2NC Authority Suite v4.5 — DC Publishing Lines
 
-Instrument-tag print update.
+This release extends the v4.4 comic-label design to DC publishing lines and imprints.
 
-## Changes
+## What changed
 
-- Replaced the instrument tag half-circle with a clean full-height orange strip.
-- Added dashed cut guides around all four sides of every 6 × 4 inch instrument tag.
-- Preserved the official 2nd & Charles logo, price orientation, product layout, exact tag dimensions, mobile safe area, databases, and all existing label modes.
+- Added 123 curated publishing-line assignments across 14 label markers:
+  - Vertigo
+  - Black Label
+  - Young Animal
+  - Sandman Universe
+  - Milestone
+  - WildStorm
+  - Elseworlds
+  - Hill House Comics
+  - Wonder Comics
+  - America's Best Comics
+  - All-Star
+  - Impact
+  - Hanna-Barbera Beyond
+  - DC Horror
+- Preserved all nine v4.4 DC publishing eras.
+- An imprint/line marker takes priority over an era marker when both are present.
+- Renamed the comic-label option to **Show publishing era or imprint on comic labels**.
+- Added publishing-line editing to Authority Manager and custom comic labels.
+- Added publishing-line search, preview, PDF, browser-printing, and Print Station support.
+- Added three line-specific exact-title authorities for *Animal Man*, *Lucifer*, and *The Dreaming* so their Vertigo volumes remain distinct from modern relaunches.
+- Included a complete assignment audit and printable example sheet.
+- Preserved the exact comic label size at 3.50 × 0.675 inches.
 
-## Publish
+## Database
 
-Upload the contents of this folder to the root of the GitHub repository and commit. Then open the published app once with `?v=3.8`.
+- Music authorities: 4,606
+- Comic authorities: 2,576
+- Modern DC era assignments: 651
+- DC publishing-line assignments: 123
 
+## Upgrade
 
-## v3.9 update
-Instrument-tag prices are larger, bold, and centered in the orange side strip in both live preview and printed output.
+Upload the contents of this folder to the repository root, then open the site once with `?v=4.5`. Fully close and reopen any installed PWA after that first load.
+
+The repository remains prefilled for `jonnylost/-2nc-authority-suite`. Existing authority edits, mobile printing, PDF sharing, Print Station, calibration, and GitHub synchronization are preserved.

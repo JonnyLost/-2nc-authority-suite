@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>2NC DC Publishing Line Label Examples</title>
+  <style>
+    *{box-sizing:border-box}
+    @page{size:letter landscape;margin:.45in}
+    body{margin:0;padding:32px;background:#f2f3f5;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+    h1{margin:0 0 6px;font-size:24px}
+    p{margin:0 0 24px;color:#666;font-size:13px}
+    .examples{display:grid;grid-template-columns:repeat(2,3.5in);gap:16px 28px}
+    .example{display:flex;flex-direction:column;gap:6px;break-inside:avoid}
+    .example>span{font-size:10px;font-weight:750;letter-spacing:.06em;text-transform:uppercase;color:#73777d}
+    .label{width:3.5in;height:.675in;background:#fff;border:.5pt dashed #999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.06in .12in;overflow:hidden;position:relative;font-family:"Arial Narrow","Avenir Next Condensed",Arial,sans-serif;box-shadow:0 5px 12px #00000018}
+    .label:before,.label:after{content:"";position:absolute;left:.10in;right:.10in;height:.35pt;background:#d0d0d0}
+    .label:before{top:.045in}.label:after{bottom:.045in}
+    .parent{font-family:Arial,Helvetica,sans-serif;font-size:6.4pt;font-weight:650;text-transform:uppercase;letter-spacing:.55pt;color:#6d7176;line-height:1}
+    .title{font-size:16.5pt;font-weight:800;letter-spacing:.15pt;line-height:.92}
+    .title.compact{font-size:13.5pt}
+    .marker{position:absolute;right:.10in;bottom:.065in;font-family:Arial,Helvetica,sans-serif;font-size:5pt;font-weight:700;text-transform:uppercase;letter-spacing:.45pt;color:#747980;line-height:1}
+    @media print{body{padding:0;background:#fff}.label{box-shadow:none}}
+  </style>
+</head>
+<body>
+  <h1>DC Publishing Line &amp; Imprint Label Examples</h1>
+  <p>Actual label proportion: 3.50 × 0.675 inches. An imprint marker takes priority over an era marker when both apply.</p>
+  <main class="examples">
+    <div class="example"><span>Vertigo</span><div class="label"><div class="parent">Sandman</div><div class="title">The Sandman</div><div class="marker">Vertigo</div></div></div>
+    <div class="example"><span>Black Label</span><div class="label"><div class="parent">Batman Black Label Line</div><div class="title">Batman: Damned</div><div class="marker">Black Label</div></div></div>
+    <div class="example"><span>Young Animal</span><div class="label"><div class="parent">Doom Patrol</div><div class="title">Doom Patrol</div><div class="marker">Young Animal</div></div></div>
+    <div class="example"><span>Sandman Universe</span><div class="label"><div class="parent">Sandman</div><div class="title">House of Whispers</div><div class="marker">Sandman Universe</div></div></div>
+    <div class="example"><span>Milestone</span><div class="label"><div class="parent">Static</div><div class="title">Static: Season One</div><div class="marker">Milestone</div></div></div>
+    <div class="example"><span>WildStorm</span><div class="label"><div class="parent">The Authority</div><div class="title">The Authority</div><div class="marker">WildStorm</div></div></div>
+    <div class="example"><span>Elseworlds</span><div class="label"><div class="parent">Elseworlds / Alternate Universe</div><div class="title">Kingdom Come</div><div class="marker">Elseworlds</div></div></div>
+    <div class="example"><span>Hill House Comics</span><div class="label"><div class="parent">DC Universe</div><div class="title">Basketful of Heads</div><div class="marker">Hill House Comics</div></div></div>
+    <div class="example"><span>Wonder Comics</span><div class="label"><div class="parent">Wonder Twins</div><div class="title">Wonder Twins</div><div class="marker">Wonder Comics</div></div></div>
+    <div class="example"><span>America's Best Comics</span><div class="label"><div class="parent">America's Best Comics (Alan Moore line)</div><div class="title">Promethea</div><div class="marker">America's Best Comics</div></div></div>
+    <div class="example"><span>All-Star</span><div class="label"><div class="parent">Superman</div><div class="title">All-Star Superman</div><div class="marker">All-Star</div></div></div>
+    <div class="example"><span>Impact</span><div class="label"><div class="parent">Impact Comics Imprint</div><div class="title">The Shield</div><div class="marker">Impact</div></div></div>
+    <div class="example"><span>Hanna-Barbera Beyond</span><div class="label"><div class="parent">DC Universe</div><div class="title compact">Exit Stage Left: The Snagglepuss Chronicles</div><div class="marker">Hanna-Barbera Beyond</div></div></div>
+    <div class="example"><span>DC Horror</span><div class="label"><div class="parent">DC Universe</div><div class="title">DC Horror Presents</div><div class="marker">DC Horror</div></div></div>
+  </main>
+</body>
+</html>

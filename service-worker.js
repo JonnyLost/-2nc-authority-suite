@@ -1,7 +1,8 @@
-const CACHE = '2nc-authority-suite-v3.9.0';
+const CACHE = '2nc-authority-suite-v4.5.0';
 const CORE = [
   './','./index.html','./404.html','./styles.css','./app.js','./manifest.webmanifest','./VERSION.json',
-  './js/config.js','./js/logger.js','./js/db.js','./js/labels.js','./js/ui.js',
+  './js/config.js','./js/logger.js','./js/db.js','./js/sync.js','./js/print-station.js','./js/pdf.js','./js/labels.js','./js/ui.js',
+  './vendor/pdf-lib.min.js',
   './data/music.json','./data/comics.json','./assets/2nc-logo-white.png','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png'
 ];
 

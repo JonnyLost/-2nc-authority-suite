@@ -58,7 +58,13 @@
   async function getAll(storeName) { return requestPromise(store(storeName).getAll()); }
   async function get(storeName, key) { return requestPromise(store(storeName).get(key)); }
   async function put(storeName, value) { return requestPromise(store(storeName, 'readwrite').put(value)); }
-  async function remove(storeName, key) { return requestPromise(store(storeName, 'readwrite').delete(key)); }
+  async function remove(storeName, key) {
+    if (!['music', 'comic'].includes(storeName)) return requestPromise(store(storeName, 'readwrite').delete(key));
+    const tx = db.transaction([storeName, 'meta'], 'readwrite');
+    tx.objectStore(storeName).delete(key);
+    tx.objectStore('meta').put({ key: `deleted:${storeName}:${key}`, value: true, at: new Date().toISOString() });
+    await transactionPromise(tx);
+  }
 
   async function replaceStore(storeName, rows) {
     const tx = db.transaction(storeName, 'readwrite');
@@ -68,34 +74,61 @@
     await transactionPromise(tx);
   }
 
+  function comparableRecord(row = {}) {
+    const ignored = new Set(['status', 'notes', 'updatedAt', '_localEdited']);
+    return Object.fromEntries(Object.entries(row).filter(([key]) => !ignored.has(key)).sort(([a], [b]) => a.localeCompare(b)));
+  }
+
+  function hasLocalChanges(old = {}, bundled = {}) {
+    if (old._localEdited) return true;
+    return JSON.stringify(comparableRecord(old)) !== JSON.stringify(comparableRecord(bundled));
+  }
+
   function mergedRecord(row, old = {}) {
+    if (old.id && hasLocalChanges(old, row)) {
+      return { ...row, ...old, status: old.status || 'active', notes: old.notes || '', _localEdited: true };
+    }
     return {
       ...row,
       status: old.status || row.status || 'active',
       notes: old.notes || row.notes || '',
-      updatedAt: old.updatedAt || row.updatedAt || new Date().toISOString()
+      updatedAt: old.updatedAt || row.updatedAt || null
     };
+  }
+
+  async function deletedIds(kind) {
+    const metaRows = await getAll('meta');
+    const prefix = `deleted:${kind}:`;
+    return new Set(metaRows.filter(row => row.key.startsWith(prefix) && row.value).map(row => row.key.slice(prefix.length)));
   }
 
   async function mergeBundled(kind, rows) {
     const existing = await getAll(kind);
     const existingMap = new Map(existing.map(row => [row.id, row]));
+    const deleted = await deletedIds(kind);
     const tx = db.transaction(kind, 'readwrite');
     const target = tx.objectStore(kind);
-    rows.forEach(row => target.put(mergedRecord(row, existingMap.get(row.id))));
+    rows.forEach(row => {
+      if (!deleted.has(row.id)) target.put(mergedRecord(row, existingMap.get(row.id)));
+    });
     await transactionPromise(tx);
   }
 
   async function replaceWithBundledPreservingEdits(kind, rows) {
     const existing = await getAll(kind);
     const existingMap = new Map(existing.map(row => [row.id, row]));
+    const deleted = await deletedIds(kind);
     const bundledIds = new Set(rows.map(row => row.id));
     const customRows = existing.filter(row => row && row.id && !bundledIds.has(row.id));
     const tx = db.transaction(kind, 'readwrite');
     const target = tx.objectStore(kind);
     target.clear();
-    rows.forEach(row => target.put(mergedRecord(row, existingMap.get(row.id))));
-    customRows.forEach(row => target.put(row));
+    rows.forEach(row => {
+      if (!deleted.has(row.id)) target.put(mergedRecord(row, existingMap.get(row.id)));
+    });
+    customRows.forEach(row => {
+      if (!deleted.has(row.id)) target.put(row);
+    });
     await transactionPromise(tx);
   }
 
@@ -145,6 +178,7 @@
   async function ensureSeeded({ force = false } = {}) {
     const bundled = {};
     for (const kind of ['music', 'comic']) bundled[kind] = await fetchBundled(kind);
+    const remoteCanonical = await get('meta', 'remoteCanonical');
 
     for (const kind of ['music', 'comic']) {
       const current = await getAll(kind);
@@ -152,7 +186,7 @@
       if (force || current.length < minimum) {
         AppLog.warn(`Reseeding ${kind} authority`, `Current ${current.length}; bundled ${bundled[kind].length}`);
         await replaceWithBundledPreservingEdits(kind, bundled[kind]);
-      } else {
+      } else if (!remoteCanonical) {
         await mergeBundled(kind, bundled[kind]);
       }
     }
@@ -179,12 +213,14 @@
   }
 
   async function exportBackup() {
+    const deletions = (await getAll('meta')).filter(row => row.key.startsWith('deleted:') && row.value);
     return {
       schema: cfg.schema,
       version: cfg.version,
       exportedAt: new Date().toISOString(),
       music: await getAll('music'),
-      comic: await getAll('comic')
+      comic: await getAll('comic'),
+      deletions
     };
   }
 
@@ -192,8 +228,24 @@
     if (!payload || !Array.isArray(payload.music) || !Array.isArray(payload.comic)) throw new Error('This is not a valid 2NC Authority backup.');
     await replaceStore('music', payload.music);
     await replaceStore('comic', payload.comic);
+    const metaRows = await getAll('meta');
+    const tx = db.transaction('meta', 'readwrite');
+    const metaStore = tx.objectStore('meta');
+    metaRows.filter(row => row.key.startsWith('deleted:')).forEach(row => metaStore.delete(row.key));
+    (Array.isArray(payload.deletions) ? payload.deletions : []).forEach(row => metaStore.put(row));
+    await transactionPromise(tx);
     await put('meta', { key: 'import', value: payload.exportedAt || new Date().toISOString(), at: new Date().toISOString() });
   }
 
-  window.AuthorityDB = { initialize, getAll, get, put, remove, counts, ensureSeeded, exportBackup, importBackup };
+  async function replaceAuthority(kind, rows, source = 'remote') {
+    if (!['music', 'comic'].includes(kind) || !Array.isArray(rows)) throw new Error('Invalid authority data.');
+    await replaceStore(kind, rows);
+    await put('meta', { key: `replace:${kind}`, value: source, at: new Date().toISOString() });
+  }
+
+  async function markRemoteCanonical(source = 'github') {
+    await put('meta', { key: 'remoteCanonical', value: source, at: new Date().toISOString() });
+  }
+
+  window.AuthorityDB = { initialize, getAll, get, put, remove, counts, ensureSeeded, exportBackup, importBackup, replaceAuthority, markRemoteCanonical };
 })();

@@ -1,0 +1,657 @@
+Era,Series Title,Parent Authority,Result,Authority ID
+New 52,Aquaman and the Others,Aquaman,Added,SER-01346
+New 52,Captain Atom,Captain Atom,Already present,
+New 52,DC Universe Presents,DC Universe,Added,SER-01347
+New 52,Earth 2,Justice Society of America,Already present,
+New 52,The Fury of Firestorm: The Nuclear Men,Firestorm,Added,SER-01348
+New 52,Justice League 3000,Justice League,Already present,
+New 52,Justice League International,Justice League,Already present,
+New 52,Justice League of America's Vibe,Justice League,Added,SER-01349
+New 52,Justice League of America,Justice League,Already present,
+New 52,Justice League United,Justice League,Added,SER-01350
+New 52,Katana,Katana,Added,SER-01351
+New 52,Mister Terrific,Mister Terrific,Added,SER-01352
+New 52,The Savage Hawkman,Hawkman,Added,SER-01353
+New 52,Secret Origins,DC Universe,Added,SER-01354
+New 52,Worlds' Finest,Justice Society of America,Added,SER-01355
+New 52,Arkham Manor,Batman,Added,SER-01356
+New 52,Batman and Robin,Batman,Added,SER-01357
+New 52,"Batman, Incorporated",Batman,Already present,
+New 52,Batwing,Batman,Added,SER-01358
+New 52,Gotham Academy,Batman,Added,SER-01359
+New 52,Gotham by Midnight,Batman,Added,SER-01360
+New 52,Grayson,Nightwing,Added,SER-01361
+New 52,Harley Quinn,Harley Quinn,Added,SER-01362
+New 52,Talon,Batman,Added,SER-01363
+New 52,Superboy,Superboy,Added,SER-01364
+New 52,Green Lantern Corps,Green Lantern,Already present,
+New 52,Green Lantern: New Guardians,Green Lantern,Already present,
+New 52,Larfleeze,Green Lantern,Already present,
+New 52,Red Lanterns,Green Lantern,Already present,
+New 52,Sinestro,Green Lantern,Already present,
+New 52,Blue Beetle,Blue Beetle,Already present,
+New 52,Hawk & Dove,DC Universe,Added,SER-01365
+New 52,Legion Lost,Legion of Super-Heroes,Added,SER-01366
+New 52,Static Shock,Static,Already present,
+New 52,Teen Titans,Robin / Teen Titans,Already present,
+New 52,The Ravagers,Robin / Teen Titans,Added,SER-01367
+New 52,All-Star Western,Jonah Hex,Already present,
+New 52,Blackhawks,Blackhawk,Added,SER-01368
+New 52,Deathstroke,Deathstroke,Already present,
+New 52,G.I. Combat,G.I. Combat,Already present,
+New 52,Grifter,Grifter,Already present,
+New 52,Infinity Man and the Forever People,Mister Miracle / New Gods,Added,SER-01369
+New 52,Lobo,Lobo,Added,SER-01370
+New 52,Men of War,DC Universe,Added,SER-01371
+New 52,New Suicide Squad,Suicide Squad,Already present,
+New 52,O.M.A.C.,OMAC,Already present,
+New 52,Secret Six,Secret Six,Already present,
+New 52,Star-Spangled War Stories Featuring G.I. Zombie,G.I. Combat,Added,SER-01372
+New 52,Stormwatch,Stormwatch,Already present,
+New 52,Suicide Squad,Suicide Squad,Already present,
+New 52,Team 7,DC Universe,Added,SER-01373
+New 52,Threshold,DC Universe,Added,SER-01374
+New 52,Voodoo,DC Universe,Added,SER-01375
+New 52,Animal Man,Animal Man,Already present,
+New 52,Constantine,John Constantine,Added,SER-01376
+New 52,Demon Knights,Etrigan the Demon,Added,SER-01377
+New 52,Dial H,DC Universe,Added,SER-01378
+New 52,"Frankenstein, Agent of S.H.A.D.E.",DC Universe,Added,SER-01379
+New 52,"I, Vampire",DC Universe,Added,SER-01380
+New 52,Justice League Dark,Justice League Dark,Already present,
+New 52,Resurrection Man,DC Universe,Added,SER-01381
+New 52,Swamp Thing,Swamp Thing,Already present,
+New 52,Sword of Sorcery,DC Universe,Added,SER-01382
+New 52,Trinity of Sin,DC Universe,Added,SER-01383
+New 52,Trinity of Sin: The Phantom Stranger,DC Universe,Added,SER-01384
+New 52,Trinity of Sin: Pandora,DC Universe,Added,SER-01385
+New 52,The Movement,DC Universe,Added,SER-01386
+New 52,The Green Team: Teen Trillionaires,DC Universe,Added,SER-01387
+New 52,Forever Evil,Forever Evil,Added,SER-01388
+New 52,Forever Evil: A.R.G.U.S.,Forever Evil,Added,SER-01389
+New 52,Forever Evil: Arkham War,Forever Evil,Added,SER-01390
+New 52,Forever Evil: Rogues Rebellion,Forever Evil,Added,SER-01391
+New 52,Convergence,Convergence,Added,SER-01392
+New 52,Convergence: The Atom,Convergence,Added,SER-01393
+New 52,Convergence: Batgirl,Convergence,Added,SER-01394
+New 52,Convergence: Batman and Robin,Convergence,Added,SER-01395
+New 52,Convergence: Batman and the Outsiders,Convergence,Added,SER-01396
+New 52,Convergence: Batman: Shadow of the Bat,Convergence,Added,SER-01397
+New 52,Convergence: Blue Beetle,Convergence,Added,SER-01398
+New 52,Convergence: Booster Gold,Convergence,Added,SER-01399
+New 52,Convergence: Catwoman,Convergence,Added,SER-01400
+New 52,Convergence: Crime Syndicate,Convergence,Added,SER-01401
+New 52,Convergence: Detective Comics,Convergence,Added,SER-01402
+New 52,Convergence: Green Arrow,Convergence,Added,SER-01403
+New 52,Convergence: Green Lantern Corps,Convergence,Added,SER-01404
+New 52,Convergence: Harley Quinn,Convergence,Added,SER-01405
+New 52,Convergence: Hawkman,Convergence,Added,SER-01406
+New 52,Convergence: Infinity Inc.,Convergence,Added,SER-01407
+New 52,Convergence: Justice League,Convergence,Added,SER-01408
+New 52,Convergence: Justice League America,Convergence,Added,SER-01409
+New 52,Convergence: Justice League International,Convergence,Added,SER-01410
+New 52,Convergence: Nightwing/Oracle,Convergence,Added,SER-01411
+New 52,Convergence: Plastic Man and the Freedom Fighters,Convergence,Added,SER-01412
+New 52,Convergence: Shazam!,Convergence,Added,SER-01413
+New 52,Convergence: Speed Force,Convergence,Added,SER-01414
+New 52,Convergence: Superboy,Convergence,Added,SER-01415
+New 52,Convergence: Supergirl: Matrix,Convergence,Added,SER-01416
+New 52,Convergence: Superman,Convergence,Added,SER-01417
+New 52,Convergence: Swamp Thing,Convergence,Added,SER-01418
+New 52,Convergence: The Adventures of Superman,Convergence,Added,SER-01419
+New 52,Convergence: The Flash,Convergence,Added,SER-01420
+New 52,Convergence: The New Teen Titans,Convergence,Added,SER-01421
+New 52,Convergence: Wonder Woman,Convergence,Added,SER-01422
+New 52,The New 52: Futures End,DC Universe,Added,SER-01423
+New 52,Earth 2: World's End,Justice Society of America,Added,SER-01424
+New 52,The Multiversity,The Multiversity,Already present,
+New 52,Batman Eternal,Batman,Already present,
+New 52,Batman and Robin Eternal,Batman,Already present,
+New 52,Batman: Europa,Batman,Already present,
+New 52,Batman: Endgame,Batman,Added,SER-01425
+New 52,Harley Quinn and Power Girl,Harley Quinn,Added,SER-01426
+New 52,Legends of Tomorrow,DC Universe,Added,SER-01427
+New 52,Before Watchmen: Minutemen,Watchmen Universe,Added,SER-01428
+New 52,Before Watchmen: Silk Spectre,Watchmen Universe,Added,SER-01429
+New 52,Before Watchmen: Comedian,Watchmen Universe,Added,SER-01430
+New 52,Before Watchmen: Nite Owl,Watchmen Universe,Added,SER-01431
+New 52,Before Watchmen: Ozymandias,Watchmen Universe,Added,SER-01432
+New 52,Before Watchmen: Rorschach,Watchmen Universe,Added,SER-01433
+New 52,Before Watchmen: Dr. Manhattan,Watchmen Universe,Added,SER-01434
+New 52,Before Watchmen: Moloch,Watchmen Universe,Added,SER-01435
+New 52,Before Watchmen: Dollar Bill,Watchmen Universe,Added,SER-01436
+New 52,National Comics: Eternity,DC Universe,Added,SER-01437
+New 52,National Comics: Looker,DC Universe,Added,SER-01438
+New 52,National Comics: Madame X,DC Universe,Added,SER-01439
+New 52,National Comics: Rose & Thorn,DC Universe,Added,SER-01440
+New 52,The Ray,DC Universe,Already present,
+New 52,Human Bomb,DC Universe,Added,SER-01441
+New 52,Phantom Lady,DC Universe,Already present,
+New 52,Joe Kubert Presents,DC Universe,Added,SER-01442
+New 52,The Judas Coin,DC Universe,Added,SER-01443
+New 52,Ame-Comi Girls,DC Universe,Added,SER-01444
+New 52,Batman: Arkham Unhinged,Batman,Added,SER-01445
+New 52,Batman '66,Batman,Added,SER-01446
+New 52,Batman '66 Meets the Green Hornet,Batman,Added,SER-01447
+New 52,Batman '66 Meets The Man from U.N.C.L.E.,Batman,Added,SER-01448
+New 52,Batman '66 Meets Wonder Woman '77,Batman,Added,SER-01449
+New 52,Batman '66 Meets the Legion of Super-Heroes,Batman,Added,SER-01450
+New 52,Adventures of Superman,Superman,Already present,
+New 52,Sensation Comics Featuring Wonder Woman,Wonder Woman,Already present,
+New 52,Smallville Season 11,DC Universe,Added,SER-01451
+New 52,Arrow: Season 2.5,DC Universe,Added,SER-01452
+New 52,The Flash: Season Zero,DC Universe,Added,SER-01453
+New 52,Injustice: Gods Among Us,DC Universe,Already present,
+New 52,Injustice: Gods Among Us – Year Two,DC Universe,Added,SER-01454
+New 52,Injustice: Gods Among Us – Year Three,DC Universe,Added,SER-01455
+New 52,Injustice: Gods Among Us – Year Four,DC Universe,Added,SER-01456
+New 52,Injustice: Gods Among Us – Year Five,DC Universe,Added,SER-01457
+New 52,Injustice: Ground Zero,DC Universe,Added,SER-01458
+New 52,He-Man and the Masters of the Universe,Masters of the Universe,Already present,
+New 52,He-Man: The Eternity War,Masters of the Universe,Added,SER-01459
+New 52,DC Universe vs. Masters of the Universe,Masters of the Universe,Added,SER-01460
+DC You,All-Star Section Eight,DC Universe,Added,SER-01461
+DC You,Bat-Mite,Batman,Added,SER-01462
+DC You,Bizarro,Superman,Added,SER-01463
+DC You,Black Canary,Black Canary,Already present,
+DC You,Constantine: The Hellblazer,John Constantine,Added,SER-01464
+DC You,Cyborg,Cyborg,Already present,
+DC You,Doomed,Superman,Added,SER-01465
+DC You,Doctor Fate,Doctor Fate,Already present,
+DC You,Earth 2: Society,Justice Society of America,Added,SER-01466
+DC You,Gotham Academy: Second Semester,Batman,Added,SER-01467
+DC You,Green Lantern Corps: Lost Army,Green Lantern,Added,SER-01468
+DC You,Green Lantern Corps: Edge of Oblivion,Green Lantern,Added,SER-01469
+DC You,Justice League 3001,Justice League,Already present,
+DC You,Martian Manhunter,Martian Manhunter,Already present,
+DC You,Midnighter,Midnighter & Apollo,Already present,
+DC You,The Omega Men,DC Universe,Added,SER-01470
+DC You,Poison Ivy: Cycle of Life and Death,Poison Ivy,Added,SER-01471
+DC You,Prez,Prez,Already present,
+DC You,Red Hood/Arsenal,Red Hood,Added,SER-01472
+DC You,Robin: Son of Batman,Robin / Teen Titans,Added,SER-01473
+DC You,Starfire,Starfire,Added,SER-01474
+DC You,Superman: Lois & Clark,Superman,Added,SER-01475
+DC You,Telos,DC Universe,Added,SER-01476
+DC You,Titans Hunt,Robin / Teen Titans,Added,SER-01477
+DC You,We Are Robin,Robin / Teen Titans,Added,SER-01478
+DC You,Bloodlines,DC Universe,Added,SER-01479
+DC You,Dark Knight III: The Master Race,Batman,Added,SER-01480
+DC You,Suicide Squad Most Wanted: Deadshot and Katana,DC Universe,Added,SER-01481
+DC You,Suicide Squad Most Wanted: El Diablo and Boomerang,DC Universe,Added,SER-01482
+DC You,Gotham Academy/Lumberjanes,Batman,Added,SER-01483
+DC You,Bombshells,DC Universe,Added,SER-01484
+DC You,DC Comics Bombshells,DC Universe,Added,SER-01485
+DC You,DC Comics: Bombshells United,DC Universe,Added,SER-01486
+DC You,The Legend of Wonder Woman,DC Universe,Added,SER-01487
+DC You,Wonder Woman '77,DC Universe,Added,SER-01488
+DC You,Batman: The Adventures Continue,DC Universe,Already present,
+DC You,Scooby Apocalypse,DC Universe,Added,SER-01489
+DC You,Future Quest,DC Universe,Added,SER-01490
+DC You,Future Quest Presents,DC Universe,Added,SER-01491
+DC You,The Flintstones,DC Universe,Added,SER-01492
+DC You,Wacky Raceland,DC Universe,Added,SER-01493
+DC You,The Jetsons,DC Universe,Added,SER-01494
+DC You,Dastardly and Muttley,DC Universe,Added,SER-01495
+DC You,Exit Stage Left: The Snagglepuss Chronicles,DC Universe,Added,SER-01496
+DC You,Ruff and Reddy Show,DC Universe,Added,SER-01497
+Rebirth,Batgirl and the Birds of Prey,Batgirl,Added,SER-01498
+Rebirth,Batman Beyond,Batman,Already present,
+Rebirth,Green Lanterns,Green Lantern,Added,SER-01499
+Rebirth,Hal Jordan and the Green Lantern Corps,Green Lantern,Already present,
+Rebirth,The Hellblazer,John Constantine,Already present,
+Rebirth,New Super-Man,Superman,Added,SER-01500
+Rebirth,New Super-Man and the Justice League of China,Superman,Added,SER-01501
+Rebirth,Super Sons,Superman,Added,SER-01502
+Rebirth,Superwoman,Superman,Added,SER-01503
+Rebirth,Titans,Robin / Teen Titans,Already present,
+Rebirth,Trinity,DC Universe,Added,SER-01504
+Rebirth,DC Universe: Rebirth,DC Universe,Added,SER-01505
+Rebirth,Batman: Night of the Monster Men,Batman,Added,SER-01506
+Rebirth,Justice League vs. Suicide Squad,Justice League,Added,SER-01507
+Rebirth,Batman/The Flash: The Button,Batman,Added,SER-01508
+Rebirth,Superman Reborn,Superman,Added,SER-01509
+Rebirth,Dark Nights: Metal,DC Universe,Added,SER-01510
+Rebirth,Doomsday Clock,Watchmen Universe,Already present,
+Rebirth,Heroes in Crisis,DC Universe,Added,SER-01511
+Rebirth,Batman: The Devastator,Batman,Added,SER-01512
+Rebirth,Batman: The Drowned,Batman,Added,SER-01513
+Rebirth,Batman: The Merciless,Batman,Added,SER-01514
+Rebirth,Batman: The Murder Machine,Batman,Added,SER-01515
+Rebirth,Batman: The Red Death,Batman,Added,SER-01516
+Rebirth,The Batman Who Laughs,Batman,Added,SER-01517
+Rebirth,The Batman Who Laughs: The Grim Knight,Batman,Added,SER-01518
+Rebirth,Batman and the Signal,Batman,Added,SER-01519
+Rebirth,Batman: Prelude to the Wedding,Batman,Added,SER-01520
+Rebirth,Batman: White Knight,Batman,Already present,
+Rebirth,Batman: Creature of the Night,Batman,Already present,
+Rebirth,The Man of Steel,Superman,Already present,
+Rebirth,Action Comics Special,Superman,Added,SER-01521
+Rebirth,Superman Special,Superman,Added,SER-01522
+Rebirth,Adventures of the Super Sons,Superman,Added,SER-01523
+Rebirth,Super Sons of Tomorrow,Superman,Added,SER-01524
+Rebirth,Raven,Raven,Added,SER-01525
+Rebirth,Raven: Daughter of Darkness,Raven,Added,SER-01526
+Rebirth,Plastic Man,Plastic Man,Already present,
+Rebirth,Mister Miracle,Mister Miracle / New Gods,Already present,
+Rebirth,Bug! The Adventures of Forager,DC Universe,Added,SER-01527
+Rebirth,Deadman: Dark Mansion of Forbidden Love,DC Universe,Added,SER-01528
+Rebirth,Mystik U,DC Universe,Added,SER-01529
+Rebirth,Gotham City Garage,DC Universe,Added,SER-01530
+Rebirth,Electric Warriors,DC Universe,Added,SER-01531
+Rebirth,Freedom Fighters,Freedom Fighters,Already present,
+Rebirth,The Wild Storm,DC Universe,Added,SER-01532
+Rebirth,The Wild Storm: Michael Cray,DC Universe,Added,SER-01533
+Rebirth,Damage,DC Universe,Added,SER-01534
+Rebirth,The Curse of Brimstone,DC Universe,Added,SER-01535
+Rebirth,The Immortal Men,DC Universe,Added,SER-01536
+Rebirth,New Challengers,Challengers of the Unknown,Added,SER-01537
+Rebirth,Sideways,DC Universe,Added,SER-01538
+Rebirth,The Silencer,DC Universe,Added,SER-01539
+Rebirth,The Unexpected,DC Universe,Added,SER-01540
+Rebirth,The Terrifics,The Terrifics,Already present,
+Rebirth,Injustice 2,DC Universe,Already present,
+Rebirth,Injustice vs. Masters of the Universe,DC Universe,Added,SER-01541
+Rebirth,Batman/Teenage Mutant Ninja Turtles II,DC Universe,Added,SER-01542
+Rebirth,Batman/Teenage Mutant Ninja Turtles III,DC Universe,Added,SER-01543
+Rebirth,Batman/Elmer Fudd,DC Universe,Added,SER-01544
+Rebirth,DC Meets Hanna-Barbera,DC Universe,Added,SER-01545
+Rebirth,Superman/Top Cat Special,DC Universe,Added,SER-01546
+Rebirth,Flash/Speed Buggy Special,DC Universe,Added,SER-01547
+Rebirth,Green Lantern/Huckleberry Hound Special,DC Universe,Added,SER-01548
+Rebirth,Deathstroke/Yogi Bear Special,DC Universe,Added,SER-01549
+Rebirth,Aquaman/Jabberjaw Special,DC Universe,Added,SER-01550
+Rebirth,Black Lightning/Hong Kong Phooey Special,DC Universe,Added,SER-01551
+Rebirth,Ghosts,DC Universe,Added,SER-01552
+Rebirth,Dog Days of Summer,DC Universe,Added,SER-01553
+Rebirth,Mysteries of Love in Space,DC Universe,Added,SER-01554
+Rebirth,Nuclear Winter Special,DC Universe,Added,SER-01555
+DC Universe,Justice League: No Justice,Justice League,Already present,
+DC Universe,Justice League Odyssey,Justice League Odyssey,Already present,
+DC Universe,Batman and the Outsiders,Batman,Already present,
+DC Universe,Batman: Universe,Batman,Added,SER-01556
+DC Universe,Batman: Pennyworth R.I.P.,Batman,Added,SER-01557
+DC Universe,Batman: Kings of Fear,Batman,Added,SER-01558
+DC Universe,Batman: Last Knight on Earth,Batman,Already present,
+DC Universe,Batman/Superman,Batman,Already present,
+DC Universe,Batman: Curse of the White Knight,Batman,Already present,
+DC Universe,Batman: The Smile Killer,Batman,Added,SER-01559
+DC Universe,Batman: Three Jokers,Batman,Already present,
+DC Universe,Joker: Killer Smile,Batman,Added,SER-01560
+DC Universe,Harleen,Harley Quinn,Added,SER-01561
+DC Universe,Harley Quinn and the Birds of Prey,Harley Quinn,Added,SER-01562
+DC Universe,Superman's Pal Jimmy Olsen,Superman,Added,SER-01563
+DC Universe,Lois Lane,Superman,Added,SER-01564
+DC Universe,Event Leviathan,Superman,Added,SER-01565
+DC Universe,Leviathan Dawn,Superman,Added,SER-01566
+DC Universe,Legion of Super-Heroes,Superman,Already present,
+DC Universe,Wonder Woman: Come Back to Me,Wonder Woman,Added,SER-01567
+DC Universe,Wonder Woman: Dead Earth,Wonder Woman,Already present,
+DC Universe,Wonder Woman: Evolution,Wonder Woman,Added,SER-01568
+DC Universe,The Green Lantern,Green Lantern,Already present,
+DC Universe,The Green Lantern: Blackstars,Green Lantern,Added,SER-01569
+DC Universe,Far Sector,Green Lantern,Already present,
+DC Universe,Flash Forward,The Flash,Added,SER-01570
+DC Universe,The Flash: Fastest Man Alive,The Flash,Added,SER-01571
+DC Universe,Shazam!,Shazam / Captain Marvel,Already present,
+DC Universe,Hawkman,Hawkman,Already present,
+DC Universe,Aquaman: Deep Dives,Aquaman,Added,SER-01572
+DC Universe,Year of the Villain: Hell Arisen,DC Universe,Added,SER-01573
+DC Universe,Dark Nights: Death Metal,DC Universe,Added,SER-01574
+DC Universe,Dark Nights: Death Metal – Legends of the Dark Knights,DC Universe,Added,SER-01575
+DC Universe,Dark Nights: Death Metal – Trinity Crisis,DC Universe,Added,SER-01576
+DC Universe,Dark Nights: Death Metal – Speed Metal,DC Universe,Added,SER-01577
+DC Universe,Dark Nights: Death Metal – Multiverse's End,DC Universe,Added,SER-01578
+DC Universe,Dark Nights: Death Metal – Rise of the New God,DC Universe,Added,SER-01579
+DC Universe,Dark Nights: Death Metal – The Secret Origin,DC Universe,Added,SER-01580
+DC Universe,Dark Nights: Death Metal – The Last Stories of the DC Universe,DC Universe,Added,SER-01581
+DC Universe,Dark Nights: Death Metal – The Last 52: War of the Multiverses,DC Universe,Added,SER-01582
+DC Universe,Generations Shattered,DC Universe,Added,SER-01583
+DC Universe,Generations Forged,DC Universe,Added,SER-01584
+DC Universe,Strange Adventures,DC Universe,Already present,
+DC Universe,The Question: The Deaths of Vic Sage,The Question,Added,SER-01585
+DC Universe,The Other History of the DC Universe,DC Universe,Added,SER-01586
+DC Universe,The Last God,DC Universe,Added,SER-01587
+DC Universe,John Constantine: Hellblazer,John Constantine,Already present,
+DC Universe,Hellblazer: Rise and Fall,John Constantine,Added,SER-01588
+DC Universe,The Dreaming,Sandman,Already present,
+DC Universe,The Dreaming: Waking Hours,Sandman,Added,SER-01589
+DC Universe,House of Whispers,Sandman,Added,SER-01590
+DC Universe,Lucifer,Sandman,Already present,
+DC Universe,Books of Magic,Sandman,Already present,
+DC Universe,Doom Patrol,Doom Patrol,Already present,
+DC Universe,Doom Patrol: Weight of the Worlds,Doom Patrol,Added,SER-01591
+DC Universe,Mother Panic,DC Universe,Added,SER-01592
+DC Universe,Mother Panic: Gotham A.D.,DC Universe,Added,SER-01593
+DC Universe,"Shade, the Changing Girl",DC Universe,Added,SER-01594
+DC Universe,"Shade, the Changing Woman",DC Universe,Added,SER-01595
+DC Universe,Cave Carson Has a Cybernetic Eye,DC Universe,Added,SER-01596
+DC Universe,Cave Carson Has an Interstellar Eye,DC Universe,Added,SER-01597
+DC Universe,Eternity Girl,DC Universe,Added,SER-01598
+DC Universe,Milk Wars,DC Universe,Added,SER-01599
+DC Universe,Young Justice,Young Justice,Already present,
+DC Universe,Wonder Twins,Wonder Twins,Already present,
+DC Universe,Dial H for Hero,DC Universe,Added,SER-01600
+DC Universe,Naomi,DC Universe,Added,SER-01601
+DC Universe,Amethyst,DC Universe,Added,SER-01602
+DC Universe,Naomi: Season Two,DC Universe,Added,SER-01603
+DC Universe,The Batman's Grave,DC Universe,Added,SER-01604
+DC Universe,Batman vs. Ra's al Ghul,DC Universe,Added,SER-01605
+DC Universe,Batman and the Maxx: Arkham Dreams,DC Universe,Added,SER-01606
+DC Universe,Batman/Teenage Mutant Ninja Turtles,DC Universe,Added,SER-01607
+DC Universe,Superman Smashes the Klan,DC Universe,Added,SER-01608
+DC Universe,Superman: Man of Tomorrow,DC Universe,Already present,
+DC Universe,Superman: Red & Blue,DC Universe,Added,SER-01609
+DC Universe,Batman: Black & White,DC Universe,Already present,
+DC Universe,Wonder Woman: Black & Gold,DC Universe,Added,SER-01610
+DC Universe,Harley Quinn: Black + White + Red,DC Universe,Added,SER-01611
+DC Universe,Represent!,DC Universe,Added,SER-01612
+DC Universe,Truth & Justice,DC Universe,Added,SER-01613
+DC Universe,RWBY/Justice League,DC Universe,Added,SER-01614
+DC Universe,RWBY/Justice League: DC/RWBY,DC Universe,Added,SER-01615
+DC Universe,American Vampire 1976,DC Universe,Added,SER-01616
+DC Universe,Basketful of Heads,DC Universe,Added,SER-01617
+DC Universe,The Dollhouse Family,DC Universe,Added,SER-01618
+DC Universe,Daphne Byrne,DC Universe,Added,SER-01619
+DC Universe,"The Low, Low Woods",DC Universe,Added,SER-01620
+DC Universe,Plunge,DC Universe,Added,SER-01621
+DC Universe,Refrigerator Full of Heads,DC Universe,Added,SER-01622
+DC Universe,Soul Plumber,DC Universe,Added,SER-01623
+Future State,Future State: Aquaman,Future State,Added,SER-01624
+Future State,Future State: Batman/Superman,Future State,Added,SER-01625
+Future State,Future State: Catwoman,Future State,Added,SER-01626
+Future State,Future State: Dark Detective,Future State,Added,SER-01627
+Future State,Future State: Gotham,Future State,Added,SER-01628
+Future State,Future State: Green Lantern,Future State,Added,SER-01629
+Future State,Future State: Harley Quinn,Future State,Added,SER-01630
+Future State,Future State: Immortal Wonder Woman,Future State,Added,SER-01631
+Future State,Future State: Justice League,Future State,Added,SER-01632
+Future State,"Future State: Kara Zor-El, Superwoman",Future State,Added,SER-01633
+Future State,Future State: Legion of Super-Heroes,Future State,Added,SER-01634
+Future State,Future State: Nightwing,Future State,Added,SER-01635
+Future State,Future State: Robin Eternal,Future State,Added,SER-01636
+Future State,Future State: Shazam!,Future State,Added,SER-01637
+Future State,Future State: Suicide Squad,Future State,Added,SER-01638
+Future State,Future State: Superman of Metropolis,Future State,Added,SER-01639
+Future State,Future State: Superman vs. Imperious Lex,Future State,Added,SER-01640
+Future State,Future State: Superman/Wonder Woman,Future State,Added,SER-01641
+Future State,Future State: Swamp Thing,Future State,Added,SER-01642
+Future State,Future State: Teen Titans,Future State,Added,SER-01643
+Future State,Future State: The Flash,Future State,Added,SER-01644
+Future State,Future State: The Next Batman,Future State,Added,SER-01645
+Future State,Future State: Wonder Woman,Future State,Added,SER-01646
+Future State,Future State: Wonder Woman: Nubia,Future State,Added,SER-01647
+Infinite Frontier,Infinite Frontier,DC Universe,Added,SER-01648
+Infinite Frontier,Justice League Incarnate,DC Universe,Added,SER-01649
+Infinite Frontier,Dark Crisis on Infinite Earths,DC Universe,Added,SER-01650
+Infinite Frontier,Batman: Urban Legends,Batman,Already present,
+Infinite Frontier,Batman: The Detective,Batman,Already present,
+Infinite Frontier,Batman: Reptilian,Batman,Already present,
+Infinite Frontier,Batman: The Imposter,Batman,Already present,
+Infinite Frontier,Batman: One Dark Knight,Batman,Already present,
+Infinite Frontier,Batman: Killing Time,Batman,Already present,
+Infinite Frontier,Batman: The Knight,Batman,Already present,
+Infinite Frontier,Batman: Fortress,Batman,Added,SER-01651
+Infinite Frontier,Batman: Beyond the White Knight,Batman,Already present,
+Infinite Frontier,Batman Beyond: Neo-Year,Batman,Added,SER-01652
+Infinite Frontier,Batman/Catwoman,Batman,Added,SER-01653
+Infinite Frontier,Batman: Dear Detective,Batman,Added,SER-01654
+Infinite Frontier,Batman vs. Robin,Batman,Added,SER-01655
+Infinite Frontier,Robin & Batman,Batman,Added,SER-01656
+Infinite Frontier,Robin,Batman,Already present,
+Infinite Frontier,I Am Batman,Batman,Added,SER-01657
+Infinite Frontier,Detective Comics: The Tower,Batman,Added,SER-01658
+Infinite Frontier,The Joker,Batman,Added,SER-01659
+Infinite Frontier,The Joker Presents: A Puzzlebox,Batman,Added,SER-01660
+Infinite Frontier,Catwoman: Lonely City,Catwoman,Added,SER-01661
+Infinite Frontier,Nightwing,Nightwing,Already present,
+Infinite Frontier,Batgirls,Batgirls,Added,SER-01662
+Infinite Frontier,Poison Ivy,Poison Ivy,Already present,
+Infinite Frontier,Arkham City: The Order of the World,DC Universe,Added,SER-01663
+Infinite Frontier,Task Force Z,DC Universe,Already present,
+Infinite Frontier,Superman: Son of Kal-El,Superman,Added,SER-01664
+Infinite Frontier,Superman and the Authority,Superman,Added,SER-01665
+Infinite Frontier,Superman '78,Superman,Added,SER-01666
+Infinite Frontier,Superman: Space Age,Superman,Already present,
+Infinite Frontier,Superman: Lost,Superman,Already present,
+Infinite Frontier,World of Krypton,Superman,Added,SER-01667
+Infinite Frontier,The Jurassic League,Superman,Added,SER-01668
+Infinite Frontier,Monkey Prince,Superman,Added,SER-01669
+Infinite Frontier,Batman/Superman: World's Finest,World's Finest (Batman & Superman),Already present,
+Infinite Frontier,Wonder Girl,Wonder Woman,Added,SER-01670
+Infinite Frontier,Nubia & the Amazons,Wonder Woman,Added,SER-01671
+Infinite Frontier,Nubia: Coronation Special,Wonder Woman,Added,SER-01672
+Infinite Frontier,Trial of the Amazons,Wonder Woman,Added,SER-01673
+Infinite Frontier,Trial of the Amazons: Wonder Girl,Wonder Woman,Added,SER-01674
+Infinite Frontier,Artemis: Wanted,Wonder Woman,Added,SER-01675
+Infinite Frontier,Tales of the Amazons,Wonder Woman,Added,SER-01676
+Infinite Frontier,Aquaman: The Becoming,Aquaman,Added,SER-01677
+Infinite Frontier,Aquaman/Green Arrow: Deep Target,Aquaman,Added,SER-01678
+Infinite Frontier,Aquamen,Aquaman,Added,SER-01679
+Infinite Frontier,Aquaman & The Flash: Voidsong,Aquaman,Added,SER-01680
+Infinite Frontier,Green Lantern: War Journal,Green Lantern,Added,SER-01681
+Infinite Frontier,The Flash,The Flash,Already present,
+Infinite Frontier,Flashpoint Beyond,The Flash,Already present,
+Infinite Frontier,Blue Beetle: Graduation Day,Blue Beetle,Added,SER-01682
+Infinite Frontier,Blue & Gold,Blue Beetle,Added,SER-01683
+Infinite Frontier,Black Adam,Black Adam,Added,SER-01684
+Infinite Frontier,Black Manta,Black Manta,Added,SER-01685
+Infinite Frontier,Deathstroke Inc.,Deathstroke,Added,SER-01686
+Infinite Frontier,Teen Titans Academy,Robin / Teen Titans,Already present,
+Infinite Frontier,Titans United,Robin / Teen Titans,Already present,
+Infinite Frontier,Titans United: Bloodpact,Robin / Teen Titans,Added,SER-01687
+Infinite Frontier,Suicide Squad: Get Joker!,Suicide Squad,Added,SER-01688
+Infinite Frontier,Suicide Squad: Blaze,Suicide Squad,Added,SER-01689
+Infinite Frontier,Justice League: Last Ride,Justice League,Already present,
+Infinite Frontier,Justice League vs. The Legion of Super-Heroes,Justice League,Added,SER-01690
+Infinite Frontier,The New Golden Age,Justice Society of America,Already present,
+Infinite Frontier,Stargirl: The Lost Children,Justice Society of America,Added,SER-01691
+Infinite Frontier,DC vs. Vampires,DC Universe,Already present,
+Infinite Frontier,DC vs. Vampires: All-Out War,DC Universe,Already present,
+Infinite Frontier,DC vs. Vampires: Killers,DC Universe,Added,SER-01692
+Infinite Frontier,DC vs. Vampires: Hunters,DC Universe,Added,SER-01693
+Infinite Frontier,DC vs. Vampires: Coffin Edition,DC Universe,Added,SER-01694
+Infinite Frontier,DCeased: War of the Undead Gods,DCeased,Already present,
+Infinite Frontier,Dark Knights of Steel,DC Universe,Added,SER-01695
+Infinite Frontier,The Human Target,DC Universe,Already present,
+Infinite Frontier,Danger Street,DC Universe,Added,SER-01696
+Infinite Frontier,Rogues,DC Universe,Added,SER-01697
+Infinite Frontier,The Nice House on the Lake,DC Universe,Already present,
+Infinite Frontier,Crush & Lobo,DC Universe,Added,SER-01698
+Infinite Frontier,Mister Miracle: The Source of Freedom,DC Universe,Added,SER-01699
+Infinite Frontier,One-Star Squadron,DC Universe,Added,SER-01700
+Infinite Frontier,The Vigil,DC Universe,Added,SER-01701
+Infinite Frontier,Sword of Azrael,DC Universe,Added,SER-01702
+Infinite Frontier,Hardware: Season One,DC Universe,Added,SER-01703
+Infinite Frontier,Icon & Rocket: Season One,Icon and Rocket,Already present,
+Infinite Frontier,Static: Season One,Static,Added,SER-01704
+Infinite Frontier,Duo,DC Universe,Added,SER-01705
+Infinite Frontier,Blood Syndicate: Season One,DC Universe,Added,SER-01706
+Infinite Frontier,Static: Shadows of Dakota,Static,Already present,
+Infinite Frontier,Icon vs. Hardware,DC Universe,Added,SER-01707
+Infinite Frontier,Batman: The Audio Adventures,DC Universe,Added,SER-01708
+Infinite Frontier,Batman: The Adventures Continue Season Two,DC Universe,Added,SER-01709
+Infinite Frontier,Batman '89,DC Universe,Added,SER-01710
+Infinite Frontier,The Batman & Scooby-Doo Mysteries,DC Universe,Added,SER-01711
+Infinite Frontier,Batman/Fortnite: Zero Point,DC Universe,Added,SER-01712
+Infinite Frontier,Batman/Fortnite: Foundation,DC Universe,Added,SER-01713
+Infinite Frontier,Batman: Wayne Family Adventures,DC Universe,Added,SER-01714
+Infinite Frontier,Dark Crisis: Young Justice,DC Universe,Added,SER-01715
+Infinite Frontier,Dark Crisis: Worlds Without a Justice League – Batman,DC Universe,Added,SER-01716
+Infinite Frontier,Dark Crisis: Worlds Without a Justice League – Green Arrow,DC Universe,Added,SER-01717
+Infinite Frontier,Dark Crisis: Worlds Without a Justice League – Green Lantern,DC Universe,Added,SER-01718
+Infinite Frontier,Dark Crisis: Worlds Without a Justice League – Superman,DC Universe,Added,SER-01719
+Infinite Frontier,Dark Crisis: Worlds Without a Justice League – Wonder Woman,DC Universe,Added,SER-01720
+Infinite Frontier,Dark Crisis: The Deadly Green,DC Universe,Added,SER-01721
+Infinite Frontier,Dark Crisis: The Dark Army,DC Universe,Added,SER-01722
+Infinite Frontier,Dark Crisis: War Zone,DC Universe,Added,SER-01723
+Infinite Frontier,Lazarus Planet: Alpha,DC Universe,Added,SER-01724
+Infinite Frontier,Lazarus Planet: Omega,DC Universe,Added,SER-01725
+Infinite Frontier,Lazarus Planet: Assault on Krypton,DC Universe,Added,SER-01726
+Infinite Frontier,Lazarus Planet: Dark Fate,DC Universe,Added,SER-01727
+Infinite Frontier,Lazarus Planet: Legends Reborn,DC Universe,Added,SER-01728
+Infinite Frontier,Lazarus Planet: Next Evolution,DC Universe,Added,SER-01729
+Infinite Frontier,Lazarus Planet: We Once Were Gods,DC Universe,Added,SER-01730
+Dawn of DC,Superman,Superman,Already present,
+Dawn of DC,Adventures of Superman: Jon Kent,Superman,Added,SER-01731
+Dawn of DC,Steelworks,Superman,Added,SER-01732
+Dawn of DC,Superboy: The Man of Tomorrow,Superman,Added,SER-01733
+Dawn of DC,Power Girl,Superman,Already present,
+Dawn of DC,Fire & Ice: Welcome to Smallville,Superman,Added,SER-01734
+Dawn of DC,Wonder Woman,Wonder Woman,Already present,
+Dawn of DC,Amazons Attack,Wonder Woman,Added,SER-01735
+Dawn of DC,Wonder Woman: Outlaw Edition,Wonder Woman,Added,SER-01736
+Dawn of DC,Sinister Sons,Green Lantern,Added,SER-01737
+Dawn of DC,Green Arrow,Green Arrow,Already present,
+Dawn of DC,Hawkgirl,Hawkgirl,Added,SER-01738
+Dawn of DC,Birds of Prey,Birds of Prey,Already present,
+Dawn of DC,Tales of the Titans,Robin / Teen Titans,Added,SER-01739
+Dawn of DC,Outsiders,The Outsiders,Already present,
+Dawn of DC,The Brave and the Bold,Batman,Already present,
+Dawn of DC,Batman: Gargoyle of Gotham,Batman,Already present,
+Dawn of DC,Batman: Off-World,Batman,Already present,
+Dawn of DC,Batman: City of Madness,Batman,Added,SER-01740
+Dawn of DC,Batman: The Adventures Continue Season Three,Batman,Added,SER-01741
+Dawn of DC,The Penguin,Batman,Added,SER-01742
+Dawn of DC,Gotham City: Year One,Batman,Added,SER-01743
+Dawn of DC,Gotham War,Batman,Added,SER-01744
+Dawn of DC,Batman/Catwoman: The Gotham War – Battle Lines,Batman,Added,SER-01745
+Dawn of DC,Batman/Catwoman: The Gotham War – Scorched Earth,Batman,Added,SER-01746
+Dawn of DC,Batman/Catwoman: The Gotham War: Red Hood,Batman,Added,SER-01747
+Dawn of DC,The Riddler: Year One,Batman,Added,SER-01748
+Dawn of DC,Joker: The Man Who Stopped Laughing,Batman,Added,SER-01749
+Dawn of DC,Peacemaker Tries Hard!,Peacemaker,Added,SER-01750
+Dawn of DC,Unstoppable Doom Patrol,Doom Patrol,Added,SER-01751
+Dawn of DC,Spirit World,DC Universe,Added,SER-01752
+Dawn of DC,City Boy,DC Universe,Added,SER-01753
+Dawn of DC,Knight Terrors,DC Universe,Added,SER-01754
+Dawn of DC,Knight Terrors: First Blood,DC Universe,Added,SER-01755
+Dawn of DC,Knight Terrors: Night's End,DC Universe,Added,SER-01756
+Dawn of DC,Knight Terrors: Action Comics,DC Universe,Added,SER-01757
+Dawn of DC,Knight Terrors: Angel Breaker,DC Universe,Added,SER-01758
+Dawn of DC,Knight Terrors: Batman,DC Universe,Added,SER-01759
+Dawn of DC,Knight Terrors: Black Adam,DC Universe,Added,SER-01760
+Dawn of DC,Knight Terrors: Catwoman,DC Universe,Added,SER-01761
+Dawn of DC,Knight Terrors: Detective Comics,DC Universe,Added,SER-01762
+Dawn of DC,Knight Terrors: Green Lantern,DC Universe,Added,SER-01763
+Dawn of DC,Knight Terrors: Harley Quinn,DC Universe,Added,SER-01764
+Dawn of DC,Knight Terrors: Nightwing,DC Universe,Added,SER-01765
+Dawn of DC,Knight Terrors: Poison Ivy,DC Universe,Added,SER-01766
+Dawn of DC,Knight Terrors: Punchline,DC Universe,Added,SER-01767
+Dawn of DC,Knight Terrors: Ravager,DC Universe,Added,SER-01768
+Dawn of DC,Knight Terrors: Robin,DC Universe,Added,SER-01769
+Dawn of DC,Knight Terrors: Shazam!,DC Universe,Added,SER-01770
+Dawn of DC,Knight Terrors: Superman,DC Universe,Added,SER-01771
+Dawn of DC,Knight Terrors: The Flash,DC Universe,Added,SER-01772
+Dawn of DC,Knight Terrors: The Joker,DC Universe,Added,SER-01773
+Dawn of DC,Knight Terrors: Titans,DC Universe,Added,SER-01774
+Dawn of DC,Knight Terrors: Wonder Woman,DC Universe,Added,SER-01775
+Dawn of DC,Knight Terrors: Zatanna,DC Universe,Added,SER-01776
+Dawn of DC,Titans: Beast World,Robin / Teen Titans,Already present,
+Dawn of DC,Titans: Beast World: Waller Rising,Robin / Teen Titans,Added,SER-01777
+Dawn of DC,Titans: Beast World Tour: Atlantis,Robin / Teen Titans,Added,SER-01778
+Dawn of DC,Titans: Beast World Tour: Central City,Robin / Teen Titans,Added,SER-01779
+Dawn of DC,Titans: Beast World Tour: Gotham,Robin / Teen Titans,Added,SER-01780
+Dawn of DC,Titans: Beast World Tour: Metropolis,Robin / Teen Titans,Added,SER-01781
+Dawn of DC,Titans: Beast World Tour: Star City,Robin / Teen Titans,Added,SER-01782
+Dawn of DC,Superman: House of Brainiac Special,Superman,Added,SER-01783
+Dawn of DC,Suicide Squad: Dream Team,DC Universe,Added,SER-01784
+Dawn of DC,Absolute Power,DC Universe,Added,SER-01785
+Dawn of DC,Absolute Power: Ground Zero,DC Universe,Added,SER-01786
+Dawn of DC,Absolute Power: Origins,DC Universe,Added,SER-01787
+Dawn of DC,Absolute Power: Super Son,DC Universe,Added,SER-01788
+Dawn of DC,Absolute Power: Task Force VII,DC Universe,Added,SER-01789
+Dawn of DC,Waller vs. Wildstorm,DC Universe,Added,SER-01790
+Dawn of DC,The Sandman Universe: Nightmare Country,DC Universe,Added,SER-01791
+Dawn of DC,The Sandman Universe: Nightmare Country – The Glass House,DC Universe,Added,SER-01792
+Dawn of DC,Wesley Dodds: The Sandman,DC Universe,Added,SER-01793
+Dawn of DC,Jay Garrick: The Flash,DC Universe,Added,SER-01794
+Dawn of DC,Alan Scott: The Green Lantern,DC Universe,Added,SER-01795
+Dawn of DC,Speed Force,DC Universe,Added,SER-01796
+Dawn of DC,The Flash: One-Minute War Special,DC Universe,Added,SER-01797
+Dawn of DC,Batman/Santa Claus: Silent Knight,DC Universe,Added,SER-01798
+Dawn of DC,Batman/Santa Claus: Silent Knight Returns,DC Universe,Added,SER-01799
+Dawn of DC,Batman/Dylan Dog,DC Universe,Added,SER-01800
+Dawn of DC,Justice League vs. Godzilla vs. Kong,DC Universe,Added,SER-01801
+Dawn of DC,Justice League vs. Godzilla vs. Kong 2,DC Universe,Added,SER-01802
+Dawn of DC,Kneel Before Zod,DC Universe,Added,SER-01803
+Dawn of DC,The Boy Wonder,DC Universe,Added,SER-01804
+Dawn of DC,"John Constantine, Hellblazer: Dead in America",DC Universe,Added,SER-01805
+Dawn of DC,The Nice House by the Sea,DC Universe,Already present,
+Dawn of DC,Plastic Man No More!,DC Universe,Added,SER-01806
+DC All In,DC All In Special,DC Universe,Added,SER-01807
+DC All In,Justice League Unlimited,Justice League,Added,SER-01808
+DC All In,JSA,Justice Society of America,Already present,
+DC All In,Batman,Batman,Already present,
+DC All In,Batgirl,Batman,Already present,
+DC All In,Batwoman,Batman,Already present,
+DC All In,Batman and Robin: Year One,Batman,Added,SER-01809
+DC All In,Batman: Dark Patterns,Batman,Added,SER-01810
+DC All In,Batman: Full Moon,Batman,Added,SER-01811
+DC All In,Batman: The Long Halloween – The Last Halloween,Batman,Added,SER-01812
+DC All In,Batman: Resurrection,Batman,Added,SER-01813
+DC All In,Batman: The Last Halloween,Batman,Added,SER-01814
+DC All In,Batman '89: Echoes,Batman,Added,SER-01815
+DC All In,From the DC Vault: Death in the Family: Robin Lives!,Batman,Added,SER-01816
+DC All In,Gotham by Gaslight: The Kryptonian Age,Batman,Added,SER-01817
+DC All In,Two-Face,Batman,Added,SER-01818
+DC All In,The Question: All Along the Watchtower,Batman,Added,SER-01819
+DC All In,Catwoman,Catwoman,Already present,
+DC All In,Deathstroke the Terminator,Deathstroke,Already present,
+DC All In,Superman Unlimited,Superman,Added,SER-01820
+DC All In,Supergirl,Superman,Already present,
+DC All In,Supergirl: Woman of Tomorrow,Superman,Added,SER-01821
+DC All In,Supergirl: Survive,Superman,Added,SER-01822
+DC All In,Superman: Father of Tomorrow,Superman,Added,SER-01823
+DC All In,Adventures of Superman: Book of El,Superman,Added,SER-01824
+DC All In,Krypto: The Last Dog of Krypton,Superman,Added,SER-01825
+DC All In,Trinity: Daughter of Wonder Woman,Wonder Woman,Added,SER-01826
+DC All In,Green Lantern Dark,Green Lantern,Added,SER-01827
+DC All In,Aquaman,Aquaman,Already present,
+DC All In,Emperor Aquaman,Aquaman,Added,SER-01828
+DC All In,Metamorpho: The Element Man,Metamorpho,Added,SER-01829
+DC All In,Zatanna,Zatanna,Already present,
+DC All In,Zatanna: Bring Down the House,Zatanna,Added,SER-01830
+DC All In,Black Canary: Best of the Best,Black Canary,Added,SER-01831
+DC All In,The Fury of Firestorm,Firestorm,Already present,
+DC All In,Challengers of the Unknown,DC Universe,Already present,
+DC All In,The New Gods,DC Universe,Already present,
+DC All In,The Power Company: Recharged,DC Universe,Added,SER-01832
+DC All In,The Deadman,DC Universe,Added,SER-01833
+DC All In,Clayface: Celebrity Dirt,DC Universe,Added,SER-01834
+DC All In,Bizarro: Year None,DC Universe,Added,SER-01835
+DC All In,Gotham Academy: First Year,DC Universe,Added,SER-01836
+DC All In,Dark Knights of Steel II,DC Universe,Added,SER-01837
+DC All In,Barbara Gordon: Breakout,Batgirl,Added,SER-01838
+DC All In,New Titans,Robin / Teen Titans,Added,SER-01839
+DC All In,DC Horror Presents,DC Universe,Added,SER-01840
+DC All In,DC Horror Presents: Creature Commandos,DC Universe,Added,SER-01841
+DC All In,DC vs. Vampires: World War V,DC Universe,Added,SER-01842
+DC All In,DC K.O.,DC Universe,Added,SER-01843
+DC All In,DC K.O.: Knightfight,DC Universe,Added,SER-01844
+DC All In,DC K.O.: Superman vs. Captain Atom,DC Universe,Added,SER-01845
+DC All In,DC K.O.: Red Hood vs. Joker,DC Universe,Added,SER-01846
+DC All In,DC K.O.: Harley Quinn vs. Zatanna,DC Universe,Added,SER-01847
+DC All In,The New History of the DC Universe,DC Universe,Added,SER-01848
+DC All In,Resurrection Man: Quantum Karma,DC Universe,Added,SER-01849
+DC All In,Mr. Terrific: Year One,DC Universe,Added,SER-01850
+DC All In,Immortal Legend Batman,DC Universe,Added,SER-01851
+DC All In,Batman: Gotham by Gaslight – A League for Justice,DC Universe,Added,SER-01852
+DC All In,Batman/Green Arrow/The Question: Arcadia,DC Universe,Added,SER-01853
+DC All In,Cheetah and Cheshire Rob the Justice League,DC Universe,Added,SER-01854
+DC All In,Red Hood,DC Universe,Added,SER-01855
+DC All In,Harley and Ivy: Life and Crimes,DC Universe,Added,SER-01856
+Absolute Universe,Absolute Batman,Absolute Universe (2024 relaunch),Already present,
+Absolute Universe,Absolute Superman,Absolute Universe (2024 relaunch),Already present,
+Absolute Universe,Absolute Wonder Woman,Absolute Universe (2024 relaunch),Already present,
+Absolute Universe,Absolute Flash,Absolute Universe (2024 relaunch),Added,SER-01857
+Absolute Universe,Absolute Green Lantern,Absolute Universe (2024 relaunch),Added,SER-01858
+Absolute Universe,Absolute Martian Manhunter,Absolute Universe (2024 relaunch),Added,SER-01859
+Absolute Universe,Absolute Evil,Absolute Universe (2024 relaunch),Added,SER-01860
+Absolute Universe,Absolute Catwoman,Absolute Universe (2024 relaunch),Added,SER-01861
+Absolute Universe,Absolute Green Arrow,Absolute Universe (2024 relaunch),Added,SER-01862
+Current / Vertigo,100 Bullets: The US of Anger,100 Bullets,Added,SER-01863
+Current / Vertigo,Bleeding Hearts,Vertigo / Black Label,Added,SER-01864
+Current / Vertigo,End of Life,Vertigo / Black Label,Added,SER-01865
+Current / Licensed,DC x Sonic the Hedgehog,DC Universe,Added,SER-01866
+Current / Licensed,DC x Sonic the Hedgehog: The Metal Legion,DC Universe,Added,SER-01867

@@ -1,8 +1,14 @@
-2NC Authority Suite v3.9 Preflight
+2NC Authority Suite v4.5 preflight
 
-PASS - JavaScript syntax checks
-PASS - Version references synchronized to 3.9.0
-PASS - Instrument preview uses orange side strip
-PASS - Instrument print output uses orange side strip
-PASS - Full four-sided cut-guide overlay added to every 6 x 4 instrument tag
-PASS - Existing databases and other label modes retained
+PASS — version: 4.5.0
+PASS — music records: 4,606
+PASS — comic records: 2,576
+PASS — unique comic IDs: 2,576
+PASS — publishing-line assignments: 123
+PASS — publishing lines: 14
+PASS — index.html and 404.html are identical
+PASS — all JavaScript files pass syntax validation
+PASS — browser print uses publishing line before publishing era
+PASS — PDF output uses publishing line before publishing era
+PASS — exact comic label remains 3.50 × 0.675 inches
+PASS — era, PDF sharing, Print Station, calibration, and synchronization code preserved

@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=3.4.0">
+  <link rel="stylesheet" href="styles.css?v=4.5.0">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <h1>Authority Suite</h1>
     <p id="startupMessage">Starting application…</p>
     <div class="startupProgress"><span id="startupBar"></span></div>
-    <small id="startupVersion">v3.4.0</small>
+    <small id="startupVersion">v4.5.0</small>
   </div>
 </div>
 <div id="fatalError" class="fatalError hidden" role="alert">
@@ -39,6 +39,8 @@
       <button data-mode="cd"><span>◌</span>CD</button>
       <button data-mode="comic"><span>▤</span>Comics</button>
       <button data-mode="instrument"><span>♬</span>Tags</button>
+      <button data-mode="treasure"><span>✦</span>Treasures</button>
+      <button data-mode="station"><span>▣</span>Print Station</button>
       <button data-mode="manager"><span>⚙</span>Authority</button>
     </nav>
     <button id="aboutBtn" class="sideUtility">ⓘ About</button>
@@ -47,7 +49,7 @@
     <div><h1 id="pageTitle">Vinyl Dividers</h1><p id="pageSub">Search the internal Music Authority</p></div>
     <div class="topStatus">
       <button id="debugBadge" class="debugBadge" hidden>Debug</button>
-      <div class="versionBadge" id="versionBadge">v3.4.0</div>
+      <div class="versionBadge" id="versionBadge">v4.5.0</div>
       <div class="dbStatus" id="dbStatus">Loading databases…</div>
       <div class="queuePill" id="queuePill">0 queued</div>
     </div>
@@ -66,6 +68,7 @@
     </section>
     <section class="panel previewPanel">
       <div class="panelTitle"><span>Live preview</span><span id="dimensionText">5 × 0.675 in</span></div>
+      <label id="eraToggleWrap" class="eraToggle hidden"><input id="showComicEra" type="checkbox" checked><span>Show publishing era or imprint on comic labels</span></label>
       <div class="previewStage"><div id="labelPreview" class="label vinylLabel"><strong>Select a record</strong></div></div>
       <div id="selectedDetails" class="selectedDetails">Tap a result to preview it.</div>
       <button id="addSelected" class="primaryButton" disabled>Add selected to queue</button>
@@ -75,7 +78,9 @@
       <div class="panelTitle"><span>Print queue</span><button id="clearQueue">Clear</button></div>
       <div id="queue" class="queue"></div>
       <div class="queueActions">
-        <button id="printBtn" class="primaryButton">Print / Save PDF</button>
+        <button id="printBtn" class="primaryButton">Print now</button>
+        <button id="sharePdfBtn" class="secondaryButton">Share print-ready PDF</button>
+        <button id="sendStationBtn" class="secondaryButton stationSendButton">Send to Print Station</button>
         <button id="calibrationBtn" class="secondaryButton">Print calibration page</button>
         <button id="customBtn" class="secondaryButton">Create custom label</button>
       </div>
@@ -94,9 +99,23 @@
         <div class="selectedDetails">The preview updates as you type.</div>
       </section>
     </section>
+    <section class="treasurePanel hidden" id="treasurePanel">
+      <section class="panel treasureForm">
+        <div class="panelTitle"><span>Create 2NC Treasures tag</span><span>3.5 × 5 in</span></div>
+        <p class="instrumentHelper">Enter the product name exactly as it should print.</p>
+        <label>Product name<textarea id="treasureProductInput" rows="7" placeholder="TITANTRON LIVE
+ACTION FIGURES"></textarea></label>
+        <button id="addTreasureTag" class="primaryButton">Add tag to queue</button>
+      </section>
+      <section class="panel treasurePreviewPanel">
+        <div class="panelTitle"><span>Live preview</span><span>3.5 × 5 in</span></div>
+        <div class="treasurePreviewWrap"><div id="treasurePreview" class="treasureTag"><div class="treasureHeaderGenerated" aria-label="2nd & Charles Treasures"><div class="treasureBrand"><span class="treasure2nd">2ND</span><span class="treasureAnd">&amp; CHARLES</span></div><div class="treasureWord">TREASURES</div></div><div class="treasureProduct">TITANTRON LIVE<br>ACTION<br>FIGURES</div></div></div>
+        <div class="selectedDetails">The preview updates as you type.</div>
+      </section>
+    </section>
     <section class="managerPanel hidden" id="managerPanel">
       <div class="managerToolbar">
-        <div><h2>Authority Manager</h2><p>The app database is the source of truth. Excel is optional.</p></div>
+        <div><h2>Authority Manager</h2><p>Edit locally, then synchronize the source of truth through GitHub.</p></div>
         <div class="managerActions">
           <button id="newAuthority" class="primaryButton">＋ New authority</button>
           <button id="exportBackup" class="secondaryButton">Export backup</button>
@@ -104,20 +123,45 @@
           <button id="repairDatabase" class="secondaryButton">Repair bundled data</button>
         </div>
       </div>
+      <section class="syncBar" aria-label="GitHub synchronization">
+        <div><strong>GitHub Sync</strong><span id="syncStatus">Not connected</span></div>
+        <div class="syncActions"><button id="syncSettings" class="secondaryButton">Connection</button><button id="syncPull" class="secondaryButton">Pull latest</button><button id="syncPush" class="primaryButton">Publish changes</button></div>
+      </section>
       <div class="managerGrid">
         <section class="panel managerList"><div class="managerFilters"><select id="managerDataset"><option value="music">Music Authority</option><option value="comic">Comic Authority</option></select><input id="managerSearch" placeholder="Search records..."><select id="managerStatus"><option value="active">Active</option><option value="retired">Retired</option><option value="all">All</option></select></div><div id="managerCount" class="resultMeta"></div><div id="managerResults" class="results"></div></section>
-        <section class="panel editorPanel"><div id="editorEmpty" class="empty">Select a record or create a new authority.</div><form id="authorityForm" class="hidden"><input type="hidden" id="editId"><label>Display name<input id="editDisplay" required></label><label id="nameField">Filing / artist name<input id="editName"></label><label id="parentField" class="hidden">Parent authority<input id="editParent"></label><label id="seriesField" class="hidden">Series title<input id="editSeries"></label><label id="printTitleField" class="hidden">Printed divider title<input id="editPrintTitle"><small>Printed exactly as entered. The generator will not remove character names or punctuation.</small></label><div class="twoCol"><label>Type<input id="editType"></label><label>Divider level<select id="editLevel"><option>Primary</option><option>Essential</option><option>Recommended</option><option>Optional</option><option>Reference Only</option></select></label></div><div class="twoCol"><label id="genreField">Primary genre<input id="editGenre"></label><label id="publisherField" class="hidden">Publisher<input id="editPublisher"></label></div><div class="twoCol" id="musicDescriptorFields"><label>Primary subgenre<input id="editPrimarySubgenre"></label><label>Secondary subgenre<input id="editSecondarySubgenre"></label></div><label>Notes<textarea id="editNotes" rows="5"></textarea></label><div class="editorActions"><button type="submit" class="primaryButton">Save record</button><button type="button" id="retireRecord" class="secondaryButton">Retire</button><button type="button" id="deleteRecord" class="dangerButton">Delete</button></div></form></section>
+        <section class="panel editorPanel"><div id="editorEmpty" class="empty">Select a record or create a new authority.</div><form id="authorityForm" class="hidden"><input type="hidden" id="editId"><label>Display name<input id="editDisplay" required></label><label id="nameField">Filing / artist name<input id="editName"></label><label id="parentField" class="hidden">Parent authority<input id="editParent"></label><label id="seriesField" class="hidden">Series title<input id="editSeries"></label><label id="printTitleField" class="hidden">Printed divider title<input id="editPrintTitle"><small>Printed exactly as entered. The generator will not remove character names or punctuation.</small></label><label id="publishingEraField" class="hidden">Publishing era<select id="editPublishingEra"><option value="">None</option><option>The New 52</option><option>DC You</option><option>Rebirth</option><option>DC Universe</option><option>Future State</option><option>Infinite Frontier</option><option>Dawn of DC</option><option>DC All In</option><option>Absolute Universe</option></select></label><label id="publishingLineField" class="hidden">Publishing line / imprint<select id="editPublishingLine"><option value="">None</option><option>Vertigo</option><option>Black Label</option><option>Young Animal</option><option>Sandman Universe</option><option>Milestone</option><option>WildStorm</option><option>Elseworlds</option><option>Hill House Comics</option><option>Wonder Comics</option><option>America's Best Comics</option><option>All-Star</option><option>Impact</option><option>Hanna-Barbera Beyond</option><option>DC Horror</option></select><small>When present, this marker takes priority over the publishing era on the printed label.</small></label><div class="twoCol"><label>Type<input id="editType"></label><label>Divider level<select id="editLevel"><option>Primary</option><option>Essential</option><option>Recommended</option><option>Optional</option><option>Reference Only</option></select></label></div><div class="twoCol"><label id="genreField">Primary genre<input id="editGenre"></label><label id="publisherField" class="hidden">Publisher<input id="editPublisher"></label></div><div class="twoCol" id="musicDescriptorFields"><label>Primary subgenre<input id="editPrimarySubgenre"></label><label>Secondary subgenre<input id="editSecondarySubgenre"></label></div><label>Notes<textarea id="editNotes" rows="5"></textarea></label><div class="editorActions"><button type="submit" class="primaryButton">Save record</button><button type="button" id="retireRecord" class="secondaryButton">Retire</button><button type="button" id="deleteRecord" class="dangerButton">Delete</button></div></form></section>
       </div>
     </section>
+    <section class="stationPanel hidden" id="stationPanel">
+      <div class="stationToolbar">
+        <div><h2>Print Station</h2><p>Receive label jobs from phones and iPads, then print them from this computer.</p></div>
+        <div class="stationActions">
+          <span id="stationConnection" class="stationConnection">Not connected</span>
+          <button id="stationRefresh" class="secondaryButton">Refresh</button>
+          <button id="stationConnectionBtn" class="primaryButton">Connection</button>
+        </div>
+      </div>
+      <div class="stationSummary" id="stationSummary">
+        <div><strong id="pendingJobCount">0</strong><span>Waiting</span></div>
+        <div><strong id="printingJobCount">0</strong><span>In progress</span></div>
+        <div><strong id="completedJobCount">0</strong><span>Completed recently</span></div>
+        <small id="stationUpdated">Open the connection to get started.</small>
+      </div>
+      <div id="stationJobs" class="stationJobs"><div class="empty">No print jobs loaded.</div></div>
+    </section>
   </main>
-  <nav class="mobileNav" id="mobileNav"><button data-mode="vinyl" class="active">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="manager">Data</button></nav>
+  <nav class="mobileNav" id="mobileNav"><button data-mode="vinyl" class="active">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="treasure">Treasures</button><button data-mode="station">Station</button><button data-mode="manager">Data</button></nav>
 </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=3.4.0"></script>
-<script src="js/logger.js?v=3.4.0"></script>
-<script src="js/db.js?v=3.4.0"></script>
-<script src="js/labels.js?v=3.4.0"></script>
-<script src="js/ui.js?v=3.4.0"></script>
-<script src="app.js?v=3.4.0"></script>
+<script src="js/config.js?v=4.5.0"></script>
+<script src="js/logger.js?v=4.5.0"></script>
+<script src="js/db.js?v=4.5.0"></script>
+<script src="js/sync.js?v=4.5.0"></script>
+<script src="js/print-station.js?v=4.5.0"></script>
+<script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
+<script src="js/pdf.js?v=4.5.0"></script>
+<script src="js/labels.js?v=4.5.0"></script>
+<script src="js/ui.js?v=4.5.0"></script>
+<script src="app.js?v=4.5.0"></script>
 </body>
 </html>

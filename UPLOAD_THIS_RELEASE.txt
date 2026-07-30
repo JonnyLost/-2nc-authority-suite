@@ -1,7 +1,9 @@
-UPLOAD 2NC AUTHORITY SUITE v3.9
+2NC AUTHORITY SUITE v4.5 UPLOAD
 
-1. Upload every file and folder in this directory to the repository root.
-2. Commit the changes to main.
-3. Wait for GitHub Pages to publish.
-4. Open: https://jonnylost.github.io/-2nc-authority-suite/?v=3.8
-5. Refresh once, then fully reopen any installed Home Screen app.
+1. Upload every file and folder in this release to the repository root.
+2. Replace the existing files when GitHub asks.
+3. Wait for GitHub Pages to finish deploying.
+4. Open: https://jonnylost.github.io/-2nc-authority-suite/?v=4.5
+5. Fully close and reopen the installed PWA on each device.
+
+The first v4.5 launch refreshes the offline cache and merges the new publishing-line fields into the existing authority database while preserving local edits.
