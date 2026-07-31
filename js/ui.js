@@ -15,7 +15,7 @@
   };
 
   const state = {
-    mode: 'vinyl', selected: null, query: '', level: '', category: '', sort: 'name',
+    mode: 'vinyl', selected: null, query: '', level: '', category: '', comicType: '', sort: 'name',
     queue: JSON.parse(localStorage.getItem('2ncQueue') || '[]'),
     music: [], comic: [], managerDataset: 'music', managerSelected: null,
     stationJobs: [], stationTimer: null, stationBusy: false, editingQueueIndex: null,
@@ -67,7 +67,8 @@
       : [row.name, row.display, row.genre, row.primarySubgenre || row.subgenre, row.secondarySubgenre, row.type].join(' ');
     return (!query || haystack.toLowerCase().includes(query))
       && (!state.level || row.level === state.level)
-      && (!state.category || recordCategory(row) === state.category);
+      && (!state.category || recordCategory(row) === state.category)
+      && (state.mode !== 'comic' || !state.comicType || (state.comicType === 'primary' ? Boolean(row.primary) : !row.primary));
   }
 
   function renderResults() {
@@ -194,6 +195,9 @@
   function populateCategoryFilter() {
     const select = $('#categoryFilter'); if (!select) return;
     const comic = state.mode === 'comic';
+    show('#comicTypeFilter', comic);
+    const comicType = $('#comicTypeFilter');
+    if (comicType) comicType.value = comic ? state.comicType : '';
     const values = Array.from(new Set(currentData().map(recordCategory).filter(Boolean))).sort((a, b) => a.localeCompare(b));
     select.innerHTML = `<option value="">${comic ? 'All publishers' : 'All genres'}</option>` + values.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join('');
     select.value = state.category;
@@ -207,7 +211,7 @@
 
   function setMode(mode) {
     if (!profiles[mode]) return;
-    state.mode = mode; state.selected = null; state.editingQueueIndex = null; state.query = ''; state.level = ''; state.category = ''; state.sort = 'name';
+    state.mode = mode; state.selected = null; state.editingQueueIndex = null; state.query = ''; state.level = ''; state.category = ''; state.comicType = ''; state.sort = 'name';
     const profile = profiles[mode];
     text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#dimensionText', profile.dim);
     $$('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode === mode));
@@ -544,8 +548,9 @@
     on('#searchInput', 'input', event => { state.query = event.target.value; renderResults(); });
     on('#levelFilter', 'change', event => { state.level = event.target.value; renderResults(); });
     on('#categoryFilter', 'change', event => { state.category = event.target.value; renderResults(); });
+    on('#comicTypeFilter', 'change', event => { state.comicType = event.target.value; state.selected = null; state.editingQueueIndex = null; renderResults(); renderPreview(); });
     on('#sortFilter', 'change', event => { state.sort = event.target.value; renderResults(); });
-    on('#clearSearch', 'click', () => { state.query = ''; state.level = ''; state.category = ''; state.sort = 'name'; if ($('#searchInput')) $('#searchInput').value = ''; if ($('#levelFilter')) $('#levelFilter').value = ''; populateCategoryFilter(); renderResults(); });
+    on('#clearSearch', 'click', () => { state.query = ''; state.level = ''; state.category = ''; state.comicType = ''; state.sort = 'name'; if ($('#searchInput')) $('#searchInput').value = ''; if ($('#levelFilter')) $('#levelFilter').value = ''; if ($('#comicTypeFilter')) $('#comicTypeFilter').value = ''; populateCategoryFilter(); renderResults(); renderPreview(); });
     on('#addSelected', 'click', addSelected); on('#addAll', 'click', addAll); on('#addHierarchy', 'click', addHierarchy);
     on('#showComicAuthority', 'change', event => { state.showComicAuthority = event.target.checked; localStorage.setItem('2ncShowComicAuthority', String(state.showComicAuthority)); renderPreview(); });
     on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
