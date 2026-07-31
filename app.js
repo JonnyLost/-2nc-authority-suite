@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.7 — comic label preferences and publication years */
+/* 2NC Authority Suite v4.8 — Marvel authority expansion */
 (function () {
   const stages = [
     ['Preparing interface', 12],
