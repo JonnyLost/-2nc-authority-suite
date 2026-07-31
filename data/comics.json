@@ -134,6 +134,30 @@
     "printedTitle": "300"
   },
   {
+    "id": "EVT-00127",
+    "display": "52",
+    "parent": "DC Universe",
+    "series": "52",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "52",
+    "printedTitle": "52"
+  },
+  {
+    "id": "EVT-00129",
+    "display": "52 Aftermath: The Four Horsemen",
+    "parent": "52",
+    "series": "52 Aftermath: The Four Horsemen",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "52 Aftermath: The Four Horsemen",
+    "printedTitle": "52 Aftermath: The Four Horsemen"
+  },
+  {
     "id": "SER-01114",
     "display": "A Distant Soil",
     "parent": "Image Comics",
@@ -1079,18 +1103,6 @@
     "publishingEra": "DC You"
   },
   {
-    "id": "TEM-00001",
-    "display": "All-Star Squadron",
-    "parent": "",
-    "series": "All-Star Squadron",
-    "primary": true,
-    "publisher": "DC",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "All-Star Squadron",
-    "printedTitle": "All-Star Squadron"
-  },
-  {
     "id": "SER-00023",
     "display": "All-Star Squadron",
     "parent": "All-Star Squadron",
@@ -1099,6 +1111,18 @@
     "publisher": "DC",
     "type": "Series",
     "level": "Recommended",
+    "sort": "All-Star Squadron",
+    "printedTitle": "All-Star Squadron"
+  },
+  {
+    "id": "TEM-00001",
+    "display": "All-Star Squadron",
+    "parent": "",
+    "series": "All-Star Squadron",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
     "sort": "All-Star Squadron",
     "printedTitle": "All-Star Squadron"
   },
@@ -1915,6 +1939,30 @@
     "printedTitle": "Armageddon 2001"
   },
   {
+    "id": "EVT-00110",
+    "display": "Armageddon: Inferno",
+    "parent": "Armageddon 2001",
+    "series": "Armageddon: Inferno",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Armageddon: Inferno",
+    "printedTitle": "Armageddon: Inferno"
+  },
+  {
+    "id": "EVT-00109",
+    "display": "Armageddon: The Alien Agenda",
+    "parent": "Armageddon 2001",
+    "series": "Armageddon: The Alien Agenda",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Armageddon: The Alien Agenda",
+    "printedTitle": "Armageddon: The Alien Agenda"
+  },
+  {
     "id": "CHR-00028",
     "display": "Army of Darkness",
     "parent": "",
@@ -2546,6 +2594,19 @@
     "printedTitle": "Batgirl"
   },
   {
+    "id": "SER-00069",
+    "display": "Batgirl",
+    "parent": "Batgirl",
+    "series": "Batgirl",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Batgirl",
+    "printedTitle": "Batgirl",
+    "publishingEra": "DC All In"
+  },
+  {
     "id": "SER-00070",
     "display": "Batgirl",
     "parent": "Batgirl",
@@ -2568,19 +2629,6 @@
     "level": "Recommended",
     "sort": "Batgirl",
     "printedTitle": "Batgirl"
-  },
-  {
-    "id": "SER-00069",
-    "display": "Batgirl",
-    "parent": "Batgirl",
-    "series": "Batgirl",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Batgirl",
-    "printedTitle": "Batgirl",
-    "publishingEra": "DC All In"
   },
   {
     "id": "SER-01498",
@@ -2889,6 +2937,19 @@
     "sort": "Batman Incorporated",
     "printedTitle": "Batman Incorporated",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "EVT-00171",
+    "display": "Batman Lost",
+    "parent": "Dark Nights: Metal",
+    "series": "Batman Lost",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Batman Lost",
+    "printedTitle": "Batman Lost",
+    "publishingEra": "Rebirth"
   },
   {
     "id": "SER-01605",
@@ -3419,6 +3480,19 @@
     "sort": "Batman: The Dark Knight Strikes Again",
     "printedTitle": "Batman: The Dark Knight Strikes Again",
     "publishingLine": "Elseworlds"
+  },
+  {
+    "id": "EVT-00173",
+    "display": "Batman: The Dawnbreaker",
+    "parent": "Dark Nights: Metal",
+    "series": "Batman: The Dawnbreaker",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Batman: The Dawnbreaker",
+    "printedTitle": "Batman: The Dawnbreaker",
+    "publishingEra": "Rebirth"
   },
   {
     "id": "SER-01026",
@@ -4296,18 +4370,6 @@
     "printedTitle": "The Bionic Woman"
   },
   {
-    "id": "TEM-00003",
-    "display": "Birds of Prey",
-    "parent": "",
-    "series": "Birds of Prey",
-    "primary": true,
-    "publisher": "DC",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "Birds of Prey",
-    "printedTitle": "Birds of Prey"
-  },
-  {
     "id": "SER-00099",
     "display": "Birds of Prey",
     "parent": "Birds of Prey",
@@ -4319,6 +4381,18 @@
     "sort": "Birds of Prey",
     "printedTitle": "Birds of Prey",
     "publishingEra": "Dawn of DC"
+  },
+  {
+    "id": "TEM-00003",
+    "display": "Birds of Prey",
+    "parent": "",
+    "series": "Birds of Prey",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Birds of Prey",
+    "printedTitle": "Birds of Prey"
   },
   {
     "id": "CHR-00047",
@@ -4884,6 +4958,18 @@
     "publishingLine": "Milestone"
   },
   {
+    "id": "EVT-00113",
+    "display": "Bloodbath",
+    "parent": "Bloodlines",
+    "series": "Bloodbath",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Bloodbath",
+    "printedTitle": "Bloodbath"
+  },
+  {
     "id": "CHR-00060",
     "display": "Bloodborne",
     "parent": "",
@@ -5018,6 +5104,19 @@
     "printedTitle": "Blue Beetle"
   },
   {
+    "id": "SER-00124",
+    "display": "Blue Beetle",
+    "parent": "Blue Beetle",
+    "series": "Blue Beetle",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Blue Beetle",
+    "printedTitle": "Blue Beetle",
+    "publishingEra": "The New 52"
+  },
+  {
     "id": "SER-00125",
     "display": "Blue Beetle",
     "parent": "Blue Beetle",
@@ -5040,19 +5139,6 @@
     "level": "Recommended",
     "sort": "Blue Beetle",
     "printedTitle": "Blue Beetle"
-  },
-  {
-    "id": "SER-00124",
-    "display": "Blue Beetle",
-    "parent": "Blue Beetle",
-    "series": "Blue Beetle",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Blue Beetle",
-    "printedTitle": "Blue Beetle",
-    "publishingEra": "The New 52"
   },
   {
     "id": "SER-00834",
@@ -5347,6 +5433,30 @@
     "level": "Recommended",
     "sort": "Briar",
     "printedTitle": "Briar"
+  },
+  {
+    "id": "EVT-00149",
+    "display": "Brightest Day",
+    "parent": "DC Universe",
+    "series": "Brightest Day",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Brightest Day",
+    "printedTitle": "Brightest Day"
+  },
+  {
+    "id": "EVT-00150",
+    "display": "Brightest Day Aftermath: The Search for Swamp Thing",
+    "parent": "Brightest Day",
+    "series": "Brightest Day Aftermath: The Search for Swamp Thing",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Brightest Day Aftermath: The Search for Swamp Thing",
+    "printedTitle": "Brightest Day Aftermath: The Search for Swamp Thing"
   },
   {
     "id": "CHR-00066",
@@ -5687,18 +5797,6 @@
     "printedTitle": "Captain Atom"
   },
   {
-    "id": "SER-00145",
-    "display": "Captain Atom",
-    "parent": "Captain Atom",
-    "series": "Captain Atom",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Captain Atom",
-    "printedTitle": "Captain Atom"
-  },
-  {
     "id": "SER-00144",
     "display": "Captain Atom",
     "parent": "Captain Atom",
@@ -5710,6 +5808,18 @@
     "sort": "Captain Atom",
     "printedTitle": "Captain Atom",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "SER-00145",
+    "display": "Captain Atom",
+    "parent": "Captain Atom",
+    "series": "Captain Atom",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Captain Atom",
+    "printedTitle": "Captain Atom"
   },
   {
     "id": "SER-00535",
@@ -5880,18 +5990,6 @@
     "printedTitle": "Catwoman"
   },
   {
-    "id": "SER-00154",
-    "display": "Catwoman",
-    "parent": "Catwoman",
-    "series": "Catwoman",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Catwoman",
-    "printedTitle": "Catwoman"
-  },
-  {
     "id": "SER-00153",
     "display": "Catwoman",
     "parent": "Catwoman",
@@ -5903,6 +6001,18 @@
     "sort": "Catwoman",
     "printedTitle": "Catwoman",
     "publishingEra": "DC All In"
+  },
+  {
+    "id": "SER-00154",
+    "display": "Catwoman",
+    "parent": "Catwoman",
+    "series": "Catwoman",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Catwoman",
+    "printedTitle": "Catwoman"
   },
   {
     "id": "SER-01661",
@@ -6482,6 +6592,18 @@
     "printedTitle": "Contest of Champions"
   },
   {
+    "id": "EVT-00061",
+    "display": "Convergence",
+    "parent": "Crisis Saga",
+    "series": "Convergence",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Convergence",
+    "printedTitle": "Convergence"
+  },
+  {
     "id": "SER-01392",
     "display": "Convergence",
     "parent": "Convergence",
@@ -6493,18 +6615,6 @@
     "sort": "Convergence",
     "printedTitle": "Convergence",
     "publishingEra": "The New 52"
-  },
-  {
-    "id": "EVT-00061",
-    "display": "Convergence",
-    "parent": "Crisis Saga",
-    "series": "Convergence",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Event",
-    "level": "Recommended",
-    "sort": "Convergence",
-    "printedTitle": "Convergence"
   },
   {
     "id": "SER-01394",
@@ -6921,6 +7031,114 @@
     "printedTitle": "Copperhead"
   },
   {
+    "id": "EVT-00108",
+    "display": "Cosmic Odyssey",
+    "parent": "DC Universe",
+    "series": "Cosmic Odyssey",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Cosmic Odyssey",
+    "printedTitle": "Cosmic Odyssey"
+  },
+  {
+    "id": "EVT-00132",
+    "display": "Countdown",
+    "parent": "Crisis Saga",
+    "series": "Countdown",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Countdown",
+    "printedTitle": "Countdown"
+  },
+  {
+    "id": "EVT-00137",
+    "display": "Countdown Presents: Lord Havok and the Extremists",
+    "parent": "Countdown to Final Crisis",
+    "series": "Countdown Presents: Lord Havok and the Extremists",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Countdown Presents: Lord Havok and the Extremists",
+    "printedTitle": "Countdown Presents: Lord Havok and the Extremists"
+  },
+  {
+    "id": "EVT-00138",
+    "display": "Countdown Presents: The Search for Ray Palmer",
+    "parent": "Countdown to Final Crisis",
+    "series": "Countdown Presents: The Search for Ray Palmer",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Countdown Presents: The Search for Ray Palmer",
+    "printedTitle": "Countdown Presents: The Search for Ray Palmer"
+  },
+  {
+    "id": "EVT-00134",
+    "display": "Countdown to Adventure",
+    "parent": "Countdown to Final Crisis",
+    "series": "Countdown to Adventure",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Countdown to Adventure",
+    "printedTitle": "Countdown to Adventure"
+  },
+  {
+    "id": "EVT-00133",
+    "display": "Countdown to Final Crisis",
+    "parent": "Crisis Saga",
+    "series": "Countdown to Final Crisis",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Countdown to Final Crisis",
+    "printedTitle": "Countdown to Final Crisis"
+  },
+  {
+    "id": "EVT-00121",
+    "display": "Countdown to Infinite Crisis",
+    "parent": "Crisis Saga",
+    "series": "Countdown to Infinite Crisis",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Countdown to Infinite Crisis",
+    "printedTitle": "Countdown to Infinite Crisis"
+  },
+  {
+    "id": "EVT-00135",
+    "display": "Countdown to Mystery",
+    "parent": "Countdown to Final Crisis",
+    "series": "Countdown to Mystery",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Countdown to Mystery",
+    "printedTitle": "Countdown to Mystery"
+  },
+  {
+    "id": "EVT-00136",
+    "display": "Countdown: Arena",
+    "parent": "Countdown to Final Crisis",
+    "series": "Countdown: Arena",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Countdown: Arena",
+    "printedTitle": "Countdown: Arena"
+  },
+  {
     "id": "SER-00105",
     "display": "Crack Comics",
     "parent": "Black Condor",
@@ -6943,6 +7161,18 @@
     "level": "Optional",
     "sort": "Creepy",
     "printedTitle": "Creepy"
+  },
+  {
+    "id": "EVT-00130",
+    "display": "Crime Bible: The Five Lessons of Blood",
+    "parent": "52",
+    "series": "Crime Bible: The Five Lessons of Blood",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Crime Bible: The Five Lessons of Blood",
+    "printedTitle": "Crime Bible: The Five Lessons of Blood"
   },
   {
     "id": "CHR-00091",
@@ -7360,18 +7590,6 @@
     "printedTitle": "Daredevil"
   },
   {
-    "id": "TEM-00004",
-    "display": "Dark Avengers",
-    "parent": "",
-    "series": "Dark Avengers",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "Dark Avengers",
-    "printedTitle": "Dark Avengers"
-  },
-  {
     "id": "SER-00185",
     "display": "Dark Avengers",
     "parent": "Dark Avengers",
@@ -7380,6 +7598,18 @@
     "publisher": "Marvel",
     "type": "Series",
     "level": "Recommended",
+    "sort": "Dark Avengers",
+    "printedTitle": "Dark Avengers"
+  },
+  {
+    "id": "TEM-00004",
+    "display": "Dark Avengers",
+    "parent": "",
+    "series": "Dark Avengers",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
+    "level": "Optional",
     "sort": "Dark Avengers",
     "printedTitle": "Dark Avengers"
   },
@@ -7526,6 +7756,32 @@
     "publishingEra": "Infinite Frontier"
   },
   {
+    "id": "EVT-00170",
+    "display": "Dark Days: The Casting",
+    "parent": "Dark Nights: Metal",
+    "series": "Dark Days: The Casting",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Dark Days: The Casting",
+    "printedTitle": "Dark Days: The Casting",
+    "publishingEra": "Rebirth"
+  },
+  {
+    "id": "EVT-00169",
+    "display": "Dark Days: The Forge",
+    "parent": "Dark Nights: Metal",
+    "series": "Dark Days: The Forge",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Dark Days: The Forge",
+    "printedTitle": "Dark Days: The Forge",
+    "publishingEra": "Rebirth"
+  },
+  {
     "id": "REF-00029",
     "display": "Dark Horse Manga",
     "parent": "",
@@ -7587,6 +7843,19 @@
     "sort": "Dark Knights of Steel II",
     "printedTitle": "Dark Knights of Steel II",
     "publishingEra": "DC All In"
+  },
+  {
+    "id": "EVT-00174",
+    "display": "Dark Knights Rising: The Wild Hunt",
+    "parent": "Dark Nights: Metal",
+    "series": "Dark Knights Rising: The Wild Hunt",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Dark Knights Rising: The Wild Hunt",
+    "printedTitle": "Dark Knights Rising: The Wild Hunt",
+    "publishingEra": "Rebirth"
   },
   {
     "id": "EVT-00063",
@@ -7948,6 +8217,30 @@
     "publishingEra": "DC You"
   },
   {
+    "id": "EVT-00118",
+    "display": "Day of Judgment",
+    "parent": "DC Universe",
+    "series": "Day of Judgment",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Day of Judgment",
+    "printedTitle": "Day of Judgment"
+  },
+  {
+    "id": "EVT-00122",
+    "display": "Day of Vengeance",
+    "parent": "Crisis Saga",
+    "series": "Day of Vengeance",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Day of Vengeance",
+    "printedTitle": "Day of Vengeance"
+  },
+  {
     "id": "CHR-00105",
     "display": "Dazzler",
     "parent": "",
@@ -8064,6 +8357,32 @@
     "publishingEra": "DC All In"
   },
   {
+    "id": "EVT-00179",
+    "display": "DC K.O.: Boss Battle",
+    "parent": "DC Universe",
+    "series": "DC K.O.: Boss Battle",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "DC K.O.: Boss Battle",
+    "printedTitle": "DC K.O.: Boss Battle",
+    "publishingEra": "DC All In"
+  },
+  {
+    "id": "EVT-00178",
+    "display": "DC K.O.: Green Lantern Galactic Slam",
+    "parent": "DC Universe",
+    "series": "DC K.O.: Green Lantern Galactic Slam",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "DC K.O.: Green Lantern Galactic Slam",
+    "printedTitle": "DC K.O.: Green Lantern Galactic Slam",
+    "publishingEra": "DC All In"
+  },
+  {
     "id": "SER-01847",
     "display": "DC K.O.: Harley Quinn vs. Zatanna",
     "parent": "DC Universe",
@@ -8141,6 +8460,18 @@
     "printedTitle": "DC Mystery Anthologies"
   },
   {
+    "id": "EVT-00117",
+    "display": "DC One Million",
+    "parent": "DC Universe",
+    "series": "DC One Million",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "DC One Million",
+    "printedTitle": "DC One Million"
+  },
+  {
     "id": "CHR-00107",
     "display": "DC Super Hero Girls",
     "parent": "",
@@ -8203,6 +8534,18 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "EVT-00080",
+    "display": "DC Universe: Rebirth",
+    "parent": "Rebirth Era",
+    "series": "DC Universe: Rebirth",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "DC Universe: Rebirth",
+    "printedTitle": "DC Universe: Rebirth"
+  },
+  {
     "id": "SER-01505",
     "display": "DC Universe: Rebirth",
     "parent": "DC Universe",
@@ -8214,18 +8557,6 @@
     "sort": "DC Universe: Rebirth",
     "printedTitle": "DC Universe: Rebirth",
     "publishingEra": "Rebirth"
-  },
-  {
-    "id": "EVT-00080",
-    "display": "DC Universe: Rebirth",
-    "parent": "Rebirth Era",
-    "series": "DC Universe: Rebirth",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Event",
-    "level": "Recommended",
-    "sort": "DC Universe: Rebirth",
-    "printedTitle": "DC Universe: Rebirth"
   },
   {
     "id": "SER-01066",
@@ -8341,6 +8672,19 @@
     "sort": "DC: The New Frontier",
     "printedTitle": "DC: The New Frontier",
     "publishingLine": "Elseworlds"
+  },
+  {
+    "id": "EVT-00175",
+    "display": "DC's Year of the Villain Special",
+    "parent": "DC Universe",
+    "series": "DC's Year of the Villain Special",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "DC's Year of the Villain Special",
+    "printedTitle": "DC's Year of the Villain Special",
+    "publishingEra": "DC Universe"
   },
   {
     "id": "CHR-00108",
@@ -8487,6 +8831,18 @@
     "level": "Recommended",
     "sort": "Death of Superman, The",
     "printedTitle": "The Death of Superman"
+  },
+  {
+    "id": "EVT-00139",
+    "display": "Death of the New Gods",
+    "parent": "Countdown to Final Crisis",
+    "series": "Death of the New Gods",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Death of the New Gods",
+    "printedTitle": "Death of the New Gods"
   },
   {
     "id": "EVT-00040",
@@ -9317,16 +9673,18 @@
     "printedTitle": "Doom 2099"
   },
   {
-    "id": "TEM-00006",
+    "id": "SER-00235",
     "display": "Doom Patrol",
-    "parent": "",
+    "parent": "Doom Patrol",
     "series": "Doom Patrol",
-    "primary": true,
+    "primary": false,
     "publisher": "DC",
-    "type": "Team",
+    "type": "Series",
     "level": "Recommended",
     "sort": "Doom Patrol",
-    "printedTitle": "Doom Patrol"
+    "printedTitle": "Doom Patrol",
+    "publishingEra": "DC Universe",
+    "publishingLine": "Young Animal"
   },
   {
     "id": "SER-00236",
@@ -9342,18 +9700,16 @@
     "publishingLine": "Vertigo"
   },
   {
-    "id": "SER-00235",
+    "id": "TEM-00006",
     "display": "Doom Patrol",
-    "parent": "Doom Patrol",
+    "parent": "",
     "series": "Doom Patrol",
-    "primary": false,
+    "primary": true,
     "publisher": "DC",
-    "type": "Series",
+    "type": "Team",
     "level": "Recommended",
     "sort": "Doom Patrol",
-    "printedTitle": "Doom Patrol",
-    "publishingEra": "DC Universe",
-    "publishingLine": "Young Animal"
+    "printedTitle": "Doom Patrol"
   },
   {
     "id": "SER-01591",
@@ -9615,6 +9971,18 @@
     "level": "Optional",
     "sort": "EC War Line",
     "printedTitle": "EC War Line"
+  },
+  {
+    "id": "EVT-00112",
+    "display": "Eclipso: The Darkness Within",
+    "parent": "DC Universe",
+    "series": "Eclipso: The Darkness Within",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Eclipso: The Darkness Within",
+    "printedTitle": "Eclipso: The Darkness Within"
   },
   {
     "id": "SER-00693",
@@ -10190,18 +10558,6 @@
     "printedTitle": "Fall of the House of X"
   },
   {
-    "id": "TEM-00007",
-    "display": "Fantastic Four",
-    "parent": "",
-    "series": "Fantastic Four",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Recommended",
-    "sort": "Fantastic Four",
-    "printedTitle": "Fantastic Four"
-  },
-  {
     "id": "SER-00009",
     "display": "Fantastic Four",
     "parent": "Adam Warlock",
@@ -10257,6 +10613,18 @@
     "primary": false,
     "publisher": "Marvel",
     "type": "Series",
+    "level": "Recommended",
+    "sort": "Fantastic Four",
+    "printedTitle": "Fantastic Four"
+  },
+  {
+    "id": "TEM-00007",
+    "display": "Fantastic Four",
+    "parent": "",
+    "series": "Fantastic Four",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
     "level": "Recommended",
     "sort": "Fantastic Four",
     "printedTitle": "Fantastic Four"
@@ -10466,6 +10834,114 @@
     "level": "Recommended",
     "sort": "Final Crisis",
     "printedTitle": "Final Crisis"
+  },
+  {
+    "id": "EVT-00141",
+    "display": "Final Crisis: Legion of Three Worlds",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Legion of Three Worlds",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Legion of Three Worlds",
+    "printedTitle": "Final Crisis: Legion of Three Worlds"
+  },
+  {
+    "id": "EVT-00145",
+    "display": "Final Crisis: Rage of the Red Lanterns",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Rage of the Red Lanterns",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Rage of the Red Lanterns",
+    "printedTitle": "Final Crisis: Rage of the Red Lanterns"
+  },
+  {
+    "id": "EVT-00143",
+    "display": "Final Crisis: Requiem",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Requiem",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Requiem",
+    "printedTitle": "Final Crisis: Requiem"
+  },
+  {
+    "id": "EVT-00144",
+    "display": "Final Crisis: Resist",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Resist",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Resist",
+    "printedTitle": "Final Crisis: Resist"
+  },
+  {
+    "id": "EVT-00142",
+    "display": "Final Crisis: Revelations",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Revelations",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Revelations",
+    "printedTitle": "Final Crisis: Revelations"
+  },
+  {
+    "id": "EVT-00146",
+    "display": "Final Crisis: Rogues' Revenge",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Rogues' Revenge",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Rogues' Revenge",
+    "printedTitle": "Final Crisis: Rogues' Revenge"
+  },
+  {
+    "id": "EVT-00147",
+    "display": "Final Crisis: Secret Files",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Secret Files",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Secret Files",
+    "printedTitle": "Final Crisis: Secret Files"
+  },
+  {
+    "id": "EVT-00148",
+    "display": "Final Crisis: Superman Beyond",
+    "parent": "Final Crisis",
+    "series": "Final Crisis: Superman Beyond",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Final Crisis: Superman Beyond",
+    "printedTitle": "Final Crisis: Superman Beyond"
+  },
+  {
+    "id": "EVT-00115",
+    "display": "The Final Night",
+    "parent": "DC Universe",
+    "series": "The Final Night",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Final Night, The",
+    "printedTitle": "The Final Night"
   },
   {
     "id": "CHR-00146",
@@ -10821,6 +11297,222 @@
     "publishingEra": "Infinite Frontier"
   },
   {
+    "id": "EVT-00151",
+    "display": "Flashpoint: Abin Sur - The Green Lantern",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Abin Sur - The Green Lantern",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Abin Sur - The Green Lantern",
+    "printedTitle": "Flashpoint: Abin Sur - The Green Lantern"
+  },
+  {
+    "id": "EVT-00152",
+    "display": "Flashpoint: Batman - Knight of Vengeance",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Batman - Knight of Vengeance",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Batman - Knight of Vengeance",
+    "printedTitle": "Flashpoint: Batman - Knight of Vengeance"
+  },
+  {
+    "id": "EVT-00153",
+    "display": "Flashpoint: Citizen Cold",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Citizen Cold",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Citizen Cold",
+    "printedTitle": "Flashpoint: Citizen Cold"
+  },
+  {
+    "id": "EVT-00154",
+    "display": "Flashpoint: Deathstroke and the Curse of the Ravager",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Deathstroke and the Curse of the Ravager",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Deathstroke and the Curse of the Ravager",
+    "printedTitle": "Flashpoint: Deathstroke and the Curse of the Ravager"
+  },
+  {
+    "id": "EVT-00155",
+    "display": "Flashpoint: Emperor Aquaman",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Emperor Aquaman",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Emperor Aquaman",
+    "printedTitle": "Flashpoint: Emperor Aquaman"
+  },
+  {
+    "id": "EVT-00156",
+    "display": "Flashpoint: Frankenstein and the Creatures of the Unknown",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Frankenstein and the Creatures of the Unknown",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Frankenstein and the Creatures of the Unknown",
+    "printedTitle": "Flashpoint: Frankenstein and the Creatures of the Unknown"
+  },
+  {
+    "id": "EVT-00157",
+    "display": "Flashpoint: Grodd of War",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Grodd of War",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Grodd of War",
+    "printedTitle": "Flashpoint: Grodd of War"
+  },
+  {
+    "id": "EVT-00158",
+    "display": "Flashpoint: Hal Jordan",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Hal Jordan",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Hal Jordan",
+    "printedTitle": "Flashpoint: Hal Jordan"
+  },
+  {
+    "id": "EVT-00159",
+    "display": "Flashpoint: Kid Flash Lost",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Kid Flash Lost",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Kid Flash Lost",
+    "printedTitle": "Flashpoint: Kid Flash Lost"
+  },
+  {
+    "id": "EVT-00160",
+    "display": "Flashpoint: Legion of Doom",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Legion of Doom",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Legion of Doom",
+    "printedTitle": "Flashpoint: Legion of Doom"
+  },
+  {
+    "id": "EVT-00161",
+    "display": "Flashpoint: Lois Lane and the Resistance",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Lois Lane and the Resistance",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Lois Lane and the Resistance",
+    "printedTitle": "Flashpoint: Lois Lane and the Resistance"
+  },
+  {
+    "id": "EVT-00162",
+    "display": "Flashpoint: Project Superman",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Project Superman",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Project Superman",
+    "printedTitle": "Flashpoint: Project Superman"
+  },
+  {
+    "id": "EVT-00163",
+    "display": "Flashpoint: Reverse Flash",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Reverse Flash",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Reverse Flash",
+    "printedTitle": "Flashpoint: Reverse Flash"
+  },
+  {
+    "id": "EVT-00164",
+    "display": "Flashpoint: Secret Seven",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Secret Seven",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Secret Seven",
+    "printedTitle": "Flashpoint: Secret Seven"
+  },
+  {
+    "id": "EVT-00165",
+    "display": "Flashpoint: The Canterbury Cricket",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: The Canterbury Cricket",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: The Canterbury Cricket",
+    "printedTitle": "Flashpoint: The Canterbury Cricket"
+  },
+  {
+    "id": "EVT-00166",
+    "display": "Flashpoint: The Outsider",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: The Outsider",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: The Outsider",
+    "printedTitle": "Flashpoint: The Outsider"
+  },
+  {
+    "id": "EVT-00167",
+    "display": "Flashpoint: The World of Flashpoint",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: The World of Flashpoint",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: The World of Flashpoint",
+    "printedTitle": "Flashpoint: The World of Flashpoint"
+  },
+  {
+    "id": "EVT-00168",
+    "display": "Flashpoint: Wonder Woman and the Furies",
+    "parent": "Flashpoint",
+    "series": "Flashpoint: Wonder Woman and the Furies",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Flashpoint: Wonder Woman and the Furies",
+    "printedTitle": "Flashpoint: Wonder Woman and the Furies"
+  },
+  {
     "id": "CHR-00416",
     "display": "The Fly",
     "parent": "",
@@ -10858,6 +11550,18 @@
     "printedTitle": "Folklords"
   },
   {
+    "id": "EVT-00078",
+    "display": "Forever Evil",
+    "parent": "Justice League / Universe-Wide",
+    "series": "Forever Evil",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Forever Evil",
+    "printedTitle": "Forever Evil"
+  },
+  {
     "id": "SER-01388",
     "display": "Forever Evil",
     "parent": "Forever Evil",
@@ -10869,18 +11573,6 @@
     "sort": "Forever Evil",
     "printedTitle": "Forever Evil",
     "publishingEra": "The New 52"
-  },
-  {
-    "id": "EVT-00078",
-    "display": "Forever Evil",
-    "parent": "Justice League / Universe-Wide",
-    "series": "Forever Evil",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Event",
-    "level": "Recommended",
-    "sort": "Forever Evil",
-    "printedTitle": "Forever Evil"
   },
   {
     "id": "SER-01389",
@@ -10959,18 +11651,6 @@
     "printedTitle": "Freedom Fighters"
   },
   {
-    "id": "SER-00284",
-    "display": "Freedom Fighters",
-    "parent": "Freedom Fighters",
-    "series": "Freedom Fighters",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Freedom Fighters",
-    "printedTitle": "Freedom Fighters"
-  },
-  {
     "id": "SER-00283",
     "display": "Freedom Fighters",
     "parent": "Freedom Fighters",
@@ -10982,6 +11662,18 @@
     "sort": "Freedom Fighters",
     "printedTitle": "Freedom Fighters",
     "publishingEra": "Rebirth"
+  },
+  {
+    "id": "SER-00284",
+    "display": "Freedom Fighters",
+    "parent": "Freedom Fighters",
+    "series": "Freedom Fighters",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Freedom Fighters",
+    "printedTitle": "Freedom Fighters"
   },
   {
     "id": "SER-00902",
@@ -11686,6 +12378,18 @@
     "sort": "Generations Shattered",
     "printedTitle": "Generations Shattered",
     "publishingEra": "DC Universe"
+  },
+  {
+    "id": "EVT-00116",
+    "display": "Genesis",
+    "parent": "DC Universe",
+    "series": "Genesis",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Genesis",
+    "printedTitle": "Genesis"
   },
   {
     "id": "CHR-00159",
@@ -12719,18 +13423,6 @@
     "printedTitle": "The Guardian & the Newsboy Legion"
   },
   {
-    "id": "TEM-00008",
-    "display": "Guardians of the Galaxy",
-    "parent": "",
-    "series": "Guardians of the Galaxy",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Recommended",
-    "sort": "Guardians of the Galaxy",
-    "printedTitle": "Guardians of the Galaxy"
-  },
-  {
     "id": "SER-00329",
     "display": "Guardians of the Galaxy",
     "parent": "Guardians of the Galaxy",
@@ -12750,6 +13442,18 @@
     "primary": false,
     "publisher": "Marvel",
     "type": "Series",
+    "level": "Recommended",
+    "sort": "Guardians of the Galaxy",
+    "printedTitle": "Guardians of the Galaxy"
+  },
+  {
+    "id": "TEM-00008",
+    "display": "Guardians of the Galaxy",
+    "parent": "",
+    "series": "Guardians of the Galaxy",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
     "level": "Recommended",
     "sort": "Guardians of the Galaxy",
     "printedTitle": "Guardians of the Galaxy"
@@ -13127,6 +13831,19 @@
     "sort": "Hawkman",
     "printedTitle": "Hawkman",
     "publishingEra": "DC Universe"
+  },
+  {
+    "id": "EVT-00172",
+    "display": "Hawkman Found",
+    "parent": "Dark Nights: Metal",
+    "series": "Hawkman Found",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Hawkman Found",
+    "printedTitle": "Hawkman Found",
+    "publishingEra": "Rebirth"
   },
   {
     "id": "SER-00342",
@@ -14190,6 +14907,18 @@
     "printedTitle": "Infinite Crisis"
   },
   {
+    "id": "EVT-00126",
+    "display": "Infinite Crisis Aftermath: The Battle for Blüdhaven",
+    "parent": "Crisis Saga",
+    "series": "Infinite Crisis Aftermath: The Battle for Blüdhaven",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Infinite Crisis Aftermath: The Battle for Blüdhaven",
+    "printedTitle": "Infinite Crisis Aftermath: The Battle for Blüdhaven"
+  },
+  {
     "id": "SER-01648",
     "display": "Infinite Frontier",
     "parent": "DC Universe",
@@ -14954,6 +15683,18 @@
     "publishingEra": "DC Universe"
   },
   {
+    "id": "EVT-00120",
+    "display": "Joker: Last Laugh",
+    "parent": "DC Universe",
+    "series": "Joker: Last Laugh",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Joker: Last Laugh",
+    "printedTitle": "Joker: Last Laugh"
+  },
+  {
     "id": "SER-01749",
     "display": "Joker: The Man Who Stopped Laughing",
     "parent": "Batman",
@@ -15196,18 +15937,6 @@
     "printedTitle": "Jurassic Park: Redemption"
   },
   {
-    "id": "TEM-00009",
-    "display": "Justice League",
-    "parent": "",
-    "series": "Justice League",
-    "primary": true,
-    "publisher": "DC",
-    "type": "Team",
-    "level": "Recommended",
-    "sort": "Justice League",
-    "printedTitle": "Justice League"
-  },
-  {
     "id": "SER-00415",
     "display": "Justice League",
     "parent": "Justice League",
@@ -15215,6 +15944,18 @@
     "primary": false,
     "publisher": "DC",
     "type": "Series",
+    "level": "Recommended",
+    "sort": "Justice League",
+    "printedTitle": "Justice League"
+  },
+  {
+    "id": "TEM-00009",
+    "display": "Justice League",
+    "parent": "",
+    "series": "Justice League",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
     "level": "Recommended",
     "sort": "Justice League",
     "printedTitle": "Justice League"
@@ -15258,16 +15999,17 @@
     "publishingEra": "DC You"
   },
   {
-    "id": "TEM-00011",
+    "id": "SER-00418",
     "display": "Justice League Dark",
-    "parent": "",
+    "parent": "Justice League Dark",
     "series": "Justice League Dark",
-    "primary": true,
+    "primary": false,
     "publisher": "DC",
-    "type": "Team",
-    "level": "Optional",
+    "type": "Series",
+    "level": "Recommended",
     "sort": "Justice League Dark",
-    "printedTitle": "Justice League Dark"
+    "printedTitle": "Justice League Dark",
+    "publishingEra": "The New 52"
   },
   {
     "id": "SER-00419",
@@ -15282,17 +16024,16 @@
     "printedTitle": "Justice League Dark"
   },
   {
-    "id": "SER-00418",
+    "id": "TEM-00011",
     "display": "Justice League Dark",
-    "parent": "Justice League Dark",
+    "parent": "",
     "series": "Justice League Dark",
-    "primary": false,
+    "primary": true,
     "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
+    "type": "Team",
+    "level": "Optional",
     "sort": "Justice League Dark",
-    "printedTitle": "Justice League Dark",
-    "publishingEra": "The New 52"
+    "printedTitle": "Justice League Dark"
   },
   {
     "id": "SER-01050",
@@ -15333,18 +16074,6 @@
     "publishingEra": "The New 52"
   },
   {
-    "id": "TEM-00012",
-    "display": "Justice League Odyssey",
-    "parent": "",
-    "series": "Justice League Odyssey",
-    "primary": true,
-    "publisher": "DC",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "Justice League Odyssey",
-    "printedTitle": "Justice League Odyssey"
-  },
-  {
     "id": "SER-00420",
     "display": "Justice League Odyssey",
     "parent": "Justice League Odyssey",
@@ -15356,6 +16085,18 @@
     "sort": "Justice League Odyssey",
     "printedTitle": "Justice League Odyssey",
     "publishingEra": "DC Universe"
+  },
+  {
+    "id": "TEM-00012",
+    "display": "Justice League Odyssey",
+    "parent": "",
+    "series": "Justice League Odyssey",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Justice League Odyssey",
+    "printedTitle": "Justice League Odyssey"
   },
   {
     "id": "SER-00417",
@@ -15524,18 +16265,6 @@
     "printedTitle": "Justice Society"
   },
   {
-    "id": "TEM-00013",
-    "display": "Justice Society of America",
-    "parent": "",
-    "series": "Justice Society of America",
-    "primary": true,
-    "publisher": "DC",
-    "type": "Team",
-    "level": "Recommended",
-    "sort": "Justice Society of America",
-    "printedTitle": "Justice Society of America"
-  },
-  {
     "id": "SER-00424",
     "display": "Justice Society of America",
     "parent": "Justice Society of America",
@@ -15543,6 +16272,18 @@
     "primary": false,
     "publisher": "DC",
     "type": "Series",
+    "level": "Recommended",
+    "sort": "Justice Society of America",
+    "printedTitle": "Justice Society of America"
+  },
+  {
+    "id": "TEM-00013",
+    "display": "Justice Society of America",
+    "parent": "",
+    "series": "Justice Society of America",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
     "level": "Recommended",
     "sort": "Justice Society of America",
     "printedTitle": "Justice Society of America"
@@ -16212,6 +16953,19 @@
     "printedTitle": "Lazarus"
   },
   {
+    "id": "EVT-00177",
+    "display": "Lazarus Planet",
+    "parent": "DC Universe",
+    "series": "Lazarus Planet",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Lazarus Planet",
+    "printedTitle": "Lazarus Planet",
+    "publishingEra": "Infinite Frontier"
+  },
+  {
     "id": "SER-01724",
     "display": "Lazarus Planet: Alpha",
     "parent": "DC Universe",
@@ -16354,18 +17108,6 @@
     "publishingEra": "The New 52"
   },
   {
-    "id": "TEM-00014",
-    "display": "Legion of Super-Heroes",
-    "parent": "",
-    "series": "Legion of Super-Heroes",
-    "primary": true,
-    "publisher": "DC",
-    "type": "Team",
-    "level": "Recommended",
-    "sort": "Legion of Super-Heroes",
-    "printedTitle": "Legion of Super-Heroes"
-  },
-  {
     "id": "SER-00434",
     "display": "Legion of Super-Heroes",
     "parent": "Legion of Super-Heroes",
@@ -16377,6 +17119,18 @@
     "sort": "Legion of Super-Heroes",
     "printedTitle": "Legion of Super-Heroes",
     "publishingEra": "DC Universe"
+  },
+  {
+    "id": "TEM-00014",
+    "display": "Legion of Super-Heroes",
+    "parent": "",
+    "series": "Legion of Super-Heroes",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Recommended",
+    "sort": "Legion of Super-Heroes",
+    "printedTitle": "Legion of Super-Heroes"
   },
   {
     "id": "SER-00435",
@@ -17418,18 +18172,6 @@
     "printedTitle": "Marvel Preview"
   },
   {
-    "id": "SER-00301",
-    "display": "Marvel Spotlight",
-    "parent": "Ghost Rider",
-    "series": "Marvel Spotlight",
-    "primary": false,
-    "publisher": "Marvel",
-    "type": "Series",
-    "level": "Optional",
-    "sort": "Marvel Spotlight",
-    "printedTitle": "Marvel Spotlight"
-  },
-  {
     "id": "ANT-00011",
     "display": "Marvel Spotlight",
     "parent": "Marvel Horror Line",
@@ -17437,6 +18179,18 @@
     "primary": false,
     "publisher": "Marvel",
     "type": "Anthology",
+    "level": "Optional",
+    "sort": "Marvel Spotlight",
+    "printedTitle": "Marvel Spotlight"
+  },
+  {
+    "id": "SER-00301",
+    "display": "Marvel Spotlight",
+    "parent": "Ghost Rider",
+    "series": "Marvel Spotlight",
+    "primary": false,
+    "publisher": "Marvel",
+    "type": "Series",
     "level": "Optional",
     "sort": "Marvel Spotlight",
     "printedTitle": "Marvel Spotlight"
@@ -18191,18 +18945,6 @@
     "printedTitle": "Mister Fantastic / Invisible Woman / The Thing"
   },
   {
-    "id": "SER-00506",
-    "display": "Mister Miracle",
-    "parent": "Mister Miracle / New Gods",
-    "series": "Mister Miracle",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Optional",
-    "sort": "Mister Miracle",
-    "printedTitle": "Mister Miracle"
-  },
-  {
     "id": "SER-00505",
     "display": "Mister Miracle",
     "parent": "Mister Miracle / New Gods",
@@ -18214,6 +18956,18 @@
     "sort": "Mister Miracle",
     "printedTitle": "Mister Miracle",
     "publishingEra": "Rebirth"
+  },
+  {
+    "id": "SER-00506",
+    "display": "Mister Miracle",
+    "parent": "Mister Miracle / New Gods",
+    "series": "Mister Miracle",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Mister Miracle",
+    "printedTitle": "Mister Miracle"
   },
   {
     "id": "CHR-00260",
@@ -18523,18 +19277,6 @@
     "printedTitle": "Mouse Guard"
   },
   {
-    "id": "SER-01341",
-    "display": "Mouse Guard",
-    "parent": "BOOM! Licensed",
-    "series": "Mouse Guard",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Essential",
-    "sort": "Mouse Guard",
-    "printedTitle": "Mouse Guard"
-  },
-  {
     "id": "SER-00518",
     "display": "Mouse Guard",
     "parent": "Mouse Guard",
@@ -18543,6 +19285,18 @@
     "publisher": "Archaia",
     "type": "Series",
     "level": "Optional",
+    "sort": "Mouse Guard",
+    "printedTitle": "Mouse Guard"
+  },
+  {
+    "id": "SER-01341",
+    "display": "Mouse Guard",
+    "parent": "BOOM! Licensed",
+    "series": "Mouse Guard",
+    "primary": false,
+    "publisher": "Boom! Studios",
+    "type": "Series",
+    "level": "Essential",
     "sort": "Mouse Guard",
     "printedTitle": "Mouse Guard"
   },
@@ -19226,18 +19980,6 @@
     "printedTitle": "Nightwing"
   },
   {
-    "id": "SER-00537",
-    "display": "Nightwing",
-    "parent": "Nightwing",
-    "series": "Nightwing",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Nightwing",
-    "printedTitle": "Nightwing"
-  },
-  {
     "id": "SER-00536",
     "display": "Nightwing",
     "parent": "Nightwing",
@@ -19249,6 +19991,18 @@
     "sort": "Nightwing",
     "printedTitle": "Nightwing",
     "publishingEra": "Infinite Frontier"
+  },
+  {
+    "id": "SER-00537",
+    "display": "Nightwing",
+    "parent": "Nightwing",
+    "series": "Nightwing",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Nightwing",
+    "printedTitle": "Nightwing"
   },
   {
     "id": "SER-00538",
@@ -19626,6 +20380,19 @@
     "printedTitle": "OMAC"
   },
   {
+    "id": "SER-00552",
+    "display": "OMAC",
+    "parent": "OMAC",
+    "series": "OMAC",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "OMAC",
+    "printedTitle": "OMAC",
+    "publishingEra": "The New 52"
+  },
+  {
     "id": "SER-00553",
     "display": "OMAC",
     "parent": "OMAC",
@@ -19638,17 +20405,16 @@
     "printedTitle": "OMAC"
   },
   {
-    "id": "SER-00552",
-    "display": "OMAC",
-    "parent": "OMAC",
-    "series": "OMAC",
+    "id": "EVT-00125",
+    "display": "The OMAC Project",
+    "parent": "Crisis Saga",
+    "series": "The OMAC Project",
     "primary": false,
     "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "OMAC",
-    "printedTitle": "OMAC",
-    "publishingEra": "The New 52"
+    "type": "Event",
+    "level": "Optional",
+    "sort": "OMAC Project, The",
+    "printedTitle": "The OMAC Project"
   },
   {
     "id": "CHR-00290",
@@ -20125,18 +20891,6 @@
     "printedTitle": "Plastic Man"
   },
   {
-    "id": "SER-00565",
-    "display": "Plastic Man",
-    "parent": "Plastic Man",
-    "series": "Plastic Man",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Plastic Man",
-    "printedTitle": "Plastic Man"
-  },
-  {
     "id": "SER-00564",
     "display": "Plastic Man",
     "parent": "Plastic Man",
@@ -20148,6 +20902,18 @@
     "sort": "Plastic Man",
     "printedTitle": "Plastic Man",
     "publishingEra": "Rebirth"
+  },
+  {
+    "id": "SER-00565",
+    "display": "Plastic Man",
+    "parent": "Plastic Man",
+    "series": "Plastic Man",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Plastic Man",
+    "printedTitle": "Plastic Man"
   },
   {
     "id": "SER-01806",
@@ -20529,18 +21295,6 @@
     "printedTitle": "Prez"
   },
   {
-    "id": "SER-00577",
-    "display": "Prez",
-    "parent": "Prez",
-    "series": "Prez",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Prez",
-    "printedTitle": "Prez"
-  },
-  {
     "id": "SER-00576",
     "display": "Prez",
     "parent": "Prez",
@@ -20552,6 +21306,18 @@
     "sort": "Prez",
     "printedTitle": "Prez",
     "publishingEra": "DC You"
+  },
+  {
+    "id": "SER-00577",
+    "display": "Prez",
+    "parent": "Prez",
+    "series": "Prez",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Prez",
+    "printedTitle": "Prez"
   },
   {
     "id": "SER-00905",
@@ -20975,6 +21741,18 @@
     "printedTitle": "Ranger Academy"
   },
   {
+    "id": "EVT-00123",
+    "display": "Rann-Thanagar War",
+    "parent": "Crisis Saga",
+    "series": "Rann-Thanagar War",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Rann-Thanagar War",
+    "printedTitle": "Rann-Thanagar War"
+  },
+  {
     "id": "SER-01327",
     "display": "Rare Flavours",
     "parent": "BOOM! Originals",
@@ -21085,18 +21863,6 @@
     "printedTitle": "The Ray"
   },
   {
-    "id": "SER-00837",
-    "display": "The Ray",
-    "parent": "The Ray",
-    "series": "The Ray",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Ray, The",
-    "printedTitle": "The Ray"
-  },
-  {
     "id": "SER-00836",
     "display": "The Ray",
     "parent": "The Ray",
@@ -21108,6 +21874,18 @@
     "sort": "Ray, The",
     "printedTitle": "The Ray",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "SER-00837",
+    "display": "The Ray",
+    "parent": "The Ray",
+    "series": "The Ray",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Ray, The",
+    "printedTitle": "The Ray"
   },
   {
     "id": "SER-00303",
@@ -21818,6 +22596,18 @@
     "publishingLine": "Black Label"
   },
   {
+    "id": "CHR-00335",
+    "display": "ROM",
+    "parent": "",
+    "series": "ROM",
+    "primary": true,
+    "publisher": "IDW / Marvel",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "ROM",
+    "printedTitle": "ROM"
+  },
+  {
     "id": "SER-00624",
     "display": "Rom",
     "parent": "ROM",
@@ -21840,18 +22630,6 @@
     "level": "Recommended",
     "sort": "Rom",
     "printedTitle": "Rom"
-  },
-  {
-    "id": "CHR-00335",
-    "display": "ROM",
-    "parent": "",
-    "series": "ROM",
-    "primary": true,
-    "publisher": "IDW / Marvel",
-    "type": "Character",
-    "level": "Optional",
-    "sort": "ROM",
-    "printedTitle": "ROM"
   },
   {
     "id": "SER-01318",
@@ -22120,6 +22898,18 @@
     "level": "Optional",
     "sort": "Saga of the Swamp Thing",
     "printedTitle": "Saga of the Swamp Thing"
+  },
+  {
+    "id": "EVT-00140",
+    "display": "Salvation Run",
+    "parent": "Countdown to Final Crisis",
+    "series": "Salvation Run",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Salvation Run",
+    "printedTitle": "Salvation Run"
   },
   {
     "id": "SER-00688",
@@ -22536,18 +23326,6 @@
     "printedTitle": "Secret Six"
   },
   {
-    "id": "SER-00649",
-    "display": "Secret Six",
-    "parent": "Secret Six",
-    "series": "Secret Six",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Secret Six",
-    "printedTitle": "Secret Six"
-  },
-  {
     "id": "SER-00648",
     "display": "Secret Six",
     "parent": "Secret Six",
@@ -22559,6 +23337,18 @@
     "sort": "Secret Six",
     "printedTitle": "Secret Six",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "SER-00649",
+    "display": "Secret Six",
+    "parent": "Secret Six",
+    "series": "Secret Six",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Secret Six",
+    "printedTitle": "Secret Six"
   },
   {
     "id": "EVT-00013",
@@ -22764,6 +23554,18 @@
     "level": "Essential",
     "sort": "Seven Secrets",
     "printedTitle": "Seven Secrets"
+  },
+  {
+    "id": "EVT-00131",
+    "display": "Seven Soldiers",
+    "parent": "DC Universe",
+    "series": "Seven Soldiers",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Seven Soldiers",
+    "printedTitle": "Seven Soldiers"
   },
   {
     "id": "SER-01160",
@@ -23386,6 +24188,18 @@
     "sort": "Sinister Sons",
     "printedTitle": "Sinister Sons",
     "publishingEra": "Dawn of DC"
+  },
+  {
+    "id": "EVT-00119",
+    "display": "Sins of Youth",
+    "parent": "DC Universe",
+    "series": "Sins of Youth",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Sins of Youth",
+    "printedTitle": "Sins of Youth"
   },
   {
     "id": "SER-01193",
@@ -25181,18 +25995,6 @@
     "printedTitle": "Sub-Mariner"
   },
   {
-    "id": "TEM-00016",
-    "display": "Suicide Squad",
-    "parent": "",
-    "series": "Suicide Squad",
-    "primary": true,
-    "publisher": "DC",
-    "type": "Team",
-    "level": "Recommended",
-    "sort": "Suicide Squad",
-    "printedTitle": "Suicide Squad"
-  },
-  {
     "id": "SER-00750",
     "display": "Suicide Squad",
     "parent": "Suicide Squad",
@@ -25204,6 +26006,18 @@
     "sort": "Suicide Squad",
     "printedTitle": "Suicide Squad",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "TEM-00016",
+    "display": "Suicide Squad",
+    "parent": "",
+    "series": "Suicide Squad",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Recommended",
+    "sort": "Suicide Squad",
+    "printedTitle": "Suicide Squad"
   },
   {
     "id": "SER-01481",
@@ -26256,18 +27070,6 @@
     "printedTitle": "Teen Titans"
   },
   {
-    "id": "SER-00608",
-    "display": "Teen Titans",
-    "parent": "Robin / Teen Titans",
-    "series": "Teen Titans",
-    "primary": false,
-    "publisher": "DC",
-    "type": "Series",
-    "level": "Optional",
-    "sort": "Teen Titans",
-    "printedTitle": "Teen Titans"
-  },
-  {
     "id": "SER-00607",
     "display": "Teen Titans",
     "parent": "Robin / Teen Titans",
@@ -26279,6 +27081,18 @@
     "sort": "Teen Titans",
     "printedTitle": "Teen Titans",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "SER-00608",
+    "display": "Teen Titans",
+    "parent": "Robin / Teen Titans",
+    "series": "Teen Titans",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Teen Titans",
+    "printedTitle": "Teen Titans"
   },
   {
     "id": "SER-01058",
@@ -28020,18 +28834,6 @@
     "publishingLine": "America's Best Comics"
   },
   {
-    "id": "SER-00115",
-    "display": "Tomb of Dracula",
-    "parent": "Blade",
-    "series": "Tomb of Dracula",
-    "primary": false,
-    "publisher": "Marvel",
-    "type": "Series",
-    "level": "Optional",
-    "sort": "Tomb of Dracula",
-    "printedTitle": "Tomb of Dracula"
-  },
-  {
     "id": "ANT-00012",
     "display": "Tomb of Dracula",
     "parent": "Marvel Horror Line",
@@ -28039,6 +28841,18 @@
     "primary": false,
     "publisher": "Marvel",
     "type": "Anthology",
+    "level": "Optional",
+    "sort": "Tomb of Dracula",
+    "printedTitle": "Tomb of Dracula"
+  },
+  {
+    "id": "SER-00115",
+    "display": "Tomb of Dracula",
+    "parent": "Blade",
+    "series": "Tomb of Dracula",
+    "primary": false,
+    "publisher": "Marvel",
+    "type": "Series",
     "level": "Optional",
     "sort": "Tomb of Dracula",
     "printedTitle": "Tomb of Dracula"
@@ -28680,18 +29494,6 @@
     "printedTitle": "Ultimate Fallout"
   },
   {
-    "id": "TEM-00018",
-    "display": "Ultimate Fantastic Four",
-    "parent": "",
-    "series": "Ultimate Fantastic Four",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "Ultimate Fantastic Four",
-    "printedTitle": "Ultimate Fantastic Four"
-  },
-  {
     "id": "SER-00892",
     "display": "Ultimate Fantastic Four",
     "parent": "Ultimate Fantastic Four",
@@ -28700,6 +29502,18 @@
     "publisher": "Marvel",
     "type": "Series",
     "level": "Recommended",
+    "sort": "Ultimate Fantastic Four",
+    "printedTitle": "Ultimate Fantastic Four"
+  },
+  {
+    "id": "TEM-00018",
+    "display": "Ultimate Fantastic Four",
+    "parent": "",
+    "series": "Ultimate Fantastic Four",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
+    "level": "Optional",
     "sort": "Ultimate Fantastic Four",
     "printedTitle": "Ultimate Fantastic Four"
   },
@@ -28716,18 +29530,6 @@
     "printedTitle": "Ultimate Invasion"
   },
   {
-    "id": "TEM-00019",
-    "display": "Ultimate Marvel Team-Up",
-    "parent": "",
-    "series": "Ultimate Marvel Team-Up",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "Ultimate Marvel Team-Up",
-    "printedTitle": "Ultimate Marvel Team-Up"
-  },
-  {
     "id": "SER-00893",
     "display": "Ultimate Marvel Team-Up",
     "parent": "Ultimate Marvel Team-Up",
@@ -28736,6 +29538,18 @@
     "publisher": "Marvel",
     "type": "Series",
     "level": "Recommended",
+    "sort": "Ultimate Marvel Team-Up",
+    "printedTitle": "Ultimate Marvel Team-Up"
+  },
+  {
+    "id": "TEM-00019",
+    "display": "Ultimate Marvel Team-Up",
+    "parent": "",
+    "series": "Ultimate Marvel Team-Up",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
+    "level": "Optional",
     "sort": "Ultimate Marvel Team-Up",
     "printedTitle": "Ultimate Marvel Team-Up"
   },
@@ -28860,18 +29674,6 @@
     "printedTitle": "Ultimate War"
   },
   {
-    "id": "TEM-00020",
-    "display": "Ultimate X-Men",
-    "parent": "",
-    "series": "Ultimate X-Men",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "Ultimate X-Men",
-    "printedTitle": "Ultimate X-Men"
-  },
-  {
     "id": "SER-00896",
     "display": "Ultimate X-Men",
     "parent": "Ultimate X-Men",
@@ -28892,6 +29694,18 @@
     "publisher": "Marvel",
     "type": "Series",
     "level": "Recommended",
+    "sort": "Ultimate X-Men",
+    "printedTitle": "Ultimate X-Men"
+  },
+  {
+    "id": "TEM-00020",
+    "display": "Ultimate X-Men",
+    "parent": "",
+    "series": "Ultimate X-Men",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
+    "level": "Optional",
     "sort": "Ultimate X-Men",
     "printedTitle": "Ultimate X-Men"
   },
@@ -29184,6 +29998,18 @@
     "printedTitle": "The Undead Spawn"
   },
   {
+    "id": "EVT-00114",
+    "display": "Underworld Unleashed",
+    "parent": "DC Universe",
+    "series": "Underworld Unleashed",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Underworld Unleashed",
+    "printedTitle": "Underworld Unleashed"
+  },
+  {
     "id": "SER-01751",
     "display": "Unstoppable Doom Patrol",
     "parent": "Doom Patrol",
@@ -29389,18 +30215,6 @@
     "printedTitle": "Valkyrie"
   },
   {
-    "id": "CHR-00477",
-    "display": "Vampirella",
-    "parent": "",
-    "series": "Vampirella",
-    "primary": true,
-    "publisher": "Warren / Dynamite",
-    "type": "Character",
-    "level": "Recommended",
-    "sort": "Vampirella",
-    "printedTitle": "Vampirella"
-  },
-  {
     "id": "ANT-00014",
     "display": "Vampirella",
     "parent": "Vampirella",
@@ -29433,6 +30247,18 @@
     "publisher": "Warren",
     "type": "Anthology",
     "level": "Optional",
+    "sort": "Vampirella",
+    "printedTitle": "Vampirella"
+  },
+  {
+    "id": "CHR-00477",
+    "display": "Vampirella",
+    "parent": "",
+    "series": "Vampirella",
+    "primary": true,
+    "publisher": "Warren / Dynamite",
+    "type": "Character",
+    "level": "Recommended",
     "sort": "Vampirella",
     "printedTitle": "Vampirella"
   },
@@ -29579,6 +30405,18 @@
     "level": "Recommended",
     "sort": "Vigilante",
     "printedTitle": "Vigilante"
+  },
+  {
+    "id": "EVT-00124",
+    "display": "Villains United",
+    "parent": "Crisis Saga",
+    "series": "Villains United",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "Villains United",
+    "printedTitle": "Villains United"
   },
   {
     "id": "CHR-00450",
@@ -29895,6 +30733,18 @@
     "level": "Recommended",
     "sort": "War Machine",
     "printedTitle": "War Machine"
+  },
+  {
+    "id": "EVT-00111",
+    "display": "War of the Gods",
+    "parent": "DC Universe",
+    "series": "War of the Gods",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "War of the Gods",
+    "printedTitle": "War of the Gods"
   },
   {
     "id": "EVT-00047",
@@ -30538,18 +31388,6 @@
     "printedTitle": "Witchblade"
   },
   {
-    "id": "SER-01179",
-    "display": "Witchblade",
-    "parent": "Image Comics",
-    "series": "Witchblade",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Essential",
-    "sort": "Witchblade",
-    "printedTitle": "Witchblade"
-  },
-  {
     "id": "SER-00969",
     "display": "Witchblade",
     "parent": "Witchblade",
@@ -30558,6 +31396,18 @@
     "publisher": "Top Cow",
     "type": "Series",
     "level": "Optional",
+    "sort": "Witchblade",
+    "printedTitle": "Witchblade"
+  },
+  {
+    "id": "SER-01179",
+    "display": "Witchblade",
+    "parent": "Image Comics",
+    "series": "Witchblade",
+    "primary": false,
+    "publisher": "Image",
+    "type": "Series",
+    "level": "Essential",
     "sort": "Witchblade",
     "printedTitle": "Witchblade"
   },
@@ -30898,6 +31748,18 @@
     "printedTitle": "World War Hulk"
   },
   {
+    "id": "EVT-00128",
+    "display": "World War III",
+    "parent": "52",
+    "series": "World War III",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Optional",
+    "sort": "World War III",
+    "printedTitle": "World War III"
+  },
+  {
     "id": "CHR-00503",
     "display": "World's Finest (Batman & Superman)",
     "parent": "",
@@ -31175,18 +32037,6 @@
     "printedTitle": "X-Man (Nate Grey)"
   },
   {
-    "id": "TEM-00022",
-    "display": "X-Men",
-    "parent": "",
-    "series": "X-Men",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Essential",
-    "sort": "X-Men",
-    "printedTitle": "X-Men"
-  },
-  {
     "id": "SER-00999",
     "display": "X-Men",
     "parent": "X-Men",
@@ -31195,6 +32045,18 @@
     "publisher": "Marvel",
     "type": "Series",
     "level": "Recommended",
+    "sort": "X-Men",
+    "printedTitle": "X-Men"
+  },
+  {
+    "id": "TEM-00022",
+    "display": "X-Men",
+    "parent": "",
+    "series": "X-Men",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
+    "level": "Essential",
     "sort": "X-Men",
     "printedTitle": "X-Men"
   },
@@ -31211,18 +32073,6 @@
     "printedTitle": "X-Men ’97"
   },
   {
-    "id": "TEM-00023",
-    "display": "X-Men 2099",
-    "parent": "",
-    "series": "X-Men 2099",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "X-Men 2099",
-    "printedTitle": "X-Men 2099"
-  },
-  {
     "id": "SER-01000",
     "display": "X-Men 2099",
     "parent": "X-Men 2099",
@@ -31231,6 +32081,18 @@
     "publisher": "Marvel",
     "type": "Series",
     "level": "Recommended",
+    "sort": "X-Men 2099",
+    "printedTitle": "X-Men 2099"
+  },
+  {
+    "id": "TEM-00023",
+    "display": "X-Men 2099",
+    "parent": "",
+    "series": "X-Men 2099",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
+    "level": "Optional",
     "sort": "X-Men 2099",
     "printedTitle": "X-Men 2099"
   },
@@ -31489,6 +32351,19 @@
     "publishingLine": "Vertigo"
   },
   {
+    "id": "EVT-00176",
+    "display": "Year of the Villain",
+    "parent": "DC Universe",
+    "series": "Year of the Villain",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Year of the Villain",
+    "printedTitle": "Year of the Villain",
+    "publishingEra": "DC Universe"
+  },
+  {
     "id": "SER-01573",
     "display": "Year of the Villain: Hell Arisen",
     "parent": "DC Universe",
@@ -31502,18 +32377,6 @@
     "publishingEra": "DC Universe"
   },
   {
-    "id": "TEM-00024",
-    "display": "Young Avengers",
-    "parent": "",
-    "series": "Young Avengers",
-    "primary": true,
-    "publisher": "Marvel",
-    "type": "Team",
-    "level": "Optional",
-    "sort": "Young Avengers",
-    "printedTitle": "Young Avengers"
-  },
-  {
     "id": "SER-01006",
     "display": "Young Avengers",
     "parent": "Young Avengers",
@@ -31522,6 +32385,18 @@
     "publisher": "Marvel",
     "type": "Series",
     "level": "Recommended",
+    "sort": "Young Avengers",
+    "printedTitle": "Young Avengers"
+  },
+  {
+    "id": "TEM-00024",
+    "display": "Young Avengers",
+    "parent": "",
+    "series": "Young Avengers",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Team",
+    "level": "Optional",
     "sort": "Young Avengers",
     "printedTitle": "Young Avengers"
   },
