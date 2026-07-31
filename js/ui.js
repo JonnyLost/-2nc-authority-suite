@@ -5,18 +5,17 @@
   const safeId = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`);
 
   const profiles = {
-    home: { title: 'Overview', eyebrow: '2NC media operations', sub: 'Authority databases, label production, and print workflows', dim: '' },
-    vinyl: { title: 'Vinyl Dividers', eyebrow: 'Music label production', sub: 'Search the internal Music Authority', dim: '5 × 0.675 in' },
-    cd: { title: 'CD Dividers', eyebrow: 'Music label production', sub: 'Search the internal Music Authority', dim: '2 × 0.675 in' },
-    comic: { title: 'Comic Dividers', eyebrow: 'Comic label production', sub: 'Search the internal Comic Authority', dim: '3.5 × 0.675 in' },
-    instrument: { title: 'Instrument Tags', eyebrow: 'Retail tag production', sub: 'Create 6 × 4 retail instrument tags', dim: '6 × 4 in' },
-    treasure: { title: '2NC Treasures Tags', eyebrow: 'Retail tag production', sub: 'Create 3.5 × 5 portrait Treasures tags', dim: '3.5 × 5 in' },
-    station: { title: 'Print Station', eyebrow: 'Store-to-PC workflow', sub: 'Receive and print jobs from sales-floor devices', dim: 'Shared queue' },
-    manager: { title: 'Authority Manager', eyebrow: 'Source of truth', sub: 'Edit, back up, and synchronize authority data', dim: 'Authority database' }
+    vinyl: { title: 'Vinyl Dividers', sub: 'Search the internal Music Authority', dim: '5 × 0.675 in' },
+    cd: { title: 'CD Dividers', sub: 'Search the internal Music Authority', dim: '2 × 0.675 in' },
+    comic: { title: 'Comic Dividers', sub: 'Search the internal Comic Authority', dim: '3.5 × 0.675 in' },
+    instrument: { title: 'Instrument Tags', sub: 'Create 4 × 6 retail instrument tags', dim: '6 × 4 in' },
+    treasure: { title: '2NC Treasures Tags', sub: 'Create 3.5 × 5 portrait Treasures tags', dim: '3.5 × 5 in' },
+    station: { title: 'Print Station', sub: 'Receive and print jobs from sales-floor devices', dim: 'Shared queue' },
+    manager: { title: 'Authority Manager', sub: 'Edit, back up, and synchronize authority data', dim: 'Authority database' }
   };
 
   const state = {
-    mode: 'home', selected: null, query: '', level: '', category: '', sort: 'name',
+    mode: 'vinyl', selected: null, query: '', level: '', category: '', sort: 'name',
     queue: JSON.parse(localStorage.getItem('2ncQueue') || '[]'),
     music: [], comic: [], managerDataset: 'music', managerSelected: null,
     stationJobs: [], stationTimer: null, stationBusy: false,
@@ -114,28 +113,10 @@
   }
 
   function saveQueue() { localStorage.setItem('2ncQueue', JSON.stringify(state.queue)); renderQueue(); }
-  function renderHome() {
-    text('#homeMusicCount', state.music.length.toLocaleString());
-    text('#homeComicCount', state.comic.length.toLocaleString());
-    text('#homeQueueCount', state.queue.length.toLocaleString());
-    const summary = $('#homeQueueSummary');
-    if (!summary) return;
-    if (!state.queue.length) {
-      summary.innerHTML = '<div class="emptyState"><strong>No labels waiting</strong><span>Your queue is ready for the next label.</span></div>';
-      return;
-    }
-    const labels = { vinyl: 'Vinyl', cd: 'CD', comic: 'Comic', instrument: 'Instrument', treasure: 'Treasures' };
-    const counts = state.queue.reduce((total, row) => {
-      total[row.mode] = (total[row.mode] || 0) + 1;
-      return total;
-    }, {});
-    summary.innerHTML = Object.entries(counts).map(([mode, count]) => `<div class="queueSummaryRow"><span>${escapeHtml(labels[mode] || mode)}</span><strong>${count.toLocaleString()}</strong></div>`).join('');
-  }
   function renderQueue() {
     text('#queuePill', `${state.queue.length.toLocaleString()} queued`);
     requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : [row.parent, comicMarker(row)].filter(Boolean).join(' · ')) : row.mode === 'instrument' ? row.price : row.mode === 'treasure' ? '2NC TREASURES' : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
     $$('.queueItem button').forEach(button => button.addEventListener('click', () => { state.queue.splice(Number(button.dataset.index), 1); saveQueue(); }));
-    renderHome();
   }
 
   function addSelected() { if (state.selected) { state.queue.push(queueRecord(state.selected)); saveQueue(); } }
@@ -165,12 +146,11 @@
     if (!profiles[mode]) return;
     state.mode = mode; state.selected = null; state.query = ''; state.level = ''; state.category = ''; state.sort = 'name';
     const profile = profiles[mode];
-    text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#pageEyebrow', profile.eyebrow); text('#dimensionText', profile.dim);
+    text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#dimensionText', profile.dim);
     $$('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode === mode));
-    show('#homePanel', mode === 'home');
-    show('#searchPanel', !['home', 'instrument', 'treasure', 'station', 'manager'].includes(mode));
-    show('.previewPanel', !['home', 'instrument', 'treasure', 'station', 'manager'].includes(mode));
-    show('.queuePanel', !['home', 'station', 'manager'].includes(mode));
+    show('#searchPanel', !['instrument', 'treasure', 'station', 'manager'].includes(mode));
+    show('.previewPanel', !['instrument', 'treasure', 'station', 'manager'].includes(mode));
+    show('.queuePanel', !['station', 'manager'].includes(mode));
     show('#instrumentPanel', mode === 'instrument');
     show('#treasurePanel', mode === 'treasure');
     show('#stationPanel', mode === 'station');
@@ -183,9 +163,7 @@
       stopStationPolling();
       if (mode === 'manager') renderManager();
     }
-    document.body.classList.remove('navOpen');
-    if (mode === 'home') renderHome();
-    if (!['home', 'station', 'manager'].includes(mode)) {
+    if (!['station', 'manager'].includes(mode)) {
       const search = $('#searchInput'); if (search) search.value = '';
       const level = $('#levelFilter'); if (level) level.value = '';
       populateCategoryFilter(); renderResults(); renderPreview();
@@ -455,16 +433,12 @@
     state.music = (await AuthorityDB.getAll('music')).filter(row => row.status !== 'retired');
     state.comic = (await AuthorityDB.getAll('comic')).filter(row => row.status !== 'retired');
     text('#dbStatus', `Music ${state.music.length.toLocaleString()} · Comics ${state.comic.length.toLocaleString()}`);
-    renderHome();
     if (state.mode !== 'manager') { populateCategoryFilter(); renderResults(); renderPreview(); }
     await renderManager();
   }
 
   function bindEvents() {
     $$('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
-    $$('[data-home-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.homeMode)));
-    on('#menuButton', 'click', () => document.body.classList.toggle('navOpen'));
-    on('#navBackdrop', 'click', () => document.body.classList.remove('navOpen'));
     on('#searchInput', 'input', event => { state.query = event.target.value; renderResults(); });
     on('#levelFilter', 'change', event => { state.level = event.target.value; renderResults(); });
     on('#categoryFilter', 'change', event => { state.category = event.target.value; renderResults(); });
@@ -501,7 +475,7 @@
     bindEvents();
     const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
     await reloadData();
-    renderQueue(); setMode('home');
+    renderQueue(); setMode('vinyl');
     text('#versionBadge', `v${APP_CONFIG.version}`);
     renderSyncStatus();
     renderStationConnection();
