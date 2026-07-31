@@ -1,6 +1,6 @@
-# 2NC Authority Suite v4.5 — DC Publishing Lines
+# 2NC Authority Suite v4.6 — DC Event Authority Expansion
 
-This release extends the v4.4 comic-label design to DC publishing lines and imprints.
+This release expands the DC event authority while preserving the v4.5 comic-label design and publishing-line markers.
 
 ## What changed
 
@@ -31,12 +31,20 @@ This release extends the v4.4 comic-label design to DC publishing lines and impr
 ## Database
 
 - Music authorities: 4,606
-- Comic authorities: 2,576
+- Comic authorities: 2,648
 - Modern DC era assignments: 651
 - DC publishing-line assignments: 123
+- DC event authorities: 106
 
 ## Upgrade
 
-Upload the contents of this folder to the repository root, then open the site once with `?v=4.5`. Fully close and reopen any installed PWA after that first load.
+Upload the contents of this folder to the repository root, then open the site once with `?v=4.6`. Fully close and reopen any installed PWA after that first load.
+
+## v4.6 event expansion
+
+- Audited 86 major DC event and companion periodical titles from 1985 through 2026.
+- Added 72 missing event authorities, including *52*, *Countdown to Final Crisis*, *War of the Gods*, *Eclipso: The Darkness Within*, *Underworld Unleashed*, *The Final Night*, *DC One Million*, *Brightest Day*, and the complete set of separately titled *Flashpoint* miniseries and one-shots.
+- Preserved the approved v4.5 interface, publishing-era markers, mobile PDF sharing, Print Station, and certified physical label dimensions.
+- See `DC_EVENT_AUTHORITY_AUDIT.csv` for the title-by-title result.
 
 The repository remains prefilled for `jonnylost/-2nc-authority-suite`. Existing authority edits, mobile printing, PDF sharing, Print Station, calibration, and GitHub synchronization are preserved.
