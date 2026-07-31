@@ -1,9 +1,15 @@
-# 2NC Authority Suite v4.5 — DC Publishing Lines
+# 2NC Authority Suite v5.0 — Unified Operations Interface
 
-This release extends the v4.4 comic-label design to DC publishing lines and imprints.
+This major release rebuilds the application shell around the visual system established by the 2NC Store Operations Dashboard while preserving the production workflows and v4.5 authority data.
 
 ## What changed
 
+- Added a command-center overview with live authority and print-queue counts.
+- Added numbered, Store Operations-style desktop and iPad navigation.
+- Added a slide-out navigation drawer for iPhone.
+- Rebuilt production workspaces with the light operational canvas, white panels, dark typography, and restrained orange accents used by Store Operations.
+- Standardized buttons, fields, filters, results, status cards, Authority Manager, and Print Station.
+- Preserved the efficient search → preview → queue workflow inside each label generator.
 - Added 123 curated publishing-line assignments across 14 label markers:
   - Vertigo
   - Black Label
@@ -37,6 +43,6 @@ This release extends the v4.4 comic-label design to DC publishing lines and impr
 
 ## Upgrade
 
-Upload the contents of this folder to the repository root, then open the site once with `?v=4.5`. Fully close and reopen any installed PWA after that first load.
+Upload the contents of this folder to the repository root, then open the site once with `?v=5.0`. Fully close and reopen any installed PWA after that first load.
 
 The repository remains prefilled for `jonnylost/-2nc-authority-suite`. Existing authority edits, mobile printing, PDF sharing, Print Station, calibration, and GitHub synchronization are preserved.

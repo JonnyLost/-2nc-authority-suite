@@ -1,6 +1,6 @@
 {
-  "version": "4.5.0",
-  "name": "DC Publishing Lines",
-  "release": "2NC Authority Suite GitHub v4.5",
-  "notes": "Adds curated DC publishing-line and imprint markers using the established comic-label design, with imprint markers taking priority over eras."
+  "version": "5.0.0",
+  "name": "Unified Operations Interface",
+  "release": "2NC Authority Suite GitHub v5.0",
+  "notes": "Rebuilds the application interface around the 2NC Store Operations design system with a new command-center overview, numbered navigation, light production workspaces, and a mobile navigation drawer."
 }

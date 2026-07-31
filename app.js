@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.5 — DC publishing lines and imprints */
+/* 2NC Authority Suite v5.0 — Store Operations interface */
 (function () {
   const stages = [
     ['Preparing interface', 12],
