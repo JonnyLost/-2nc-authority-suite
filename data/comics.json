@@ -143,7 +143,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "52",
-    "printedTitle": "52"
+    "printedTitle": "52",
+    "startYear": "2006"
   },
   {
     "id": "EVT-00129",
@@ -155,7 +156,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "52 Aftermath: The Four Horsemen",
-    "printedTitle": "52 Aftermath: The Four Horsemen"
+    "printedTitle": "52 Aftermath: The Four Horsemen",
+    "startYear": "2007"
   },
   {
     "id": "SER-01114",
@@ -1936,7 +1938,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Armageddon 2001",
-    "printedTitle": "Armageddon 2001"
+    "printedTitle": "Armageddon 2001",
+    "startYear": "1991"
   },
   {
     "id": "EVT-00110",
@@ -1948,7 +1951,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Armageddon: Inferno",
-    "printedTitle": "Armageddon: Inferno"
+    "printedTitle": "Armageddon: Inferno",
+    "startYear": "1992"
   },
   {
     "id": "EVT-00109",
@@ -1960,7 +1964,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Armageddon: The Alien Agenda",
-    "printedTitle": "Armageddon: The Alien Agenda"
+    "printedTitle": "Armageddon: The Alien Agenda",
+    "startYear": "1991"
   },
   {
     "id": "CHR-00028",
@@ -2949,7 +2954,8 @@
     "level": "Optional",
     "sort": "Batman Lost",
     "printedTitle": "Batman Lost",
-    "publishingEra": "Rebirth"
+    "publishingEra": "Rebirth",
+    "startYear": "2017"
   },
   {
     "id": "SER-01605",
@@ -3492,7 +3498,8 @@
     "level": "Optional",
     "sort": "Batman: The Dawnbreaker",
     "printedTitle": "Batman: The Dawnbreaker",
-    "publishingEra": "Rebirth"
+    "publishingEra": "Rebirth",
+    "startYear": "2017"
   },
   {
     "id": "SER-01026",
@@ -4771,7 +4778,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Blackest Night",
-    "printedTitle": "Blackest Night"
+    "printedTitle": "Blackest Night",
+    "startYear": "2009"
   },
   {
     "id": "CHR-00056",
@@ -4967,7 +4975,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Bloodbath",
-    "printedTitle": "Bloodbath"
+    "printedTitle": "Bloodbath",
+    "startYear": "1993"
   },
   {
     "id": "CHR-00060",
@@ -5003,7 +5012,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Bloodlines",
-    "printedTitle": "Bloodlines"
+    "printedTitle": "Bloodlines",
+    "startYear": "1993"
   },
   {
     "id": "SER-01479",
@@ -5444,7 +5454,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Brightest Day",
-    "printedTitle": "Brightest Day"
+    "printedTitle": "Brightest Day",
+    "startYear": "2010"
   },
   {
     "id": "EVT-00150",
@@ -5456,7 +5467,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Brightest Day Aftermath: The Search for Swamp Thing",
-    "printedTitle": "Brightest Day Aftermath: The Search for Swamp Thing"
+    "printedTitle": "Brightest Day Aftermath: The Search for Swamp Thing",
+    "startYear": "2011"
   },
   {
     "id": "CHR-00066",
@@ -7040,7 +7052,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Cosmic Odyssey",
-    "printedTitle": "Cosmic Odyssey"
+    "printedTitle": "Cosmic Odyssey",
+    "startYear": "1988"
   },
   {
     "id": "EVT-00132",
@@ -7052,7 +7065,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Countdown",
-    "printedTitle": "Countdown"
+    "printedTitle": "Countdown",
+    "startYear": "2007"
   },
   {
     "id": "EVT-00137",
@@ -7064,7 +7078,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Countdown Presents: Lord Havok and the Extremists",
-    "printedTitle": "Countdown Presents: Lord Havok and the Extremists"
+    "printedTitle": "Countdown Presents: Lord Havok and the Extremists",
+    "startYear": "2007"
   },
   {
     "id": "EVT-00138",
@@ -7076,7 +7091,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Countdown Presents: The Search for Ray Palmer",
-    "printedTitle": "Countdown Presents: The Search for Ray Palmer"
+    "printedTitle": "Countdown Presents: The Search for Ray Palmer",
+    "startYear": "2007"
   },
   {
     "id": "EVT-00134",
@@ -7088,7 +7104,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Countdown to Adventure",
-    "printedTitle": "Countdown to Adventure"
+    "printedTitle": "Countdown to Adventure",
+    "startYear": "2007"
   },
   {
     "id": "EVT-00133",
@@ -7100,7 +7117,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Countdown to Final Crisis",
-    "printedTitle": "Countdown to Final Crisis"
+    "printedTitle": "Countdown to Final Crisis",
+    "startYear": "2007"
   },
   {
     "id": "EVT-00121",
@@ -7112,7 +7130,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Countdown to Infinite Crisis",
-    "printedTitle": "Countdown to Infinite Crisis"
+    "printedTitle": "Countdown to Infinite Crisis",
+    "startYear": "2005"
   },
   {
     "id": "EVT-00135",
@@ -7124,7 +7143,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Countdown to Mystery",
-    "printedTitle": "Countdown to Mystery"
+    "printedTitle": "Countdown to Mystery",
+    "startYear": "2007"
   },
   {
     "id": "EVT-00136",
@@ -7136,7 +7156,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Countdown: Arena",
-    "printedTitle": "Countdown: Arena"
+    "printedTitle": "Countdown: Arena",
+    "startYear": "2007"
   },
   {
     "id": "SER-00105",
@@ -7172,7 +7193,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Crime Bible: The Five Lessons of Blood",
-    "printedTitle": "Crime Bible: The Five Lessons of Blood"
+    "printedTitle": "Crime Bible: The Five Lessons of Blood",
+    "startYear": "2007"
   },
   {
     "id": "CHR-00091",
@@ -7232,7 +7254,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Crisis on Infinite Earths",
-    "printedTitle": "Crisis on Infinite Earths"
+    "printedTitle": "Crisis on Infinite Earths",
+    "startYear": "1985"
   },
   {
     "id": "EVT-00004",
@@ -7766,7 +7789,8 @@
     "level": "Optional",
     "sort": "Dark Days: The Casting",
     "printedTitle": "Dark Days: The Casting",
-    "publishingEra": "Rebirth"
+    "publishingEra": "Rebirth",
+    "startYear": "2017"
   },
   {
     "id": "EVT-00169",
@@ -7779,7 +7803,8 @@
     "level": "Optional",
     "sort": "Dark Days: The Forge",
     "printedTitle": "Dark Days: The Forge",
-    "publishingEra": "Rebirth"
+    "publishingEra": "Rebirth",
+    "startYear": "2017"
   },
   {
     "id": "REF-00029",
@@ -7855,7 +7880,8 @@
     "level": "Optional",
     "sort": "Dark Knights Rising: The Wild Hunt",
     "printedTitle": "Dark Knights Rising: The Wild Hunt",
-    "publishingEra": "Rebirth"
+    "publishingEra": "Rebirth",
+    "startYear": "2018"
   },
   {
     "id": "EVT-00063",
@@ -8226,7 +8252,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Day of Judgment",
-    "printedTitle": "Day of Judgment"
+    "printedTitle": "Day of Judgment",
+    "startYear": "1999"
   },
   {
     "id": "EVT-00122",
@@ -8238,7 +8265,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Day of Vengeance",
-    "printedTitle": "Day of Vengeance"
+    "printedTitle": "Day of Vengeance",
+    "startYear": "2005"
   },
   {
     "id": "CHR-00105",
@@ -8367,7 +8395,8 @@
     "level": "Optional",
     "sort": "DC K.O.: Boss Battle",
     "printedTitle": "DC K.O.: Boss Battle",
-    "publishingEra": "DC All In"
+    "publishingEra": "DC All In",
+    "startYear": "2026"
   },
   {
     "id": "EVT-00178",
@@ -8380,7 +8409,8 @@
     "level": "Optional",
     "sort": "DC K.O.: Green Lantern Galactic Slam",
     "printedTitle": "DC K.O.: Green Lantern Galactic Slam",
-    "publishingEra": "DC All In"
+    "publishingEra": "DC All In",
+    "startYear": "2026"
   },
   {
     "id": "SER-01847",
@@ -8469,7 +8499,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "DC One Million",
-    "printedTitle": "DC One Million"
+    "printedTitle": "DC One Million",
+    "startYear": "1998"
   },
   {
     "id": "CHR-00107",
@@ -8684,7 +8715,8 @@
     "level": "Optional",
     "sort": "DC's Year of the Villain Special",
     "printedTitle": "DC's Year of the Villain Special",
-    "publishingEra": "DC Universe"
+    "publishingEra": "DC Universe",
+    "startYear": "2019"
   },
   {
     "id": "CHR-00108",
@@ -8842,7 +8874,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Death of the New Gods",
-    "printedTitle": "Death of the New Gods"
+    "printedTitle": "Death of the New Gods",
+    "startYear": "2007"
   },
   {
     "id": "EVT-00040",
@@ -9982,7 +10015,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Eclipso: The Darkness Within",
-    "printedTitle": "Eclipso: The Darkness Within"
+    "printedTitle": "Eclipso: The Darkness Within",
+    "startYear": "1992"
   },
   {
     "id": "SER-00693",
@@ -10833,7 +10867,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Final Crisis",
-    "printedTitle": "Final Crisis"
+    "printedTitle": "Final Crisis",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00141",
@@ -10845,7 +10880,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Legion of Three Worlds",
-    "printedTitle": "Final Crisis: Legion of Three Worlds"
+    "printedTitle": "Final Crisis: Legion of Three Worlds",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00145",
@@ -10857,7 +10893,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Rage of the Red Lanterns",
-    "printedTitle": "Final Crisis: Rage of the Red Lanterns"
+    "printedTitle": "Final Crisis: Rage of the Red Lanterns",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00143",
@@ -10869,7 +10906,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Requiem",
-    "printedTitle": "Final Crisis: Requiem"
+    "printedTitle": "Final Crisis: Requiem",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00144",
@@ -10881,7 +10919,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Resist",
-    "printedTitle": "Final Crisis: Resist"
+    "printedTitle": "Final Crisis: Resist",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00142",
@@ -10893,7 +10932,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Revelations",
-    "printedTitle": "Final Crisis: Revelations"
+    "printedTitle": "Final Crisis: Revelations",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00146",
@@ -10905,7 +10945,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Rogues' Revenge",
-    "printedTitle": "Final Crisis: Rogues' Revenge"
+    "printedTitle": "Final Crisis: Rogues' Revenge",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00147",
@@ -10917,7 +10958,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Secret Files",
-    "printedTitle": "Final Crisis: Secret Files"
+    "printedTitle": "Final Crisis: Secret Files",
+    "startYear": "2009"
   },
   {
     "id": "EVT-00148",
@@ -10929,7 +10971,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Final Crisis: Superman Beyond",
-    "printedTitle": "Final Crisis: Superman Beyond"
+    "printedTitle": "Final Crisis: Superman Beyond",
+    "startYear": "2008"
   },
   {
     "id": "EVT-00115",
@@ -10941,7 +10984,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Final Night, The",
-    "printedTitle": "The Final Night"
+    "printedTitle": "The Final Night",
+    "startYear": "1996"
   },
   {
     "id": "CHR-00146",
@@ -11281,7 +11325,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Flashpoint",
-    "printedTitle": "Flashpoint"
+    "printedTitle": "Flashpoint",
+    "startYear": "2011"
   },
   {
     "id": "SER-01064",
@@ -11306,7 +11351,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Abin Sur - The Green Lantern",
-    "printedTitle": "Flashpoint: Abin Sur - The Green Lantern"
+    "printedTitle": "Flashpoint: Abin Sur - The Green Lantern",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00152",
@@ -11318,7 +11364,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Batman - Knight of Vengeance",
-    "printedTitle": "Flashpoint: Batman - Knight of Vengeance"
+    "printedTitle": "Flashpoint: Batman - Knight of Vengeance",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00153",
@@ -11330,7 +11377,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Citizen Cold",
-    "printedTitle": "Flashpoint: Citizen Cold"
+    "printedTitle": "Flashpoint: Citizen Cold",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00154",
@@ -11342,7 +11390,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Deathstroke and the Curse of the Ravager",
-    "printedTitle": "Flashpoint: Deathstroke and the Curse of the Ravager"
+    "printedTitle": "Flashpoint: Deathstroke and the Curse of the Ravager",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00155",
@@ -11354,7 +11403,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Emperor Aquaman",
-    "printedTitle": "Flashpoint: Emperor Aquaman"
+    "printedTitle": "Flashpoint: Emperor Aquaman",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00156",
@@ -11366,7 +11416,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Frankenstein and the Creatures of the Unknown",
-    "printedTitle": "Flashpoint: Frankenstein and the Creatures of the Unknown"
+    "printedTitle": "Flashpoint: Frankenstein and the Creatures of the Unknown",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00157",
@@ -11378,7 +11429,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Grodd of War",
-    "printedTitle": "Flashpoint: Grodd of War"
+    "printedTitle": "Flashpoint: Grodd of War",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00158",
@@ -11390,7 +11442,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Hal Jordan",
-    "printedTitle": "Flashpoint: Hal Jordan"
+    "printedTitle": "Flashpoint: Hal Jordan",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00159",
@@ -11402,7 +11455,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Kid Flash Lost",
-    "printedTitle": "Flashpoint: Kid Flash Lost"
+    "printedTitle": "Flashpoint: Kid Flash Lost",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00160",
@@ -11414,7 +11468,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Legion of Doom",
-    "printedTitle": "Flashpoint: Legion of Doom"
+    "printedTitle": "Flashpoint: Legion of Doom",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00161",
@@ -11426,7 +11481,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Lois Lane and the Resistance",
-    "printedTitle": "Flashpoint: Lois Lane and the Resistance"
+    "printedTitle": "Flashpoint: Lois Lane and the Resistance",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00162",
@@ -11438,7 +11494,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Project Superman",
-    "printedTitle": "Flashpoint: Project Superman"
+    "printedTitle": "Flashpoint: Project Superman",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00163",
@@ -11450,7 +11507,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Reverse Flash",
-    "printedTitle": "Flashpoint: Reverse Flash"
+    "printedTitle": "Flashpoint: Reverse Flash",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00164",
@@ -11462,7 +11520,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Secret Seven",
-    "printedTitle": "Flashpoint: Secret Seven"
+    "printedTitle": "Flashpoint: Secret Seven",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00165",
@@ -11474,7 +11533,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: The Canterbury Cricket",
-    "printedTitle": "Flashpoint: The Canterbury Cricket"
+    "printedTitle": "Flashpoint: The Canterbury Cricket",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00166",
@@ -11486,7 +11546,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: The Outsider",
-    "printedTitle": "Flashpoint: The Outsider"
+    "printedTitle": "Flashpoint: The Outsider",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00167",
@@ -11498,7 +11559,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: The World of Flashpoint",
-    "printedTitle": "Flashpoint: The World of Flashpoint"
+    "printedTitle": "Flashpoint: The World of Flashpoint",
+    "startYear": "2011"
   },
   {
     "id": "EVT-00168",
@@ -11510,7 +11572,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Flashpoint: Wonder Woman and the Furies",
-    "printedTitle": "Flashpoint: Wonder Woman and the Furies"
+    "printedTitle": "Flashpoint: Wonder Woman and the Furies",
+    "startYear": "2011"
   },
   {
     "id": "CHR-00416",
@@ -12389,7 +12452,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Genesis",
-    "printedTitle": "Genesis"
+    "printedTitle": "Genesis",
+    "startYear": "1997"
   },
   {
     "id": "CHR-00159",
@@ -13843,7 +13907,8 @@
     "level": "Optional",
     "sort": "Hawkman Found",
     "printedTitle": "Hawkman Found",
-    "publishingEra": "Rebirth"
+    "publishingEra": "Rebirth",
+    "startYear": "2017"
   },
   {
     "id": "SER-00342",
@@ -14663,7 +14728,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Identity Crisis",
-    "printedTitle": "Identity Crisis"
+    "printedTitle": "Identity Crisis",
+    "startYear": "2004"
   },
   {
     "id": "REF-00033",
@@ -14904,7 +14970,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Infinite Crisis",
-    "printedTitle": "Infinite Crisis"
+    "printedTitle": "Infinite Crisis",
+    "startYear": "2005"
   },
   {
     "id": "EVT-00126",
@@ -14916,7 +14983,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Infinite Crisis Aftermath: The Battle for Blüdhaven",
-    "printedTitle": "Infinite Crisis Aftermath: The Battle for Blüdhaven"
+    "printedTitle": "Infinite Crisis Aftermath: The Battle for Blüdhaven",
+    "startYear": "2006"
   },
   {
     "id": "SER-01648",
@@ -15202,7 +15270,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Invasion!",
-    "printedTitle": "Invasion!"
+    "printedTitle": "Invasion!",
+    "startYear": "1988"
   },
   {
     "id": "CHR-00200",
@@ -15692,7 +15761,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Joker: Last Laugh",
-    "printedTitle": "Joker: Last Laugh"
+    "printedTitle": "Joker: Last Laugh",
+    "startYear": "2001"
   },
   {
     "id": "SER-01749",
@@ -16963,7 +17033,8 @@
     "level": "Recommended",
     "sort": "Lazarus Planet",
     "printedTitle": "Lazarus Planet",
-    "publishingEra": "Infinite Frontier"
+    "publishingEra": "Infinite Frontier",
+    "startYear": "2023"
   },
   {
     "id": "SER-01724",
@@ -17079,7 +17150,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Legends",
-    "printedTitle": "Legends"
+    "printedTitle": "Legends",
+    "startYear": "1986"
   },
   {
     "id": "SER-01427",
@@ -18870,7 +18942,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Millennium",
-    "printedTitle": "Millennium"
+    "printedTitle": "Millennium",
+    "startYear": "1988"
   },
   {
     "id": "CHR-00257",
@@ -20414,7 +20487,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "OMAC Project, The",
-    "printedTitle": "The OMAC Project"
+    "printedTitle": "The OMAC Project",
+    "startYear": "2005"
   },
   {
     "id": "CHR-00290",
@@ -20511,7 +20585,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Our Worlds at War",
-    "printedTitle": "Our Worlds at War"
+    "printedTitle": "Our Worlds at War",
+    "startYear": "2001"
   },
   {
     "id": "CHR-00291",
@@ -21750,7 +21825,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Rann-Thanagar War",
-    "printedTitle": "Rann-Thanagar War"
+    "printedTitle": "Rann-Thanagar War",
+    "startYear": "2005"
   },
   {
     "id": "SER-01327",
@@ -22909,7 +22985,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Salvation Run",
-    "printedTitle": "Salvation Run"
+    "printedTitle": "Salvation Run",
+    "startYear": "2007"
   },
   {
     "id": "SER-00688",
@@ -23565,7 +23642,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Seven Soldiers",
-    "printedTitle": "Seven Soldiers"
+    "printedTitle": "Seven Soldiers",
+    "startYear": "2005"
   },
   {
     "id": "SER-01160",
@@ -24199,7 +24277,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Sins of Youth",
-    "printedTitle": "Sins of Youth"
+    "printedTitle": "Sins of Youth",
+    "startYear": "2000"
   },
   {
     "id": "SER-01193",
@@ -28770,7 +28849,8 @@
     "level": "Recommended",
     "sort": "Titans: Beast World: Waller Rising",
     "printedTitle": "Titans: Beast World: Waller Rising",
-    "publishingEra": "Dawn of DC"
+    "publishingEra": "Dawn of DC",
+    "startYear": "2023"
   },
   {
     "id": "SER-00781",
@@ -30007,7 +30087,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Underworld Unleashed",
-    "printedTitle": "Underworld Unleashed"
+    "printedTitle": "Underworld Unleashed",
+    "startYear": "1995"
   },
   {
     "id": "SER-01751",
@@ -30416,7 +30497,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "Villains United",
-    "printedTitle": "Villains United"
+    "printedTitle": "Villains United",
+    "startYear": "2005"
   },
   {
     "id": "CHR-00450",
@@ -30744,7 +30826,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "War of the Gods",
-    "printedTitle": "War of the Gods"
+    "printedTitle": "War of the Gods",
+    "startYear": "1991"
   },
   {
     "id": "EVT-00047",
@@ -31757,7 +31840,8 @@
     "type": "Event",
     "level": "Optional",
     "sort": "World War III",
-    "printedTitle": "World War III"
+    "printedTitle": "World War III",
+    "startYear": "2007"
   },
   {
     "id": "CHR-00503",
@@ -32361,7 +32445,8 @@
     "level": "Recommended",
     "sort": "Year of the Villain",
     "printedTitle": "Year of the Villain",
-    "publishingEra": "DC Universe"
+    "publishingEra": "DC Universe",
+    "startYear": "2019"
   },
   {
     "id": "SER-01573",
@@ -32510,7 +32595,8 @@
     "type": "Event",
     "level": "Recommended",
     "sort": "Zero Hour: Crisis in Time",
-    "printedTitle": "Zero Hour: Crisis in Time"
+    "printedTitle": "Zero Hour: Crisis in Time",
+    "startYear": "1994"
   },
   {
     "id": "CHR-00515",
