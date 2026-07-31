@@ -1,6 +1,6 @@
 {
-  "version": "4.6.0",
-  "name": "DC Event Authority Expansion",
-  "release": "2NC Authority Suite GitHub v4.6.0",
-  "notes": "Adds 72 missing DC event, weekly-series, bookend-special, and companion authorities while preserving the approved v4.5 interface and certified print system."
+  "version": "4.7.0",
+  "name": "Comic Label Preferences",
+  "release": "2NC Authority Suite GitHub v4.7.0",
+  "notes": "Adds optional authority-name printing, remembered comic-label preferences, clearer duplicate-title identification, and publication-year fields."
 }
