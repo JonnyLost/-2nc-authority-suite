@@ -80,7 +80,7 @@
       const fitted = fitSize(fonts.bold, ascii(title).toUpperCase(), width - 14, 16.5, 8);
       drawCentered(page, fonts.bold, ascii(title).toUpperCase(), centerX, y + (height - fitted) / 2 - 1, width - 14, 16.5, 8, colors.black);
     } else {
-      const marker = item.publishingLine || item.publishingEra || '';
+      const marker = item.showMarker === false ? '' : (item.publishingLine || item.publishingEra || '');
       const showAuthority = item.showAuthority !== false && item.parent;
       if (showAuthority) drawCentered(page, fonts.bold, ascii(item.parent).toUpperCase(), centerX, y + height - 12, width - 14, 6.4, 4.5, colors.muted);
       const fitted = fitSize(fonts.bold, ascii(title), width - 14, 16.5, 7);

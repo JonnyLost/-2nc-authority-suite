@@ -177,6 +177,19 @@
     "startYear": "2006"
   },
   {
+    "id": "EVT-DCX-0013",
+    "display": "52",
+    "parent": "",
+    "series": "52",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "52",
+    "printedTitle": "52",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "EVT-00129",
     "display": "52 Aftermath: The Four Horsemen",
     "parent": "52",
@@ -1139,6 +1152,19 @@
     "printedTitle": "Air Wave"
   },
   {
+    "id": "CHR-DCX-0034",
+    "display": "Alan Scott",
+    "parent": "",
+    "series": "Alan Scott",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Alan Scott",
+    "printedTitle": "Alan Scott",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01795",
     "display": "Alan Scott: The Green Lantern",
     "parent": "DC Universe",
@@ -1162,6 +1188,19 @@
     "level": "Essential",
     "sort": "Alex + Ada",
     "printedTitle": "Alex + Ada"
+  },
+  {
+    "id": "CHR-DCX-0035",
+    "display": "Alfred Pennyworth",
+    "parent": "",
+    "series": "Alfred Pennyworth",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Alfred Pennyworth",
+    "printedTitle": "Alfred Pennyworth",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-00015",
@@ -1889,6 +1928,19 @@
     "printedTitle": "Alters"
   },
   {
+    "id": "CHR-DCX-0036",
+    "display": "Amanda Waller",
+    "parent": "",
+    "series": "Amanda Waller",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Amanda Waller",
+    "printedTitle": "Amanda Waller",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00092",
     "display": "Amazing Adventures",
     "parent": "Beast",
@@ -2361,6 +2413,19 @@
     "printedTitle": "The American"
   },
   {
+    "id": "CHR-DCX-0037",
+    "display": "Amethyst",
+    "parent": "",
+    "series": "Amethyst",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Amethyst",
+    "printedTitle": "Amethyst",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01602",
     "display": "Amethyst",
     "parent": "DC Universe",
@@ -2372,6 +2437,32 @@
     "sort": "Amethyst",
     "printedTitle": "Amethyst",
     "publishingEra": "DC Universe"
+  },
+  {
+    "id": "SER-DCX-0183",
+    "display": "Amethyst, Princess of Gemworld",
+    "parent": "",
+    "series": "Amethyst, Princess of Gemworld",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Amethyst, Princess of Gemworld",
+    "printedTitle": "Amethyst, Princess of Gemworld",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
+    "id": "CHR-DCX-0038",
+    "display": "Anarky",
+    "parent": "",
+    "series": "Anarky",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Anarky",
+    "printedTitle": "Anarky",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01338",
@@ -2607,6 +2698,32 @@
     "endYear": "2018"
   },
   {
+    "id": "CHR-DCX-0039",
+    "display": "Anti-Monitor",
+    "parent": "",
+    "series": "Anti-Monitor",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Anti-Monitor",
+    "printedTitle": "Anti-Monitor",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0040",
+    "display": "Antiope",
+    "parent": "",
+    "series": "Antiope",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Antiope",
+    "printedTitle": "Antiope",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02277",
     "display": "Apache Skies",
     "parent": "Rawhide Kid",
@@ -2750,6 +2867,19 @@
     "publishingEra": "Infinite Frontier"
   },
   {
+    "id": "SER-DCX-0184",
+    "display": "Arak, Son of Thunder",
+    "parent": "",
+    "series": "Arak, Son of Thunder",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Arak, Son of Thunder",
+    "printedTitle": "Arak, Son of Thunder",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "CHR-00026",
     "display": "Archer & Armstrong",
     "parent": "",
@@ -2832,6 +2962,32 @@
     "level": "Optional",
     "sort": "Archie's Pal Jughead",
     "printedTitle": "Archie's Pal Jughead"
+  },
+  {
+    "id": "CHR-DCX-0041",
+    "display": "Ares",
+    "parent": "",
+    "series": "Ares",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Ares",
+    "printedTitle": "Ares",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "SER-DCX-0185",
+    "display": "Arion, Lord of Atlantis",
+    "parent": "",
+    "series": "Arion, Lord of Atlantis",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Arion, Lord of Atlantis",
+    "printedTitle": "Arion, Lord of Atlantis",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-01663",
@@ -2934,6 +3090,19 @@
     "sort": "Arrow: Season 2.5",
     "printedTitle": "Arrow: Season 2.5",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "CHR-DCX-0042",
+    "display": "Arsenal",
+    "parent": "",
+    "series": "Arsenal",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Arsenal",
+    "printedTitle": "Arsenal",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01675",
@@ -3120,6 +3289,19 @@
     "printedTitle": "Astro City"
   },
   {
+    "id": "CHR-DCX-0043",
+    "display": "Atlanna",
+    "parent": "",
+    "series": "Atlanna",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Atlanna",
+    "printedTitle": "Atlanna",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "EVT-00033",
     "display": "Atlantis Attacks",
     "parent": "",
@@ -3132,6 +3314,32 @@
     "printedTitle": "Atlantis Attacks",
     "startYear": "2020",
     "endYear": "2021"
+  },
+  {
+    "id": "CHR-DCX-0044",
+    "display": "Atom",
+    "parent": "",
+    "series": "Atom",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Atom",
+    "printedTitle": "Atom",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0045",
+    "display": "Atom Smasher",
+    "parent": "",
+    "series": "Atom Smasher",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Atom Smasher",
+    "printedTitle": "Atom Smasher",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00406",
@@ -3156,6 +3364,19 @@
     "level": "Recommended",
     "sort": "Atom, The",
     "printedTitle": "The Atom"
+  },
+  {
+    "id": "CHR-DCX-0046",
+    "display": "Atrocitus",
+    "parent": "",
+    "series": "Atrocitus",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Atrocitus",
+    "printedTitle": "Atrocitus",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00407",
@@ -3634,6 +3855,19 @@
     "printedTitle": "Baltimore"
   },
   {
+    "id": "CHR-DCX-0047",
+    "display": "Bane",
+    "parent": "",
+    "series": "Bane",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Bane",
+    "printedTitle": "Bane",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00035",
     "display": "Barb Wire",
     "parent": "",
@@ -3745,6 +3979,19 @@
     "publishingLine": "Hill House Comics"
   },
   {
+    "id": "SER-DCX-0186",
+    "display": "Bat Lash",
+    "parent": "",
+    "series": "Bat Lash",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Bat Lash",
+    "printedTitle": "Bat Lash",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "CHR-00037",
     "display": "Bat-Family",
     "parent": "",
@@ -3843,6 +4090,19 @@
     "sort": "Batgirls",
     "printedTitle": "Batgirls",
     "publishingEra": "Infinite Frontier"
+  },
+  {
+    "id": "TEM-DCX-0014",
+    "display": "Batgirls",
+    "parent": "",
+    "series": "Batgirls",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Batgirls",
+    "printedTitle": "Batgirls",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "CHR-00039",
@@ -5275,6 +5535,19 @@
     "printedTitle": "Beast"
   },
   {
+    "id": "CHR-DCX-0048",
+    "display": "Beast Boy",
+    "parent": "",
+    "series": "Beast Boy",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Beast Boy",
+    "printedTitle": "Beast Boy",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00043",
     "display": "Beasts of Burden",
     "parent": "",
@@ -5506,6 +5779,19 @@
     "printedTitle": "Beneath the Trees Where Nobody Sees"
   },
   {
+    "id": "SER-DCX-0187",
+    "display": "Beowulf: Dragon Slayer",
+    "parent": "",
+    "series": "Beowulf: Dragon Slayer",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Beowulf: Dragon Slayer",
+    "printedTitle": "Beowulf: Dragon Slayer",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01234",
     "display": "Berserk",
     "parent": "Dark Horse Manga",
@@ -5557,6 +5843,19 @@
     "level": "Optional",
     "sort": "Betty and Veronica",
     "printedTitle": "Betty and Veronica"
+  },
+  {
+    "id": "CHR-DCX-0049",
+    "display": "Big Barda",
+    "parent": "",
+    "series": "Big Barda",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Big Barda",
+    "printedTitle": "Big Barda",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-00210",
@@ -5721,6 +6020,19 @@
     "printedTitle": "Bitter Root"
   },
   {
+    "id": "CHR-DCX-0050",
+    "display": "Bizarro",
+    "parent": "",
+    "series": "Bizarro",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Bizarro",
+    "printedTitle": "Bizarro",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01463",
     "display": "Bizarro",
     "parent": "Superman",
@@ -5745,6 +6057,19 @@
     "sort": "Bizarro: Year None",
     "printedTitle": "Bizarro: Year None",
     "publishingEra": "DC All In"
+  },
+  {
+    "id": "CHR-DCX-0016",
+    "display": "Black Adam",
+    "parent": "",
+    "series": "Black Adam",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Black Adam",
+    "printedTitle": "Black Adam",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-01684",
@@ -6004,6 +6329,19 @@
     "printedTitle": "Black Magick"
   },
   {
+    "id": "CHR-DCX-0017",
+    "display": "Black Manta",
+    "parent": "",
+    "series": "Black Manta",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Black Manta",
+    "printedTitle": "Black Manta",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01685",
     "display": "Black Manta",
     "parent": "Black Manta",
@@ -6015,6 +6353,32 @@
     "sort": "Black Manta",
     "printedTitle": "Black Manta",
     "publishingEra": "Infinite Frontier"
+  },
+  {
+    "id": "CHR-DCX-0051",
+    "display": "Black Mask",
+    "parent": "",
+    "series": "Black Mask",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Black Mask",
+    "printedTitle": "Black Mask",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "SER-DCX-0188",
+    "display": "Black Orchid",
+    "parent": "",
+    "series": "Black Orchid",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Black Orchid",
+    "printedTitle": "Black Orchid",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "CHR-00053",
@@ -6263,6 +6627,19 @@
     "sort": "Blackest Night",
     "printedTitle": "Blackest Night",
     "startYear": "2009"
+  },
+  {
+    "id": "CHR-DCX-0052",
+    "display": "Blackguard",
+    "parent": "",
+    "series": "Blackguard",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Blackguard",
+    "printedTitle": "Blackguard",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00056",
@@ -6604,6 +6981,19 @@
     "printedTitle": "Bloodshot Reborn"
   },
   {
+    "id": "CHR-DCX-0053",
+    "display": "Bloodsport",
+    "parent": "",
+    "series": "Bloodsport",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Bloodsport",
+    "printedTitle": "Bloodsport",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01683",
     "display": "Blue & Gold",
     "parent": "Blue Beetle",
@@ -6689,6 +7079,19 @@
     "sort": "Blue Beetle: Graduation Day",
     "printedTitle": "Blue Beetle: Graduation Day",
     "publishingEra": "Infinite Frontier"
+  },
+  {
+    "id": "SER-DCX-0189",
+    "display": "Blue Devil",
+    "parent": "",
+    "series": "Blue Devil",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Blue Devil",
+    "printedTitle": "Blue Devil",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-01123",
@@ -6923,6 +7326,19 @@
     "printedTitle": "The Boys"
   },
   {
+    "id": "CHR-DCX-0054",
+    "display": "Brainiac",
+    "parent": "",
+    "series": "Brainiac",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Brainiac",
+    "printedTitle": "Brainiac",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00484",
     "display": "The Brave and the Bold",
     "parent": "Metamorpho",
@@ -6971,6 +7387,19 @@
     "sort": "Brightest Day",
     "printedTitle": "Brightest Day",
     "startYear": "2010"
+  },
+  {
+    "id": "EVT-DCX-0018",
+    "display": "Brightest Day",
+    "parent": "",
+    "series": "Brightest Day",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Brightest Day",
+    "printedTitle": "Brightest Day",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "EVT-00150",
@@ -7198,6 +7627,19 @@
     "endYear": "2017"
   },
   {
+    "id": "CHR-DCX-0055",
+    "display": "Bumblebee",
+    "parent": "",
+    "series": "Bumblebee",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Bumblebee",
+    "printedTitle": "Bumblebee",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01124",
     "display": "C.O.W.L.",
     "parent": "Image Comics",
@@ -7337,6 +7779,19 @@
     "startYear": "2016",
     "publishingEra": "Marvel NOW! 2.0",
     "endYear": "2017"
+  },
+  {
+    "id": "CHR-DCX-0056",
+    "display": "Calendar Man",
+    "parent": "",
+    "series": "Calendar Man",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Calendar Man",
+    "printedTitle": "Calendar Man",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01275",
@@ -7640,6 +8095,58 @@
     "printedTitle": "Captain Atom"
   },
   {
+    "id": "CHR-DCX-0057",
+    "display": "Captain Boomerang",
+    "parent": "",
+    "series": "Captain Boomerang",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Captain Boomerang",
+    "printedTitle": "Captain Boomerang",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "SER-DCX-0190",
+    "display": "Captain Carrot and His Amazing Zoo Crew!",
+    "parent": "",
+    "series": "Captain Carrot and His Amazing Zoo Crew!",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Captain Carrot and His Amazing Zoo Crew!",
+    "printedTitle": "Captain Carrot and His Amazing Zoo Crew!",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
+    "id": "CHR-DCX-0058",
+    "display": "Captain Cold",
+    "parent": "",
+    "series": "Captain Cold",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Captain Cold",
+    "printedTitle": "Captain Cold",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "SER-DCX-0191",
+    "display": "Captain Comet",
+    "parent": "",
+    "series": "Captain Comet",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Captain Comet",
+    "printedTitle": "Captain Comet",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-00147",
     "display": "Captain Marvel",
     "parent": "Captain Marvel (Carol Danvers)",
@@ -7777,6 +8284,19 @@
     "printedTitle": "Captain Marvel Adventures"
   },
   {
+    "id": "CHR-DCX-0059",
+    "display": "Captain Marvel Jr.",
+    "parent": "",
+    "series": "Captain Marvel Jr.",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Captain Marvel Jr.",
+    "printedTitle": "Captain Marvel Jr.",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02384",
     "display": "Captain Marvel: Dark Past",
     "parent": "Captain Marvel (Carol Danvers)",
@@ -7789,6 +8309,19 @@
     "printedTitle": "Captain Marvel: Dark Past",
     "startYear": "2026",
     "endYear": "2026"
+  },
+  {
+    "id": "CHR-DCX-0060",
+    "display": "Carmine Falcone",
+    "parent": "",
+    "series": "Carmine Falcone",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Carmine Falcone",
+    "printedTitle": "Carmine Falcone",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00074",
@@ -7916,6 +8449,19 @@
     "level": "Optional",
     "sort": "Casper the Friendly Ghost",
     "printedTitle": "Casper the Friendly Ghost"
+  },
+  {
+    "id": "CHR-DCX-0061",
+    "display": "Cassandra Cain",
+    "parent": "",
+    "series": "Cassandra Cain",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Cassandra Cain",
+    "printedTitle": "Cassandra Cain",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "EVT-00089",
@@ -8153,6 +8699,19 @@
     "printedTitle": "Chaos War"
   },
   {
+    "id": "SER-DCX-0192",
+    "display": "Chase",
+    "parent": "",
+    "series": "Chase",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Chase",
+    "printedTitle": "Chase",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "CHR-00081",
     "display": "Chastity",
     "parent": "",
@@ -8188,6 +8747,19 @@
     "sort": "Cheetah and Cheshire Rob the Justice League",
     "printedTitle": "Cheetah and Cheshire Rob the Justice League",
     "publishingEra": "DC All In"
+  },
+  {
+    "id": "CHR-DCX-0062",
+    "display": "Cheshire",
+    "parent": "",
+    "series": "Cheshire",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Cheshire",
+    "printedTitle": "Cheshire",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00082",
@@ -8290,6 +8862,19 @@
     "level": "Recommended",
     "sort": "Chrononauts",
     "printedTitle": "Chrononauts"
+  },
+  {
+    "id": "SER-DCX-0193",
+    "display": "Chronos",
+    "parent": "",
+    "series": "Chronos",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Chronos",
+    "printedTitle": "Chronos",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-01127",
@@ -8425,6 +9010,32 @@
     "printedTitle": "Civil War: Unmasked",
     "startYear": "2026",
     "endYear": "2026"
+  },
+  {
+    "id": "SER-DCX-0194",
+    "display": "Claw the Unconquered",
+    "parent": "",
+    "series": "Claw the Unconquered",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Claw the Unconquered",
+    "printedTitle": "Claw the Unconquered",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
+    "id": "CHR-DCX-0063",
+    "display": "Clayface",
+    "parent": "",
+    "series": "Clayface",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Clayface",
+    "printedTitle": "Clayface",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01834",
@@ -8750,6 +9361,19 @@
     "level": "Recommended",
     "sort": "Convergence",
     "printedTitle": "Convergence"
+  },
+  {
+    "id": "EVT-DCX-0019",
+    "display": "Convergence",
+    "parent": "",
+    "series": "Convergence",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Convergence",
+    "printedTitle": "Convergence",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-01392",
@@ -9272,6 +9896,19 @@
     "startYear": "2007"
   },
   {
+    "id": "EVT-DCX-0020",
+    "display": "Countdown to Final Crisis",
+    "parent": "",
+    "series": "Countdown to Final Crisis",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Countdown to Final Crisis",
+    "printedTitle": "Countdown to Final Crisis",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "EVT-00121",
     "display": "Countdown to Infinite Crisis",
     "parent": "Crisis Saga",
@@ -9321,6 +9958,19 @@
     "level": "Optional",
     "sort": "Crack Comics",
     "printedTitle": "Crack Comics"
+  },
+  {
+    "id": "TEM-DCX-0064",
+    "display": "Creature Commandos",
+    "parent": "",
+    "series": "Creature Commandos",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Creature Commandos",
+    "printedTitle": "Creature Commandos",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "ANT-00017",
@@ -9615,6 +10265,19 @@
     "publishingEra": "DC You"
   },
   {
+    "id": "CHR-DCX-0065",
+    "display": "Cyclone",
+    "parent": "",
+    "series": "Cyclone",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Cyclone",
+    "printedTitle": "Cyclone",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00096",
     "display": "Cyclops",
     "parent": "",
@@ -9679,6 +10342,32 @@
     "printedTitle": "Damage Control",
     "startYear": "2022",
     "endYear": "2022"
+  },
+  {
+    "id": "CHR-DCX-0066",
+    "display": "Damian Wayne",
+    "parent": "",
+    "series": "Damian Wayne",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Damian Wayne",
+    "printedTitle": "Damian Wayne",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0067",
+    "display": "Damien Darhk",
+    "parent": "",
+    "series": "Damien Darhk",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Damien Darhk",
+    "printedTitle": "Damien Darhk",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01311",
@@ -10349,6 +11038,19 @@
     "printedTitle": "Dark Nights: Metal"
   },
   {
+    "id": "EVT-DCX-0015",
+    "display": "Dark Nights: Metal",
+    "parent": "",
+    "series": "Dark Nights: Metal",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Dark Nights: Metal",
+    "printedTitle": "Dark Nights: Metal",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01510",
     "display": "Dark Nights: Metal",
     "parent": "DC Universe",
@@ -10542,6 +11244,19 @@
     "level": "Optional",
     "sort": "Darkness, The",
     "printedTitle": "The Darkness"
+  },
+  {
+    "id": "CHR-DCX-0068",
+    "display": "Darkseid",
+    "parent": "",
+    "series": "Darkseid",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Darkseid",
+    "printedTitle": "Darkseid",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00102",
@@ -11195,6 +11910,19 @@
     "publishingEra": "Infinite Frontier"
   },
   {
+    "id": "TEM-DCX-0069",
+    "display": "Dead Boy Detectives",
+    "parent": "",
+    "series": "Dead Boy Detectives",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Dead Boy Detectives",
+    "printedTitle": "Dead Boy Detectives",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02131",
     "display": "Dead Man Logan",
     "parent": "Old Man Logan",
@@ -11292,6 +12020,19 @@
     "startYear": "2014",
     "publishingEra": "All-New Marvel NOW!",
     "endYear": "2014"
+  },
+  {
+    "id": "CHR-DCX-0070",
+    "display": "Deadman",
+    "parent": "",
+    "series": "Deadman",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Deadman",
+    "printedTitle": "Deadman",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01528",
@@ -11444,6 +12185,19 @@
     "level": "Optional",
     "sort": "Deadpool: The Circle Chase",
     "printedTitle": "Deadpool: The Circle Chase"
+  },
+  {
+    "id": "CHR-DCX-0071",
+    "display": "Deadshot",
+    "parent": "",
+    "series": "Deadshot",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Deadshot",
+    "printedTitle": "Deadshot",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-02434",
@@ -11728,6 +12482,19 @@
     "startYear": "2018",
     "publishingEra": "Fresh Start",
     "endYear": "2018"
+  },
+  {
+    "id": "CHR-DCX-0072",
+    "display": "Deimos",
+    "parent": "",
+    "series": "Deimos",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Deimos",
+    "printedTitle": "Deimos",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01377",
@@ -12207,6 +12974,19 @@
     "printedTitle": "Doc Savage"
   },
   {
+    "id": "CHR-DCX-0073",
+    "display": "Doctor Cyber",
+    "parent": "",
+    "series": "Doctor Cyber",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Doctor Cyber",
+    "printedTitle": "Doctor Cyber",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02415",
     "display": "Doctor Doom",
     "parent": "Fantastic Four",
@@ -12244,6 +13024,32 @@
     "sort": "Doctor Fate",
     "printedTitle": "Doctor Fate",
     "publishingEra": "DC You"
+  },
+  {
+    "id": "CHR-DCX-0074",
+    "display": "Doctor Psycho",
+    "parent": "",
+    "series": "Doctor Psycho",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Doctor Psycho",
+    "printedTitle": "Doctor Psycho",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0075",
+    "display": "Doctor Sivana",
+    "parent": "",
+    "series": "Doctor Sivana",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Doctor Sivana",
+    "printedTitle": "Doctor Sivana",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00123",
@@ -12619,6 +13425,19 @@
     "printedTitle": "Donald Duck Adventures"
   },
   {
+    "id": "CHR-DCX-0076",
+    "display": "Donna Troy",
+    "parent": "",
+    "series": "Donna Troy",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Donna Troy",
+    "printedTitle": "Donna Troy",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02509",
     "display": "Doom",
     "parent": "Fantastic Four",
@@ -12737,6 +13556,19 @@
     "endYear": "2026"
   },
   {
+    "id": "CHR-DCX-0077",
+    "display": "Doomsday",
+    "parent": "",
+    "series": "Doomsday",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Doomsday",
+    "printedTitle": "Doomsday",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "EVT-00077",
     "display": "Doomsday Clock",
     "parent": "Justice League / Universe-Wide",
@@ -12760,6 +13592,19 @@
     "sort": "Doomsday Clock",
     "printedTitle": "Doomsday Clock",
     "publishingEra": "Rebirth"
+  },
+  {
+    "id": "SER-DCX-0195",
+    "display": "Doorway to Nightmare",
+    "parent": "",
+    "series": "Doorway to Nightmare",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Doorway to Nightmare",
+    "printedTitle": "Doorway to Nightmare",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-01219",
@@ -12786,6 +13631,19 @@
     "printedTitle": "Drax the Destroyer"
   },
   {
+    "id": "CHR-DCX-0078",
+    "display": "Dreamer",
+    "parent": "",
+    "series": "Dreamer",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Dreamer",
+    "printedTitle": "Dreamer",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00190",
     "display": "DuckTales",
     "parent": "Darkwing Duck / DuckTales",
@@ -12808,6 +13666,19 @@
     "level": "Optional",
     "sort": "DuckTales",
     "printedTitle": "DuckTales"
+  },
+  {
+    "id": "CHR-DCX-0079",
+    "display": "Duke of Deception",
+    "parent": "",
+    "series": "Duke of Deception",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Duke of Deception",
+    "printedTitle": "Duke of Deception",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01332",
@@ -13034,6 +13905,19 @@
     "level": "Essential",
     "sort": "Eight Billion Genies",
     "printedTitle": "Eight Billion Genies"
+  },
+  {
+    "id": "CHR-DCX-0080",
+    "display": "El Diablo",
+    "parent": "",
+    "series": "El Diablo",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "El Diablo",
+    "printedTitle": "El Diablo",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01531",
@@ -13353,6 +14237,19 @@
     "endYear": "2020"
   },
   {
+    "id": "CHR-DCX-0081",
+    "display": "Enchantress",
+    "parent": "",
+    "series": "Enchantress",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Enchantress",
+    "printedTitle": "Enchantress",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01865",
     "display": "End of Life",
     "parent": "Vertigo / Black Label",
@@ -13364,6 +14261,19 @@
     "sort": "End of Life",
     "printedTitle": "End of Life",
     "publishingLine": "Vertigo"
+  },
+  {
+    "id": "CHR-DCX-0082",
+    "display": "Engineer",
+    "parent": "",
+    "series": "Engineer",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Engineer",
+    "printedTitle": "Engineer",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "EVT-00007",
@@ -13442,6 +14352,19 @@
     "printedTitle": "Etrigan the Demon"
   },
   {
+    "id": "CHR-DCX-0083",
+    "display": "Etta Candy",
+    "parent": "",
+    "series": "Etta Candy",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Etta Candy",
+    "printedTitle": "Etta Candy",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01305",
     "display": "Eugenic",
     "parent": "BOOM! Originals",
@@ -13452,6 +14375,19 @@
     "level": "Recommended",
     "sort": "Eugenic",
     "printedTitle": "Eugenic"
+  },
+  {
+    "id": "CHR-DCX-0084",
+    "display": "Eve Coffin",
+    "parent": "",
+    "series": "Eve Coffin",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Eve Coffin",
+    "printedTitle": "Eve Coffin",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01565",
@@ -14134,6 +15070,19 @@
     "printedTitle": "Fathom"
   },
   {
+    "id": "CHR-DCX-0085",
+    "display": "FBP: Federal Bureau of Physics",
+    "parent": "",
+    "series": "FBP: Federal Bureau of Physics",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "FBP: Federal Bureau of Physics",
+    "printedTitle": "FBP: Federal Bureau of Physics",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00357",
     "display": "Fear",
     "parent": "Howard the Duck",
@@ -14271,6 +15220,19 @@
     "sort": "Final Crisis",
     "printedTitle": "Final Crisis",
     "startYear": "2008"
+  },
+  {
+    "id": "EVT-DCX-0021",
+    "display": "Final Crisis",
+    "parent": "",
+    "series": "Final Crisis",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Final Crisis",
+    "printedTitle": "Final Crisis",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "EVT-00141",
@@ -14731,6 +15693,19 @@
     "startYear": "2011"
   },
   {
+    "id": "EVT-DCX-0022",
+    "display": "Flashpoint",
+    "parent": "",
+    "series": "Flashpoint",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Flashpoint",
+    "printedTitle": "Flashpoint",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01064",
     "display": "Flashpoint Beyond",
     "parent": "DC Universe",
@@ -15072,6 +16047,19 @@
     "printedTitle": "Forever Evil"
   },
   {
+    "id": "EVT-DCX-0023",
+    "display": "Forever Evil",
+    "parent": "",
+    "series": "Forever Evil",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Forever Evil",
+    "printedTitle": "Forever Evil",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01388",
     "display": "Forever Evil",
     "parent": "Forever Evil",
@@ -15341,6 +16329,19 @@
     "sort": "Future Quest Presents",
     "printedTitle": "Future Quest Presents",
     "publishingEra": "DC You"
+  },
+  {
+    "id": "EVT-DCX-0024",
+    "display": "Future State",
+    "parent": "",
+    "series": "Future State",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Event",
+    "level": "Recommended",
+    "sort": "Future State",
+    "printedTitle": "Future State",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-01065",
@@ -15764,6 +16765,19 @@
     "printedTitle": "G.O.D.S.",
     "startYear": "2023",
     "endYear": "2024"
+  },
+  {
+    "id": "CHR-DCX-0086",
+    "display": "Galaxy",
+    "parent": "",
+    "series": "Galaxy",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Galaxy",
+    "printedTitle": "Galaxy",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00154",
@@ -16272,6 +17286,19 @@
     "publishingEra": "Rebirth"
   },
   {
+    "id": "SER-DCX-0196",
+    "display": "Ghosts",
+    "parent": "",
+    "series": "Ghosts",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Anthology",
+    "level": "Optional",
+    "sort": "Ghosts",
+    "printedTitle": "Ghosts",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01314",
     "display": "Giant Days",
     "parent": "BOOM! Originals",
@@ -16357,6 +17384,19 @@
     "level": "Recommended",
     "sort": "Gideon Falls",
     "printedTitle": "Gideon Falls"
+  },
+  {
+    "id": "CHR-DCX-0087",
+    "display": "Giganta",
+    "parent": "",
+    "series": "Giganta",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Giganta",
+    "printedTitle": "Giganta",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01293",
@@ -16661,6 +17701,19 @@
     "printedTitle": "The Goon"
   },
   {
+    "id": "CHR-DCX-0088",
+    "display": "Gorilla Grodd",
+    "parent": "",
+    "series": "Gorilla Grodd",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Gorilla Grodd",
+    "printedTitle": "Gorilla Grodd",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01359",
     "display": "Gotham Academy",
     "parent": "Batman",
@@ -16753,6 +17806,19 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "SER-DCX-0197",
+    "display": "Gotham Central",
+    "parent": "",
+    "series": "Gotham Central",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Gotham Central",
+    "printedTitle": "Gotham Central",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01530",
     "display": "Gotham City Garage",
     "parent": "DC Universe",
@@ -16790,6 +17856,19 @@
     "sort": "Gotham War",
     "printedTitle": "Gotham War",
     "publishingEra": "Dawn of DC"
+  },
+  {
+    "id": "CHR-DCX-0089",
+    "display": "Granny Goodness",
+    "parent": "",
+    "series": "Granny Goodness",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Granny Goodness",
+    "printedTitle": "Granny Goodness",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01361",
@@ -16901,6 +17980,19 @@
     "sort": "Green Lantern Corps",
     "printedTitle": "Green Lantern Corps",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "TEM-DCX-0090",
+    "display": "Green Lantern Corps",
+    "parent": "",
+    "series": "Green Lantern Corps",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Green Lantern Corps",
+    "printedTitle": "Green Lantern Corps",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01469",
@@ -17362,6 +18454,32 @@
     "printedTitle": "Gunslinger Spawn"
   },
   {
+    "id": "CHR-DCX-0091",
+    "display": "Guy Gardner",
+    "parent": "",
+    "series": "Guy Gardner",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Guy Gardner",
+    "printedTitle": "Guy Gardner",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "TEM-DCX-0092",
+    "display": "H.I.V.E.",
+    "parent": "",
+    "series": "H.I.V.E.",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "H.I.V.E.",
+    "printedTitle": "H.I.V.E.",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00174",
     "display": "Hack/Slash",
     "parent": "",
@@ -17551,6 +18669,19 @@
     "publishingEra": "DC All In"
   },
   {
+    "id": "CHR-DCX-0025",
+    "display": "Harley Quinn",
+    "parent": "",
+    "series": "Harley Quinn",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Harley Quinn",
+    "printedTitle": "Harley Quinn",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01362",
     "display": "Harley Quinn",
     "parent": "Harley Quinn",
@@ -17627,6 +18758,19 @@
     "printedTitle": "Harrow County"
   },
   {
+    "id": "CHR-DCX-0093",
+    "display": "Harvey Bullock",
+    "parent": "",
+    "series": "Harvey Bullock",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Harvey Bullock",
+    "printedTitle": "Harvey Bullock",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01138",
     "display": "Haunt",
     "parent": "Image Comics",
@@ -17662,6 +18806,19 @@
     "sort": "Hawk & Dove",
     "printedTitle": "Hawk & Dove",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "CHR-DCX-0094",
+    "display": "Hawk and Dove",
+    "parent": "",
+    "series": "Hawk and Dove",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Hawk and Dove",
+    "printedTitle": "Hawk and Dove",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00177",
@@ -17757,6 +18914,19 @@
     "printedTitle": "Hawkeye: Freefall",
     "startYear": "2020",
     "endYear": "2020"
+  },
+  {
+    "id": "CHR-DCX-0026",
+    "display": "Hawkgirl",
+    "parent": "",
+    "series": "Hawkgirl",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Hawkgirl",
+    "printedTitle": "Hawkgirl",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-01738",
@@ -17895,6 +19065,19 @@
     "level": "Recommended",
     "sort": "Head Lopper",
     "printedTitle": "Head Lopper"
+  },
+  {
+    "id": "CHR-DCX-0095",
+    "display": "Heat Wave",
+    "parent": "",
+    "series": "Heat Wave",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Heat Wave",
+    "printedTitle": "Heat Wave",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-00345",
@@ -18257,6 +19440,32 @@
     "printedTitle": "Highlander"
   },
   {
+    "id": "CHR-DCX-0096",
+    "display": "Hinterkind",
+    "parent": "",
+    "series": "Hinterkind",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Hinterkind",
+    "printedTitle": "Hinterkind",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0097",
+    "display": "Hippolyta",
+    "parent": "",
+    "series": "Hippolyta",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Hippolyta",
+    "printedTitle": "Hippolyta",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02286",
     "display": "The Hood",
     "parent": "Marvel Universe",
@@ -18344,6 +19553,19 @@
     "printedTitle": "House of Mystery"
   },
   {
+    "id": "SER-DCX-0198",
+    "display": "House of Mystery",
+    "parent": "",
+    "series": "House of Mystery",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Anthology",
+    "level": "Optional",
+    "sort": "House of Mystery",
+    "printedTitle": "House of Mystery",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "ANT-00003",
     "display": "House of Secrets",
     "parent": "DC Mystery Anthologies",
@@ -18366,6 +19588,19 @@
     "level": "Optional",
     "sort": "House of Secrets",
     "printedTitle": "House of Secrets"
+  },
+  {
+    "id": "SER-DCX-0199",
+    "display": "House of Secrets",
+    "parent": "",
+    "series": "House of Secrets",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Anthology",
+    "level": "Optional",
+    "sort": "House of Secrets",
+    "printedTitle": "House of Secrets",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-01289",
@@ -18640,6 +19875,19 @@
     "printedTitle": "Huntress"
   },
   {
+    "id": "CHR-DCX-0098",
+    "display": "Hush",
+    "parent": "",
+    "series": "Hush",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Hush",
+    "printedTitle": "Hush",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01185",
     "display": "Hyde Street",
     "parent": "Image Comics",
@@ -18703,6 +19951,19 @@
     "sort": "I, Vampire",
     "printedTitle": "I, Vampire",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "SER-DCX-0200",
+    "display": "I...Vampire",
+    "parent": "",
+    "series": "I...Vampire",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "I...Vampire",
+    "printedTitle": "I...Vampire",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "CHR-00190",
@@ -19728,6 +20989,19 @@
     "publishingLine": "Vertigo"
   },
   {
+    "id": "CHR-DCX-0099",
+    "display": "Iris West",
+    "parent": "",
+    "series": "Iris West",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Iris West",
+    "printedTitle": "Iris West",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02463",
     "display": "Iron Cat",
     "parent": "Iron Man",
@@ -20014,6 +21288,19 @@
     "printedTitle": "iZombie"
   },
   {
+    "id": "CHR-DCX-0100",
+    "display": "Jackson Hyde",
+    "parent": "",
+    "series": "Jackson Hyde",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Jackson Hyde",
+    "printedTitle": "Jackson Hyde",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00374",
     "display": "The Jaguar",
     "parent": "Impact Comics Imprint (Archie superheroes revival)",
@@ -20025,6 +21312,45 @@
     "sort": "Jaguar, The",
     "printedTitle": "The Jaguar",
     "publishingLine": "Impact"
+  },
+  {
+    "id": "CHR-DCX-0101",
+    "display": "James Gordon",
+    "parent": "",
+    "series": "James Gordon",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "James Gordon",
+    "printedTitle": "James Gordon",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0102",
+    "display": "Javelin",
+    "parent": "",
+    "series": "Javelin",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Javelin",
+    "printedTitle": "Javelin",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0103",
+    "display": "Jay Garrick",
+    "parent": "",
+    "series": "Jay Garrick",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Jay Garrick",
+    "printedTitle": "Jay Garrick",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01794",
@@ -20121,6 +21447,32 @@
     "level": "Essential",
     "sort": "Jem and the Holograms",
     "printedTitle": "Jem and the Holograms"
+  },
+  {
+    "id": "CHR-DCX-0104",
+    "display": "Jesse Custer",
+    "parent": "",
+    "series": "Jesse Custer",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Jesse Custer",
+    "printedTitle": "Jesse Custer",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0105",
+    "display": "Jessica Cruz",
+    "parent": "",
+    "series": "Jessica Cruz",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Jessica Cruz",
+    "printedTitle": "Jessica Cruz",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-02040",
@@ -20267,6 +21619,19 @@
     "printedTitle": "Jim Henson's The Storyteller"
   },
   {
+    "id": "CHR-DCX-0106",
+    "display": "Jimmy Olsen",
+    "parent": "",
+    "series": "Jimmy Olsen",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Jimmy Olsen",
+    "printedTitle": "Jimmy Olsen",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00252",
     "display": "JLA: Earth 2",
     "parent": "Elseworlds / Alternate Universe",
@@ -20333,6 +21698,19 @@
     "publishingLine": "Sandman Universe"
   },
   {
+    "id": "CHR-DCX-0107",
+    "display": "John Stewart",
+    "parent": "",
+    "series": "John Stewart",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "John Stewart",
+    "printedTitle": "John Stewart",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00209",
     "display": "Johnny Quick",
     "parent": "",
@@ -20382,6 +21760,19 @@
     "sort": "Joker: The Man Who Stopped Laughing",
     "printedTitle": "Joker: The Man Who Stopped Laughing",
     "publishingEra": "Dawn of DC"
+  },
+  {
+    "id": "CHR-DCX-0108",
+    "display": "Jon Kent",
+    "parent": "",
+    "series": "Jon Kent",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Jon Kent",
+    "printedTitle": "Jon Kent",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00210",
@@ -21045,6 +22436,19 @@
     "endYear": "2017"
   },
   {
+    "id": "CHR-DCX-0027",
+    "display": "Katana",
+    "parent": "",
+    "series": "Katana",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Katana",
+    "printedTitle": "Katana",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01351",
     "display": "Katana",
     "parent": "Katana",
@@ -21106,6 +22510,19 @@
     "printedTitle": "Kid Colt, Outlaw"
   },
   {
+    "id": "CHR-DCX-0109",
+    "display": "Kid Flash",
+    "parent": "",
+    "series": "Kid Flash",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Kid Flash",
+    "printedTitle": "Kid Flash",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02512",
     "display": "Kid Venom",
     "parent": "Venom",
@@ -21154,6 +22571,32 @@
     "level": "Recommended",
     "sort": "Kill Shakespeare",
     "printedTitle": "Kill Shakespeare"
+  },
+  {
+    "id": "CHR-DCX-0110",
+    "display": "Killer Croc",
+    "parent": "",
+    "series": "Killer Croc",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Killer Croc",
+    "printedTitle": "Killer Croc",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0111",
+    "display": "Killer Frost",
+    "parent": "",
+    "series": "Killer Frost",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Killer Frost",
+    "printedTitle": "Killer Frost",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00424",
@@ -21376,6 +22819,19 @@
     "startYear": "2021",
     "publishingEra": "Fresh Start",
     "endYear": "2021"
+  },
+  {
+    "id": "CHR-DCX-0112",
+    "display": "King Shark",
+    "parent": "",
+    "series": "King Shark",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "King Shark",
+    "printedTitle": "King Shark",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01144",
@@ -21829,6 +23285,19 @@
     "printedTitle": "Kraven the Hunter"
   },
   {
+    "id": "CHR-DCX-0113",
+    "display": "Krypto",
+    "parent": "",
+    "series": "Krypto",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Krypto",
+    "printedTitle": "Krypto",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01825",
     "display": "Krypto: The Last Dog of Krypton",
     "parent": "Superman",
@@ -21852,6 +23321,19 @@
     "level": "Optional",
     "sort": "Kurt Busiek's Astro City",
     "printedTitle": "Kurt Busiek's Astro City"
+  },
+  {
+    "id": "SER-DCX-0201",
+    "display": "L.E.G.I.O.N.",
+    "parent": "",
+    "series": "L.E.G.I.O.N.",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "L.E.G.I.O.N.",
+    "printedTitle": "L.E.G.I.O.N.",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "CHR-00222",
@@ -21888,6 +23370,19 @@
     "level": "Essential",
     "sort": "Lady Killer",
     "printedTitle": "Lady Killer"
+  },
+  {
+    "id": "CHR-DCX-0114",
+    "display": "Lady Shiva",
+    "parent": "",
+    "series": "Lady Shiva",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Lady Shiva",
+    "printedTitle": "Lady Shiva",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01045",
@@ -22191,6 +23686,19 @@
     "publishingEra": "DC Universe"
   },
   {
+    "id": "CHR-DCX-0115",
+    "display": "Lex Luthor",
+    "parent": "",
+    "series": "Lex Luthor",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Lex Luthor",
+    "printedTitle": "Lex Luthor",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00224",
     "display": "Liberty Belle",
     "parent": "",
@@ -22240,6 +23748,19 @@
     "level": "Optional",
     "sort": "Life with Archie",
     "printedTitle": "Life with Archie"
+  },
+  {
+    "id": "CHR-DCX-0116",
+    "display": "Lightning",
+    "parent": "",
+    "series": "Lightning",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Lightning",
+    "printedTitle": "Lightning",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01146",
@@ -22362,6 +23883,19 @@
     "printedTitle": "Livewire"
   },
   {
+    "id": "CHR-DCX-0028",
+    "display": "Lobo",
+    "parent": "",
+    "series": "Lobo",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Lobo",
+    "printedTitle": "Lobo",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01370",
     "display": "Lobo",
     "parent": "Lobo",
@@ -22421,6 +23955,19 @@
     "level": "Optional",
     "sort": "Locke & Key",
     "printedTitle": "Locke & Key"
+  },
+  {
+    "id": "CHR-DCX-0117",
+    "display": "Lois Lane",
+    "parent": "",
+    "series": "Lois Lane",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Lois Lane",
+    "printedTitle": "Lois Lane",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01564",
@@ -22634,6 +24181,19 @@
     "publishingLine": "Vertigo"
   },
   {
+    "id": "CHR-DCX-0118",
+    "display": "Lucius Fox",
+    "parent": "",
+    "series": "Lucius Fox",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Lucius Fox",
+    "printedTitle": "Lucius Fox",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00235",
     "display": "Luke Cage",
     "parent": "Luke Cage",
@@ -22719,6 +24279,19 @@
     "level": "Optional",
     "sort": "MAD Magazine",
     "printedTitle": "MAD Magazine"
+  },
+  {
+    "id": "SER-DCX-0202",
+    "display": "Madame Xanadu",
+    "parent": "",
+    "series": "Madame Xanadu",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Madame Xanadu",
+    "printedTitle": "Madame Xanadu",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-02274",
@@ -22866,6 +24439,45 @@
     "printedTitle": "Magnus, Robot Fighter"
   },
   {
+    "id": "CHR-DCX-0001",
+    "display": "Magog",
+    "parent": "",
+    "series": "Magog",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Recommended",
+    "sort": "Magog",
+    "printedTitle": "Magog"
+  },
+  {
+    "id": "SER-DCX-0007",
+    "display": "Magog",
+    "parent": "Magog",
+    "series": "Magog",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Magog",
+    "printedTitle": "Magog",
+    "startYear": "2009",
+    "endYear": "2010"
+  },
+  {
+    "id": "SER-DCX-0203",
+    "display": "Major Bummer",
+    "parent": "",
+    "series": "Major Bummer",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Major Bummer",
+    "printedTitle": "Major Bummer",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-00759",
     "display": "Man of Steel",
     "parent": "Superman",
@@ -22891,6 +24503,19 @@
     "startYear": "2019",
     "publishingEra": "Fresh Start",
     "endYear": "2019"
+  },
+  {
+    "id": "SER-DCX-0204",
+    "display": "Man-Bat",
+    "parent": "",
+    "series": "Man-Bat",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Man-Bat",
+    "printedTitle": "Man-Bat",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "CHR-00240",
@@ -23904,6 +25529,19 @@
     "endYear": "2020"
   },
   {
+    "id": "CHR-DCX-0119",
+    "display": "Mary Bromfield",
+    "parent": "",
+    "series": "Mary Bromfield",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Mary Bromfield",
+    "printedTitle": "Mary Bromfield",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00427",
     "display": "The Mask",
     "parent": "",
@@ -23988,6 +25626,32 @@
     "printedTitle": "Maximum Carnage"
   },
   {
+    "id": "CHR-DCX-0120",
+    "display": "Maxwell Lord",
+    "parent": "",
+    "series": "Maxwell Lord",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Maxwell Lord",
+    "printedTitle": "Maxwell Lord",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "SER-DCX-0205",
+    "display": "Mazing Man",
+    "parent": "",
+    "series": "Mazing Man",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Mazing Man",
+    "printedTitle": "Mazing Man",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01317",
     "display": "Mech Cadet Yu",
     "parent": "BOOM! Originals",
@@ -24062,6 +25726,19 @@
     "sort": "Men of War",
     "printedTitle": "Men of War",
     "publishingEra": "The New 52"
+  },
+  {
+    "id": "CHR-DCX-0121",
+    "display": "Mera",
+    "parent": "",
+    "series": "Mera",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Mera",
+    "printedTitle": "Mera",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00428",
@@ -24606,6 +26283,32 @@
     "printedTitle": "Mister Fantastic / Invisible Woman / The Thing"
   },
   {
+    "id": "CHR-DCX-0122",
+    "display": "Mister Freeze",
+    "parent": "",
+    "series": "Mister Freeze",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Mister Freeze",
+    "printedTitle": "Mister Freeze",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0123",
+    "display": "Mister Miracle",
+    "parent": "",
+    "series": "Mister Miracle",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Mister Miracle",
+    "printedTitle": "Mister Miracle",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00505",
     "display": "Mister Miracle",
     "parent": "Mister Miracle / New Gods",
@@ -24654,6 +26357,19 @@
     "sort": "Mister Miracle: The Source of Freedom",
     "printedTitle": "Mister Miracle: The Source of Freedom",
     "publishingEra": "Infinite Frontier"
+  },
+  {
+    "id": "CHR-DCX-0029",
+    "display": "Mister Terrific",
+    "parent": "",
+    "series": "Mister Terrific",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Mister Terrific",
+    "printedTitle": "Mister Terrific",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-01352",
@@ -24720,6 +26436,19 @@
     "endYear": "2016"
   },
   {
+    "id": "CHR-DCX-0124",
+    "display": "Mongal",
+    "parent": "",
+    "series": "Mongal",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Mongal",
+    "printedTitle": "Mongal",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02466",
     "display": "Monica Rambeau: Photon",
     "parent": "Captain Marvel (Carol Danvers)",
@@ -24732,6 +26461,19 @@
     "printedTitle": "Monica Rambeau: Photon",
     "startYear": "2022",
     "endYear": "2023"
+  },
+  {
+    "id": "CHR-DCX-0125",
+    "display": "Monitor",
+    "parent": "",
+    "series": "Monitor",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Monitor",
+    "printedTitle": "Monitor",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01669",
@@ -25079,6 +26821,19 @@
     "level": "Essential",
     "sort": "Morning Glories",
     "printedTitle": "Morning Glories"
+  },
+  {
+    "id": "CHR-DCX-0126",
+    "display": "Morpheus",
+    "parent": "",
+    "series": "Morpheus",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Morpheus",
+    "printedTitle": "Morpheus",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-02397",
@@ -25642,6 +27397,19 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "CHR-DCX-0127",
+    "display": "Nereus",
+    "parent": "",
+    "series": "Nereus",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Nereus",
+    "printedTitle": "Nereus",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00060",
     "display": "New Avengers",
     "parent": "Avengers",
@@ -25735,6 +27503,19 @@
     "level": "Optional",
     "sort": "New Gods",
     "printedTitle": "New Gods"
+  },
+  {
+    "id": "TEM-DCX-0128",
+    "display": "New Gods",
+    "parent": "",
+    "series": "New Gods",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "New Gods",
+    "printedTitle": "New Gods",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00273",
@@ -26478,6 +28259,19 @@
     "publishingEra": "Rebirth"
   },
   {
+    "id": "CHR-DCX-0129",
+    "display": "Nuidis Vulko",
+    "parent": "",
+    "series": "Nuidis Vulko",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Nuidis Vulko",
+    "printedTitle": "Nuidis Vulko",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00989",
     "display": "NYX",
     "parent": "X-23 / Wolverine (Laura Kinney)",
@@ -26491,6 +28285,19 @@
     "publishingEra": "From the Ashes",
     "startYear": "2024",
     "endYear": "2025"
+  },
+  {
+    "id": "CHR-DCX-0130",
+    "display": "O.M.A.C.",
+    "parent": "",
+    "series": "O.M.A.C.",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "O.M.A.C.",
+    "printedTitle": "O.M.A.C.",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01153",
@@ -26518,6 +28325,19 @@
     "startYear": "2016",
     "publishingEra": "Marvel NOW! 2.0",
     "endYear": "2017"
+  },
+  {
+    "id": "CHR-DCX-0131",
+    "display": "Ocean Master",
+    "parent": "",
+    "series": "Ocean Master",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Ocean Master",
+    "printedTitle": "Ocean Master",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00287",
@@ -26939,6 +28759,19 @@
     "printedTitle": "Overwatch"
   },
   {
+    "id": "CHR-DCX-0132",
+    "display": "Pandora",
+    "parent": "",
+    "series": "Pandora",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Pandora",
+    "printedTitle": "Pandora",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00292",
     "display": "Paper Girls",
     "parent": "",
@@ -26988,6 +28821,19 @@
     "startYear": "2015",
     "publishingEra": "All-New, All-Different Marvel",
     "endYear": "2017"
+  },
+  {
+    "id": "CHR-DCX-0030",
+    "display": "Peacemaker",
+    "parent": "",
+    "series": "Peacemaker",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Peacemaker",
+    "printedTitle": "Peacemaker",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-00828",
@@ -27040,6 +28886,19 @@
     "printedTitle": "The Peacemaker"
   },
   {
+    "id": "CHR-DCX-0133",
+    "display": "Penguin",
+    "parent": "",
+    "series": "Penguin",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Penguin",
+    "printedTitle": "Penguin",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00843",
     "display": "Pep Comics",
     "parent": "The Shield",
@@ -27050,6 +28909,19 @@
     "level": "Optional",
     "sort": "Pep Comics",
     "printedTitle": "Pep Comics"
+  },
+  {
+    "id": "CHR-DCX-0134",
+    "display": "Perry White",
+    "parent": "",
+    "series": "Perry White",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Perry White",
+    "printedTitle": "Perry White",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00294",
@@ -27452,6 +29324,19 @@
     "printedTitle": "Police Comics"
   },
   {
+    "id": "CHR-DCX-0135",
+    "display": "Polka-Dot Man",
+    "parent": "",
+    "series": "Polka-Dot Man",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Polka-Dot Man",
+    "printedTitle": "Polka-Dot Man",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00301",
     "display": "Popeye",
     "parent": "",
@@ -27815,6 +29700,19 @@
     "printedTitle": "Prez"
   },
   {
+    "id": "SER-DCX-0206",
+    "display": "Primal Force",
+    "parent": "",
+    "series": "Primal Force",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Primal Force",
+    "printedTitle": "Primal Force",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-00905",
     "display": "Prime",
     "parent": "Ultraverse Line",
@@ -27939,6 +29837,19 @@
     "endYear": "2017"
   },
   {
+    "id": "CHR-DCX-0136",
+    "display": "Psycho-Pirate",
+    "parent": "",
+    "series": "Psycho-Pirate",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Psycho-Pirate",
+    "printedTitle": "Psycho-Pirate",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02236",
     "display": "Psylocke",
     "parent": "X-Men",
@@ -27952,6 +29863,33 @@
     "startYear": "2024",
     "publishingEra": "From the Ashes",
     "endYear": "2025"
+  },
+  {
+    "id": "CHR-DCX-0002",
+    "display": "Punchline",
+    "parent": "",
+    "series": "Punchline",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Recommended",
+    "sort": "Punchline",
+    "printedTitle": "Punchline"
+  },
+  {
+    "id": "SER-DCX-0008",
+    "display": "Punchline: The Gotham Game",
+    "parent": "Punchline",
+    "series": "Punchline: The Gotham Game",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Punchline: The Gotham Game",
+    "printedTitle": "Punchline: The Gotham Game",
+    "startYear": "2022",
+    "endYear": "2023",
+    "publishingEra": "Infinite Frontier"
   },
   {
     "id": "CHR-00310",
@@ -28326,6 +30264,32 @@
     "printedTitle": "Quicksilver"
   },
   {
+    "id": "SER-DCX-0207",
+    "display": "R.E.B.E.L.S.",
+    "parent": "",
+    "series": "R.E.B.E.L.S.",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "R.E.B.E.L.S.",
+    "printedTitle": "R.E.B.E.L.S.",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
+    "id": "CHR-DCX-0137",
+    "display": "Ra's al Ghul",
+    "parent": "",
+    "series": "Ra's al Ghul",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Ra's al Ghul",
+    "printedTitle": "Ra's al Ghul",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00315",
     "display": "Radiant Black",
     "parent": "",
@@ -28384,6 +30348,46 @@
     "level": "Optional",
     "sort": "Radioactive Man",
     "printedTitle": "Radioactive Man"
+  },
+  {
+    "id": "CHR-DCX-0003",
+    "display": "Ragman",
+    "parent": "",
+    "series": "Ragman",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Recommended",
+    "sort": "Ragman",
+    "printedTitle": "Ragman"
+  },
+  {
+    "id": "SER-DCX-0009",
+    "display": "Ragman",
+    "parent": "Ragman",
+    "series": "Ragman",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Ragman",
+    "printedTitle": "Ragman",
+    "startYear": "1976",
+    "endYear": "1977"
+  },
+  {
+    "id": "SER-DCX-0010",
+    "display": "Ragman: Cry of the Dead",
+    "parent": "Ragman",
+    "series": "Ragman: Cry of the Dead",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Ragman: Cry of the Dead",
+    "printedTitle": "Ragman: Cry of the Dead",
+    "startYear": "1993",
+    "endYear": "1994"
   },
   {
     "id": "SER-01285",
@@ -28505,6 +30509,32 @@
     "level": "Recommended",
     "sort": "Rat Queens",
     "printedTitle": "Rat Queens"
+  },
+  {
+    "id": "CHR-DCX-0138",
+    "display": "Ratcatcher",
+    "parent": "",
+    "series": "Ratcatcher",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Ratcatcher",
+    "printedTitle": "Ratcatcher",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0031",
+    "display": "Raven",
+    "parent": "",
+    "series": "Raven",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Raven",
+    "printedTitle": "Raven",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-01525",
@@ -28672,6 +30702,19 @@
     "level": "Optional",
     "sort": "Rebirth Era",
     "printedTitle": "Rebirth Era"
+  },
+  {
+    "id": "CHR-DCX-0139",
+    "display": "Red Arrow",
+    "parent": "",
+    "series": "Red Arrow",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Red Arrow",
+    "printedTitle": "Red Arrow",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00319",
@@ -28911,6 +30954,19 @@
     "printedTitle": "Reign of the Supermen"
   },
   {
+    "id": "CHR-DCX-0140",
+    "display": "Renee Montoya",
+    "parent": "",
+    "series": "Renee Montoya",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Renee Montoya",
+    "printedTitle": "Renee Montoya",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01612",
     "display": "Represent!",
     "parent": "DC Universe",
@@ -28975,6 +31031,19 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "SER-DCX-0208",
+    "display": "Resurrection Man",
+    "parent": "",
+    "series": "Resurrection Man",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Resurrection Man",
+    "printedTitle": "Resurrection Man",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01849",
     "display": "Resurrection Man: Quantum Karma",
     "parent": "DC Universe",
@@ -29001,6 +31070,19 @@
     "startYear": "2024",
     "publishingEra": "Fall of X",
     "endYear": "2024"
+  },
+  {
+    "id": "CHR-DCX-0141",
+    "display": "Reverse-Flash",
+    "parent": "",
+    "series": "Reverse-Flash",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Reverse-Flash",
+    "printedTitle": "Reverse-Flash",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01156",
@@ -29063,6 +31145,32 @@
     "printedTitle": "Rick and Morty"
   },
   {
+    "id": "CHR-DCX-0142",
+    "display": "Rick Flag",
+    "parent": "",
+    "series": "Rick Flag",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Rick Flag",
+    "printedTitle": "Rick Flag",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0143",
+    "display": "Riddler",
+    "parent": "",
+    "series": "Riddler",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Riddler",
+    "printedTitle": "Riddler",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00327",
     "display": "Rip Hunter, Time Master",
     "parent": "",
@@ -29102,9 +31210,21 @@
     "endYear": "2024"
   },
   {
+    "id": "CHR-DCX-0004",
+    "display": "Robin",
+    "parent": "",
+    "series": "Robin",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Essential",
+    "sort": "Robin",
+    "printedTitle": "Robin"
+  },
+  {
     "id": "SER-00606",
     "display": "Robin",
-    "parent": "Robin / Teen Titans",
+    "parent": "Robin",
     "series": "Robin",
     "primary": false,
     "publisher": "DC",
@@ -29142,7 +31262,7 @@
   {
     "id": "SER-01473",
     "display": "Robin: Son of Batman",
-    "parent": "Robin / Teen Titans",
+    "parent": "Robin",
     "series": "Robin: Son of Batman",
     "primary": false,
     "publisher": "DC",
@@ -29479,18 +31599,6 @@
     "publishingLine": "Black Label"
   },
   {
-    "id": "CHR-00335",
-    "display": "ROM",
-    "parent": "",
-    "series": "ROM",
-    "primary": true,
-    "publisher": "IDW / Marvel",
-    "type": "Character",
-    "level": "Optional",
-    "sort": "ROM",
-    "printedTitle": "ROM"
-  },
-  {
     "id": "SER-00624",
     "display": "Rom",
     "parent": "ROM",
@@ -29513,6 +31621,18 @@
     "level": "Recommended",
     "sort": "Rom",
     "printedTitle": "Rom"
+  },
+  {
+    "id": "CHR-00335",
+    "display": "ROM",
+    "parent": "",
+    "series": "ROM",
+    "primary": true,
+    "publisher": "IDW / Marvel",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "ROM",
+    "printedTitle": "ROM"
   },
   {
     "id": "SER-01318",
@@ -29876,6 +31996,19 @@
     "printedTitle": "Saga of the Swamp Thing"
   },
   {
+    "id": "CHR-DCX-0144",
+    "display": "Sal Maroni",
+    "parent": "",
+    "series": "Sal Maroni",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Sal Maroni",
+    "printedTitle": "Sal Maroni",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "EVT-00140",
     "display": "Salvation Run",
     "parent": "Countdown to Final Crisis",
@@ -30091,6 +32224,19 @@
     "endYear": "2015"
   },
   {
+    "id": "CHR-DCX-0145",
+    "display": "Savant",
+    "parent": "",
+    "series": "Savant",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Savant",
+    "printedTitle": "Savant",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00346",
     "display": "Scalped",
     "parent": "",
@@ -30114,6 +32260,32 @@
     "sort": "Scalped",
     "printedTitle": "Scalped",
     "publishingLine": "Vertigo"
+  },
+  {
+    "id": "SER-DCX-0209",
+    "display": "Scare Tactics",
+    "parent": "",
+    "series": "Scare Tactics",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Scare Tactics",
+    "printedTitle": "Scare Tactics",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
+    "id": "CHR-DCX-0146",
+    "display": "Scarecrow",
+    "parent": "",
+    "series": "Scarecrow",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Scarecrow",
+    "printedTitle": "Scarecrow",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-00641",
@@ -30811,6 +32983,19 @@
     "printedTitle": "Sergio Aragones' Groo"
   },
   {
+    "id": "TEM-DCX-0147",
+    "display": "Seven Deadly Sins",
+    "parent": "",
+    "series": "Seven Deadly Sins",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Seven Deadly Sins",
+    "printedTitle": "Seven Deadly Sins",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01300",
     "display": "Seven Secrets",
     "parent": "BOOM! Originals",
@@ -31155,6 +33340,19 @@
     "printedTitle": "Shazam / Captain Marvel"
   },
   {
+    "id": "TEM-DCX-0148",
+    "display": "Shazam Family",
+    "parent": "",
+    "series": "Shazam Family",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Shazam Family",
+    "printedTitle": "Shazam Family",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00665",
     "display": "Shazam!",
     "parent": "Shazam / Captain Marvel",
@@ -31373,6 +33571,19 @@
     "printedTitle": "Siege"
   },
   {
+    "id": "CHR-DCX-0149",
+    "display": "Signal",
+    "parent": "",
+    "series": "Signal",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Signal",
+    "printedTitle": "Signal",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00365",
     "display": "Silk",
     "parent": "",
@@ -31551,6 +33762,32 @@
     "endYear": "2023"
   },
   {
+    "id": "CHR-DCX-0150",
+    "display": "Simon Baz",
+    "parent": "",
+    "series": "Simon Baz",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Simon Baz",
+    "printedTitle": "Simon Baz",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0151",
+    "display": "Simon Stagg",
+    "parent": "",
+    "series": "Simon Stagg",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Simon Stagg",
+    "printedTitle": "Simon Stagg",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00847",
     "display": "Simpsons Comics",
     "parent": "The Simpsons",
@@ -31597,6 +33834,19 @@
     "level": "Optional",
     "sort": "Sin City",
     "printedTitle": "Sin City"
+  },
+  {
+    "id": "CHR-DCX-0152",
+    "display": "Sinestro",
+    "parent": "",
+    "series": "Sinestro",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Sinestro",
+    "printedTitle": "Sinestro",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01044",
@@ -31763,6 +34013,19 @@
     "printedTitle": "Skyward"
   },
   {
+    "id": "SER-DCX-0210",
+    "display": "Slash Maraud",
+    "parent": "",
+    "series": "Slash Maraud",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Slash Maraud",
+    "printedTitle": "Slash Maraud",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-00908",
     "display": "Sludge",
     "parent": "Ultraverse Line",
@@ -31849,6 +34112,19 @@
     "startYear": "2016",
     "publishingEra": "Marvel NOW! 2.0",
     "endYear": "2017"
+  },
+  {
+    "id": "CHR-DCX-0153",
+    "display": "Solomon Grundy",
+    "parent": "",
+    "series": "Solomon Grundy",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Solomon Grundy",
+    "printedTitle": "Solomon Grundy",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00369",
@@ -32032,6 +34308,19 @@
     "level": "Recommended",
     "sort": "Southern Bastards",
     "printedTitle": "Southern Bastards"
+  },
+  {
+    "id": "SER-DCX-0211",
+    "display": "Sovereign Seven",
+    "parent": "",
+    "series": "Sovereign Seven",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Sovereign Seven",
+    "printedTitle": "Sovereign Seven",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-00146",
@@ -32936,6 +35225,19 @@
     "level": "Optional",
     "sort": "Squirrel Girl",
     "printedTitle": "Squirrel Girl"
+  },
+  {
+    "id": "SER-DCX-0212",
+    "display": "Stalker",
+    "parent": "",
+    "series": "Stalker",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Stalker",
+    "printedTitle": "Stalker",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-00616",
@@ -34293,6 +36595,19 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "CHR-DCX-0032",
+    "display": "Starfire",
+    "parent": "",
+    "series": "Starfire",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Starfire",
+    "printedTitle": "Starfire",
+    "notes": "Added during orphan-parent repair."
+  },
+  {
     "id": "SER-01474",
     "display": "Starfire",
     "parent": "Starfire",
@@ -34304,6 +36619,19 @@
     "sort": "Starfire",
     "printedTitle": "Starfire",
     "publishingEra": "DC You"
+  },
+  {
+    "id": "CHR-DCX-0154",
+    "display": "Stargirl",
+    "parent": "",
+    "series": "Stargirl",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Stargirl",
+    "printedTitle": "Stargirl",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01691",
@@ -34353,6 +36681,19 @@
     "level": "Recommended",
     "sort": "Starman",
     "printedTitle": "Starman"
+  },
+  {
+    "id": "CHR-DCX-0155",
+    "display": "Starro",
+    "parent": "",
+    "series": "Starro",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Starro",
+    "printedTitle": "Starro",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00385",
@@ -34479,6 +36820,58 @@
     "sort": "Steelworks",
     "printedTitle": "Steelworks",
     "publishingEra": "Dawn of DC"
+  },
+  {
+    "id": "CHR-DCX-0156",
+    "display": "Stephanie Brown",
+    "parent": "",
+    "series": "Stephanie Brown",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Stephanie Brown",
+    "printedTitle": "Stephanie Brown",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0157",
+    "display": "Stephen Shin",
+    "parent": "",
+    "series": "Stephen Shin",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Stephen Shin",
+    "printedTitle": "Stephen Shin",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0158",
+    "display": "Steppenwolf",
+    "parent": "",
+    "series": "Steppenwolf",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Steppenwolf",
+    "printedTitle": "Steppenwolf",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0159",
+    "display": "Steve Trevor",
+    "parent": "",
+    "series": "Steve Trevor",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Steve Trevor",
+    "printedTitle": "Steve Trevor",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "REF-00013",
@@ -34652,6 +37045,19 @@
     "printedTitle": "Strange Adventures",
     "publishingEra": "DC Universe",
     "publishingLine": "Black Label"
+  },
+  {
+    "id": "SER-DCX-0213",
+    "display": "Strange Adventures",
+    "parent": "",
+    "series": "Strange Adventures",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Anthology",
+    "level": "Optional",
+    "sort": "Strange Adventures",
+    "printedTitle": "Strange Adventures",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-00222",
@@ -34912,6 +37318,19 @@
     "sort": "Super Sons of Tomorrow",
     "printedTitle": "Super Sons of Tomorrow",
     "publishingEra": "Rebirth"
+  },
+  {
+    "id": "CHR-DCX-0033",
+    "display": "Superboy",
+    "parent": "",
+    "series": "Superboy",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Superboy",
+    "printedTitle": "Superboy",
+    "notes": "Added during orphan-parent repair."
   },
   {
     "id": "SER-01364",
@@ -35690,6 +38109,19 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "SER-DCX-0214",
+    "display": "Sword of Sorcery",
+    "parent": "",
+    "series": "Sword of Sorcery",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Sword of Sorcery",
+    "printedTitle": "Sword of Sorcery",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-00790",
     "display": "Sword of the Atom",
     "parent": "The Atom",
@@ -35729,6 +38161,32 @@
     "printedTitle": "Symbiote Spider-Man: Alien Reality",
     "startYear": "2019",
     "endYear": "2020"
+  },
+  {
+    "id": "CHR-DCX-0160",
+    "display": "T.D.K.",
+    "parent": "",
+    "series": "T.D.K.",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "T.D.K.",
+    "printedTitle": "T.D.K.",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "SER-DCX-0215",
+    "display": "Tailgunner Jo",
+    "parent": "",
+    "series": "Tailgunner Jo",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Tailgunner Jo",
+    "printedTitle": "Tailgunner Jo",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "ANT-00006",
@@ -35889,6 +38347,19 @@
     "printedTitle": "TaleSpin"
   },
   {
+    "id": "CHR-DCX-0161",
+    "display": "Talia al Ghul",
+    "parent": "",
+    "series": "Talia al Ghul",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Talia al Ghul",
+    "printedTitle": "Talia al Ghul",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01363",
     "display": "Talon",
     "parent": "Batman",
@@ -35985,6 +38456,19 @@
     "sort": "Task Force Z",
     "printedTitle": "Task Force Z",
     "publishingEra": "Infinite Frontier"
+  },
+  {
+    "id": "CHR-DCX-0162",
+    "display": "Tawky Tawny",
+    "parent": "",
+    "series": "Tawky Tawny",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Tawky Tawny",
+    "printedTitle": "Tawky Tawny",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01373",
@@ -36192,6 +38676,19 @@
     "level": "Essential",
     "sort": "Teenage Mutant Ninja Turtles: The Last Ronin—Lost Years",
     "printedTitle": "Teenage Mutant Ninja Turtles: The Last Ronin—Lost Years"
+  },
+  {
+    "id": "CHR-DCX-0163",
+    "display": "Telos",
+    "parent": "",
+    "series": "Telos",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Telos",
+    "printedTitle": "Telos",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01476",
@@ -36524,6 +39021,32 @@
     "publishingEra": "Dawn of DC"
   },
   {
+    "id": "CHR-DCX-0164",
+    "display": "The Cheetah",
+    "parent": "",
+    "series": "The Cheetah",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "The Cheetah",
+    "printedTitle": "The Cheetah",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "SER-DCX-0216",
+    "display": "The Creeper",
+    "parent": "",
+    "series": "The Creeper",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "The Creeper",
+    "printedTitle": "The Creeper",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01535",
     "display": "The Curse of Brimstone",
     "parent": "DC Universe",
@@ -36548,6 +39071,19 @@
     "sort": "The Deadman",
     "printedTitle": "The Deadman",
     "publishingEra": "DC All In"
+  },
+  {
+    "id": "SER-DCX-0217",
+    "display": "The Demon",
+    "parent": "",
+    "series": "The Demon",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "The Demon",
+    "printedTitle": "The Demon",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "SER-01170",
@@ -36759,6 +39295,19 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "SER-DCX-0218",
+    "display": "The Heckler",
+    "parent": "",
+    "series": "The Heckler",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "The Heckler",
+    "printedTitle": "The Heckler",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01868",
     "display": "The Hellblazer",
     "parent": "John Constantine",
@@ -36822,6 +39371,19 @@
     "sort": "The Jetsons",
     "printedTitle": "The Jetsons",
     "publishingEra": "DC You"
+  },
+  {
+    "id": "CHR-DCX-0165",
+    "display": "The Joker",
+    "parent": "",
+    "series": "The Joker",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "The Joker",
+    "printedTitle": "The Joker",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01659",
@@ -37153,6 +39715,19 @@
     "publishingEra": "DC You"
   },
   {
+    "id": "SER-DCX-0219",
+    "display": "The Omega Men",
+    "parent": "",
+    "series": "The Omega Men",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "The Omega Men",
+    "printedTitle": "The Omega Men",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01586",
     "display": "The Other History of the DC Universe",
     "parent": "DC Universe",
@@ -37177,6 +39752,19 @@
     "sort": "The Penguin",
     "printedTitle": "The Penguin",
     "publishingEra": "Dawn of DC"
+  },
+  {
+    "id": "CHR-DCX-0166",
+    "display": "The Phantom Stranger",
+    "parent": "",
+    "series": "The Phantom Stranger",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "The Phantom Stranger",
+    "printedTitle": "The Phantom Stranger",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01832",
@@ -37458,6 +40046,32 @@
     "printedTitle": "The Visitor: How and Why He Stayed"
   },
   {
+    "id": "CHR-DCX-0006",
+    "display": "The Warlord",
+    "parent": "",
+    "series": "The Warlord",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Recommended",
+    "sort": "The Warlord",
+    "printedTitle": "The Warlord"
+  },
+  {
+    "id": "SER-DCX-0011",
+    "display": "The Warlord",
+    "parent": "The Warlord",
+    "series": "The Warlord",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Essential",
+    "sort": "The Warlord",
+    "printedTitle": "The Warlord",
+    "startYear": "1976",
+    "endYear": "1988"
+  },
+  {
     "id": "SER-01175",
     "display": "The Weatherman",
     "parent": "Image Comics",
@@ -37544,6 +40158,32 @@
     "level": "Optional",
     "sort": "Thing, The",
     "printedTitle": "The Thing"
+  },
+  {
+    "id": "CHR-DCX-0167",
+    "display": "Thinker",
+    "parent": "",
+    "series": "Thinker",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Thinker",
+    "printedTitle": "Thinker",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0168",
+    "display": "Thomas Curry",
+    "parent": "",
+    "series": "Thomas Curry",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Thomas Curry",
+    "printedTitle": "Thomas Curry",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00456",
@@ -37654,6 +40294,32 @@
     "publishingEra": "The New 52"
   },
   {
+    "id": "SER-DCX-0220",
+    "display": "Thriller",
+    "parent": "",
+    "series": "Thriller",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Thriller",
+    "printedTitle": "Thriller",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
+    "id": "CHR-DCX-0169",
+    "display": "Thunder",
+    "parent": "",
+    "series": "Thunder",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Thunder",
+    "printedTitle": "Thunder",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00559",
     "display": "Thunderbolt",
     "parent": "Peter Cannon, Thunderbolt",
@@ -37707,6 +40373,19 @@
     "printedTitle": "The Thunderbolts"
   },
   {
+    "id": "CHR-DCX-0170",
+    "display": "Tim Drake",
+    "parent": "",
+    "series": "Tim Drake",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Tim Drake",
+    "printedTitle": "Tim Drake",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00609",
     "display": "Titans",
     "parent": "Robin / Teen Titans",
@@ -37718,6 +40397,19 @@
     "sort": "Titans",
     "printedTitle": "Titans",
     "publishingEra": "Rebirth"
+  },
+  {
+    "id": "TEM-DCX-0171",
+    "display": "Titans",
+    "parent": "",
+    "series": "Titans",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Team",
+    "level": "Optional",
+    "sort": "Titans",
+    "printedTitle": "Titans",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01477",
@@ -38322,6 +41014,19 @@
     "publishingEra": "Infinite Frontier"
   },
   {
+    "id": "CHR-DCX-0172",
+    "display": "Trigon",
+    "parent": "",
+    "series": "Trigon",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Trigon",
+    "printedTitle": "Trigon",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-01238",
     "display": "Trigun",
     "parent": "Dark Horse Manga",
@@ -38332,6 +41037,18 @@
     "level": "Recommended",
     "sort": "Trigun",
     "printedTitle": "Trigun"
+  },
+  {
+    "id": "CHR-DCX-0005",
+    "display": "Trinity",
+    "parent": "",
+    "series": "Trinity",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Recommended",
+    "sort": "Trinity",
+    "printedTitle": "Trinity"
   },
   {
     "id": "SER-01504",
@@ -38458,6 +41175,19 @@
     "level": "Optional",
     "sort": "Turok, Son of Stone",
     "printedTitle": "Turok, Son of Stone"
+  },
+  {
+    "id": "CHR-DCX-0173",
+    "display": "Two-Face",
+    "parent": "",
+    "series": "Two-Face",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Two-Face",
+    "printedTitle": "Two-Face",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01818",
@@ -39635,6 +42365,19 @@
     "endYear": "2021"
   },
   {
+    "id": "SER-DCX-0221",
+    "display": "Unknown Soldier",
+    "parent": "",
+    "series": "Unknown Soldier",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Unknown Soldier",
+    "printedTitle": "Unknown Soldier",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "SER-01751",
     "display": "Unstoppable Doom Patrol",
     "parent": "Doom Patrol",
@@ -39945,6 +42688,19 @@
     "printedTitle": "Vampirella/Dracula: The Rules of the Beast"
   },
   {
+    "id": "CHR-DCX-0174",
+    "display": "Vandal Savage",
+    "parent": "",
+    "series": "Vandal Savage",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Vandal Savage",
+    "printedTitle": "Vandal Savage",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "ANT-00008",
     "display": "The Vault of Horror",
     "parent": "EC Horror & Sci-Fi Line",
@@ -40249,6 +43005,19 @@
     "endYear": "2024"
   },
   {
+    "id": "CHR-DCX-0175",
+    "display": "Veronica Cale",
+    "parent": "",
+    "series": "Veronica Cale",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Veronica Cale",
+    "printedTitle": "Veronica Cale",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "REF-00022",
     "display": "Vertigo / Black Label",
     "parent": "",
@@ -40259,6 +43028,45 @@
     "level": "Primary",
     "sort": "Vertigo / Black Label",
     "printedTitle": "Vertigo / Black Label"
+  },
+  {
+    "id": "SER-DCX-0222",
+    "display": "Vext",
+    "parent": "",
+    "series": "Vext",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Vext",
+    "printedTitle": "Vext",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
+    "id": "CHR-DCX-0176",
+    "display": "Vibe",
+    "parent": "",
+    "series": "Vibe",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Vibe",
+    "printedTitle": "Vibe",
+    "notes": "Verified against DC official character directory."
+  },
+  {
+    "id": "CHR-DCX-0177",
+    "display": "Victor Zsasz",
+    "parent": "",
+    "series": "Victor Zsasz",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Victor Zsasz",
+    "printedTitle": "Victor Zsasz",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00480",
@@ -40781,6 +43589,20 @@
     "printedTitle": "Warlock"
   },
   {
+    "id": "SER-DCX-0012",
+    "display": "Warlord",
+    "parent": "The Warlord",
+    "series": "Warlord",
+    "primary": false,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Warlord",
+    "printedTitle": "Warlord",
+    "startYear": "2006",
+    "endYear": "2007"
+  },
+  {
     "id": "SER-00947",
     "display": "Warlord of Mars",
     "parent": "Warlord of Mars (John Carter)",
@@ -40942,7 +43764,7 @@
   {
     "id": "SER-01478",
     "display": "We Are Robin",
-    "parent": "Robin / Teen Titans",
+    "parent": "Robin",
     "series": "We Are Robin",
     "primary": false,
     "publisher": "DC",
@@ -41076,6 +43898,19 @@
     "endYear": "2025"
   },
   {
+    "id": "CHR-DCX-0178",
+    "display": "Weasel",
+    "parent": "",
+    "series": "Weasel",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Weasel",
+    "printedTitle": "Weasel",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-00643",
     "display": "Web of Spider-Man",
     "parent": "Scarlet Spider (Ben Reilly)",
@@ -41125,6 +43960,19 @@
     "level": "Optional",
     "sort": "Weird Fantasy",
     "printedTitle": "Weird Fantasy"
+  },
+  {
+    "id": "SER-DCX-0223",
+    "display": "Weird Mystery Tales",
+    "parent": "",
+    "series": "Weird Mystery Tales",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Anthology",
+    "level": "Optional",
+    "sort": "Weird Mystery Tales",
+    "printedTitle": "Weird Mystery Tales",
+    "notes": "Classic/cult DC publication authority."
   },
   {
     "id": "ANT-00010",
@@ -41602,6 +44450,19 @@
     "printedTitle": "The Witching Hour"
   },
   {
+    "id": "CHR-DCX-0179",
+    "display": "Wizard Shazam",
+    "parent": "",
+    "series": "Wizard Shazam",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Wizard Shazam",
+    "printedTitle": "Wizard Shazam",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "CHR-00498",
     "display": "Wolverine",
     "parent": "",
@@ -41794,6 +44655,19 @@
     "startYear": "2015",
     "publishingEra": "All-New Marvel NOW!",
     "endYear": "2015"
+  },
+  {
+    "id": "CHR-DCX-0180",
+    "display": "Wonder Girl",
+    "parent": "",
+    "series": "Wonder Girl",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Wonder Girl",
+    "printedTitle": "Wonder Girl",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "SER-01670",
@@ -43074,6 +45948,19 @@
     "printedTitle": "Xena, Warrior Princess"
   },
   {
+    "id": "SER-DCX-0224",
+    "display": "Xero",
+    "parent": "",
+    "series": "Xero",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Xero",
+    "printedTitle": "Xero",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "CHR-00509",
     "display": "Xombi",
     "parent": "",
@@ -43190,6 +46077,19 @@
     "printedTitle": "Young Avengers"
   },
   {
+    "id": "SER-DCX-0225",
+    "display": "Young Heroes in Love",
+    "parent": "",
+    "series": "Young Heroes in Love",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Series",
+    "level": "Optional",
+    "sort": "Young Heroes in Love",
+    "printedTitle": "Young Heroes in Love",
+    "notes": "Classic/cult DC publication authority."
+  },
+  {
     "id": "CHR-00511",
     "display": "Young Justice",
     "parent": "",
@@ -43303,6 +46203,19 @@
     "startYear": "1994"
   },
   {
+    "id": "CHR-DCX-0181",
+    "display": "Zod",
+    "parent": "",
+    "series": "Zod",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Zod",
+    "printedTitle": "Zod",
+    "notes": "Verified against DC official character directory."
+  },
+  {
     "id": "SER-02295",
     "display": "Zombie",
     "parent": "Marvel Zombies",
@@ -43316,6 +46229,19 @@
     "startYear": "2006",
     "publishingLine": "MAX",
     "endYear": "2006"
+  },
+  {
+    "id": "CHR-DCX-0182",
+    "display": "Zoom",
+    "parent": "",
+    "series": "Zoom",
+    "primary": true,
+    "publisher": "DC",
+    "type": "Character",
+    "level": "Optional",
+    "sort": "Zoom",
+    "printedTitle": "Zoom",
+    "notes": "Verified against DC official character directory."
   },
   {
     "id": "CHR-00515",

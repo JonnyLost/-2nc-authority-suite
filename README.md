@@ -1,45 +1,29 @@
-# 2NC Authority Suite v4.8 — Marvel Authority Expansion
+# 2NC Authority Suite v4.9 — DC Deep Authority & Queue Workflow
 
-This release gives Marvel the same title-level treatment previously applied to DC while preserving the approved v4.5 interface, certified label dimensions, mobile PDF sharing, Print Station, and GitHub synchronization.
+This release follows an in-store 97-label DC production test. It expands character and classic-series depth, repairs missing parent authorities, and makes the phone queue a practical editing workspace.
 
-## v4.8 changes
+## v4.9 changes
 
-- Audited 796 Marvel cover titles and event-family books.
-- Added 709 missing Marvel series/event authorities.
-- Added a dedicated primary Star Wars filing authority.
-- Enriched 73 existing Marvel records with publishing markers and/or publication years rather than duplicating them.
-- Added Marvel publishing-era choices to Authority Manager.
-- Added Marvel publishing-line and alternate-universe choices to Authority Manager.
-- Preserved separate era-specific records when identical cover titles were relaunched.
-- Included `MARVEL_AUTHORITY_AUDIT.csv` with every reviewed title, parent, marker, publication range, and authority ID.
-
-## Marvel coverage
-
-- Marvel NOW!
-- All-New Marvel NOW!
-- All-New, All-Different Marvel
-- Marvel NOW! 2.0
-- Marvel Legacy
-- Fresh Start and later unbranded mainline relaunches
-- Dawn of X, Reign of X, Destiny of X, Fall of X, and From the Ashes
-- New Ultimate Universe
-- Marvel Knights, MAX, 2099, and Marvel Zombies
-- Modern crossover events and separately titled companion books
-- Star Wars, Alien, and Predator periodical lines
-- Current and announced books through July 2026
-
-Marvel titles receive an era or publishing-line corner marker only when the designation is genuinely useful. Later mainline books without a dependable company-wide banner remain unmarked and use publication years in search results to distinguish volumes.
+- Added the six reported missing labels: Magog, Punchline, Ragman, Robin, Trinity, and The Warlord.
+- Audited DC's official character directory and added missing searchable character/team authorities.
+- Added classic, cult, anthology, and short-run DC publication authorities.
+- Repaired every series whose parent authority was missing; the bundled database now has zero orphan parents.
+- Moved **Create custom label** above the queue so it remains easy to reach on mobile.
+- Added **Add to queue + database** to the custom-label workflow.
+- Made queued labels tappable so they reopen in the live preview and can be updated.
+- Preserved authority-line and era/imprint choices per queued label.
+- Preserved the approved interface, certified physical dimensions, mobile PDF sharing, Print Station, and synchronization.
+- Included `DC_DEEP_AUTHORITY_AUDIT.csv` with every addition, repair, and already-present result.
 
 ## Database
 
 - Music authorities: 4,606
-- Comic authorities: 3,358
-- Marvel authorities: 1,247
-- Audited Marvel cover titles: 796
-- DC event authorities: 106
+- Comic authorities: 3,583
+- New comic records: 225
+- Unresolved parent authorities: 0
 
 ## Upgrade
 
-Open the published site once with `?v=4.8`, then fully close and reopen any installed PWA. The new bundle is merged into existing device databases while preserving local edits, custom records, retirements, and deletions.
+Open the published site once with `?v=4.9`, then fully close and reopen any installed PWA. The new bundle is merged into existing device databases while preserving local edits, custom records, retirements, and deletions.
 
 The repository remains prefilled for `jonnylost/-2nc-authority-suite`.

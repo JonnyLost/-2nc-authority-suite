@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.8 — Marvel authority expansion */
+/* 2NC Authority Suite v4.9 — DC deep authority and queue workflow */
 (function () {
   const stages = [
     ['Preparing interface', 12],

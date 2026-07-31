@@ -1,20 +1,14 @@
-2NC Authority Suite v4.8 preflight
+2NC Authority Suite v4.9 preflight
 
-PASS — version: 4.8.0
+PASS — version: 4.9.0
 PASS — music records: 4,606
-PASS — comic records: 3,358
-PASS — unique comic IDs: 3,358
-PASS — Marvel authorities: 1,247
-PASS — audited Marvel cover titles: 796
-PASS — 709 missing Marvel series/event records added
-PASS — dedicated Star Wars filing authority added
-PASS — every audited Marvel title resolves to a valid primary filing parent
-PASS — publishing initiative and line markers use the approved lower-right label field
-PASS — unbranded later Marvel books remain unmarked and use publication years for identification
-PASS — Marvel era and publishing-line values are available in Authority Manager
-PASS — new bundled IDs merge onto previously synchronized devices while local edits and deletions remain protected
+PASS — comic records: 3,583
+PASS — unique comic IDs: 3,583
+PASS — new DC records: 225
+PASS — requested primary authorities: Magog, Punchline, Ragman, Robin, Trinity, The Warlord
+PASS — unresolved series parents: 0
+PASS — JavaScript syntax: app, database, UI, label, PDF, sync, and Print Station modules
+PASS — browser-print and PDF marker controls both honor per-queue show/hide state
 PASS — index.html and 404.html are identical
-PASS — all JavaScript files pass syntax validation
-PASS — exact comic label remains 3.50 × 0.675 inches
-PASS — v4.7 authority-name and era/imprint preferences remain independent and remembered
-PASS — approved interface, PDF sharing, Print Station, calibration, and synchronization preserved
+PASS — comic physical size remains 3.50 × 0.675 inches
+PASS — music database and certified print dimensions unchanged

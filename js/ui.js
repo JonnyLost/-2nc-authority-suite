@@ -18,7 +18,7 @@
     mode: 'vinyl', selected: null, query: '', level: '', category: '', sort: 'name',
     queue: JSON.parse(localStorage.getItem('2ncQueue') || '[]'),
     music: [], comic: [], managerDataset: 'music', managerSelected: null,
-    stationJobs: [], stationTimer: null, stationBusy: false,
+    stationJobs: [], stationTimer: null, stationBusy: false, editingQueueIndex: null,
     showComicAuthority: localStorage.getItem('2ncShowComicAuthority') !== 'false',
     showComicEra: localStorage.getItem('2ncShowComicEra') !== 'false'
   };
@@ -83,6 +83,7 @@
     text('#resultCount', `${all.length.toLocaleString()} results${all.length > 400 ? ' (showing first 400)' : ''}`);
     requireElement('#results').innerHTML = rows.map((row, index) => `<div class="resultCard ${state.selected && state.selected.id === row.id ? 'selected' : ''}" data-index="${index}"><div><strong>${escapeHtml(resultName(row))}</strong><br><small>${escapeHtml(resultSub(row))}</small></div><span class="badge">${escapeHtml(row.level || row.type || '')}</span></div>`).join('') || '<div class="empty">No matching records</div>';
     $$('.resultCard').forEach(element => element.addEventListener('click', () => {
+      state.editingQueueIndex = null;
       state.selected = rows[Number(element.dataset.index)];
       renderResults(); renderPreview();
     }));
@@ -97,11 +98,13 @@
       box.className = `label ${state.mode === 'cd' ? 'cdLabel' : state.mode === 'comic' ? 'comicLabel' : 'vinylLabel'}`;
       box.innerHTML = '<strong>Select a record</strong>';
       addButton.disabled = true;
+      addButton.textContent = 'Add selected to queue';
       if (hierarchy) hierarchy.classList.add('hidden');
       text('#selectedDetails', 'Tap a result to preview it.');
       return;
     }
     addButton.disabled = false;
+    addButton.textContent = state.editingQueueIndex === null ? 'Add selected to queue' : 'Update queued label';
     const row = state.selected;
     if (state.mode === 'comic') {
       box.className = `label comicLabel ${row.primary ? 'primaryComic' : ''} ${lengthClass(row.primary ? row.display : comicPrintTitle(row))}`;
@@ -117,21 +120,70 @@
     text('#selectedDetails', resultSub(row));
   }
 
-  function queueRecord(row) {
+  function queueRecord(row, existingUid = '') {
     return state.mode === 'comic'
-      ? { uid: safeId(), mode: 'comic', primary: row.primary, showAuthority: state.showComicAuthority, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: state.showComicEra ? (row.publishingEra || '') : '', publishingLine: state.showComicEra ? (row.publishingLine || '') : '', startYear: row.startYear || '', endYear: row.endYear || '', name: row.display, publisher: row.publisher || '' }
-      : { uid: safeId(), mode: state.mode, name: row.name, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
+      ? { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: 'comic', primary: row.primary, showAuthority: state.showComicAuthority, showMarker: state.showComicEra, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: row.publishingEra || '', publishingLine: row.publishingLine || '', startYear: row.startYear || '', endYear: row.endYear || '', name: row.display || row.name, publisher: row.publisher || '' }
+      : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: state.mode, name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
+  }
+
+  function queueLabel(row) {
+    if (row.mode === 'comic') return row.primary ? (row.name || row.series) : row.series;
+    if (row.mode === 'instrument' || row.mode === 'treasure') return row.product;
+    return row.name;
+  }
+
+  function sortQueueAlphabetically() {
+    const editingUid = state.editingQueueIndex === null ? '' : state.queue[state.editingQueueIndex]?.uid;
+    state.queue.sort((a, b) => String(queueLabel(a) || '').localeCompare(String(queueLabel(b) || ''), undefined, { sensitivity: 'base', numeric: true }));
+    if (editingUid) state.editingQueueIndex = state.queue.findIndex(row => row.uid === editingUid);
   }
 
   function saveQueue() { localStorage.setItem('2ncQueue', JSON.stringify(state.queue)); renderQueue(); }
   function renderQueue() {
     text('#queuePill', `${state.queue.length.toLocaleString()} queued`);
-    requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : [row.parent, comicMarker(row)].filter(Boolean).join(' · ')) : row.mode === 'instrument' ? row.price : row.mode === 'treasure' ? '2NC TREASURES' : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
-    $$('.queueItem button').forEach(button => button.addEventListener('click', () => { state.queue.splice(Number(button.dataset.index), 1); saveQueue(); }));
+    requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem" data-index="${index}" role="button" tabindex="0" aria-label="Reopen ${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : [row.parent, row.showMarker === false ? '' : comicMarker(row)].filter(Boolean).join(' · ')) : row.mode === 'instrument' ? row.price : row.mode === 'treasure' ? '2NC TREASURES' : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
+    $$('.queueItem').forEach(item => {
+      item.addEventListener('click', event => { if (!event.target.closest('button')) reopenQueueItem(Number(item.dataset.index)); });
+      item.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); reopenQueueItem(Number(item.dataset.index)); } });
+    });
+    $$('.queueItem button').forEach(button => button.addEventListener('click', event => { event.stopPropagation(); const index = Number(button.dataset.index); state.queue.splice(index, 1); if (state.editingQueueIndex === index) state.editingQueueIndex = null; else if (state.editingQueueIndex !== null && state.editingQueueIndex > index) state.editingQueueIndex -= 1; saveQueue(); }));
   }
 
-  function addSelected() { if (state.selected) { state.queue.push(queueRecord(state.selected)); saveQueue(); } }
-  function addAll() { currentData().filter(matches).forEach(row => state.queue.push(queueRecord(row))); saveQueue(); }
+  function addSelected() {
+    if (!state.selected) return;
+    if (state.editingQueueIndex !== null) {
+      const existing = state.queue[state.editingQueueIndex];
+      state.queue[state.editingQueueIndex] = queueRecord(state.selected, existing?.uid);
+      state.editingQueueIndex = null;
+      saveQueue();
+      renderPreview();
+      return;
+    }
+    state.queue.push(queueRecord(state.selected)); saveQueue();
+  }
+
+  function reopenQueueItem(index) {
+    const item = state.queue[index];
+    if (!item || ['instrument', 'treasure'].includes(item.mode)) return;
+    setMode(item.mode);
+    state.editingQueueIndex = index;
+    if (item.mode === 'comic') {
+      state.showComicAuthority = item.showAuthority !== false;
+      state.showComicEra = item.showMarker !== false && Boolean(item.publishingLine || item.publishingEra);
+      const authorityToggle = $('#showComicAuthority'); if (authorityToggle) authorityToggle.checked = state.showComicAuthority;
+      const markerToggle = $('#showComicEra'); if (markerToggle) markerToggle.checked = state.showComicEra;
+      state.selected = { id: item.sourceId || '', display: item.name || item.series, name: item.name || item.series, primary: Boolean(item.primary), parent: item.parent || '', series: item.canonicalSeries || item.series || '', printedTitle: item.printedTitle || item.series || '', publishingEra: item.publishingEra || '', publishingLine: item.publishingLine || '', startYear: item.startYear || '', endYear: item.endYear || '', publisher: item.publisher || 'DC', type: item.primary ? 'Character' : 'Series', level: 'Recommended' };
+    } else {
+      state.selected = { id: item.sourceId || '', display: item.name, name: item.name, genre: item.genre || '', primarySubgenre: item.primarySubgenre || '', secondarySubgenre: item.secondarySubgenre || '', level: 'Recommended' };
+    }
+    renderResults(); renderPreview();
+    document.querySelector('.previewPanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function addAll() {
+    currentData().filter(matches).forEach(row => state.queue.push(queueRecord(row)));
+    sortQueueAlphabetically();
+    saveQueue();
+  }
   function addHierarchy() {
     const row = state.selected; if (!row) return;
     const parent = row.primary ? row.display : row.parent;
@@ -155,7 +207,7 @@
 
   function setMode(mode) {
     if (!profiles[mode]) return;
-    state.mode = mode; state.selected = null; state.query = ''; state.level = ''; state.category = ''; state.sort = 'name';
+    state.mode = mode; state.selected = null; state.editingQueueIndex = null; state.query = ''; state.level = ''; state.category = ''; state.sort = 'name';
     const profile = profiles[mode];
     text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#dimensionText', profile.dim);
     $$('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode === mode));
@@ -188,14 +240,41 @@
     if (state.mode === 'instrument') return showInstrumentModal();
     if (state.mode === 'treasure') return;
     const comic = state.mode === 'comic';
-    showModal('Create custom label', `<label>${comic ? 'Main authority' : 'Artist name'}<input id="customMain"></label>${comic ? '<label>Series title<input id="customSub"></label><label>Publishing era<select id="customEra"><option value="">None</option><option>The New 52</option><option>DC You</option><option>Rebirth</option><option>DC Universe</option><option>Future State</option><option>Infinite Frontier</option><option>Dawn of DC</option><option>DC All In</option><option>Absolute Universe</option></select></label><label>Publishing line / imprint<select id="customLine"><option value="">None</option><option>Vertigo</option><option>Black Label</option><option>Young Animal</option><option>Sandman Universe</option><option>Milestone</option><option>WildStorm</option><option>Elseworlds</option><option>Hill House Comics</option><option>Wonder Comics</option><option>America&#39;s Best Comics</option><option>All-Star</option><option>Impact</option><option>Hanna-Barbera Beyond</option><option>DC Horror</option></select></label>' : ''}<button id="saveCustom" class="primaryButton">Add to queue</button>`);
-    on('#saveCustom', 'click', () => {
+    showModal('Create custom label', `<label>${comic ? 'Main authority' : 'Artist name'}<input id="customMain"></label>${comic ? '<label>Series title <small>(leave blank for a primary authority)</small><input id="customSub"></label><div class="twoCol"><label>Publisher<input id="customPublisher" value="DC"></label><label>Divider level<select id="customLevel"><option>Primary</option><option>Essential</option><option selected>Recommended</option><option>Optional</option></select></label></div><label>Publishing era<select id="customEra"><option value="">None</option><option>The New 52</option><option>DC You</option><option>Rebirth</option><option>DC Universe</option><option>Future State</option><option>Infinite Frontier</option><option>Dawn of DC</option><option>DC All In</option><option>Absolute Universe</option><option>Marvel NOW!</option><option>All-New, All-Different Marvel</option><option>Marvel Legacy</option><option>Fresh Start</option><option>Dawn of X</option><option>Reign of X</option><option>Destiny of X</option><option>Fall of X</option><option>From the Ashes</option></select></label><label>Publishing line / imprint<select id="customLine"><option value="">None</option><option>Vertigo</option><option>Black Label</option><option>Young Animal</option><option>Sandman Universe</option><option>Milestone</option><option>WildStorm</option><option>Elseworlds</option><option>Hill House Comics</option><option>Wonder Comics</option><option>DC Horror</option><option>Ultimate Universe</option><option>Marvel Knights</option><option>MAX</option><option>2099</option><option>Marvel Zombies</option><option>Star Wars</option></select></label>' : ''}<div class="customLabelActions"><button id="saveCustom" class="primaryButton">Add to queue</button><button id="saveCustomDatabase" class="secondaryButton">Add to queue + database</button></div>`);
+
+    const save = async addToDatabase => {
       const main = ($('#customMain')?.value || '').trim();
       const series = comic ? ($('#customSub')?.value || '').trim() : '';
       if (!main) return;
-      state.queue.push(comic ? { uid: safeId(), mode: 'comic', primary: !series, showAuthority: state.showComicAuthority, parent: series ? main : '', series, printedTitle: series, publishingEra: state.showComicEra ? ($('#customEra')?.value || '').trim() : '', publishingLine: state.showComicEra ? ($('#customLine')?.value || '').trim() : '', name: main } : { uid: safeId(), mode: state.mode, name: main, genre: '', primarySubgenre: '', secondarySubgenre: '' });
+      const custom = comic ? { id: '', display: series || main, name: main, primary: !series, parent: series ? main : '', series: series || main, printedTitle: series || main, publishingEra: ($('#customEra')?.value || '').trim(), publishingLine: ($('#customLine')?.value || '').trim(), publisher: ($('#customPublisher')?.value || 'DC').trim(), type: series ? 'Series' : 'Character', level: $('#customLevel')?.value || 'Recommended' } : { id: '', display: main, name: main, genre: '', primarySubgenre: '', secondarySubgenre: '', type: 'Artist', level: 'Recommended' };
+      if (addToDatabase) {
+        const kind = comic ? 'comic' : 'music';
+        const databaseRows = await AuthorityDB.getAll(kind);
+        if (comic && series) {
+          const parentAuthority = databaseRows.find(row => row.primary && String(row.display || '').toLowerCase() === main.toLowerCase());
+          if (parentAuthority) custom.parent = parentAuthority.display;
+          else {
+            await AuthorityDB.put('comic', { id: makeId('comic'), display: main, name: main, parent: '', series: main, printedTitle: main, primary: true, publisher: custom.publisher, type: 'Character', level: custom.level, sort: main, status: 'active', notes: 'Created automatically with a custom subordinate label.', updatedAt: new Date().toISOString(), _localEdited: true });
+          }
+        }
+        const existing = databaseRows.find(row => comic
+          ? (Boolean(row.primary) === custom.primary && String(row.display || '').toLowerCase() === custom.display.toLowerCase() && String(row.parent || '').toLowerCase() === custom.parent.toLowerCase())
+          : String(row.name || row.display || '').toLowerCase() === main.toLowerCase());
+        if (existing) {
+          custom.id = existing.id;
+          alert('That authority already exists. The existing record was used for this label.');
+        } else {
+          custom.id = makeId(kind);
+          const databaseRow = { ...custom, sort: custom.series || custom.display, status: 'active', notes: 'Added from the custom-label workflow.', updatedAt: new Date().toISOString(), _localEdited: true };
+          await AuthorityDB.put(kind, databaseRow);
+          await reloadData();
+        }
+      }
+      state.queue.push(queueRecord(custom));
       saveQueue(); closeModal();
-    });
+    };
+    on('#saveCustom', 'click', () => save(false).catch(error => alert(error.message)));
+    on('#saveCustomDatabase', 'click', () => save(true).catch(error => alert(error.message)));
   }
 
   function showInstrumentModal() {

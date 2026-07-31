@@ -1,6 +1,6 @@
 {
-  "version": "4.8.0",
-  "name": "Marvel Authority Expansion",
-  "release": "2NC Authority Suite GitHub v4.8.0",
-  "notes": "Adds comprehensive modern Marvel series, events, publishing initiatives, universes, licensed lines, and publication-year coverage."
+  "version": "4.9.0",
+  "name": "DC Deep Authority & Queue Workflow",
+  "release": "2NC Authority Suite GitHub v4.9.0",
+  "notes": "Adds 225 DC character, series, anthology, team, and repaired parent authorities; custom-label database saving; mobile-first custom access; and queue reopening/editing."
 }
