@@ -1,6 +1,6 @@
 {
-  "version": "4.9.0",
-  "name": "DC Deep Authority & Queue Workflow",
-  "release": "2NC Authority Suite GitHub v4.9.0",
-  "notes": "Adds 225 DC character, series, anthology, team, and repaired parent authorities; custom-label database saving; mobile-first custom access; and queue reopening/editing."
+  "version": "4.9.1",
+  "name": "Comic Authority & Series Filter",
+  "release": "2NC Authority Suite GitHub v4.9.1",
+  "notes": "Adds an All / Primary authorities / Series filter to comic search. Add all respects the active filter and preserves alphabetical queue ordering."
 }
