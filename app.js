@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.6 — DC event authority expansion */
+/* 2NC Authority Suite v4.7 — comic label preferences and publication years */
 (function () {
   const stages = [
     ['Preparing interface', 12],
