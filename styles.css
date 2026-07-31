@@ -182,3 +182,10 @@ body{
     pointer-events:none;
   }
 }
+/* v4.9 queue editing and mobile custom-label access */
+.queueItem{cursor:pointer}
+.queueItem:hover,.queueItem:focus-visible{border-color:var(--orange);outline:none}
+.queueCustomButton{width:100%;margin:0 0 8px;border-color:#7c4b2e;color:#ffd6bc}
+.queueHint{display:block;color:var(--muted);font-size:11px;margin:0 0 10px;text-align:center}
+.customLabelActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}.customLabelActions .secondaryButton{margin-top:0}
+@media(max-width:520px){.customLabelActions{grid-template-columns:1fr}}
