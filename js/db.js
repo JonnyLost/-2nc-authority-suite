@@ -178,15 +178,16 @@
   async function ensureSeeded({ force = false } = {}) {
     const bundled = {};
     for (const kind of ['music', 'comic']) bundled[kind] = await fetchBundled(kind);
-    const remoteCanonical = await get('meta', 'remoteCanonical');
-
     for (const kind of ['music', 'comic']) {
       const current = await getAll(kind);
       const minimum = cfg.expectedMinimums[kind];
       if (force || current.length < minimum) {
         AppLog.warn(`Reseeding ${kind} authority`, `Current ${current.length}; bundled ${bundled[kind].length}`);
         await replaceWithBundledPreservingEdits(kind, bundled[kind]);
-      } else if (!remoteCanonical) {
+      } else {
+        // Always merge the current bundle so newly published authority IDs reach
+        // devices that have previously enabled GitHub synchronization. Existing
+        // remote or locally edited records still win through mergedRecord().
         await mergeBundled(kind, bundled[kind]);
       }
     }
