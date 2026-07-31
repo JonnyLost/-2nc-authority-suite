@@ -81,9 +81,11 @@
       drawCentered(page, fonts.bold, ascii(title).toUpperCase(), centerX, y + (height - fitted) / 2 - 1, width - 14, 16.5, 8, colors.black);
     } else {
       const marker = item.publishingLine || item.publishingEra || '';
-      drawCentered(page, fonts.bold, ascii(item.parent).toUpperCase(), centerX, y + height - 12, width - 14, 6.4, 4.5, colors.muted);
+      const showAuthority = item.showAuthority !== false && item.parent;
+      if (showAuthority) drawCentered(page, fonts.bold, ascii(item.parent).toUpperCase(), centerX, y + height - 12, width - 14, 6.4, 4.5, colors.muted);
       const fitted = fitSize(fonts.bold, ascii(title), width - 14, 16.5, 7);
-      drawCentered(page, fonts.bold, title, centerX, y + (marker ? 13 : 8), width - 14, 16.5, 7, colors.black);
+      const titleY = showAuthority ? y + (marker ? 13 : 8) : y + (height - fitted) / 2 - 1;
+      drawCentered(page, fonts.bold, title, centerX, titleY, width - 14, 16.5, 7, colors.black);
       if (marker) drawRight(page, fonts.bold, marker, x + width - 7.2, y + 4.5, width - 14.4, 5, 4, colors.muted);
     }
   }
