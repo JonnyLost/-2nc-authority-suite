@@ -126,6 +126,18 @@
       : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: state.mode, name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
   }
 
+  function queueLabel(row) {
+    if (row.mode === 'comic') return row.primary ? (row.name || row.series) : row.series;
+    if (row.mode === 'instrument' || row.mode === 'treasure') return row.product;
+    return row.name;
+  }
+
+  function sortQueueAlphabetically() {
+    const editingUid = state.editingQueueIndex === null ? '' : state.queue[state.editingQueueIndex]?.uid;
+    state.queue.sort((a, b) => String(queueLabel(a) || '').localeCompare(String(queueLabel(b) || ''), undefined, { sensitivity: 'base', numeric: true }));
+    if (editingUid) state.editingQueueIndex = state.queue.findIndex(row => row.uid === editingUid);
+  }
+
   function saveQueue() { localStorage.setItem('2ncQueue', JSON.stringify(state.queue)); renderQueue(); }
   function renderQueue() {
     text('#queuePill', `${state.queue.length.toLocaleString()} queued`);
@@ -167,7 +179,11 @@
     renderResults(); renderPreview();
     document.querySelector('.previewPanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  function addAll() { currentData().filter(matches).forEach(row => state.queue.push(queueRecord(row))); saveQueue(); }
+  function addAll() {
+    currentData().filter(matches).forEach(row => state.queue.push(queueRecord(row)));
+    sortQueueAlphabetically();
+    saveQueue();
+  }
   function addHierarchy() {
     const row = state.selected; if (!row) return;
     const parent = row.primary ? row.display : row.parent;
