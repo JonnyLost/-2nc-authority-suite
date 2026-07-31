@@ -1,6 +1,17 @@
-# 2NC Authority Suite v4.6 — DC Event Authority Expansion
+# 2NC Authority Suite v4.7 — Comic Label Preferences
 
-This release expands the DC event authority while preserving the v4.5 comic-label design and publishing-line markers.
+This release refines comic-label control and title identification while preserving the v4.5 interface, the v4.6 DC event expansion, and certified print dimensions.
+
+## v4.7 changes
+
+- Added **Show authority name above series title**, enabled by default.
+- Both comic-label checkboxes are remembered independently on each device.
+- Authority visibility is preserved in browser printing, PDFs, and Print Station jobs.
+- Comic search results now identify the parent authority, era/imprint, publication range, publisher, record type, and record ID.
+- Added optional `startYear` and `endYear` fields to comic records and Authority Manager.
+- Prefilled `startYear` for all 86 audited DC event-family authorities.
+- Publication years are searchable and appear in Authority Manager and search results, but never print on labels.
+- Existing queued comic labels remain backward compatible and continue showing the authority name.
 
 ## What changed
 
@@ -38,7 +49,7 @@ This release expands the DC event authority while preserving the v4.5 comic-labe
 
 ## Upgrade
 
-Upload the contents of this folder to the repository root, then open the site once with `?v=4.6`. Fully close and reopen any installed PWA after that first load.
+Upload the contents of this folder to the repository root, then open the site once with `?v=4.7`. Fully close and reopen any installed PWA after that first load.
 
 ## v4.6 event expansion
 
