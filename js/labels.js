@@ -59,7 +59,8 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
           if (kind === 'comic') {
             const title = row.primary ? row.name : (row.printedTitle || row.series);
             const marker = row.publishingLine || row.publishingEra || '';
-            pages += `<div class="pl comic${row.primary ? ' primary' : ''}${lengthClass(title)}">${row.primary ? `<b>${escapeHtml(row.name)}</b>` : `<small>${escapeHtml(row.parent)}</small><b>${escapeHtml(row.printedTitle || row.series)}</b>${marker ? `<span class="comicEra">${escapeHtml(marker)}</span>` : ''}`}</div>`;
+            const authority = row.showAuthority !== false && row.parent ? `<small>${escapeHtml(row.parent)}</small>` : '';
+            pages += `<div class="pl comic${row.primary ? ' primary' : ''}${lengthClass(title)}">${row.primary ? `<b>${escapeHtml(row.name)}</b>` : `${authority}<b>${escapeHtml(row.printedTitle || row.series)}</b>${marker ? `<span class="comicEra">${escapeHtml(marker)}</span>` : ''}`}</div>`;
           } else if (kind === 'instrument') {
             pages += `<div class="tag"><div class="orange"><span>${escapeHtml(row.price)}</span><img class="brandLogo" src="${instrumentLogoUrl}" alt="2nd & Charles"></div><div class="prod">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div><footer>2ndandcharles.com</footer></div>`;
           } else if (kind === 'treasure') {
