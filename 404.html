@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=4.8.0">
+  <link rel="stylesheet" href="styles.css?v=4.9.0">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <h1>Authority Suite</h1>
     <p id="startupMessage">Starting application…</p>
     <div class="startupProgress"><span id="startupBar"></span></div>
-    <small id="startupVersion">v4.8.0</small>
+    <small id="startupVersion">v4.9.0</small>
   </div>
 </div>
 <div id="fatalError" class="fatalError hidden" role="alert">
@@ -50,7 +50,7 @@
     <div><h1 id="pageTitle">Vinyl Dividers</h1><p id="pageSub">Search the internal Music Authority</p></div>
     <div class="topStatus">
       <button id="debugBadge" class="debugBadge" hidden>Debug</button>
-      <div class="versionBadge" id="versionBadge">v4.8.0</div>
+      <div class="versionBadge" id="versionBadge">v4.9.0</div>
       <div class="dbStatus" id="dbStatus">Loading databases…</div>
       <div class="queuePill" id="queuePill">0 queued</div>
     </div>
@@ -80,13 +80,14 @@
     </section>
     <section class="panel queuePanel">
       <div class="panelTitle"><span>Print queue</span><button id="clearQueue">Clear</button></div>
+      <button id="customBtn" class="secondaryButton queueCustomButton">＋ Create custom label</button>
+      <small class="queueHint">Tap a queued label to reopen and edit it.</small>
       <div id="queue" class="queue"></div>
       <div class="queueActions">
         <button id="printBtn" class="primaryButton">Print now</button>
         <button id="sharePdfBtn" class="secondaryButton">Share print-ready PDF</button>
         <button id="sendStationBtn" class="secondaryButton stationSendButton">Send to Print Station</button>
         <button id="calibrationBtn" class="secondaryButton">Print calibration page</button>
-        <button id="customBtn" class="secondaryButton">Create custom label</button>
       </div>
     </section>
     <section class="instrumentPanel hidden" id="instrumentPanel">
@@ -157,15 +158,15 @@ ACTION FIGURES"></textarea></label>
   <nav class="mobileNav" id="mobileNav"><button data-mode="vinyl" class="active">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="treasure">Treasures</button><button data-mode="station">Station</button><button data-mode="manager">Data</button></nav>
 </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=4.8.0"></script>
-<script src="js/logger.js?v=4.8.0"></script>
-<script src="js/db.js?v=4.8.0"></script>
-<script src="js/sync.js?v=4.8.0"></script>
-<script src="js/print-station.js?v=4.8.0"></script>
+<script src="js/config.js?v=4.9.0"></script>
+<script src="js/logger.js?v=4.9.0"></script>
+<script src="js/db.js?v=4.9.0"></script>
+<script src="js/sync.js?v=4.9.0"></script>
+<script src="js/print-station.js?v=4.9.0"></script>
 <script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
-<script src="js/pdf.js?v=4.8.0"></script>
-<script src="js/labels.js?v=4.8.0"></script>
-<script src="js/ui.js?v=4.8.0"></script>
-<script src="app.js?v=4.8.0"></script>
+<script src="js/pdf.js?v=4.9.0"></script>
+<script src="js/labels.js?v=4.9.0"></script>
+<script src="js/ui.js?v=4.9.0"></script>
+<script src="app.js?v=4.9.0"></script>
 </body>
 </html>
