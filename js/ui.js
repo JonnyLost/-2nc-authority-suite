@@ -495,7 +495,35 @@
     document.addEventListener('visibilitychange', () => { if (!document.hidden && state.mode === 'station') refreshStation().catch(showStationError); });
   }
 
+  function appendSelectGroup(selector, label, values) {
+    const select = $(selector);
+    if (!select) return;
+    const existing = new Set(Array.from(select.options).map(option => option.value));
+    const group = document.createElement('optgroup');
+    group.label = label;
+    values.filter(value => !existing.has(value)).forEach(value => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      group.appendChild(option);
+    });
+    if (group.children.length) select.appendChild(group);
+  }
+
+  function installMarvelPublishingOptions() {
+    appendSelectGroup('#editPublishingEra', 'Marvel', [
+      'Marvel NOW!', 'All-New Marvel NOW!', 'All-New, All-Different Marvel',
+      'Marvel NOW! 2.0', 'Marvel Legacy', 'Fresh Start', 'Dawn of X',
+      'Reign of X', 'Destiny of X', 'Fall of X', 'From the Ashes'
+    ]);
+    appendSelectGroup('#editPublishingLine', 'Marvel', [
+      'Ultimate Universe', 'Marvel Knights', 'MAX', '2099',
+      'Marvel Zombies', 'Star Wars', 'Alien / Predator'
+    ]);
+  }
+
   async function initialize() {
+    installMarvelPublishingOptions();
     bindEvents();
     const authorityToggle = $('#showComicAuthority'); if (authorityToggle) authorityToggle.checked = state.showComicAuthority;
     const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
