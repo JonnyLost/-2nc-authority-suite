@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-  <meta name="theme-color" content="#f36f21">
+  <meta name="theme-color" content="#171717">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=4.5.0">
+  <link rel="stylesheet" href="styles.css?v=5.0.0">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <h1>Authority Suite</h1>
     <p id="startupMessage">Starting application…</p>
     <div class="startupProgress"><span id="startupBar"></span></div>
-    <small id="startupVersion">v4.5.0</small>
+    <small id="startupVersion">v5.0.0</small>
   </div>
 </div>
 <div id="fatalError" class="fatalError hidden" role="alert">
@@ -32,29 +32,76 @@
   </div>
 </div>
 <div id="app">
+  <div id="navBackdrop" class="navBackdrop" aria-hidden="true"></div>
   <aside class="sidebar">
-    <div class="brand"><span class="brandmark">2NC</span><span>Authority<br>Suite</span></div>
+    <div class="brand"><span class="brandmark">2NC</span><span><strong>Authority Suite</strong><small>Media &amp; Labeling</small></span></div>
     <nav id="modeNav">
-      <button data-mode="vinyl" class="active"><span>◉</span>Vinyl</button>
-      <button data-mode="cd"><span>◌</span>CD</button>
-      <button data-mode="comic"><span>▤</span>Comics</button>
-      <button data-mode="instrument"><span>♬</span>Tags</button>
-      <button data-mode="treasure"><span>✦</span>Treasures</button>
-      <button data-mode="station"><span>▣</span>Print Station</button>
-      <button data-mode="manager"><span>⚙</span>Authority</button>
+      <button data-mode="home" class="active"><span>01</span>Overview</button>
+      <button data-mode="vinyl"><span>02</span>Vinyl Dividers</button>
+      <button data-mode="cd"><span>03</span>CD Dividers</button>
+      <button data-mode="comic"><span>04</span>Comic Dividers</button>
+      <button data-mode="instrument"><span>05</span>Instrument Tags</button>
+      <button data-mode="treasure"><span>06</span>Treasures Tags</button>
+      <button data-mode="station"><span>07</span>Print Station</button>
+      <button data-mode="manager"><span>08</span>Authority Manager</button>
     </nav>
-    <button id="aboutBtn" class="sideUtility">ⓘ About</button>
+    <div class="sidebarStatus"><span class="statusDot"></span><div><strong>Authority data ready</strong><small>Saved on this device</small></div></div>
+    <button id="aboutBtn" class="sideUtility">About &amp; diagnostics</button>
   </aside>
   <header class="topbar">
-    <div><h1 id="pageTitle">Vinyl Dividers</h1><p id="pageSub">Search the internal Music Authority</p></div>
+    <button type="button" id="menuButton" class="menuButton" aria-label="Open navigation">☰</button>
+    <div class="pageHeading"><p class="eyebrow" id="pageEyebrow">2NC media operations</p><h1 id="pageTitle">Overview</h1><p id="pageSub">Authority databases, label production, and print workflows</p></div>
     <div class="topStatus">
       <button id="debugBadge" class="debugBadge" hidden>Debug</button>
-      <div class="versionBadge" id="versionBadge">v4.5.0</div>
+      <div class="versionBadge" id="versionBadge">v5.0.0</div>
       <div class="dbStatus" id="dbStatus">Loading databases…</div>
       <div class="queuePill" id="queuePill">0 queued</div>
     </div>
   </header>
   <main class="workspace">
+    <section class="homePanel" id="homePanel">
+      <div class="homeHero">
+        <div>
+          <p class="eyebrow">Authority command center</p>
+          <h2>Build, manage, and print with confidence.</h2>
+          <p>Choose a production tool, continue a print queue, or manage the filing authorities that power every label.</p>
+        </div>
+        <div class="homeHeroActions">
+          <button class="secondaryButton" data-home-mode="manager">Manage authorities</button>
+          <button class="primaryButton" data-home-mode="comic">Create comic label</button>
+        </div>
+      </div>
+      <div class="metricGrid">
+        <article class="metricCard highlight"><p>Music Authority</p><strong id="homeMusicCount">—</strong><span>artist records</span></article>
+        <article class="metricCard"><p>Comic Authority</p><strong id="homeComicCount">—</strong><span>filing records</span></article>
+        <article class="metricCard"><p>Print Queue</p><strong id="homeQueueCount">0</strong><span>labels and tags</span></article>
+        <article class="metricCard"><p>Production Formats</p><strong>5</strong><span>certified sizes</span></article>
+      </div>
+      <div class="homeGrid">
+        <article class="homeSection">
+          <div class="sectionHeader"><div><p class="eyebrow">Production tools</p><h3>What are you making?</h3></div></div>
+          <div class="moduleGrid">
+            <button class="moduleCard" data-home-mode="vinyl"><span class="moduleNumber">02</span><strong>Vinyl Dividers</strong><small>5 × 0.675 in</small><b>Open tool →</b></button>
+            <button class="moduleCard" data-home-mode="cd"><span class="moduleNumber">03</span><strong>CD Dividers</strong><small>2 × 0.675 in</small><b>Open tool →</b></button>
+            <button class="moduleCard" data-home-mode="comic"><span class="moduleNumber">04</span><strong>Comic Dividers</strong><small>3.5 × 0.675 in</small><b>Open tool →</b></button>
+            <button class="moduleCard" data-home-mode="instrument"><span class="moduleNumber">05</span><strong>Instrument Tags</strong><small>6 × 4 in</small><b>Open tool →</b></button>
+            <button class="moduleCard" data-home-mode="treasure"><span class="moduleNumber">06</span><strong>Treasures Tags</strong><small>3.5 × 5 in</small><b>Open tool →</b></button>
+          </div>
+        </article>
+        <div class="homeSide">
+          <article class="homeSection queueSnapshot">
+            <div class="sectionHeader"><div><p class="eyebrow">Current work</p><h3>Print queue</h3></div><button class="textButton" data-home-mode="vinyl">Manage →</button></div>
+            <div id="homeQueueSummary" class="queueSummary"><div class="emptyState">Your queue is ready for the next label.</div></div>
+          </article>
+          <article class="homeSection orangeSection">
+            <p class="eyebrow">Store-to-PC workflow</p>
+            <h3>Send jobs from the sales floor.</h3>
+            <p>Create labels on an iPhone or iPad, then receive and print them from the store computer.</p>
+            <button class="inkButton" data-home-mode="station">Open Print Station</button>
+          </article>
+        </div>
+      </div>
+    </section>
     <section class="panel searchPanel" id="searchPanel">
       <label class="searchBox"><span>⌕</span><input id="searchInput" placeholder="Search artists..."></label>
       <div class="filters filterRow">
@@ -150,18 +197,17 @@ ACTION FIGURES"></textarea></label>
       <div id="stationJobs" class="stationJobs"><div class="empty">No print jobs loaded.</div></div>
     </section>
   </main>
-  <nav class="mobileNav" id="mobileNav"><button data-mode="vinyl" class="active">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="treasure">Treasures</button><button data-mode="station">Station</button><button data-mode="manager">Data</button></nav>
 </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=4.5.0"></script>
-<script src="js/logger.js?v=4.5.0"></script>
-<script src="js/db.js?v=4.5.0"></script>
-<script src="js/sync.js?v=4.5.0"></script>
-<script src="js/print-station.js?v=4.5.0"></script>
+<script src="js/config.js?v=5.0.0"></script>
+<script src="js/logger.js?v=5.0.0"></script>
+<script src="js/db.js?v=5.0.0"></script>
+<script src="js/sync.js?v=5.0.0"></script>
+<script src="js/print-station.js?v=5.0.0"></script>
 <script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
-<script src="js/pdf.js?v=4.5.0"></script>
-<script src="js/labels.js?v=4.5.0"></script>
-<script src="js/ui.js?v=4.5.0"></script>
-<script src="app.js?v=4.5.0"></script>
+<script src="js/pdf.js?v=5.0.0"></script>
+<script src="js/labels.js?v=5.0.0"></script>
+<script src="js/ui.js?v=5.0.0"></script>
+<script src="app.js?v=5.0.0"></script>
 </body>
 </html>
