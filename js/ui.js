@@ -19,6 +19,7 @@
     queue: JSON.parse(localStorage.getItem('2ncQueue') || '[]'),
     music: [], comic: [], managerDataset: 'music', managerSelected: null,
     stationJobs: [], stationTimer: null, stationBusy: false,
+    showComicAuthority: localStorage.getItem('2ncShowComicAuthority') !== 'false',
     showComicEra: localStorage.getItem('2ncShowComicEra') !== 'false'
   };
 
@@ -39,6 +40,14 @@
   function musicSubgenreLine(row) { return LabelEngine.subgenreLine(row); }
   function comicPrintTitle(row) { return String(row.printedTitle || row.series || row.display || '').trim(); }
   function comicMarker(row) { return String(row.publishingLine || row.publishingEra || '').trim(); }
+  function comicYearRange(row) {
+    const start = String(row.startYear || '').trim();
+    const end = String(row.endYear || '').trim();
+    if (!start && !end) return '';
+    if (!start) return `Through ${end}`;
+    if (!end || end === start) return start;
+    return `${start}–${end}`;
+  }
   function lengthClass(value) { const n = String(value || '').length; return n > 34 ? 'tight' : n > 22 ? 'compact' : ''; }
 
   function currentData() { return state.mode === 'comic' ? state.comic : state.music; }
@@ -46,13 +55,15 @@
   function resultName(row) { return state.mode === 'comic' ? (row.primary ? row.display : comicPrintTitle(row)) : row.name; }
   function resultSub(row) {
     return state.mode === 'comic'
-      ? (row.primary ? `${row.publisher || ''} · Primary authority` : [row.parent || 'Standalone', comicMarker(row), row.publisher].filter(Boolean).join(' · '))
+      ? (row.primary
+        ? [row.publisher, 'Primary authority', comicYearRange(row), row.id].filter(Boolean).join(' · ')
+        : [row.parent || 'Standalone', comicMarker(row), comicYearRange(row), row.publisher, row.type, row.id].filter(Boolean).join(' · '))
       : [row.genre, musicSubgenreLine(row), row.level].filter(Boolean).join(' · ');
   }
   function matches(row) {
     const query = state.query.toLowerCase();
     const haystack = state.mode === 'comic'
-      ? [row.display, row.parent, row.series, row.printedTitle, row.publishingEra, row.publishingLine, row.publisher, row.type].join(' ')
+      ? [row.display, row.parent, row.series, row.printedTitle, row.publishingEra, row.publishingLine, row.startYear, row.endYear, row.publisher, row.type, row.id].join(' ')
       : [row.name, row.display, row.genre, row.primarySubgenre || row.subgenre, row.secondarySubgenre, row.type].join(' ');
     return (!query || haystack.toLowerCase().includes(query))
       && (!state.level || row.level === state.level)
@@ -96,7 +107,7 @@
       box.className = `label comicLabel ${row.primary ? 'primaryComic' : ''} ${lengthClass(row.primary ? row.display : comicPrintTitle(row))}`;
       box.innerHTML = row.primary
         ? `<div class="series">${escapeHtml(row.display)}</div>`
-        : `<div class="cue">${escapeHtml(row.parent)}</div><div class="series">${escapeHtml(comicPrintTitle(row))}</div>${state.showComicEra && comicMarker(row) ? `<div class="era">${escapeHtml(comicMarker(row))}</div>` : ''}`;
+        : `${state.showComicAuthority && row.parent ? `<div class="cue">${escapeHtml(row.parent)}</div>` : ''}<div class="series">${escapeHtml(comicPrintTitle(row))}</div>${state.showComicEra && comicMarker(row) ? `<div class="era">${escapeHtml(comicMarker(row))}</div>` : ''}`;
       if (hierarchy) hierarchy.classList.toggle('hidden', !row.parent && !row.primary);
     } else {
       box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)}`;
@@ -108,7 +119,7 @@
 
   function queueRecord(row) {
     return state.mode === 'comic'
-      ? { uid: safeId(), mode: 'comic', primary: row.primary, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: state.showComicEra ? (row.publishingEra || '') : '', publishingLine: state.showComicEra ? (row.publishingLine || '') : '', name: row.display, publisher: row.publisher || '' }
+      ? { uid: safeId(), mode: 'comic', primary: row.primary, showAuthority: state.showComicAuthority, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: state.showComicEra ? (row.publishingEra || '') : '', publishingLine: state.showComicEra ? (row.publishingLine || '') : '', startYear: row.startYear || '', endYear: row.endYear || '', name: row.display, publisher: row.publisher || '' }
       : { uid: safeId(), mode: state.mode, name: row.name, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
   }
 
@@ -155,7 +166,7 @@
     show('#treasurePanel', mode === 'treasure');
     show('#stationPanel', mode === 'station');
     show('#managerPanel', mode === 'manager');
-    show('#eraToggleWrap', mode === 'comic');
+    show('#comicLabelToggles', mode === 'comic');
     if (mode === 'station') {
       refreshStation().catch(error => showStationError(error));
       startStationPolling();
@@ -182,7 +193,7 @@
       const main = ($('#customMain')?.value || '').trim();
       const series = comic ? ($('#customSub')?.value || '').trim() : '';
       if (!main) return;
-      state.queue.push(comic ? { uid: safeId(), mode: 'comic', primary: !series, parent: series ? main : '', series, printedTitle: series, publishingEra: ($('#customEra')?.value || '').trim(), publishingLine: ($('#customLine')?.value || '').trim(), name: main } : { uid: safeId(), mode: state.mode, name: main, genre: '', primarySubgenre: '', secondarySubgenre: '' });
+      state.queue.push(comic ? { uid: safeId(), mode: 'comic', primary: !series, showAuthority: state.showComicAuthority, parent: series ? main : '', series, printedTitle: series, publishingEra: state.showComicEra ? ($('#customEra')?.value || '').trim() : '', publishingLine: state.showComicEra ? ($('#customLine')?.value || '').trim() : '', name: main } : { uid: safeId(), mode: state.mode, name: main, genre: '', primarySubgenre: '', secondarySubgenre: '' });
       saveQueue(); closeModal();
     });
   }
@@ -205,6 +216,17 @@
 
   function makeId(kind) { return `${kind === 'music' ? 'MUS' : 'COM'}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`; }
 
+  function ensurePublicationYearFields() {
+    if ($('#publicationYearsField')) return;
+    const eraField = $('#publishingEraField');
+    if (!eraField) return;
+    const fields = document.createElement('div');
+    fields.id = 'publicationYearsField';
+    fields.className = 'twoCol hidden';
+    fields.innerHTML = '<label>Start year<input id="editStartYear" inputmode="numeric" maxlength="4" placeholder="1985"></label><label>End year<input id="editEndYear" inputmode="numeric" maxlength="7" placeholder="Present"></label>';
+    eraField.before(fields);
+  }
+
   async function renderManager() {
     if (state.mode !== 'manager') return;
     const dataset = $('#managerDataset')?.value || state.managerDataset;
@@ -214,16 +236,17 @@
     let rows = await AuthorityDB.getAll(dataset);
     rows = rows.filter(row => (status === 'all' || (row.status || 'active') === status) && (!query || JSON.stringify(row).toLowerCase().includes(query))).sort((a, b) => (a.sort || a.display || a.name || '').localeCompare(b.sort || b.display || b.name || ''));
     text('#managerCount', `${rows.length.toLocaleString()} records`);
-    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publishingLine, row.publishingEra, row.publisher].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
+    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publishingLine, row.publishingEra, comicYearRange(row), row.publisher, row.id].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
     $$('#managerResults .resultCard').forEach(element => element.addEventListener('click', () => { state.managerSelected = rows.find(row => row.id === element.dataset.id); fillEditor(state.managerSelected); renderManager(); }));
   }
 
   function fillEditor(row) {
+    ensurePublicationYearFields();
     show('#editorEmpty', false); show('#authorityForm', true);
     const comic = state.managerDataset === 'comic';
-    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publishingEraField', comic); show('#publishingLineField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
+    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publicationYearsField', comic); show('#publishingEraField', comic); show('#publishingLineField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
     const values = {
-      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editPublishingEra: row.publishingEra || '', editPublishingLine: row.publishingLine || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
+      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editStartYear: row.startYear || '', editEndYear: row.endYear || '', editPublishingEra: row.publishingEra || '', editPublishingLine: row.publishingLine || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
     };
     Object.entries(values).forEach(([id, value]) => { const element = document.getElementById(id); if (element) element.value = value; });
     text('#retireRecord', row.status === 'retired' ? 'Restore' : 'Retire');
@@ -235,7 +258,7 @@
     const kind = state.managerDataset, comic = kind === 'comic', old = state.managerSelected || {};
     const display = ($('#editDisplay')?.value || '').trim(); if (!display) return;
     const row = { ...old, id: $('#editId')?.value || makeId(kind), display, name: ($('#editName')?.value || '').trim() || display, type: ($('#editType')?.value || '').trim(), level: $('#editLevel')?.value || 'Recommended', status: old.status || 'active', notes: ($('#editNotes')?.value || '').trim(), updatedAt: new Date().toISOString(), _localEdited: true };
-    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.publishingEra = ($('#editPublishingEra')?.value || '').trim(); row.publishingLine = ($('#editPublishingLine')?.value || '').trim(); row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
+    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.startYear = ($('#editStartYear')?.value || '').trim(); row.endYear = ($('#editEndYear')?.value || '').trim(); row.publishingEra = ($('#editPublishingEra')?.value || '').trim(); row.publishingLine = ($('#editPublishingLine')?.value || '').trim(); row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
     else { row.genre = ($('#editGenre')?.value || '').trim(); row.primarySubgenre = ($('#editPrimarySubgenre')?.value || '').trim(); row.secondarySubgenre = ($('#editSecondarySubgenre')?.value || '').trim(); row.subgenre = row.primarySubgenre; row.sort = row.display; }
     await AuthorityDB.put(kind, row); state.managerSelected = row; await reloadData(); alert('Authority saved.');
   }
@@ -445,6 +468,7 @@
     on('#sortFilter', 'change', event => { state.sort = event.target.value; renderResults(); });
     on('#clearSearch', 'click', () => { state.query = ''; state.level = ''; state.category = ''; state.sort = 'name'; if ($('#searchInput')) $('#searchInput').value = ''; if ($('#levelFilter')) $('#levelFilter').value = ''; populateCategoryFilter(); renderResults(); });
     on('#addSelected', 'click', addSelected); on('#addAll', 'click', addAll); on('#addHierarchy', 'click', addHierarchy);
+    on('#showComicAuthority', 'change', event => { state.showComicAuthority = event.target.checked; localStorage.setItem('2ncShowComicAuthority', String(state.showComicAuthority)); renderPreview(); });
     on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
     on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
     on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
@@ -473,6 +497,7 @@
 
   async function initialize() {
     bindEvents();
+    const authorityToggle = $('#showComicAuthority'); if (authorityToggle) authorityToggle.checked = state.showComicAuthority;
     const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
     await reloadData();
     renderQueue(); setMode('vinyl');

@@ -94,7 +94,8 @@ h1{font-weight:760;letter-spacing:-.035em}.topbar p{letter-spacing:.005em}
 .primaryButton,.secondaryButton{border-radius:12px;min-height:47px;letter-spacing:.01em}
 .comicLabel{position:relative}
 .comicLabel .era{position:absolute;right:9px;bottom:4px;font-family:var(--font-ui);font-size:clamp(7px,.62vw,9px);font-weight:800;line-height:1;text-transform:uppercase;letter-spacing:.10em;color:#747980}
-.eraToggle{display:flex;align-items:center;gap:8px;margin:-2px 0 10px;color:var(--muted);font-size:12px}
+.comicLabelToggles{display:flex;flex-direction:column;gap:7px;margin:-2px 0 10px}
+.eraToggle{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}
 .eraToggle input{accent-color:var(--orange)}
 .primaryButton{background:linear-gradient(145deg,var(--orange2),var(--orange-dark));box-shadow:0 8px 22px rgba(244,119,33,.20)}
 .primaryButton:not(:disabled):hover{box-shadow:0 12px 28px rgba(244,119,33,.28)}
