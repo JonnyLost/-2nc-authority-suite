@@ -1,6 +1,6 @@
 {
-  "version": "4.7.0",
-  "name": "Comic Label Preferences",
-  "release": "2NC Authority Suite GitHub v4.7.0",
-  "notes": "Adds optional authority-name printing, remembered comic-label preferences, clearer duplicate-title identification, and publication-year fields."
+  "version": "4.8.0",
+  "name": "Marvel Authority Expansion",
+  "release": "2NC Authority Suite GitHub v4.8.0",
+  "notes": "Adds comprehensive modern Marvel series, events, publishing initiatives, universes, licensed lines, and publication-year coverage."
 }
