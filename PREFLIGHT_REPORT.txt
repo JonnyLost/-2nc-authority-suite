@@ -1,6 +1,6 @@
-2NC Authority Suite v4.6 preflight
+2NC Authority Suite v4.7 preflight
 
-PASS — version: 4.6.0
+PASS — version: 4.7.0
 PASS — music records: 4,606
 PASS — comic records: 2,648
 PASS — unique comic IDs: 2,648
@@ -14,4 +14,10 @@ PASS — newly bundled IDs merge onto previously synchronized devices
 PASS — index.html and 404.html are identical
 PASS — all JavaScript files pass syntax validation
 PASS — exact comic label remains 3.50 × 0.675 inches
+PASS — authority-name visibility is optional and remembered per device
+PASS — authority preference is preserved in preview, browser print, PDF, and Print Station payloads
+PASS — older queued labels remain backward compatible
+PASS — duplicate-title results include parent, marker, years, publisher, type, and record ID
+PASS — optional publication years are editable and searchable but never printed
+PASS — all 86 audited DC event-family authorities include a start year
 PASS — approved v4.5 interface, era/imprint markers, PDF sharing, Print Station, calibration, and synchronization preserved
