@@ -4193,7 +4193,7 @@
   {
     "id": "SER-00922",
     "display": "The Avengers",
-    "parent": "Valkyrie",
+    "parent": "Avengers",
     "series": "The Avengers",
     "primary": false,
     "publisher": "Marvel",
@@ -4205,7 +4205,7 @@
   {
     "id": "SER-00932",
     "display": "The Avengers",
-    "parent": "Vision & Scarlet Witch",
+    "parent": "Avengers",
     "series": "The Avengers",
     "primary": false,
     "publisher": "Marvel",
@@ -4217,7 +4217,7 @@
   {
     "id": "SER-00972",
     "display": "The Avengers",
-    "parent": "Wonder Man",
+    "parent": "Avengers",
     "series": "The Avengers",
     "primary": false,
     "publisher": "Marvel",
@@ -16239,7 +16239,7 @@
   {
     "id": "SER-00009",
     "display": "Fantastic Four",
-    "parent": "Adam Warlock",
+    "parent": "Fantastic Four",
     "series": "Fantastic Four",
     "primary": false,
     "publisher": "Marvel",
@@ -16275,7 +16275,7 @@
   {
     "id": "SER-00502",
     "display": "Fantastic Four",
-    "parent": "Mister Fantastic / Invisible Woman / The Thing",
+    "parent": "Fantastic Four",
     "series": "Fantastic Four",
     "primary": false,
     "publisher": "Marvel",
@@ -16287,7 +16287,7 @@
   {
     "id": "SER-00673",
     "display": "Fantastic Four",
-    "parent": "Silver Surfer",
+    "parent": "Fantastic Four",
     "series": "Fantastic Four",
     "primary": false,
     "publisher": "Marvel",
@@ -19082,7 +19082,7 @@
   {
     "id": "SER-00166",
     "display": "Giant-Size X-Men",
-    "parent": "Colossus",
+    "parent": "X-Men",
     "series": "Giant-Size X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -19094,7 +19094,7 @@
   {
     "id": "SER-00533",
     "display": "Giant-Size X-Men",
-    "parent": "Nightcrawler",
+    "parent": "X-Men",
     "series": "Giant-Size X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -19106,7 +19106,7 @@
   {
     "id": "SER-00744",
     "display": "Giant-Size X-Men",
-    "parent": "Storm",
+    "parent": "X-Men",
     "series": "Giant-Size X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -27825,7 +27825,7 @@
   {
     "id": "SER-00503",
     "display": "Marvel Two-in-One",
-    "parent": "Mister Fantastic / Invisible Woman / The Thing",
+    "parent": "Fantastic Four",
     "series": "Marvel Two-in-One",
     "primary": false,
     "publisher": "Marvel",
@@ -46479,7 +46479,7 @@
   {
     "id": "SER-00192",
     "display": "Uncanny X-Men",
-    "parent": "Dazzler",
+    "parent": "X-Men",
     "series": "Uncanny X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -46491,7 +46491,7 @@
   {
     "id": "SER-00292",
     "display": "Uncanny X-Men",
-    "parent": "Gambit",
+    "parent": "X-Men",
     "series": "Uncanny X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -46503,7 +46503,7 @@
   {
     "id": "SER-00588",
     "display": "Uncanny X-Men",
-    "parent": "Quicksilver",
+    "parent": "X-Men",
     "series": "Uncanny X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -50555,7 +50555,7 @@
   {
     "id": "SER-00038",
     "display": "The X-Men",
-    "parent": "Angel / Archangel",
+    "parent": "X-Men",
     "series": "The X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -50567,7 +50567,7 @@
   {
     "id": "SER-00093",
     "display": "The X-Men",
-    "parent": "Beast",
+    "parent": "X-Men",
     "series": "The X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -50579,7 +50579,7 @@
   {
     "id": "SER-00182",
     "display": "The X-Men",
-    "parent": "Cyclops",
+    "parent": "X-Men",
     "series": "The X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -50591,7 +50591,7 @@
   {
     "id": "SER-00256",
     "display": "The X-Men",
-    "parent": "Emma Frost",
+    "parent": "X-Men",
     "series": "The X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -50603,7 +50603,7 @@
   {
     "id": "SER-00394",
     "display": "The X-Men",
-    "parent": "Jean Grey / Phoenix",
+    "parent": "X-Men",
     "series": "The X-Men",
     "primary": false,
     "publisher": "Marvel",
@@ -50615,7 +50615,7 @@
   {
     "id": "SER-00456",
     "display": "The X-Men",
-    "parent": "Magneto",
+    "parent": "X-Men",
     "series": "The X-Men",
     "primary": false,
     "publisher": "Marvel",
