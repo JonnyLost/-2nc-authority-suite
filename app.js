@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.11.1 — Quick Lookup queue action */
+/* 2NC Authority Suite v4.12.0 — Marvel team authority audit */
 (function () {
   const stages = [
     ['Preparing interface', 12],

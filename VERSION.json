@@ -1,6 +1,6 @@
 {
-  "version": "4.11.1",
-  "name": "Quick Lookup Queue Action",
-  "release": "2NC Authority Suite GitHub v4.11.1",
-  "notes": "Adds a one-tap Add to queue action to Quick Lookup. The selected comic is queued as a comic divider and the selected music artist is queued as a vinyl divider, with alphabetical queue ordering preserved."
+  "version": "4.12.0",
+  "name": "Marvel Team Authority Audit",
+  "release": "2NC Authority Suite GitHub v4.12",
+  "notes": "Adds and repairs Marvel team filing authorities, historical team series, and upgrade-safe canonical relationship migrations while preserving locally edited records."
 }

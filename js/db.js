@@ -84,8 +84,11 @@
     return JSON.stringify(comparableRecord(old)) !== JSON.stringify(comparableRecord(bundled));
   }
 
+  const canonicalRepairIds = new Set(["SER-01955","SER-01106","SER-01908","SER-01910","SER-01909","CHR-00015","SER-01883","CHR-00080","SER-02455","TEM-00005","SER-02436","SER-00994","SER-02183","CHR-00139","SER-00381","TEM-00007","SER-01889","CHR-00158","TEM-00008","SER-01086","SER-02188","CHR-00183","CHR-00193","SER-02393","CHR-00198","SER-01087","SER-02184","SER-02197","SER-02464","CHR-00273","SER-00140","EVT-00011","CHR-00274","CHR-00337","EVT-00013","SER-02001","SER-02291","CHR-00457","CHR-00469","SER-02247","SER-01898","SER-00026","SER-02011","SER-02181","SER-00039","SER-02231","SER-00998","SER-02172","SER-02186","SER-02199","SER-02230","SER-02201","TEM-00024","SER-00922","SER-00932","SER-00972","SER-00009","SER-00502","SER-00673","SER-00166","SER-00533","SER-00744","SER-00503","SER-00192","SER-00292","SER-00588","SER-00038","SER-00093","SER-00182","SER-00256","SER-00394","SER-00456"]);
+
   function mergedRecord(row, old = {}) {
-    if (old.id && hasLocalChanges(old, row)) {
+    const locallyEdited = Boolean(old._localEdited);
+    if (old.id && hasLocalChanges(old, row) && (locallyEdited || !canonicalRepairIds.has(row.id))) {
       return { ...row, ...old, status: old.status || 'active', notes: old.notes || '', _localEdited: true };
     }
     return {
