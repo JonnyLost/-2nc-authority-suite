@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.9 — DC deep authority and queue workflow */
+/* 2NC Authority Suite v4.11.1 — Quick Lookup queue action */
 (function () {
   const stages = [
     ['Preparing interface', 12],

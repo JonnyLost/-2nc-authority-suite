@@ -1,6 +1,6 @@
 {
-  "version": "4.11.0",
-  "name": "Mobile Quick Lookup",
-  "release": "2NC Authority Suite GitHub v4.11",
-  "notes": "Adds a phone-first Quick Lookup landing screen for comic filing authorities and music genres, with live search, typo tolerance, large filing answers, alternate matches, and one-tap clearing."
+  "version": "4.11.1",
+  "name": "Quick Lookup Queue Action",
+  "release": "2NC Authority Suite GitHub v4.11.1",
+  "notes": "Adds a one-tap Add to queue action to Quick Lookup. The selected comic is queued as a comic divider and the selected music artist is queued as a vinyl divider, with alphabetical queue ordering preserved."
 }
