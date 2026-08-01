@@ -130,8 +130,6 @@ for (const [parent, startYear, endYear, children] of families) {
   for (const child of children) ensureChild(child, parent, startYear, endYear);
 }
 
-rows.sort((a, b) => cleanSort(a.sort || a.display).localeCompare(cleanSort(b.sort || b.display), 'en-US', { numeric: true, sensitivity: 'base' }) || Number(b.primary) - Number(a.primary) || a.id.localeCompare(b.id));
-
 const ids = new Set();
 for (const row of rows) {
   if (ids.has(row.id)) throw new Error(`Duplicate ID: ${row.id}`);
