@@ -5,6 +5,7 @@
   const safeId = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`);
 
   const profiles = {
+    quick: { title: 'Quick Lookup', sub: 'Find where any comic or artist belongs', dim: '' },
     vinyl: { title: 'Vinyl Dividers', sub: 'Search the internal Music Authority', dim: '5 × 0.675 in' },
     cd: { title: 'CD Dividers', sub: 'Search the internal Music Authority', dim: '2 × 0.675 in' },
     comic: { title: 'Comic Dividers', sub: 'Search the internal Comic Authority', dim: '3.5 × 0.675 in' },
@@ -15,7 +16,8 @@
   };
 
   const state = {
-    mode: 'vinyl', selected: null, query: '', level: '', category: '', comicType: '', sort: 'name',
+    mode: 'quick', selected: null, query: '', level: '', category: '', comicType: '', sort: 'name',
+    lookupKind: 'comic', lookupQuery: '', lookupMatches: [], lookupSelectedId: '',
     queue: JSON.parse(localStorage.getItem('2ncQueue') || '[]'),
     music: [], comic: [], managerDataset: 'music', managerSelected: null,
     stationJobs: [], stationTimer: null, stationBusy: false, editingQueueIndex: null,
@@ -49,6 +51,116 @@
     return `${start}–${end}`;
   }
   function lengthClass(value) { const n = String(value || '').length; return n > 34 ? 'tight' : n > 22 ? 'compact' : ''; }
+
+  function normalizeLookup(value) {
+    return String(value || '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/&/g, ' and ')
+      .replace(/\b(the|a|an)\b/g, ' ')
+      .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
+  }
+
+  function lookupNames(row, kind) {
+    return (kind === 'comic'
+      ? [row.printedTitle, row.series, row.display, row.parent]
+      : [row.name, row.display])
+      .map(normalizeLookup).filter(Boolean);
+  }
+
+  function editDistance(a, b) {
+    if (Math.abs(a.length - b.length) > 3) return 4;
+    const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+    for (let i = 1; i <= a.length; i += 1) {
+      const current = [i];
+      for (let j = 1; j <= b.length; j += 1) current[j] = Math.min(current[j - 1] + 1, previous[j] + 1, previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      previous.splice(0, previous.length, ...current);
+    }
+    return previous[b.length];
+  }
+
+  function lookupScore(row, kind, rawQuery) {
+    const query = normalizeLookup(rawQuery);
+    if (!query) return 0;
+    const queryTokens = query.split(' ');
+    let best = 0;
+    lookupNames(row, kind).forEach(name => {
+      if (name === query) best = Math.max(best, 120);
+      else if (name.startsWith(query)) best = Math.max(best, 104 - Math.min(18, name.length - query.length));
+      else if (name.includes(query)) best = Math.max(best, 88);
+      const nameTokens = name.split(' ');
+      const exactTokens = queryTokens.filter(token => nameTokens.some(candidate => candidate === token || candidate.startsWith(token))).length;
+      const fuzzyTokens = queryTokens.filter(token => nameTokens.some(candidate => token.length > 3 && candidate.length > 3 && editDistance(token, candidate) <= (token.length > 7 ? 2 : 1))).length;
+      const coverage = Math.max(exactTokens, fuzzyTokens) / queryTokens.length;
+      if (coverage === 1) best = Math.max(best, 78 - Math.max(0, nameTokens.length - queryTokens.length));
+      else if (coverage >= .5) best = Math.max(best, 38 + coverage * 28);
+      if (query.length > 3 && name.length > 3 && editDistance(query, name) <= (query.length > 8 ? 2 : 1)) best = Math.max(best, 82);
+    });
+    if (kind === 'comic' && row.primary) best += .25;
+    return best;
+  }
+
+  function findLookupMatches() {
+    const query = state.lookupQuery.trim();
+    if (query.length < 2) return [];
+    const data = state.lookupKind === 'comic' ? state.comic : state.music;
+    return data.map(row => ({ row, score: lookupScore(row, state.lookupKind, query) }))
+      .filter(item => item.score >= 48)
+      .sort((a, b) => b.score - a.score || String(a.row.display || a.row.name || '').localeCompare(String(b.row.display || b.row.name || '')))
+      .slice(0, 8).map(item => item.row);
+  }
+
+  function lookupAuthority(row) {
+    return row.primary ? row.display : (row.parent || row.display || row.series);
+  }
+
+  function renderLookup() {
+    const answer = $('#quickAnswer');
+    const choices = $('#quickChoices');
+    if (!answer || !choices) return;
+    state.lookupMatches = findLookupMatches();
+    const current = state.lookupMatches.find(row => row.id === state.lookupSelectedId) || state.lookupMatches[0];
+    state.lookupSelectedId = current?.id || '';
+    if (!state.lookupQuery.trim()) {
+      answer.innerHTML = `<div class="quickEmpty"><strong>Start typing ${state.lookupKind === 'comic' ? 'a title' : 'an artist'}</strong><span>The filing answer will appear here.</span></div>`;
+      choices.innerHTML = '';
+      return;
+    }
+    if (!current) {
+      answer.innerHTML = `<div class="quickEmpty noMatch"><strong>No authority found</strong><span>Try fewer words or check the spelling. You can add a missing record in Authority Manager.</span></div>`;
+      choices.innerHTML = '<button type="button" data-quick-mode="manager" class="quickManagerButton">Open Authority Manager</button>';
+      return;
+    }
+    if (state.lookupKind === 'comic') {
+      const authority = lookupAuthority(current);
+      const matched = current.primary ? 'Primary filing authority' : (comicPrintTitle(current) || current.display);
+      const details = [current.publisher, current.type, comicYearRange(current)].filter(Boolean).join(' · ');
+      const marker = comicMarker(current);
+      answer.innerHTML = `<div class="quickAnswerLabel">File under</div><strong class="quickAuthority">${escapeHtml(authority)}</strong><div class="quickMatched"><span>Series</span><b>${escapeHtml(matched)}</b></div>${marker ? `<div class="quickMarker"><span>Line / era</span><b>${escapeHtml(marker)}</b></div>` : ''}<small>${escapeHtml(details)}</small>`;
+    } else {
+      const styles = musicSubgenreLine(current);
+      answer.innerHTML = `<div class="quickAnswerLabel">File under</div><strong class="quickAuthority">${escapeHtml(current.name || current.display)}</strong><div class="quickMatched"><span>Genre</span><b>${escapeHtml(current.genre || 'Uncategorized')}</b></div>${styles ? `<div class="quickMarker"><span>Style</span><b>${escapeHtml(styles)}</b></div>` : ''}<small>${escapeHtml(current.level || current.type || 'Music authority')}</small>`;
+    }
+    const alternatives = state.lookupMatches.filter(row => row.id !== current.id).slice(0, 3);
+    choices.innerHTML = alternatives.length ? `<span>Other matches</span>${alternatives.map(row => `<button type="button" data-lookup-id="${escapeHtml(row.id)}"><b>${escapeHtml(state.lookupKind === 'comic' ? (comicPrintTitle(row) || row.display) : (row.name || row.display))}</b><small>${escapeHtml(state.lookupKind === 'comic' ? lookupAuthority(row) : (row.genre || 'Music'))}</small></button>`).join('')}` : '';
+    choices.querySelectorAll('[data-lookup-id]').forEach(button => button.addEventListener('click', () => { state.lookupSelectedId = button.dataset.lookupId; renderLookup(); }));
+  }
+
+  function clearLookup() {
+    state.lookupQuery = ''; state.lookupSelectedId = ''; state.lookupMatches = [];
+    const input = $('#quickInput'); if (input) { input.value = ''; input.focus(); }
+    renderLookup();
+  }
+
+  function setLookupKind(kind) {
+    if (!['comic', 'music'].includes(kind)) return;
+    state.lookupKind = kind; state.lookupSelectedId = '';
+    $$('[data-lookup-kind]').forEach(button => button.classList.toggle('active', button.dataset.lookupKind === kind));
+    const input = $('#quickInput');
+    if (input) { input.placeholder = kind === 'comic' ? 'Type a comic title…' : 'Type an artist…'; input.value = ''; }
+    state.lookupQuery = '';
+    renderLookup();
+    input?.focus();
+  }
 
   function currentData() { return state.mode === 'comic' ? state.comic : state.music; }
   function recordCategory(row) { return state.mode === 'comic' ? (row.publisher || 'Unknown Publisher') : (row.genre || 'Uncategorized'); }
@@ -212,12 +324,14 @@
   function setMode(mode) {
     if (!profiles[mode]) return;
     state.mode = mode; state.selected = null; state.editingQueueIndex = null; state.query = ''; state.level = ''; state.category = ''; state.comicType = ''; state.sort = 'name';
+    document.body.dataset.mode = mode;
     const profile = profiles[mode];
     text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#dimensionText', profile.dim);
     $$('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode === mode));
-    show('#searchPanel', !['instrument', 'treasure', 'station', 'manager'].includes(mode));
-    show('.previewPanel', !['instrument', 'treasure', 'station', 'manager'].includes(mode));
-    show('.queuePanel', !['station', 'manager'].includes(mode));
+    show('#quickPanel', mode === 'quick');
+    show('#searchPanel', !['quick', 'instrument', 'treasure', 'station', 'manager'].includes(mode));
+    show('.previewPanel', !['quick', 'instrument', 'treasure', 'station', 'manager'].includes(mode));
+    show('.queuePanel', !['quick', 'station', 'manager'].includes(mode));
     show('#instrumentPanel', mode === 'instrument');
     show('#treasurePanel', mode === 'treasure');
     show('#stationPanel', mode === 'station');
@@ -230,7 +344,10 @@
       stopStationPolling();
       if (mode === 'manager') renderManager();
     }
-    if (!['station', 'manager'].includes(mode)) {
+    if (mode === 'quick') {
+      renderLookup();
+      requestAnimationFrame(() => $('#quickInput')?.focus());
+    } else if (!['station', 'manager'].includes(mode)) {
       const search = $('#searchInput'); if (search) search.value = '';
       const level = $('#levelFilter'); if (level) level.value = '';
       populateCategoryFilter(); renderResults(); renderPreview();
@@ -539,12 +656,19 @@
     state.music = (await AuthorityDB.getAll('music')).filter(row => row.status !== 'retired');
     state.comic = (await AuthorityDB.getAll('comic')).filter(row => row.status !== 'retired');
     text('#dbStatus', `Music ${state.music.length.toLocaleString()} · Comics ${state.comic.length.toLocaleString()}`);
-    if (state.mode !== 'manager') { populateCategoryFilter(); renderResults(); renderPreview(); }
+    if (state.mode === 'quick') renderLookup();
+    else if (state.mode !== 'manager') { populateCategoryFilter(); renderResults(); renderPreview(); }
     await renderManager();
   }
 
   function bindEvents() {
     $$('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+    $$('[data-quick-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.quickMode)));
+    $$('[data-lookup-kind]').forEach(button => button.addEventListener('click', () => setLookupKind(button.dataset.lookupKind)));
+    on('#quickInput', 'input', event => { state.lookupQuery = event.target.value; state.lookupSelectedId = ''; renderLookup(); });
+    on('#quickInput', 'keydown', event => { if (event.key === 'Escape') clearLookup(); });
+    on('#quickClear', 'click', clearLookup);
+    on('#quickChoices', 'click', event => { const destination = event.target.closest('[data-quick-mode]'); if (destination) setMode(destination.dataset.quickMode); });
     on('#searchInput', 'input', event => { state.query = event.target.value; renderResults(); });
     on('#levelFilter', 'change', event => { state.level = event.target.value; renderResults(); });
     on('#categoryFilter', 'change', event => { state.category = event.target.value; renderResults(); });
@@ -612,7 +736,7 @@
     const authorityToggle = $('#showComicAuthority'); if (authorityToggle) authorityToggle.checked = state.showComicAuthority;
     const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
     await reloadData();
-    renderQueue(); setMode('vinyl');
+    renderQueue(); setMode('quick');
     text('#versionBadge', `v${APP_CONFIG.version}`);
     renderSyncStatus();
     renderStationConnection();
