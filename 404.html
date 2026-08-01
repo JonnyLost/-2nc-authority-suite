@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=4.9.1">
+  <link rel="stylesheet" href="styles.css?v=4.11.0">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <h1>Authority Suite</h1>
     <p id="startupMessage">Starting application…</p>
     <div class="startupProgress"><span id="startupBar"></span></div>
-    <small id="startupVersion">v4.9.1</small>
+    <small id="startupVersion">v4.11.0</small>
   </div>
 </div>
 <div id="fatalError" class="fatalError hidden" role="alert">
@@ -36,7 +36,8 @@
   <aside class="sidebar">
     <div class="brand"><span class="brandmark">2NC</span><span>Authority<br>Suite</span></div>
     <nav id="modeNav">
-      <button data-mode="vinyl" class="active"><span>◉</span>Vinyl</button>
+      <button data-mode="quick" class="active"><span>⌕</span>Lookup</button>
+      <button data-mode="vinyl"><span>◉</span>Vinyl</button>
       <button data-mode="cd"><span>◌</span>CD</button>
       <button data-mode="comic"><span>▤</span>Comics</button>
       <button data-mode="instrument"><span>♬</span>Tags</button>
@@ -47,15 +48,38 @@
     <button id="aboutBtn" class="sideUtility">ⓘ About</button>
   </aside>
   <header class="topbar">
-    <div><h1 id="pageTitle">Vinyl Dividers</h1><p id="pageSub">Search the internal Music Authority</p></div>
+    <div><h1 id="pageTitle">Quick Lookup</h1><p id="pageSub">Find where any comic or artist belongs</p></div>
     <div class="topStatus">
       <button id="debugBadge" class="debugBadge" hidden>Debug</button>
-      <div class="versionBadge" id="versionBadge">v4.9.1</div>
+      <div class="versionBadge" id="versionBadge">v4.11.0</div>
       <div class="dbStatus" id="dbStatus">Loading databases…</div>
       <div class="queuePill" id="queuePill">0 queued</div>
     </div>
   </header>
   <main class="workspace">
+    <section class="quickPanel" id="quickPanel" aria-labelledby="quickHeading">
+      <div class="quickHeader">
+        <div><span class="quickEyebrow">Store-floor filing assistant</span><h2 id="quickHeading">Where does this go?</h2></div>
+        <div class="quickType" role="group" aria-label="Lookup database">
+          <button type="button" data-lookup-kind="comic" class="active">Comics</button>
+          <button type="button" data-lookup-kind="music">Music</button>
+        </div>
+      </div>
+      <div class="quickSearchRow">
+        <label class="quickSearch"><span aria-hidden="true">⌕</span><input id="quickInput" autocomplete="off" autocapitalize="words" enterkeyhint="search" aria-label="Comic title or artist" placeholder="Type a comic title…"></label>
+        <button id="quickClear" type="button" class="quickClear">Clear</button>
+      </div>
+      <div id="quickAnswer" class="quickAnswer" aria-live="polite">
+        <div class="quickEmpty"><strong>Start typing a title</strong><span>The filing answer will appear here.</span></div>
+      </div>
+      <div id="quickChoices" class="quickChoices" aria-label="Other possible matches"></div>
+      <div class="quickTools">
+        <span>Need to make a divider?</span>
+        <button type="button" data-quick-mode="comic">Comic labels</button>
+        <button type="button" data-quick-mode="vinyl">Music labels</button>
+        <button type="button" data-quick-mode="manager">Authority Manager</button>
+      </div>
+    </section>
     <section class="panel searchPanel" id="searchPanel">
       <label class="searchBox"><span>⌕</span><input id="searchInput" placeholder="Search artists..."></label>
       <div class="filters filterRow">
@@ -156,18 +180,18 @@ ACTION FIGURES"></textarea></label>
       <div id="stationJobs" class="stationJobs"><div class="empty">No print jobs loaded.</div></div>
     </section>
   </main>
-  <nav class="mobileNav" id="mobileNav"><button data-mode="vinyl" class="active">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="treasure">Treasures</button><button data-mode="station">Station</button><button data-mode="manager">Data</button></nav>
+  <nav class="mobileNav" id="mobileNav"><button data-mode="quick" class="active">Lookup</button><button data-mode="vinyl">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="treasure">Treasures</button><button data-mode="station">Station</button><button data-mode="manager">Data</button></nav>
 </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=4.9.1"></script>
-<script src="js/logger.js?v=4.9.1"></script>
-<script src="js/db.js?v=4.9.1"></script>
-<script src="js/sync.js?v=4.9.1"></script>
-<script src="js/print-station.js?v=4.9.1"></script>
+<script src="js/config.js?v=4.11.0"></script>
+<script src="js/logger.js?v=4.11.0"></script>
+<script src="js/db.js?v=4.11.0"></script>
+<script src="js/sync.js?v=4.11.0"></script>
+<script src="js/print-station.js?v=4.11.0"></script>
 <script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
-<script src="js/pdf.js?v=4.9.1"></script>
-<script src="js/labels.js?v=4.9.1"></script>
-<script src="js/ui.js?v=4.9.1"></script>
-<script src="app.js?v=4.9.1"></script>
+<script src="js/pdf.js?v=4.11.0"></script>
+<script src="js/labels.js?v=4.11.0"></script>
+<script src="js/ui.js?v=4.11.0"></script>
+<script src="app.js?v=4.11.0"></script>
 </body>
 </html>

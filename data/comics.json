@@ -6175,7 +6175,7 @@
   {
     "id": "SER-02382",
     "display": "Black Cat",
-    "parent": "Spider-Man",
+    "parent": "Black Cat",
     "series": "Black Cat",
     "primary": false,
     "publisher": "Marvel",
@@ -21032,7 +21032,7 @@
   {
     "id": "SER-02463",
     "display": "Iron Cat",
-    "parent": "Iron Man",
+    "parent": "Black Cat",
     "series": "Iron Cat",
     "primary": false,
     "publisher": "Marvel",
@@ -41426,7 +41426,7 @@
   {
     "id": "EVT-00091",
     "display": "Ultimate Extinction",
-    "parent": "Ultimate Universe",
+    "parent": "Ultimate Galactus Trilogy",
     "series": "Ultimate Extinction",
     "primary": false,
     "publisher": "Marvel",
@@ -41528,7 +41528,7 @@
   {
     "id": "EVT-00093",
     "display": "Ultimate Nightmare",
-    "parent": "Ultimate Universe",
+    "parent": "Ultimate Galactus Trilogy",
     "series": "Ultimate Nightmare",
     "primary": false,
     "publisher": "Marvel",
@@ -41576,7 +41576,7 @@
   {
     "id": "EVT-00095",
     "display": "Ultimate Secret",
-    "parent": "Ultimate Universe",
+    "parent": "Ultimate Galactus Trilogy",
     "series": "Ultimate Secret",
     "primary": false,
     "publisher": "Marvel",
@@ -49302,5 +49302,49 @@
     "printedTitle": "Queen in Black",
     "startYear": 2026,
     "endYear": 2026
+  },
+  {
+    "id": "MAR-BLAZE-LEGACY-BLOOD-1993",
+    "display": "Blaze: Legacy of Blood",
+    "parent": "Ghost Rider",
+    "series": "Blaze: Legacy of Blood",
+    "primary": false,
+    "publisher": "Marvel",
+    "type": "Limited Series",
+    "level": "Recommended",
+    "sort": "Blaze: Legacy of Blood",
+    "printedTitle": "Blaze: Legacy of Blood",
+    "publishingLine": "Midnight Sons",
+    "startYear": 1993,
+    "endYear": 1994,
+    "notes": "Johnny Blaze solo miniseries filed with the Ghost Rider publishing family."
+  },
+  {
+    "id": "MAR-BLACK-CAT-AUTHORITY",
+    "display": "Black Cat",
+    "parent": "",
+    "series": "Black Cat",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Character",
+    "level": "Recommended",
+    "sort": "Black Cat",
+    "printedTitle": "Black Cat",
+    "notes": "Primary filing authority for Black Cat solo series and Iron Cat."
+  },
+  {
+    "id": "MAR-ULTIMATE-GALACTUS-TRILOGY",
+    "display": "Ultimate Galactus Trilogy",
+    "parent": "",
+    "series": "Ultimate Galactus Trilogy",
+    "primary": true,
+    "publisher": "Marvel",
+    "type": "Event Authority",
+    "level": "Recommended",
+    "sort": "Ultimate Galactus Trilogy",
+    "printedTitle": "Ultimate Galactus Trilogy",
+    "startYear": 2004,
+    "endYear": 2006,
+    "notes": "Primary filing authority for Ultimate Nightmare, Ultimate Secret, and Ultimate Extinction."
   }
 ]
