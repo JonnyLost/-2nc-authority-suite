@@ -1,6 +1,6 @@
 {
-  "version": "4.10.0",
-  "name": "Marvel Event Authority Expansion",
-  "release": "2NC Authority Suite GitHub v4.10",
-  "notes": "Promotes true Marvel events to independent primary authorities and groups their dedicated core series, miniseries, one-shots, and event-named companions without relocating regular-series tie-in issues."
+  "version": "4.11.0",
+  "name": "Mobile Quick Lookup",
+  "release": "2NC Authority Suite GitHub v4.11",
+  "notes": "Adds a phone-first Quick Lookup landing screen for comic filing authorities and music genres, with live search, typo tolerance, large filing answers, alternate matches, and one-tap clearing."
 }
