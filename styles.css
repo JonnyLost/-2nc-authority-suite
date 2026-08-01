@@ -206,3 +206,7 @@ body{
   .quickChoices{gap:5px}.quickChoices>span{display:none}.quickChoices button{flex:1;padding:7px 8px}.quickChoices button:nth-of-type(n+3){display:none}.quickTools{gap:5px}.quickTools>span{display:none}.quickTools button{flex:1;padding:8px 4px;font-size:10px}
   .mobileNav{grid-template-columns:repeat(8,1fr)!important}.mobileNav button{font-size:8.5px!important;padding:0 1px!important}
 }
+
+.quickTools .quickQueueButton{background:var(--orange);border-color:var(--orange);color:#fff}
+.quickTools button:disabled{opacity:.42;cursor:not-allowed}
+@media(max-width:700px){.quickTools button{min-width:0;white-space:nowrap}.quickTools .quickQueueButton{font-size:10px}}
