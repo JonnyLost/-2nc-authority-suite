@@ -6,11 +6,11 @@ This release applies one filing rule across Marvel team books: a team with its o
 
 - Audited 49 Marvel team families and normalized every audited primary record to the Team type.
 - Added 31 missing team authorities and 102 historical team-series records.
-- Repaired 35 parent relationships, including Excalibur, Marauders, X-Factor, X-Force, Eternals, Invaders, Power Pack, Squadron Supreme, and related series.
+- Repaired 54 parent relationships, including Excalibur, Marauders, X-Factor, X-Force, Eternals, Invaders, Power Pack, Squadron Supreme, and related series.
 - Corrected three obvious legacy misfiles: Uncanny X-Men no longer sits under Alpha Flight, Fantastic Four no longer sits under Inhumans, and the 2024 Ultimates series now resolves to Ultimates.
 - Preserved Avengers-branded branches such as New Avengers, Secret Avengers, Mighty Avengers, Uncanny Avengers, and West Coast Avengers beneath AVENGERS.
 - Preserved event-branded regular-series issues in their normal numbered runs.
-- Added a narrowly scoped upgrade migration for the 53 repaired existing records; genuine local Authority Manager edits remain protected.
+- Added a narrowly scoped upgrade migration for the 72 repaired existing records; genuine local Authority Manager edits remain protected.
 - Preserved Quick Lookup, one-tap queueing, label filters, printing, Print Station, and synchronization.
 
 ## Database
@@ -21,7 +21,7 @@ This release applies one filing rule across Marvel team books: a team with its o
 - Marvel primary team authorities: 57
 - New primary team authorities: 31
 - New historical team-series records: 102
-- Repaired existing records: 53
+- Repaired existing records: 72
 - Duplicate IDs: 0
 - Unresolved parent authorities: 0
 
