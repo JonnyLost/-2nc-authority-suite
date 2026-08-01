@@ -1,6 +1,6 @@
 {
-  "version": "4.9.1",
-  "name": "Comic Authority & Series Filter",
-  "release": "2NC Authority Suite GitHub v4.9.1",
-  "notes": "Adds an All / Primary authorities / Series filter to comic search. Add all respects the active filter and preserves alphabetical queue ordering."
+  "version": "4.10.0",
+  "name": "Marvel Event Authority Expansion",
+  "release": "2NC Authority Suite GitHub v4.10",
+  "notes": "Promotes true Marvel events to independent primary authorities and groups their dedicated core series, miniseries, one-shots, and event-named companions without relocating regular-series tie-in issues."
 }
