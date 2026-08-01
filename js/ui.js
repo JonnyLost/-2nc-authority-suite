@@ -120,6 +120,8 @@
     state.lookupMatches = findLookupMatches();
     const current = state.lookupMatches.find(row => row.id === state.lookupSelectedId) || state.lookupMatches[0];
     state.lookupSelectedId = current?.id || '';
+    const queueButton = $('#quickAddQueue');
+    if (queueButton) queueButton.disabled = !current;
     if (!state.lookupQuery.trim()) {
       answer.innerHTML = `<div class="quickEmpty"><strong>Start typing ${state.lookupKind === 'comic' ? 'a title' : 'an artist'}</strong><span>The filing answer will appear here.</span></div>`;
       choices.innerHTML = '';
@@ -233,10 +235,25 @@
     text('#selectedDetails', resultSub(row));
   }
 
-  function queueRecord(row, existingUid = '') {
-    return state.mode === 'comic'
+  function queueRecord(row, existingUid = '', modeOverride = '') {
+    const targetMode = modeOverride || state.mode;
+    return targetMode === 'comic'
       ? { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: 'comic', primary: row.primary, showAuthority: state.showComicAuthority, showMarker: state.showComicEra, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: row.publishingEra || '', publishingLine: row.publishingLine || '', startYear: row.startYear || '', endYear: row.endYear || '', name: row.display || row.name, publisher: row.publisher || '' }
-      : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: state.mode, name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
+      : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: targetMode, name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
+  }
+
+  function addLookupToQueue() {
+    const current = state.lookupMatches.find(row => row.id === state.lookupSelectedId) || state.lookupMatches[0];
+    if (!current) return;
+    const targetMode = state.lookupKind === 'comic' ? 'comic' : 'vinyl';
+    state.queue.push(queueRecord(current, '', targetMode));
+    sortQueueAlphabetically();
+    saveQueue();
+    const button = $('#quickAddQueue');
+    if (button) {
+      button.textContent = 'Added ✓';
+      window.setTimeout(() => { button.textContent = 'Add to queue'; }, 900);
+    }
   }
 
   function queueLabel(row) {
@@ -668,6 +685,7 @@
     on('#quickInput', 'input', event => { state.lookupQuery = event.target.value; state.lookupSelectedId = ''; renderLookup(); });
     on('#quickInput', 'keydown', event => { if (event.key === 'Escape') clearLookup(); });
     on('#quickClear', 'click', clearLookup);
+    on('#quickAddQueue', 'click', addLookupToQueue);
     on('#quickChoices', 'click', event => { const destination = event.target.closest('[data-quick-mode]'); if (destination) setMode(destination.dataset.quickMode); });
     on('#searchInput', 'input', event => { state.query = event.target.value; renderResults(); });
     on('#levelFilter', 'change', event => { state.level = event.target.value; renderResults(); });
