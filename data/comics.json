@@ -2093,15 +2093,15 @@
   },
   {
     "id": "DHA-0095",
-    "display": "Alien",
+    "display": "Aliens",
     "parent": "",
-    "series": "Alien",
+    "series": "Aliens",
     "primary": true,
     "publisher": "Dark Horse",
     "type": "Series",
     "level": "Recommended",
-    "sort": "Alien",
-    "printedTitle": "Alien",
+    "sort": "Aliens",
+    "printedTitle": "Aliens",
     "notes": "Primary filing authority verified during the comprehensive Dark Horse catalog and imprint audit.",
     "publishingLine": "Licensed"
   },
@@ -2135,7 +2135,7 @@
   {
     "id": "DHS-0278",
     "display": "Alien 3",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Alien 3",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2213,7 +2213,7 @@
   {
     "id": "DHS-0279",
     "display": "Alien Resurrection",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Alien Resurrection",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2412,7 +2412,7 @@
   {
     "id": "DHS-0277",
     "display": "Aliens",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2428,7 +2428,7 @@
   {
     "id": "SER-00018",
     "display": "Aliens",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2498,19 +2498,20 @@
   {
     "id": "CHR-00013",
     "display": "Aliens: Colonial Marines",
-    "parent": "",
+    "parent": "Aliens",
     "series": "Aliens: Colonial Marines",
-    "primary": true,
+    "primary": false,
     "publisher": "Dark Horse",
-    "type": "Character",
+    "type": "Series",
     "level": "Optional",
     "sort": "Aliens: Colonial Marines",
-    "printedTitle": "Aliens: Colonial Marines"
+    "printedTitle": "Aliens: Colonial Marines",
+    "publishingLine": "Licensed"
   },
   {
     "id": "DHS-0280",
     "display": "Aliens: Colonial Marines",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Colonial Marines",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2526,7 +2527,7 @@
   {
     "id": "SER-00021",
     "display": "Aliens: Colonial Marines",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Colonial Marines",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2539,7 +2540,7 @@
   {
     "id": "DHS-0287",
     "display": "Aliens: Dead Orbit",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Dead Orbit",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2555,7 +2556,7 @@
   {
     "id": "DHS-0286",
     "display": "Aliens: Defiance",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Defiance",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2571,7 +2572,7 @@
   {
     "id": "DHS-0281",
     "display": "Aliens: Earth War",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Earth War",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2587,7 +2588,7 @@
   {
     "id": "DHS-0285",
     "display": "Aliens: Fire and Stone",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Fire and Stone",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2603,7 +2604,7 @@
   {
     "id": "DHS-0282",
     "display": "Aliens: Genocide",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Genocide",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2619,7 +2620,7 @@
   {
     "id": "DHS-0283",
     "display": "Aliens: Hive",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Hive",
     "primary": false,
     "publisher": "Dark Horse",
@@ -2635,7 +2636,7 @@
   {
     "id": "DHS-0284",
     "display": "Aliens: Labyrinth",
-    "parent": "Alien",
+    "parent": "Aliens",
     "series": "Aliens: Labyrinth",
     "primary": false,
     "publisher": "Dark Horse",
