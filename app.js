@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.13.0 — DC team authority audit */
+/* 2NC Authority Suite v4.14.0 — comprehensive DC catalog and imprint audit */
 (function () {
   const stages = [
     ['Preparing interface', 12],
