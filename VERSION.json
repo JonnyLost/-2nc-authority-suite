@@ -1,6 +1,6 @@
 {
-  "version": "4.13.0",
-  "name": "DC Team Authority Audit",
-  "release": "2NC Authority Suite GitHub v4.13",
-  "notes": "Adds and repairs DC, WildStorm, and Milestone team filing authorities, historical team series, and upgrade-safe canonical relationship migrations while preserving locally edited records."
+  "version": "4.14.0",
+  "name": "Comprehensive DC Catalog & Imprint Audit",
+  "release": "2NC Authority Suite GitHub v4.14",
+  "notes": "Normalizes DC mainline titles, event families, Vertigo, Black Label, WildStorm, Milestone, Young Animal, Hill House Comics, Sandman Universe, Elseworlds, Impact, Wonder Comics, Hanna-Barbera Beyond, DC Horror, and America's Best Comics into shelf-visible filing authorities while preserving imprint metadata and numbered-series filing logic."
 }
