@@ -1,9 +1,8 @@
-2NC AUTHORITY SUITE v4.9 UPLOAD
+2NC AUTHORITY SUITE v4.17 RELEASE
 
-1. Upload every file and folder in this release to the repository root.
-2. Replace the existing files when GitHub asks.
-3. Wait for GitHub Pages to finish deploying.
-4. Open: https://jonnylost.github.io/-2nc-authority-suite/?v=4.9
-5. Fully close and reopen the installed PWA on each device.
+1. Publish the v4.17 release files to the repository root.
+2. Wait for GitHub Pages to finish deploying the new commit.
+3. Open: https://jonnylost.github.io/-2nc-authority-suite/?v=4.17.0
+4. Confirm the live version and comic total, then fully close and reopen installed PWAs.
 
-The first v4.9 launch refreshes the offline cache and merges the DC authority additions while preserving local edits.
+The first v4.17 launch refreshes the offline cache, merges the Image Comics expansion, and applies only audited bundled filing repairs while preserving genuine local edits.
