@@ -1,14 +1,22 @@
-2NC Authority Suite v4.13 preflight
+2NC Authority Suite v4.17 preflight
 
-PASS — version: 4.13.0
+PASS — version: 4.17.0
 PASS — music records: 4,606
-PASS — comic records: 4,036
-PASS — unique comic IDs: 4,036
-PASS — audited DC/WildStorm/Milestone team families: 63
-PASS — new primary team authorities: 27
-PASS — new historical team-series records: 78
-PASS — repaired existing records: 76
+PASS — comic records: 6,521
+PASS — primary comic authorities: 2,072
+PASS — subordinate comic records: 4,449
+PASS — official Image catalog entries audited: 724
+PASS — unique comic IDs: 6,521
+PASS — unique music IDs: 4,606
 PASS — unresolved series parents: 0
-PASS — audited team-title parent conflicts: 0
+PASS — titles hidden beneath generic Image Comics parent: 0
+PASS — upgrade-safe Image migration IDs: 134
+PASS — Quick Lookup remains the default landing page
+PASS — comic and music Quick Lookup
+PASS — one-tap Clear and Add to Queue
+PASS — Vinyl, CD, Comics, Instrument Tags, Treasures Tags, Print Station, and Authority Manager
+PASS — JavaScript syntax for application, database, UI, label, PDF, sync, and Print Station modules
 PASS — index.html and 404.html are identical
-PASS — existing Quick Lookup, queue, print, PDF, Print Station, and synchronization code preserved
+PASS — v4.17 offline/PWA cache references
+PASS — comic physical size remains 3.50 × 0.675 inches
+PASS — music database and certified print dimensions unchanged
