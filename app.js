@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.14.0 — comprehensive DC catalog and imprint audit */
+/* 2NC Authority Suite v4.15.0 — comprehensive Marvel catalog and imprint audit */
 (function () {
   const stages = [
     ['Preparing interface', 12],
