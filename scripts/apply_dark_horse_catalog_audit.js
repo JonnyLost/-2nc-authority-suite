@@ -144,7 +144,7 @@ add('Trigun', 'Series', 'Dark Horse Manga', ['Trigun|2003|2004','Trigun Maximum|
 add('Vampire Hunter D', 'Character', 'Dark Horse Manga', ['Vampire Hunter D|2007|2014']);
 
 // Licensed properties: the franchise is the shelf authority; Licensed remains metadata.
-add('Alien', 'Series', 'Licensed', ['Aliens|1988|2009','Alien 3|1992|1992','Alien Resurrection|1997|1997','Aliens: Colonial Marines|1993|1994','Aliens: Earth War|1990|1990','Aliens: Genocide|1991|1992','Aliens: Hive|1992|1992','Aliens: Labyrinth|1993|1994','Aliens: Fire and Stone|2014|2015','Aliens: Defiance|2016|2017','Aliens: Dead Orbit|2017|2017']);
+add('Aliens', 'Series', 'Licensed', ['Aliens|1988|2009','Alien 3|1992|1992','Alien Resurrection|1997|1997','Aliens: Colonial Marines|1993|1994','Aliens: Earth War|1990|1990','Aliens: Genocide|1991|1992','Aliens: Hive|1992|1992','Aliens: Labyrinth|1993|1994','Aliens: Fire and Stone|2014|2015','Aliens: Defiance|2016|2017','Aliens: Dead Orbit|2017|2017']);
 add('Predator', 'Series', 'Licensed', ['Predator|1989|1990','Predator: Big Game|1991|1991','Predator: Cold War|1991|1991','Predator: Bad Blood|1993|1994','Predator: Concrete Jungle|1989|1990','Predator: Fire and Stone|2014|2015','Predator: Hunters|2017|2018']);
 add('Alien vs. Predator', 'Series', 'Licensed', ['Aliens vs. Predator|1990|1991','Aliens vs. Predator: War|1995|1996','Alien vs. Predator: Thrill of the Hunt|2004|2004','Alien vs. Predator: Civilized Beasts|2008|2008','Alien vs. Predator: Fire and Stone|2014|2015','Alien vs. Predator: Life and Death|2016|2017']);
 add('Avatar: The Last Airbender', 'Series', 'Licensed', ['Avatar: The Last Airbender|2011|2026','Avatar: The Last Airbender – The Lost Adventures|2011|2011','Avatar: The Last Airbender – The Promise|2012|2012','Avatar: The Last Airbender – The Search|2013|2013','Avatar: The Last Airbender – The Rift|2014|2015','Avatar: The Last Airbender – Smoke and Shadow|2015|2016','Avatar: The Last Airbender – North and South|2016|2017','Avatar: The Last Airbender – Imbalance|2018|2019']);
@@ -181,8 +181,8 @@ for (const [authority, , , line, titles] of families) for (const packed of title
 
 const broadParents = new Set(['dark horse manga','dark horse originals','licensed worlds','hellboy universe']);
 const explicit = new Map([
-  ['aliens','Alien'],['predator','Predator'],['aliens vs. predator','Alien vs. Predator'],['alien vs. predator','Alien vs. Predator'],
-  ['aliens: colonial marines','Alien'],['predator: concrete jungle','Predator'],['avatar: the last airbender','Avatar: The Last Airbender'],
+  ['aliens','Aliens'],['predator','Predator'],['aliens vs. predator','Alien vs. Predator'],['alien vs. predator','Alien vs. Predator'],
+  ['aliens: colonial marines','Aliens'],['predator: concrete jungle','Predator'],['avatar: the last airbender','Avatar: The Last Airbender'],
   ['the legend of korra','The Legend of Korra'],['critical role: vox machina origins','Critical Role'],['cyberpunk 2077','Cyberpunk 2077'],
   ['dragon age','Dragon Age'],['halo','Halo'],['mass effect','Mass Effect'],['overwatch','Overwatch'],['the last of us: american dreams','The Last of Us'],
   ['the witcher','The Witcher'],['astro boy','Astro Boy'],['berserk','Berserk'],['blade of the immortal','Blade of the Immortal'],
@@ -198,6 +198,15 @@ const explicit = new Map([
 let repaired = 0;
 const repairedIds = [];
 for (const record of data) {
+  if (record.id === 'DHA-0095') {
+    Object.assign(record, { display:'Aliens', series:'Aliens', sort:'Aliens', printedTitle:'Aliens' });
+    repairedIds.push(record.id);
+  }
+  if (record.id === 'CHR-00013') {
+    Object.assign(record, { parent:'Aliens', primary:false, type:'Series', publishingLine:'Licensed' });
+    repairedIds.push(record.id);
+    repaired++;
+  }
   if (record.primary) continue;
   const key = String(record.display || record.series || '').trim().toLowerCase();
   let target = explicit.get(key);
