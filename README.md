@@ -1,40 +1,41 @@
-# 2NC Authority Suite v4.15 — Comprehensive Marvel Catalog & Imprint Audit
+# 2NC Authority Suite v4.16 — Comprehensive Dark Horse Catalog & Imprint Audit
 
-This release extends the Marvel event and team passes into a title-by-title filing audit across mainline Marvel and its major imprints, universes, acquired catalogs, and historical specialty lines. Imprints remain searchable metadata; the shelf-visible authority is the character, team, event, or recognizable property a customer is most likely to seek.
+This release gives Dark Horse the same full title-family treatment previously applied to DC and Marvel. Publisher, universe, and imprint names remain searchable metadata; the shelf-visible authority is the character, team, event, manga, or recognizable property a customer is most likely to seek.
 
-## v4.15 changes
+## v4.16 changes
 
-- Audited mainline Marvel title families, Marvel Knights, MAX, Epic Comics, Icon Comics, Marvel 2099, original Ultimate Marvel, the 2023 Ultimate Universe, New Universe, Malibu/Ultraverse, CrossGen, Razorline, Marvel UK, Star Comics, and historically important licensed properties.
-- Added 177 missing primary filing authorities and 234 historical or imprint-series records.
-- Repaired 118 existing canonical records, including relationship corrections and useful imprint metadata.
-- Removed recognizable properties from broad catch-all parents such as Marvel Universe and generic imprint umbrellas.
-- Kept regular numbered-series crossover issues in their normal title families while grouping dedicated event-titled books beneath their event.
+- Audited flagship Dark Horse originals and creator-owned properties, the Hellboy and Black Hammer universes, Comics' Greatest World/Dark Horse Heroes, Legend, Maverick, Project Black Sky, Berger Books, Dark Horse Manga, and major licensed franchises.
+- Added 118 missing primary filing authorities and 391 series records.
+- Repaired 87 canonical records whose filing relationship or publishing-line metadata was hidden beneath a broad umbrella.
+- Removed all subordinate titles from generic **Dark Horse Manga**, **Dark Horse Originals**, **Licensed Worlds**, and **Hellboy Universe** shelf parents.
+- Kept imprints and shared universes as supporting publishing-line metadata.
 - Preserved Quick Lookup, one-tap queueing, label filters, alphabetical queues, printing, Print Station, synchronization, and genuine Authority Manager edits.
 
 ## Filing examples
 
-- *Alias* → **JESSICA JONES** (MAX metadata)
-- *Marvel Knights: The World to Come* → **MARVEL KNIGHTS**
-- *2099 Alpha* → **2099**
-- *Ultimate Wolverine* → **ULTIMATE WOLVERINE** (2023 Ultimate Universe metadata)
-- *Dreadstar* → **DREADSTAR** (Epic Comics metadata)
-- *Prime* → **PRIME (ULTRAVERSE)**
-- *Sigil* → **SIGIL** (CrossGen metadata)
-- *Ectokid* → **ECTOKID** (Razorline metadata)
-- *Death's Head II* → **DEATH'S HEAD** (Marvel UK metadata)
-- *Planet Terry* → **PLANET TERRY** (Star Comics metadata)
+- *Berserk* → **BERSERK** (Dark Horse Manga metadata)
+- *Abe Sapien* → **ABE SAPIEN** (Hellboy Universe metadata)
+- *The Visitor: How and Why He Stayed* → **THE VISITOR** (Hellboy Universe metadata)
+- *Invisible Kingdom* → **INVISIBLE KINGDOM** (Berger Books metadata)
+- *Captain Midnight* → **CAPTAIN MIDNIGHT** (Project Black Sky metadata)
+- *Aliens: Colonial Marines* → **ALIEN**
+- *Predator: Concrete Jungle* → **PREDATOR**
+- *Avatar: The Last Airbender – The Search* → **AVATAR: THE LAST AIRBENDER**
+- *Critical Role: Vox Machina Origins* → **CRITICAL ROLE**
+- *The Witcher: House of Glass* → **THE WITCHER**
 
 ## Database
 
 - Music authorities: 4,606
-- Comic authorities: 4,722
-- New comic records: 411
-- New primary filing authorities: 177
-- New series records: 234
-- Repaired existing canonical records: 118
+- Comic authorities: 5,231
+- Net new comic records: 509
+- New primary filing authorities: 118
+- New series records: 391
+- Canonical relationship/metadata migration IDs: 87
 - Duplicate IDs: 0
 - Unresolved parent authorities: 0
+- Titles left beneath generic Dark Horse shelf parents: 0
 
 ## Upgrade
 
-Open the published site once with `?v=4.15`, then fully close and reopen any installed PWA. The app merges the new bundled records and applies only the audited canonical relationship repairs while preserving genuine Authority Manager edits.
+Open the published site once with `?v=4.16`, then fully close and reopen any installed PWA. The app merges the new bundled records and applies only the audited canonical relationship repairs while preserving genuine Authority Manager edits.
