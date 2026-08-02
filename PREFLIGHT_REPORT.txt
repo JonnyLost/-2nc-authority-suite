@@ -1,14 +1,14 @@
-2NC Authority Suite v4.9 preflight
+2NC Authority Suite v4.13 preflight
 
-PASS — version: 4.9.0
+PASS — version: 4.13.0
 PASS — music records: 4,606
-PASS — comic records: 3,583
-PASS — unique comic IDs: 3,583
-PASS — new DC records: 225
-PASS — requested primary authorities: Magog, Punchline, Ragman, Robin, Trinity, The Warlord
+PASS — comic records: 4,036
+PASS — unique comic IDs: 4,036
+PASS — audited DC/WildStorm/Milestone team families: 63
+PASS — new primary team authorities: 27
+PASS — new historical team-series records: 78
+PASS — repaired existing records: 76
 PASS — unresolved series parents: 0
-PASS — JavaScript syntax: app, database, UI, label, PDF, sync, and Print Station modules
-PASS — browser-print and PDF marker controls both honor per-queue show/hide state
+PASS — audited team-title parent conflicts: 0
 PASS — index.html and 404.html are identical
-PASS — comic physical size remains 3.50 × 0.675 inches
-PASS — music database and certified print dimensions unchanged
+PASS — existing Quick Lookup, queue, print, PDF, Print Station, and synchronization code preserved
