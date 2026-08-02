@@ -25478,15 +25478,16 @@
   },
   {
     "id": "TEM-00012",
-    "display": "Justice League Odyssey",
+    "display": "Justice League Odyssey (legacy filing reference)",
     "parent": "Justice League",
     "series": "Justice League Odyssey",
     "primary": false,
     "publisher": "DC",
-    "type": "Series",
+    "type": "Reference-only authority",
     "level": "Optional",
     "sort": "Justice League Odyssey",
-    "printedTitle": "Justice League Odyssey"
+    "printedTitle": "Justice League Odyssey",
+    "notes": "Legacy authority redirected to Justice League during the DC team authority audit."
   },
   {
     "id": "SER-00417",
