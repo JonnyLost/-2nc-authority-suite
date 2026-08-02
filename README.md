@@ -1,30 +1,30 @@
-# 2NC Authority Suite v4.12 — Marvel Team Authority Audit
+# 2NC Authority Suite v4.13 — DC Team Authority Audit
 
-This release applies one filing rule across Marvel team books: a team with its own named publication history receives a primary authority, while branded branches that remain part of an established title family stay beneath that family. Event-branded issues continue to remain with their actual series unless the comic itself is an event-titled publication.
+This release applies the Marvel team-audit rule consistently across DC, WildStorm, and Milestone: a team with its own named publication history receives a primary filing authority, while true branches of an established title family stay beneath that family. Event-branded issues remain with the event or their actual numbered series.
 
-## v4.12 changes
+## v4.13 changes
 
-- Audited 49 Marvel team families and normalized every audited primary record to the Team type.
-- Added 31 missing team authorities and 102 historical team-series records.
-- Repaired 54 parent relationships, including Excalibur, Marauders, X-Factor, X-Force, Eternals, Invaders, Power Pack, Squadron Supreme, and related series.
-- Corrected three obvious legacy misfiles: Uncanny X-Men no longer sits under Alpha Flight, Fantastic Four no longer sits under Inhumans, and the 2024 Ultimates series now resolves to Ultimates.
-- Preserved Avengers-branded branches such as New Avengers, Secret Avengers, Mighty Avengers, Uncanny Avengers, and West Coast Avengers beneath AVENGERS.
-- Preserved event-branded regular-series issues in their normal numbered runs.
-- Added a narrowly scoped upgrade migration for the 72 repaired existing records; genuine local Authority Manager edits remain protected.
-- Preserved Quick Lookup, one-tap queueing, label filters, printing, Print Station, and synchronization.
+- Audited 63 publication-relevant DC, WildStorm, and Milestone team families.
+- Added 27 missing primary team authorities and 78 historical team-series records.
+- Repaired 76 existing authority types, aliases, and parent relationships.
+- Rebuilt the Robin / Teen Titans umbrella into separate ROBIN, TEEN TITANS, and TITANS filing families.
+- Consolidated Justice Society aliases beneath JUSTICE SOCIETY OF AMERICA.
+- Kept Justice League Odyssey beneath JUSTICE LEAGUE while preserving JUSTICE LEAGUE DARK as its own established franchise.
+- Corrected Birds of Prey, Green Lantern Corps, New Gods, Stormwatch, WildC.A.T.s, Suicide Squad, and other conflicting series relationships.
+- Added a narrowly scoped upgrade migration for the repaired existing records; genuine Authority Manager edits remain protected.
+- Preserved Quick Lookup, one-tap queueing, label filters, alphabetical queues, printing, Print Station, and synchronization.
 
 ## Database
 
 - Music authorities: 4,606
-- Comic authorities: 3,931
-- Marvel authorities: 1,595
-- Marvel primary team authorities: 57
-- New primary team authorities: 31
-- New historical team-series records: 102
-- Repaired existing records: 72
+- Comic authorities: 4,036
+- Audited DC team families: 63
+- New primary team authorities: 27
+- New historical team-series records: 78
+- Repaired existing records: 76
 - Duplicate IDs: 0
 - Unresolved parent authorities: 0
 
 ## Upgrade
 
-Open the published site once with `?v=4.12`, then fully close and reopen any installed PWA. The app will merge new records and apply only the audited canonical team repairs while preserving records explicitly edited in Authority Manager.
+Open the published site once with `?v=4.13`, then fully close and reopen any installed PWA. The app will merge new records and apply only the audited canonical team repairs while preserving records explicitly edited in Authority Manager.
