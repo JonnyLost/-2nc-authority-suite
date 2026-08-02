@@ -1,41 +1,42 @@
-# 2NC Authority Suite v4.16 — Comprehensive Dark Horse Catalog & Imprint Audit
+# 2NC Authority Suite v4.17 — Comprehensive Image Comics Catalog & Studio Audit
 
-This release gives Dark Horse the same full title-family treatment previously applied to DC and Marvel. Publisher, universe, and imprint names remain searchable metadata; the shelf-visible authority is the character, team, event, manga, or recognizable property a customer is most likely to seek.
+This release gives Image Comics the same full publisher treatment previously applied to Marvel, DC, and Dark Horse. The recognizable series, character, team, event, or title family is the filing authority; Image, its partner studios, shared universes, and publishing initiatives remain supporting metadata.
 
-## v4.16 changes
+## v4.17 changes
 
-- Audited flagship Dark Horse originals and creator-owned properties, the Hellboy and Black Hammer universes, Comics' Greatest World/Dark Horse Heroes, Legend, Maverick, Project Black Sky, Berger Books, Dark Horse Manga, and major licensed franchises.
-- Added 118 candidate primary filing authorities and 391 series records; release validation reclassified the legacy Aliens: Colonial Marines authority into the ALIENS family.
-- Repaired 87 canonical records whose filing relationship or publishing-line metadata was hidden beneath a broad umbrella.
-- Removed all subordinate titles from generic **Dark Horse Manga**, **Dark Horse Originals**, **Licensed Worlds**, and **Hellboy Universe** shelf parents.
-- Kept imprints and shared universes as supporting publishing-line metadata.
-- Preserved Quick Lookup, one-tap queueing, label filters, alphabetical queues, printing, Print Station, synchronization, and genuine Authority Manager edits.
+- Audited all 724 entries in Image Comics' official series catalog as of August 2, 2026, plus major historical series and studio families.
+- Expanded Image Central, Skybound, Top Cow, Shadowline, Todd McFarlane Productions, Highbrow, Extreme/Awesome, Homage, Cliffhanger, Gorilla, Desperado, Ghost Machine, Massive-Verse, Energon Universe, and historically Image-published properties.
+- Added 655 primary filing authorities and 635 series records.
+- Repaired 125 existing filing relationships or studio metadata assignments.
+- Removed every subordinate title from the generic **Image Comics** shelf parent.
+- Preserved historical WildStorm relationships already verified during the DC audit.
+- Preserved Quick Lookup, one-tap Clear, queueing, music lookup, label generators, printing, synchronization, and genuine Authority Manager edits.
 
 ## Filing examples
 
-- *Berserk* → **BERSERK** (Dark Horse Manga metadata)
-- *Abe Sapien* → **ABE SAPIEN** (Hellboy Universe metadata)
-- *The Visitor: How and Why He Stayed* → **THE VISITOR** (Hellboy Universe metadata)
-- *Invisible Kingdom* → **INVISIBLE KINGDOM** (Berger Books metadata)
-- *Captain Midnight* → **CAPTAIN MIDNIGHT** (Project Black Sky metadata)
-- *Aliens: Colonial Marines* → **ALIEN**
-- *Predator: Concrete Jungle* → **PREDATOR**
-- *Avatar: The Last Airbender – The Search* → **AVATAR: THE LAST AIRBENDER**
-- *Critical Role: Vox Machina Origins* → **CRITICAL ROLE**
-- *The Witcher: House of Glass* → **THE WITCHER**
+- *Geiger* → **GEIGER** (Ghost Machine metadata)
+- *Sisterhood: A Hyde Street Story* → **HYDE STREET**
+- *Gunslinger Spawn*, *King Spawn*, *Rat City*, and *The Scorched* → **SPAWN**
+- *Clementine* and *The Walking Dead Deluxe* → **THE WALKING DEAD**
+- *Invincible Universe* → **INVINCIBLE**
+- *G.I. Joe: A Real American Hero* → **G.I. JOE** (Energon Universe metadata)
+- *Transformers* → **TRANSFORMERS**
+- *Aphrodite* → **APHRODITE IX** (Top Cow metadata)
+- *Jupiter's Circle* → **JUPITER'S LEGACY**
+- *Universal Monsters: Dracula* → **UNIVERSAL MONSTERS: DRACULA**
 
 ## Database
 
 - Music authorities: 4,606
-- Comic authorities: 5,231
-- Net new comic records: 509
-- Net new primary filing authorities: 117
-- Net new subordinate records: 392
-- Canonical relationship/metadata migration IDs: 100
+- Comic authorities: 6,521
+- Net new comic records: 1,290
+- New primary filing authorities: 655
+- New series records: 635
+- Canonical relationship/metadata migration IDs: 134
 - Duplicate IDs: 0
 - Unresolved parent authorities: 0
-- Titles left beneath generic Dark Horse shelf parents: 0
+- Titles left beneath the generic Image Comics shelf parent: 0
 
 ## Upgrade
 
-Open the published site once with `?v=4.16`, then fully close and reopen any installed PWA. The app merges the new bundled records and applies only the audited canonical relationship repairs while preserving genuine Authority Manager edits.
+Open the published site once with `?v=4.17`, then fully close and reopen any installed PWA. The app merges the expanded bundle and applies the audited canonical filing repairs while preserving genuine Authority Manager edits.
