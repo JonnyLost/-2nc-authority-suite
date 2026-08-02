@@ -1,6 +1,6 @@
 {
-  "version": "4.16.0",
-  "name": "Comprehensive Dark Horse Catalog & Imprint Audit",
-  "release": "2NC Authority Suite GitHub v4.16",
-  "notes": "Normalizes Dark Horse creator-owned properties, Hellboy and Black Hammer universes, Comics' Greatest World, Legend, Maverick, Project Black Sky, Berger Books, manga, and licensed franchises into shelf-visible filing authorities while preserving imprint metadata and numbered-series filing logic."
+  "version": "4.17.0",
+  "name": "Comprehensive Image Comics Catalog & Studio Audit",
+  "release": "2NC Authority Suite GitHub v4.17",
+  "notes": "Expands Image Central and the Skybound, Top Cow, Shadowline, Todd McFarlane Productions, Highbrow, Extreme/Awesome, Ghost Machine, Massive-Verse, Energon, and historical studio catalogs while keeping each recognizable title family as the shelf-visible filing authority."
 }
