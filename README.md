@@ -1,30 +1,39 @@
-# 2NC Authority Suite v4.13 — DC Team Authority Audit
+# 2NC Authority Suite v4.14 — Comprehensive DC Catalog & Imprint Audit
 
-This release applies the Marvel team-audit rule consistently across DC, WildStorm, and Milestone: a team with its own named publication history receives a primary filing authority, while true branches of an established title family stay beneath that family. Event-branded issues remain with the event or their actual numbered series.
+This release extends the DC team pass into a title-by-title filing audit across mainline DC and its major imprints. Imprints remain searchable metadata; the shelf-visible authority is the character, team, event, or recognizable property a customer is most likely to seek.
 
-## v4.13 changes
+## v4.14 changes
 
-- Audited 63 publication-relevant DC, WildStorm, and Milestone team families.
-- Added 27 missing primary team authorities and 78 historical team-series records.
-- Repaired 76 existing authority types, aliases, and parent relationships.
-- Rebuilt the Robin / Teen Titans umbrella into separate ROBIN, TEEN TITANS, and TITANS filing families.
-- Consolidated Justice Society aliases beneath JUSTICE SOCIETY OF AMERICA.
-- Kept Justice League Odyssey beneath JUSTICE LEAGUE while preserving JUSTICE LEAGUE DARK as its own established franchise.
-- Corrected Birds of Prey, Green Lantern Corps, New Gods, Stormwatch, WildC.A.T.s, Suicide Squad, and other conflicting series relationships.
-- Added a narrowly scoped upgrade migration for the repaired existing records; genuine Authority Manager edits remain protected.
-- Preserved Quick Lookup, one-tap queueing, label filters, alphabetical queues, printing, Print Station, and synchronization.
+- Audited mainline DC title families, major events, Vertigo, DC Black Label, WildStorm, Milestone, Young Animal, Hill House Comics, Sandman Universe, Elseworlds, Impact, Wonder Comics, Hanna-Barbera Beyond, DC Horror, and America's Best Comics.
+- Added 188 missing primary filing authorities and 87 historical or imprint-series records.
+- Repaired 404 existing canonical relationships.
+- Removed every remaining DC title from broad catch-all parents such as DC Universe, Crisis Saga, Vertigo / Black Label, and generic imprint umbrellas.
+- Normalized older appearance-based cross-files so an exact DC title now resolves to one filing authority.
+- Kept regular numbered-series crossover issues in their normal title families while grouping dedicated event-titled books beneath the event.
+- Preserved Quick Lookup, one-tap queueing, label filters, alphabetical queues, printing, Print Station, synchronization, and genuine Authority Manager edits.
+
+## Filing examples
+
+- *Y: The Last Man* → **Y: THE LAST MAN** (Vertigo metadata)
+- *The Nice House by the Sea* → **THE NICE HOUSE ON THE LAKE**
+- *Batman: Damned* → **BATMAN** (Black Label metadata)
+- *Far Sector* → **GREEN LANTERN** (Young Animal metadata)
+- *Flex Mentallo* → **DOOM PATROL** (Vertigo metadata)
+- *Waller vs. Wildstorm* → **SUICIDE SQUAD**
+- *Basketful of Heads* → **BASKETFUL OF HEADS**
+- *Knight Terrors: Batman* → **KNIGHT TERRORS** because it is a dedicated event-titled miniseries; ordinary Batman tie-in issues remain under **BATMAN**.
 
 ## Database
 
 - Music authorities: 4,606
-- Comic authorities: 4,036
-- Audited DC team families: 63
-- New primary team authorities: 27
-- New historical team-series records: 78
-- Repaired existing records: 76
+- Comic authorities: 4311
+- New comic records: 275
+- Repaired existing records: 404
 - Duplicate IDs: 0
 - Unresolved parent authorities: 0
+- Conflicting exact-title filing answers: 0
+- Records still buried beneath generic DC/imprint parents: 0
 
 ## Upgrade
 
-Open the published site once with `?v=4.13`, then fully close and reopen any installed PWA. The app will merge new records and apply only the audited canonical team repairs while preserving records explicitly edited in Authority Manager.
+Open the published site once with `?v=4.14`, then fully close and reopen any installed PWA. The app merges the new bundled records and applies only the audited canonical relationship repairs while preserving genuine Authority Manager edits.
