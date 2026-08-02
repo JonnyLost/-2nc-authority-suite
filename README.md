@@ -5,7 +5,7 @@ This release gives Dark Horse the same full title-family treatment previously ap
 ## v4.16 changes
 
 - Audited flagship Dark Horse originals and creator-owned properties, the Hellboy and Black Hammer universes, Comics' Greatest World/Dark Horse Heroes, Legend, Maverick, Project Black Sky, Berger Books, Dark Horse Manga, and major licensed franchises.
-- Added 118 missing primary filing authorities and 391 series records.
+- Added 118 candidate primary filing authorities and 391 series records; release validation reclassified the legacy Aliens: Colonial Marines authority into the ALIENS family.
 - Repaired 87 canonical records whose filing relationship or publishing-line metadata was hidden beneath a broad umbrella.
 - Removed all subordinate titles from generic **Dark Horse Manga**, **Dark Horse Originals**, **Licensed Worlds**, and **Hellboy Universe** shelf parents.
 - Kept imprints and shared universes as supporting publishing-line metadata.
@@ -29,9 +29,9 @@ This release gives Dark Horse the same full title-family treatment previously ap
 - Music authorities: 4,606
 - Comic authorities: 5,231
 - Net new comic records: 509
-- New primary filing authorities: 118
-- New series records: 391
-- Canonical relationship/metadata migration IDs: 87
+- Net new primary filing authorities: 117
+- Net new subordinate records: 392
+- Canonical relationship/metadata migration IDs: 100
 - Duplicate IDs: 0
 - Unresolved parent authorities: 0
 - Titles left beneath generic Dark Horse shelf parents: 0
