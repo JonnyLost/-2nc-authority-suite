@@ -1,8 +1,6 @@
-2NC AUTHORITY SUITE v4.17 RELEASE
+Upload the complete contents of this folder to the root of jonnylost/-2nc-authority-suite on the main branch.
 
-1. Publish the v4.17 release files to the repository root.
-2. Wait for GitHub Pages to finish deploying the new commit.
-3. Open: https://jonnylost.github.io/-2nc-authority-suite/?v=4.17.0
-4. Confirm the live version and comic total, then fully close and reopen installed PWAs.
-
-The first v4.17 launch refreshes the offline cache, merges the Image Comics expansion, and applies only audited bundled filing repairs while preserving genuine local edits.
+Release: 2NC Authority Suite v4.18.0 — BOOM! Studios Deep Dive
+Validated comic records: 7,281
+Validated music records: 4,606
+PWA cache: 2nc-authority-suite-v4.18.0
