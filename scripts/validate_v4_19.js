@@ -24,9 +24,9 @@ const supplementFiles = fs.readdirSync(path.join(root, 'data')).filter(name => /
 const supplement = supplementFiles.flatMap(name => json(`data/${name}`));
 const comics = [...new Map([...baseComics, ...supplement].map(row => [row.id, row])).values()];
 
-assert(version.version === '4.19.0', 'VERSION.json is not v4.19.0');
-assert(/version:\s*'4\.19\.0'/.test(config), 'Runtime version is not v4.19.0');
-assert(/2nc-authority-suite-v4\.19\.0/.test(config) && /2nc-authority-suite-v4\.19\.0/.test(serviceWorker), 'PWA cache is not v4.19.0');
+assert(version.version === '4.19.1', 'VERSION.json is not v4.19.1');
+assert(/version:\s*'4\.19\.1'/.test(config), 'Runtime version is not v4.19.1');
+assert(/2nc-authority-suite-v4\.19\.1/.test(config) && /2nc-authority-suite-v4\.19\.1/.test(serviceWorker), 'PWA cache is not v4.19.1');
 assert(!/4\.18\.0/.test(html + fallback + config + serviceWorker), 'Stale v4.18 asset reference remains');
 assert(html === fallback, 'index.html and 404.html differ');
 
@@ -70,7 +70,10 @@ assert(/data-mode="quick" class="active"/.test(html) && /mode:\s*'quick'/.test(u
 assert(/id="quickClear"/.test(html) && /quickClear.*clearLookup/.test(ui), 'One-tap Clear is unavailable');
 assert(/id="quickAddQueue"/.test(html) && /quickAddQueue.*addLookupToQueue/.test(ui), 'Quick Lookup queue action is unavailable');
 for (const module of ['vinyl', 'cd', 'comic', 'instrument', 'treasure', 'station', 'manager']) assert(html.includes(`data-mode="${module}"`), `${module} module is unavailable`);
-assert(labels.includes('COMIC 3.50 × 0.675 IN') && pdf.includes('w: 3.5 * PT, h: .675 * PT'), 'Comic print dimensions changed');
+assert(labels.includes('@page comicPage{size:letter portrait;margin:0}'), 'Comic browser output is not portrait US Letter');
+assert(labels.includes('grid-template-columns:repeat(2,4in)') && labels.includes('grid-template-rows:repeat(5,2in)'), 'Comic browser grid is not 2 × 5');
+assert(labels.includes("comic: { count: 10, label: 'COMIC 4.00 × 2.00 IN' }"), 'Comic calibration sheet is not 10-up at 4 × 2 inches');
+assert(pdf.includes('comic: { page: LETTER, perPage: 10, cols: 2, rows: 5, w: 4 * PT, h: 2 * PT'), 'Comic PDF geometry is not 10-up portrait at 4 × 2 inches');
 
 console.log(JSON.stringify({
   version: version.version,
