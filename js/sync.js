@@ -144,8 +144,10 @@
     await AuthorityDB.replaceAuthority('music', music.rows, 'github');
     await AuthorityDB.replaceAuthority('comic', comic.rows, 'github');
     await AuthorityDB.markRemoteCanonical('github');
+    await AuthorityDB.ensureSeeded();
+    const mergedCounts = await AuthorityDB.counts();
     saveShas({ music: music.sha, comic: comic.sha, pulledAt: new Date().toISOString() });
-    return { music: music.rows.length, comic: comic.rows.length };
+    return mergedCounts;
   }
 
   function encodeRows(rows) {
