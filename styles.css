@@ -188,7 +188,7 @@ body{
 .queueCustomButton{width:100%;margin:0 0 8px;border-color:#7c4b2e;color:#ffd6bc}
 .queueHint{display:block;color:var(--muted);font-size:11px;margin:0 0 10px;text-align:center}
 .customLabelActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}.customLabelActions .secondaryButton{margin-top:0}
-.comicLabel{width:min(90%,420px);aspect-ratio:2/1;padding:18px 22px}.comicLabel .cue{font-size:13px;margin-bottom:8px}.comicLabel .series{font-size:clamp(24px,3.2vw,42px);line-height:1}.comicLabel.primaryComic .series{font-size:clamp(27px,3.6vw,48px)}
+.comicLabel{width:min(90%,420px);aspect-ratio:3.5/.6666667;padding:4px 12px}.comicLabel .cue{font-size:clamp(7px,.72vw,10px);margin-bottom:1px}.comicLabel .series{font-size:clamp(18px,2.6vw,34px);line-height:.92}.comicLabel.primaryComic .series{font-size:clamp(20px,2.9vw,38px)}
 @media(max-width:520px){.customLabelActions{grid-template-columns:1fr}}
 
 /* v4.11 — phone-first filing and genre lookup */
