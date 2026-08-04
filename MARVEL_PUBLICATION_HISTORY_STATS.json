@@ -1,0 +1,17 @@
+{
+  "baseline": 7281,
+  "modernAuditRuns": 5295,
+  "historicalAuditRuns": 380,
+  "auditedRuns": 5675,
+  "total": 13287,
+  "primary": 3579,
+  "subordinate": 9708,
+  "addedAuthorities": 1120,
+  "addedSeries": 4886,
+  "skippedExactRuns": 788,
+  "canonicalRepairs": [
+    "SER-02066"
+  ],
+  "duplicateIds": [],
+  "unresolvedParents": []
+}
