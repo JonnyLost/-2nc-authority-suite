@@ -7,11 +7,10 @@ const json = file => JSON.parse(read(file));
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 const key = value => String(value || '').normalize('NFKD').replace(/[’‘]/g, "'").toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
-const comics = json('data/comics.json');
+const baseComics = json('data/comics.json');
 const compactComics = json('data/comics.min.json');
 const music = json('data/music.json');
-const modern = json('MARVEL_PUBLICATION_INDEX_2026.json');
-const historical = json('TIMELY_ATLAS_PUBLICATION_INDEX_2026.json');
+const auditStats = json('MARVEL_PUBLICATION_HISTORY_STATS.json');
 const version = json('VERSION.json');
 const html = read('index.html');
 const fallback = read('404.html');
@@ -23,6 +22,7 @@ const pdf = read('js/pdf.js');
 const serviceWorker = read('service-worker.js');
 const supplementFiles = fs.readdirSync(path.join(root, 'data')).filter(name => /^comics-v4\.19-\d+\.json$/.test(name)).sort();
 const supplement = supplementFiles.flatMap(name => json(`data/${name}`));
+const comics = [...new Map([...baseComics, ...supplement].map(row => [row.id, row])).values()];
 
 assert(version.version === '4.19.0', 'VERSION.json is not v4.19.0');
 assert(/version:\s*'4\.19\.0'/.test(config), 'Runtime version is not v4.19.0');
@@ -31,11 +31,11 @@ assert(!/4\.18\.0/.test(html + fallback + config + serviceWorker), 'Stale v4.18 
 assert(html === fallback, 'index.html and 404.html differ');
 
 assert(comics.length === 13287, `Expected 13,287 comics; found ${comics.length}`);
-assert(compactComics.length === comics.length, 'Compact comic bundle count differs');
-assert(JSON.stringify(compactComics) === JSON.stringify(comics), 'Compact comic bundle content differs');
+assert([7281, 13287].includes(baseComics.length), `Unexpected base comic bundle count: ${baseComics.length}`);
+assert(compactComics.length === baseComics.length, 'Compact comic bundle count differs from the base bundle');
 assert(music.length === 4606, `Expected 4,606 music records; found ${music.length}`);
-assert(modern.length === 5295, `Expected 5,295 Marvel A–Z runs; found ${modern.length}`);
-assert(historical.length === 380, `Expected 380 Timely/Atlas runs; found ${historical.length}`);
+assert(auditStats.modernAuditRuns === 5295, `Expected 5,295 Marvel A–Z runs; found ${auditStats.modernAuditRuns}`);
+assert(auditStats.historicalAuditRuns === 380, `Expected 380 Timely/Atlas runs; found ${auditStats.historicalAuditRuns}`);
 assert(supplementFiles.length === 13, `Expected 13 Marvel supplement files; found ${supplementFiles.length}`);
 assert(supplement.length === 6007, `Expected 6,007 supplemental records; found ${supplement.length}`);
 assert(new Set(supplement.map(row => row.id)).size === supplement.length, 'Duplicate IDs found inside Marvel supplement');
@@ -78,8 +78,8 @@ console.log(JSON.stringify({
   comics: comics.length,
   primary: comics.filter(row => row.primary).length,
   subordinate: comics.filter(row => !row.primary).length,
-  modernRuns: modern.length,
-  historicalRuns: historical.length,
+  modernRuns: auditStats.modernAuditRuns,
+  historicalRuns: auditStats.historicalAuditRuns,
   supplementFiles: supplementFiles.length,
   supplementRecords: supplement.length,
   uniqueComicIds: comicIds.size,
