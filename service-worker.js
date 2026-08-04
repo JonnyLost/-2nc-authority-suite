@@ -1,4 +1,4 @@
-const CACHE = '2nc-authority-suite-v4.19.1';
+const CACHE = '2nc-authority-suite-v4.19.2';
 const CORE = [
   './','./index.html','./404.html','./styles.css','./app.js','./manifest.webmanifest','./VERSION.json',
   './js/config.js','./js/logger.js','./js/db.js','./js/sync.js','./js/print-station.js','./js/pdf.js','./js/labels.js','./js/ui.js',
