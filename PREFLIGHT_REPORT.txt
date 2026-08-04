@@ -1,23 +1,26 @@
-2NC Authority Suite v4.18 preflight
+2NC Authority Suite v4.19 preflight
 
-PASS — version: 4.18.0
+PASS — version: 4.19.0
 PASS — music records: 4,606
-PASS — comic records: 7,281
-PASS — primary comic authorities: 2,459
-PASS — subordinate comic records: 4,822
-PASS — official BOOM! series archive entries audited: 145
-PASS — total BOOM! catalog title entries audited: 450
-PASS — unique comic IDs: 7,281
+PASS — comic records: 13,287
+PASS — primary comic authorities: 3,579
+PASS — subordinate comic records: 9,708
+PASS — Marvel A–Z publication runs audited: 5,295
+PASS — Timely/Atlas publication runs audited: 380
+PASS — total publication runs audited: 5,675
+PASS — net new comic records: 6,006
+PASS — Marvel supplement records: 6,007 across 13 cacheable files (6,006 additions + 1 canonical repair)
+PASS — unique comic IDs: 13,287
 PASS — unique music IDs: 4,606
 PASS — unresolved series parents: 0
-PASS — titles hidden beneath generic BOOM! Originals / BOOM! Licensed parents: 0
-PASS — upgrade-safe BOOM! migration IDs: 85
+PASS — Avataars, Bullseye, Battlefield, and Barbie representative runs
+PASS — upgrade-safe Bullseye migration ID: SER-02066
 PASS — Quick Lookup remains the default landing page
 PASS — comic and music Quick Lookup
 PASS — one-tap Clear and Add to Queue
 PASS — Vinyl, CD, Comics, Instrument Tags, Treasures Tags, Print Station, and Authority Manager
 PASS — JavaScript syntax for application, database, UI, label, PDF, sync, and Print Station modules
 PASS — index.html and 404.html are identical
-PASS — v4.18 offline/PWA cache references
+PASS — v4.19 offline/PWA cache references
 PASS — comic physical size remains 3.50 × 0.675 inches
 PASS — music database and certified print dimensions unchanged
