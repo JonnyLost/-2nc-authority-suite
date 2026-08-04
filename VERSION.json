@@ -1,6 +1,6 @@
 {
-  "version": "4.19.0",
-  "name": "Complete Marvel Publication History Deep Pass",
-  "release": "2NC Authority Suite GitHub v4.19",
-  "notes": "Adds exact Marvel, Timely, and Atlas publication runs while preserving property-first filing authorities and all existing Authority Suite workflows."
+  "version": "4.19.1",
+  "name": "Avery 5163/8163 Comic Label Layout Fix",
+  "release": "2NC Authority Suite GitHub v4.19.1",
+  "notes": "Corrects comic labels to 4 × 2 inches, 10 per US Letter sheet in portrait orientation, in both browser printing and PDF output."
 }
