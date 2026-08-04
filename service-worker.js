@@ -1,9 +1,13 @@
-const CACHE = '2nc-authority-suite-v4.18.0';
+const CACHE = '2nc-authority-suite-v4.19.0';
 const CORE = [
   './','./index.html','./404.html','./styles.css','./app.js','./manifest.webmanifest','./VERSION.json',
   './js/config.js','./js/logger.js','./js/db.js','./js/sync.js','./js/print-station.js','./js/pdf.js','./js/labels.js','./js/ui.js',
   './vendor/pdf-lib.min.js',
-  './data/music.json','./data/comics.json','./assets/2nc-logo-white.png','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png'
+  './data/music.json','./data/comics.json',
+  './data/comics-v4.19-01.json','./data/comics-v4.19-02.json','./data/comics-v4.19-03.json','./data/comics-v4.19-04.json',
+  './data/comics-v4.19-05.json','./data/comics-v4.19-06.json','./data/comics-v4.19-07.json','./data/comics-v4.19-08.json',
+  './data/comics-v4.19-09.json','./data/comics-v4.19-10.json','./data/comics-v4.19-11.json','./data/comics-v4.19-12.json',
+  './data/comics-v4.19-13.json','./assets/2nc-logo-white.png','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
