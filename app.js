@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.17.0 — comprehensive Image Comics catalog and studio audit */
+/* 2NC Authority Suite v4.19.0 — complete Marvel publication-history audit */
 (function () {
   const stages = [
     ['Preparing interface', 12],
