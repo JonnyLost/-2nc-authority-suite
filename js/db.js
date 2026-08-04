@@ -40,11 +40,17 @@
   }
 
   async function fetchBundled(kind) {
-    const path = cfg.bundledFiles[kind];
-    const response = await fetch(`${path}?build=${encodeURIComponent(cfg.build)}`, { cache: 'no-store' });
-    if (!response.ok) throw new Error(`Could not load bundled ${kind} authority (${response.status})`);
-    const rows = await response.json();
-    if (!Array.isArray(rows)) throw new Error(`Bundled ${kind} authority is not a valid record array`);
+    const paths = Array.isArray(cfg.bundledFiles[kind]) ? cfg.bundledFiles[kind] : [cfg.bundledFiles[kind]];
+    const bundles = await Promise.all(paths.map(async path => {
+      const response = await fetch(`${path}?build=${encodeURIComponent(cfg.build)}`, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`Could not load bundled ${kind} authority from ${path} (${response.status})`);
+      const rows = await response.json();
+      if (!Array.isArray(rows)) throw new Error(`Bundled ${kind} authority in ${path} is not a valid record array`);
+      return rows;
+    }));
+    const byId = new Map();
+    bundles.flat().forEach(row => { if (row && row.id) byId.set(row.id, row); });
+    const rows = [...byId.values()];
     const minimum = cfg.expectedMinimums[kind];
     if (rows.length < minimum) throw new Error(`Bundled ${kind} authority contains only ${rows.length} records; expected at least ${minimum}`);
     return rows;
@@ -93,6 +99,8 @@
   ["SER-00058","SER-00101","SER-00102","SER-00110","SER-00160","SER-00174","SER-00175","SER-00177","SER-00178","SER-00179","SER-00183","SER-00195","SER-00205","SER-00207","SER-00239","SER-00244","SER-00264","SER-00273","SER-00276","SER-00304","SER-00344","SER-00367","SER-00384","SER-00385","SER-00411","SER-00412","SER-00427","SER-00448","SER-00513","SER-00524","SER-00548","SER-00549","SER-00555","SER-00556","SER-00573","SER-00580","SER-00589","SER-00592","SER-00599","SER-00633","SER-00639","SER-00653","SER-00658","SER-00684","SER-00686","SER-00687","SER-00688","SER-00689","SER-00690","SER-00691","SER-00747","SER-00788","SER-00820","SER-00866","SER-00869","SER-00887","SER-00924","SER-00943","SER-00955","SER-00986","SER-01008","SER-01114","SER-01115","SER-01116","SER-01117","SER-01118","SER-01119","SER-01120","SER-01121","SER-01122","SER-01123","SER-01124","SER-01125","SER-01126","SER-01127","SER-01128","SER-01129","SER-01130","SER-01131","SER-01132","SER-01133","SER-01134","SER-01135","SER-01136","SER-01137","SER-01138","SER-01139","SER-01140","SER-01141","SER-01142","SER-01143","SER-01144","SER-01145","SER-01146","SER-01147","SER-01148","SER-01149","SER-01150","SER-01151","SER-01152","SER-01153","SER-01154","SER-01155","SER-01156","SER-01157","SER-01158","SER-01159","SER-01160","SER-01161","SER-01162","SER-01163","SER-01164","SER-01165","SER-01166","SER-01167","SER-01168","SER-01169","SER-01170","SER-01171","SER-01172","SER-01173","SER-01174","SER-01175","SER-01176","SER-01177","SER-01178","SER-01179","SER-01180","SER-01181","SER-01182","SER-01183","SER-01184","SER-01185","SER-01186"].forEach(id => canonicalRepairIds.add(id));
 
   ["SER-00011","SER-00098","SER-00131","SER-00132","SER-00151","SER-00161","SER-00208","SER-00209","SER-00275","SER-00391","SER-00396","SER-00397","SER-00398","SER-00428","SER-00452","SER-00493","SER-00494","SER-00511","SER-00512","SER-00518","SER-00554","SER-00600","SER-00678","SER-00743","SER-00815","SER-00879","SER-00946","SER-00956","SER-01289","SER-01290","SER-01291","SER-01292","SER-01293","SER-01294","SER-01295","SER-01296","SER-01297","SER-01298","SER-01299","SER-01300","SER-01301","SER-01302","SER-01303","SER-01304","SER-01305","SER-01306","SER-01307","SER-01308","SER-01309","SER-01310","SER-01311","SER-01312","SER-01313","SER-01314","SER-01315","SER-01316","SER-01317","SER-01318","SER-01319","SER-01320","SER-01321","SER-01322","SER-01323","SER-01324","SER-01325","SER-01326","SER-01327","SER-01328","SER-01329","SER-01330","SER-01331","SER-01332","SER-01333","SER-01334","SER-01335","SER-01336","SER-01337","SER-01338","SER-01339","SER-01340","SER-01341","SER-01342","SER-01343","SER-01344","SER-01345"].forEach(id => canonicalRepairIds.add(id));
+
+  ["SER-02066"].forEach(id => canonicalRepairIds.add(id));
 
   function mergedRecord(row, old = {}) {
     const locallyEdited = Boolean(old._localEdited);
