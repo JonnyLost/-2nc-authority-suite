@@ -56,8 +56,8 @@
 
   function drawMusicLabel(page, item, kind, x, y, width, height, fonts, colors) {
     drawCutBox(page, x, y, width, height, colors.guide);
-    page.drawLine({ start: { x: x + 7.2, y: y + 3.25 }, end: { x: x + width - 7.2, y: y + 3.25 }, thickness: .3, color: colors.light });
-    page.drawLine({ start: { x: x + 7.2, y: y + height - 3.25 }, end: { x: x + width - 7.2, y: y + height - 3.25 }, thickness: .3, color: colors.light });
+    page.drawLine({ start: { x: x + 13, y: y + 8 }, end: { x: x + width - 13, y: y + 8 }, thickness: .3, color: colors.light });
+    page.drawLine({ start: { x: x + 13, y: y + height - 8 }, end: { x: x + width - 13, y: y + height - 8 }, thickness: .3, color: colors.light });
     const genreSize = kind === 'vinyl' ? 6.2 : 5.1;
     const subSize = kind === 'vinyl' ? 5.8 : 4.7;
     const mainSize = kind === 'vinyl' ? 16 : 10.4;
@@ -77,16 +77,16 @@
     const title = item.primary ? item.name : (item.printedTitle || item.series);
     const centerX = x + width / 2;
     if (item.primary) {
-      const fitted = fitSize(fonts.bold, ascii(title).toUpperCase(), width - 14, 16.5, 8);
-      drawCentered(page, fonts.bold, ascii(title).toUpperCase(), centerX, y + (height - fitted) / 2 - 1, width - 14, 16.5, 8, colors.black);
+      const fitted = fitSize(fonts.bold, ascii(title).toUpperCase(), width - 28, 28, 14);
+      drawCentered(page, fonts.bold, ascii(title).toUpperCase(), centerX, y + (height - fitted) / 2 - 1, width - 28, 28, 14, colors.black);
     } else {
       const marker = item.showMarker === false ? '' : (item.publishingLine || item.publishingEra || '');
       const showAuthority = item.showAuthority !== false && item.parent;
-      if (showAuthority) drawCentered(page, fonts.bold, ascii(item.parent).toUpperCase(), centerX, y + height - 12, width - 14, 6.4, 4.5, colors.muted);
-      const fitted = fitSize(fonts.bold, ascii(title), width - 14, 16.5, 7);
-      const titleY = showAuthority ? y + (marker ? 13 : 8) : y + (height - fitted) / 2 - 1;
-      drawCentered(page, fonts.bold, title, centerX, titleY, width - 14, 16.5, 7, colors.black);
-      if (marker) drawRight(page, fonts.bold, marker, x + width - 7.2, y + 4.5, width - 14.4, 5, 4, colors.muted);
+      if (showAuthority) drawCentered(page, fonts.bold, ascii(item.parent).toUpperCase(), centerX, y + height - 28, width - 28, 10, 7, colors.muted);
+      const fitted = fitSize(fonts.bold, ascii(title), width - 28, 28, 12);
+      const titleY = showAuthority ? y + (height - fitted) / 2 - 6 : y + (height - fitted) / 2 - 1;
+      drawCentered(page, fonts.bold, title, centerX, titleY, width - 28, 28, 12, colors.black);
+      if (marker) drawRight(page, fonts.bold, marker, x + width - 13, y + 12, width - 26, 7, 5, colors.muted);
     }
   }
 
@@ -148,7 +148,7 @@
     queue.forEach(item => { if (groups[item.mode]) groups[item.mode].push(item); });
     const configs = {
       vinyl: { page: LANDSCAPE, perPage: 24, cols: 2, rows: 12, w: 5 * PT, h: .675 * PT, x: .5 * PT, y: .2 * PT },
-      comic: { page: LANDSCAPE, perPage: 24, cols: 2, rows: 12, w: 3.5 * PT, h: .675 * PT, x: 2 * PT, y: .2 * PT },
+      comic: { page: LETTER, perPage: 10, cols: 2, rows: 5, w: 4 * PT, h: 2 * PT, x: .15625 * PT, y: .5 * PT, gapX: .1875 * PT },
       cd: { page: LETTER, perPage: 60, cols: 4, rows: 15, w: 2 * PT, h: .675 * PT, x: .25 * PT, y: .25 * PT },
       instrument: { page: LETTER, perPage: 2, cols: 1, rows: 2, w: 6 * PT, h: 4 * PT, x: 1.25 * PT, y: .25 * PT, gapY: .25 * PT },
       treasure: { page: LETTER, perPage: 4, cols: 2, rows: 2, w: 3.5 * PT, h: 5 * PT, x: .625 * PT, y: .25 * PT, gapX: .25 * PT, gapY: .25 * PT }
