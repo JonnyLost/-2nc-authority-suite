@@ -1,4 +1,4 @@
-/* 2NC Authority Suite v4.19.1 — Avery 5163/8163 comic label fix */
+/* 2NC Authority Suite v4.19.2 — measured 30-up comic label fix */
 (function () {
   const stages = [
     ['Preparing interface', 12],
