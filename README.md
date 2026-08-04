@@ -1,14 +1,14 @@
-# 2NC Authority Suite v4.19.1 — Comic Label Layout Fix
+# 2NC Authority Suite v4.19.2 — 30-up Comic Label Layout Fix
 
 This release follows the publisher deep dives with a title-by-title Marvel audit. It covers exact publication runs—not only major character, team, and event families—so short miniseries, one-shots, licensed books, repeated volumes, and historical Timely/Atlas titles can be found without creating custom labels.
 
 The recognizable property, character, team, event, or title family remains the shelf-visible filing authority. Publisher and historical publishing-line data remain supporting metadata.
 
-## v4.19.1 changes
+## v4.19.2 changes
 
-- Corrects comic labels to Avery 5163/8163-compatible 4 × 2 inch stock.
-- Prints 10 comic labels per US Letter sheet in portrait orientation.
-- Uses the same geometry in browser printing, calibration sheets, and generated PDFs.
+- Corrects comic labels to the measured Amazon stock: 3½ × ⅔ inches.
+- Prints 30 comic labels per portrait US Letter sheet in 2 columns of 15.
+- Uses exact ½-inch outer margins and center gutter in browser printing, calibration sheets, and generated PDFs.
 
 ## v4.19 changes
 
