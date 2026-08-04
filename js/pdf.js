@@ -77,16 +77,16 @@
     const title = item.primary ? item.name : (item.printedTitle || item.series);
     const centerX = x + width / 2;
     if (item.primary) {
-      const fitted = fitSize(fonts.bold, ascii(title).toUpperCase(), width - 28, 28, 14);
-      drawCentered(page, fonts.bold, ascii(title).toUpperCase(), centerX, y + (height - fitted) / 2 - 1, width - 28, 28, 14, colors.black);
+      const fitted = fitSize(fonts.bold, ascii(title).toUpperCase(), width - 20, 16, 8);
+      drawCentered(page, fonts.bold, ascii(title).toUpperCase(), centerX, y + (height - fitted) / 2 - 1, width - 20, 16, 8, colors.black);
     } else {
       const marker = item.showMarker === false ? '' : (item.publishingLine || item.publishingEra || '');
       const showAuthority = item.showAuthority !== false && item.parent;
-      if (showAuthority) drawCentered(page, fonts.bold, ascii(item.parent).toUpperCase(), centerX, y + height - 28, width - 28, 10, 7, colors.muted);
-      const fitted = fitSize(fonts.bold, ascii(title), width - 28, 28, 12);
-      const titleY = showAuthority ? y + (height - fitted) / 2 - 6 : y + (height - fitted) / 2 - 1;
-      drawCentered(page, fonts.bold, title, centerX, titleY, width - 28, 28, 12, colors.black);
-      if (marker) drawRight(page, fonts.bold, marker, x + width - 13, y + 12, width - 26, 7, 5, colors.muted);
+      if (showAuthority) drawCentered(page, fonts.bold, ascii(item.parent).toUpperCase(), centerX, y + height - 10, width - 20, 6, 4.5, colors.muted);
+      const fitted = fitSize(fonts.bold, ascii(title), width - 20, 14, 7);
+      const titleY = showAuthority ? y + 14 : y + (height - fitted) / 2 - 1;
+      drawCentered(page, fonts.bold, title, centerX, titleY, width - 20, 14, 7, colors.black);
+      if (marker) drawRight(page, fonts.bold, marker, x + width - 8, y + 4, width - 16, 4.5, 3.5, colors.muted);
     }
   }
 
@@ -148,7 +148,7 @@
     queue.forEach(item => { if (groups[item.mode]) groups[item.mode].push(item); });
     const configs = {
       vinyl: { page: LANDSCAPE, perPage: 24, cols: 2, rows: 12, w: 5 * PT, h: .675 * PT, x: .5 * PT, y: .2 * PT },
-      comic: { page: LETTER, perPage: 10, cols: 2, rows: 5, w: 4 * PT, h: 2 * PT, x: .15625 * PT, y: .5 * PT, gapX: .1875 * PT },
+      comic: { page: LETTER, perPage: 30, cols: 2, rows: 15, w: 3.5 * PT, h: (2 / 3) * PT, x: .5 * PT, y: .5 * PT, gapX: .5 * PT },
       cd: { page: LETTER, perPage: 60, cols: 4, rows: 15, w: 2 * PT, h: .675 * PT, x: .25 * PT, y: .25 * PT },
       instrument: { page: LETTER, perPage: 2, cols: 1, rows: 2, w: 6 * PT, h: 4 * PT, x: 1.25 * PT, y: .25 * PT, gapY: .25 * PT },
       treasure: { page: LETTER, perPage: 4, cols: 2, rows: 2, w: 3.5 * PT, h: 5 * PT, x: .625 * PT, y: .25 * PT, gapX: .25 * PT, gapY: .25 * PT }
