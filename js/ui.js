@@ -8,7 +8,7 @@
     quick: { title: 'Quick Lookup', sub: 'Find where any comic or artist belongs', dim: '' },
     vinyl: { title: 'Vinyl Dividers', sub: 'Search the internal Music Authority', dim: '5 × 0.675 in' },
     cd: { title: 'CD Dividers', sub: 'Search the internal Music Authority', dim: '2 × 0.675 in' },
-    comic: { title: 'Comic Dividers', sub: 'Search the internal Comic Authority', dim: '3.5 × 0.675 in' },
+    comic: { title: 'Comic Dividers', sub: 'Search the internal Comic Authority', dim: '4 × 2 in · 10 per sheet' },
     instrument: { title: 'Instrument Tags', sub: 'Create 4 × 6 retail instrument tags', dim: '6 × 4 in' },
     treasure: { title: '2NC Treasures Tags', sub: 'Create 3.5 × 5 portrait Treasures tags', dim: '3.5 × 5 in' },
     station: { title: 'Print Station', sub: 'Receive and print jobs from sales-floor devices', dim: 'Shared queue' },
