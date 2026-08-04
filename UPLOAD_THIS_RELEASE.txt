@@ -1,6 +1,6 @@
 Upload the complete contents of this folder to the root of jonnylost/-2nc-authority-suite on the main branch.
 
-Release: 2NC Authority Suite v4.19.1 — Avery 5163/8163 Comic Label Layout Fix
+Release: 2NC Authority Suite v4.19.2 — Measured 30-up Comic Label Layout Fix
 Validated comic records: 13,287
 Validated music records: 4,606
-PWA cache: 2nc-authority-suite-v4.19.1
+PWA cache: 2nc-authority-suite-v4.19.2
