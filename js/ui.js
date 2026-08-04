@@ -61,8 +61,11 @@
   }
 
   function lookupNames(row, kind) {
+    const years = kind === 'comic' ? comicYearRange(row) : '';
     return (kind === 'comic'
-      ? [row.printedTitle, row.series, row.display, row.parent]
+      ? [row.printedTitle, row.series, row.display, row.parent,
+        years && `${row.printedTitle || row.series || row.display} ${years}`,
+        row.startYear && `${row.printedTitle || row.series || row.display} ${row.startYear}`]
       : [row.name, row.display])
       .map(normalizeLookup).filter(Boolean);
   }
@@ -142,8 +145,8 @@
       const styles = musicSubgenreLine(current);
       answer.innerHTML = `<div class="quickAnswerLabel">File under</div><strong class="quickAuthority">${escapeHtml(current.name || current.display)}</strong><div class="quickMatched"><span>Genre</span><b>${escapeHtml(current.genre || 'Uncategorized')}</b></div>${styles ? `<div class="quickMarker"><span>Style</span><b>${escapeHtml(styles)}</b></div>` : ''}<small>${escapeHtml(current.level || current.type || 'Music authority')}</small>`;
     }
-    const alternatives = state.lookupMatches.filter(row => row.id !== current.id).slice(0, 3);
-    choices.innerHTML = alternatives.length ? `<span>Other matches</span>${alternatives.map(row => `<button type="button" data-lookup-id="${escapeHtml(row.id)}"><b>${escapeHtml(state.lookupKind === 'comic' ? (comicPrintTitle(row) || row.display) : (row.name || row.display))}</b><small>${escapeHtml(state.lookupKind === 'comic' ? lookupAuthority(row) : (row.genre || 'Music'))}</small></button>`).join('')}` : '';
+    const alternatives = state.lookupMatches.filter(row => row.id !== current.id).slice(0, 7);
+    choices.innerHTML = alternatives.length ? `<span>Other matches</span>${alternatives.map(row => `<button type="button" data-lookup-id="${escapeHtml(row.id)}"><b>${escapeHtml(state.lookupKind === 'comic' ? (comicPrintTitle(row) || row.display) : (row.name || row.display))}</b><small>${escapeHtml(state.lookupKind === 'comic' ? [lookupAuthority(row), comicYearRange(row)].filter(Boolean).join(' · ') : (row.genre || 'Music'))}</small></button>`).join('')}` : '';
     choices.querySelectorAll('[data-lookup-id]').forEach(button => button.addEventListener('click', () => { state.lookupSelectedId = button.dataset.lookupId; renderLookup(); }));
   }
 
