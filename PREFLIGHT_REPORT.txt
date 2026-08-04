@@ -1,6 +1,6 @@
-2NC Authority Suite v4.19 preflight
+2NC Authority Suite v4.19.2 preflight
 
-PASS — version: 4.19.0
+PASS — version: 4.19.2
 PASS — music records: 4,606
 PASS — comic records: 13,287
 PASS — primary comic authorities: 3,579
@@ -21,6 +21,6 @@ PASS — one-tap Clear and Add to Queue
 PASS — Vinyl, CD, Comics, Instrument Tags, Treasures Tags, Print Station, and Authority Manager
 PASS — JavaScript syntax for application, database, UI, label, PDF, sync, and Print Station modules
 PASS — index.html and 404.html are identical
-PASS — v4.19 offline/PWA cache references
-PASS — comic physical size remains 3.50 × 0.675 inches
+PASS — v4.19.2 offline/PWA cache references
+PASS — comic labels use measured 3.50 × 0.667 inch, 2-column × 15-row portrait geometry
 PASS — music database and certified print dimensions unchanged
