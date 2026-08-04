@@ -1,39 +1,39 @@
-# 2NC Authority Suite v4.18 — Comprehensive BOOM! Studios Catalog & Imprint Audit
+# 2NC Authority Suite v4.19 — Complete Marvel Publication History Deep Pass
 
-This release gives BOOM! Studios the same full publisher treatment previously applied to Marvel, DC, Dark Horse, and Image. The recognizable property, character, team, or title family is the filing authority; BOOM! Studios, BOOM! Box, KaBOOM!, Archaia, licenses, and shared publishing initiatives remain supporting metadata.
+This release follows the publisher deep dives with a title-by-title Marvel audit. It covers exact publication runs—not only major character, team, and event families—so short miniseries, one-shots, licensed books, repeated volumes, and historical Timely/Atlas titles can be found without creating custom labels.
 
-## v4.18 changes
+The recognizable property, character, team, event, or title family remains the shelf-visible filing authority. Publisher and historical publishing-line data remain supporting metadata.
 
-- Audited all 145 entries in BOOM! Studios' official series archive as of August 2, 2026, plus the publisher's historical catalog and current 2025–2026 releases.
-- Expanded BOOM! Studios, BOOM! Box, KaBOOM!, and Archaia coverage to 450 audited title entries.
-- Added 387 primary filing authorities and 373 subordinate series records over v4.17.
-- Repaired 85 inherited BOOM!/Archaia filing relationships or imprint assignments.
-- Removed every subordinate title from the generic **BOOM! Originals** and **BOOM! Licensed** shelf parents.
+## v4.19 changes
+
+- Audited 5,295 Marvel publication runs across the complete A–Z history index.
+- Audited 380 additional Timely Comics and Atlas Comics publication runs.
+- Added 1,120 primary filing authorities and 4,886 run-specific subordinate records over v4.18.
+- Reused 788 exact runs already represented in the Authority Suite instead of duplicating them.
+- Added start and end years to new run records so repeated titles and volumes remain distinguishable in lookup.
+- Corrected the inherited 2017 **Bullseye** series to file under **BULLSEYE**.
+- Packaged the Marvel expansion in small supplemental bundles so the offline cache and GitHub synchronization path can load the much larger catalog reliably.
 - Preserved Quick Lookup, one-tap Clear, queueing, music lookup, label generators, printing, synchronization, and genuine Authority Manager edits.
 
-## Filing examples
+## User-reported examples
 
-- *BRZRKR: The Lost Book of B* → **BRZRKR**
-- *Dune: House Harkonnen* → **DUNE**
-- *Angel + Spike* → **ANGEL**
-- *House of Slaughter* and *Book of Butcher* → **SOMETHING IS KILLING THE CHILDREN**
-- *Power Rangers Prime*, *Go Go Power Rangers*, and *Ranger Academy* → **MIGHTY MORPHIN POWER RANGERS**
-- *VR Troopers* → **VR TROOPERS**
-- *Beneath the Dark Crystal* → **JIM HENSON'S THE DARK CRYSTAL**
-- *All New Firefly* → **FIREFLY**
+- *Avataars: Covenant of the Shield* (2000) → **AVATAARS**
+- *Bullseye* (2017), *Bullseye: Greatest Hits* (2004–2005), and *Bullseye: Perfect Game* (2011) → **BULLSEYE**
+- *Battlefield* (1952–1953) → **BATTLEFIELD**, with Atlas Comics retained as publishing-line metadata
+- *Barbie* (1991–1996), *Barbie Fashion* (1991–1995), and *Barbie & Baby Sister Kelly* (1995) → **BARBIE**
 
 ## Database
 
-- Music authorities: 4,606
-- Comic authorities: 7,281
-- Primary comic authorities: 2,459
-- Subordinate comic records: 4,822
-- Net new comic records: 760
-- Canonical relationship/metadata migration IDs: 85
-- Duplicate IDs: 0
+- Music records: 4,606
+- Comic records: 13,287
+- Primary comic authorities: 3,579
+- Subordinate comic records: 9,708
+- Net new comic records: 6,006
+- Publication runs audited: 5,675
+- Duplicate comic IDs: 0
+- Duplicate music IDs: 0
 - Unresolved parent authorities: 0
-- Titles left beneath generic BOOM! shelf parents: 0
 
 ## Upgrade
 
-Open the published site once with `?v=4.18`, then fully close and reopen any installed PWA. The app merges the expanded bundle and applies the audited canonical filing repairs while preserving genuine Authority Manager edits.
+Open the published site once with `?v=4.19`, then fully close and reopen any installed PWA. The app merges the expanded bundle and applies the audited Bullseye filing repair while preserving records explicitly edited in Authority Manager.
