@@ -349,3 +349,9 @@ body{background:#f2f0eb;color:var(--text);color-scheme:light}
     box-shadow:0 100px 0 100px #171717;
   }
 }
+
+/* v4.20.3 — paint the mobile page canvas black behind the fixed bottom navigation. */
+@media(max-width:700px){
+  body{background-color:#171717}
+  #app{background-color:#f2f0eb}
+}
