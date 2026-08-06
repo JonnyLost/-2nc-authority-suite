@@ -24,11 +24,14 @@ const supplementFiles = fs.readdirSync(path.join(root, 'data')).filter(name => /
 const supplement = supplementFiles.flatMap(name => json(`data/${name}`));
 const comics = [...new Map([...baseComics, ...supplement].map(row => [row.id, row])).values()];
 
-assert(version.version === '4.19.2', 'VERSION.json is not v4.19.2');
-assert(/version:\s*'4\.19\.2'/.test(config), 'Runtime version is not v4.19.2');
-assert(/2nc-authority-suite-v4\.19\.2/.test(config) && /2nc-authority-suite-v4\.19\.2/.test(serviceWorker), 'PWA cache is not v4.19.2');
+assert(version.version === '4.20.0', 'VERSION.json is not v4.20.0');
+assert(/version:\s*'4\.20\.0'/.test(config), 'Runtime version is not v4.20.0');
+assert(/2nc-authority-suite-v4\.20\.0/.test(config) && /2nc-authority-suite-v4\.20\.0/.test(serviceWorker), 'PWA cache is not v4.20.0');
 assert(!/4\.18\.0/.test(html + fallback + config + serviceWorker), 'Stale v4.18 asset reference remains');
 assert(html === fallback, 'index.html and 404.html differ');
+assert(/class="suite-header"/.test(html), 'Shared 2NC application header is missing');
+assert(/id="app-menu"/.test(html) && /Store Operations/.test(html) && /Performance Analytics/.test(html) && /Authority Suite/.test(html), 'Shared 2NC application menu is incomplete');
+assert(/Buying Authority Reference/.test(html), 'Authority Suite subtitle is missing');
 
 assert(comics.length === 13287, `Expected 13,287 comics; found ${comics.length}`);
 assert([7281, 13287].includes(baseComics.length), `Unexpected base comic bundle count: ${baseComics.length}`);
