@@ -211,3 +211,61 @@ body{
 .quickTools .quickQueueButton{background:var(--orange);border-color:var(--orange);color:#fff}
 .quickTools button:disabled{opacity:.42;cursor:not-allowed}
 @media(max-width:700px){.quickTools button{min-width:0;white-space:nowrap}.quickTools .quickQueueButton{font-size:10px}}
+
+/* v4.20 — shared 2NC application shell */
+.suite-header{
+  position:relative;z-index:40;min-height:96px;padding:18px max(28px,calc((100vw - 1500px)/2));
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  background:#172b45;color:#fff;
+}
+.suite-brand{display:flex;align-items:center;gap:18px;min-width:0;color:#fff;text-decoration:none}
+.suite-brand img{width:66px;height:58px;object-fit:contain;padding:7px;border-radius:12px;background:#fff}
+.suite-brand>span,.suite-brand strong,.suite-brand small{display:block;min-width:0}
+.suite-brand strong{font-size:28px;line-height:1.05;letter-spacing:-.02em}
+.suite-brand small{margin-top:4px;color:#c2cede;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.app-menu{position:relative}
+.app-menu summary{
+  display:flex;align-items:center;gap:9px;min-width:112px;padding:10px 14px;
+  border:1px solid #4e6078;border-radius:9px;color:#fff;font-size:13px;font-weight:800;
+  cursor:pointer;list-style:none;
+}
+.app-menu summary::-webkit-details-marker{display:none}
+.app-menu summary i{
+  width:8px;height:8px;margin-left:auto;border-right:2px solid #fff;border-bottom:2px solid #fff;
+  transform:rotate(45deg) translateY(-2px);transition:.15s;
+}
+.app-menu[open] summary i{transform:rotate(225deg) translate(-2px,-1px)}
+.app-menu nav{
+  position:absolute;z-index:50;top:calc(100% + 9px);right:0;width:270px;padding:7px;
+  border:1px solid #d4dce6;border-radius:13px;background:#fff;box-shadow:0 18px 45px rgba(8,23,41,.28);
+}
+.app-menu nav a{
+  display:grid;grid-template-columns:38px minmax(0,1fr);align-items:center;gap:10px;
+  padding:10px 12px;border-radius:9px;color:#172b45;text-decoration:none;
+}
+.app-menu nav a:hover,.app-menu nav a:focus-visible{background:#f3f5f7;outline:none}
+.app-menu nav a.current{background:#fff2e5;color:#a6550a}
+.app-menu nav a strong,.app-menu nav a small{display:block}
+.app-menu nav a strong{font-size:13px}
+.app-menu nav a small{margin-top:2px;color:#7b8899;font-size:11px;font-weight:500}
+.app-menu-icon{
+  display:grid;place-items:center;width:34px;height:34px;border:1.5px solid #f47721;border-radius:7px;
+  color:#f47721;font-size:21px;font-weight:700;line-height:1;
+}
+#app{height:calc(100% - 96px)}
+.sidebar{padding-top:14px}
+.topbar{padding-top:20px}
+@media(max-width:700px){
+  .suite-header{min-height:82px;padding:11px 16px;gap:12px}
+  .suite-brand{gap:11px}.suite-brand img{width:52px;height:48px;padding:6px;border-radius:10px}
+  .suite-brand strong{font-size:20px}.suite-brand small{font-size:9px;letter-spacing:.065em}
+  .app-menu summary{min-width:104px;padding:9px 11px}
+  .app-menu nav{position:fixed;top:76px;right:12px;width:min(270px,calc(100vw - 24px))}
+  #app{height:auto;padding-top:0}
+  body[data-mode="quick"] #app{height:calc(100dvh - 82px - var(--safe-top));padding-top:0}
+  body[data-mode="quick"] .workspace{height:calc(100dvh - 82px - var(--safe-top) - 82px - 70px - var(--safe-bottom))}
+}
+@media print{
+  .suite-header{display:none!important}
+  #app{height:100%}
+}
