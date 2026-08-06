@@ -1,6 +1,6 @@
 {
-  "version": "4.20.1",
-  "name": "Command Center Visual Alignment",
-  "release": "2NC Authority Suite GitHub v4.20.1",
-  "notes": "Moves the shared header below the iPhone safe area and applies the Store Operations Command Center palette to the Authority Suite workspace while preserving layout, databases, migrations, label geometry, and offline behavior."
+  "version": "4.20.2",
+  "name": "Mobile Bottom Safe-Area Finish",
+  "release": "2NC Authority Suite GitHub v4.20.2",
+  "notes": "Extends the black mobile navigation finish through the lower iPhone viewport and system area while preserving the cream workspace, white top status area, application behavior, databases, migrations, and label geometry."
 }

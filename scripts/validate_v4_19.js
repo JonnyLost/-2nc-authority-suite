@@ -24,9 +24,9 @@ const supplementFiles = fs.readdirSync(path.join(root, 'data')).filter(name => /
 const supplement = supplementFiles.flatMap(name => json(`data/${name}`));
 const comics = [...new Map([...baseComics, ...supplement].map(row => [row.id, row])).values()];
 
-assert(version.version === '4.20.1', 'VERSION.json is not v4.20.1');
-assert(/version:\s*'4\.20\.1'/.test(config), 'Runtime version is not v4.20.1');
-assert(/2nc-authority-suite-v4\.20\.1/.test(config) && /2nc-authority-suite-v4\.20\.1/.test(serviceWorker), 'PWA cache is not v4.20.1');
+assert(version.version === '4.20.2', 'VERSION.json is not v4.20.2');
+assert(/version:\s*'4\.20\.2'/.test(config), 'Runtime version is not v4.20.2');
+assert(/2nc-authority-suite-v4\.20\.2/.test(config) && /2nc-authority-suite-v4\.20\.2/.test(serviceWorker), 'PWA cache is not v4.20.2');
 assert(!/4\.18\.0/.test(html + fallback + config + serviceWorker), 'Stale v4.18 asset reference remains');
 assert(html === fallback, 'index.html and 404.html differ');
 assert(/class="suite-header"/.test(html), 'Shared 2NC application header is missing');

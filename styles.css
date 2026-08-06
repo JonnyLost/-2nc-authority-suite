@@ -277,7 +277,8 @@ body{
   --orange:#f36c21;--orange2:#f36c21;--orange-dark:#c84b0c;
   --shadow-sm:0 4px 14px rgba(25,25,25,.05);--shadow-md:0 12px 30px rgba(25,25,25,.07);
 }
-html,body{background:#f2f0eb;color:var(--text);color-scheme:light}
+html{background:#171717;color:var(--text);color-scheme:light}
+body{background:#f2f0eb;color:var(--text);color-scheme:light}
 #app{background:#f2f0eb}
 .sidebar{background:#171717;border-right-color:#171717;box-shadow:none}
 .brandmark{background:var(--orange);box-shadow:none}
@@ -336,4 +337,15 @@ html,body{background:#f2f0eb;color:var(--text);color-scheme:light}
   .app-menu nav{top:calc(76px + var(--safe-top))}
   .mobileNav{background:#171717}
   .mobileNav::after{background:#171717}
+}
+
+/* v4.20.2 — carry the mobile navigation color through the lower iOS viewport. */
+@media(max-width:700px){
+  html{background-color:#171717}
+  body{background-color:#f2f0eb}
+  .mobileNav{
+    bottom:0;
+    background-color:#171717;
+    box-shadow:0 100px 0 100px #171717;
+  }
 }

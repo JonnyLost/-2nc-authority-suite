@@ -1,11 +1,11 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '4.20.1',
+  version: '4.20.2',
   build: '2026-08-05-command-center-palette-safe-area',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],
-  cacheName: '2nc-authority-suite-v4.20.1',
+  cacheName: '2nc-authority-suite-v4.20.2',
   expectedMinimums: { music: 4500, comic: 13200 },
   bundledFiles: {
     music: 'data/music.json',
