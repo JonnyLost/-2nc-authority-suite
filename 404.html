@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=4.19.2">
+  <link rel="stylesheet" href="styles.css?v=4.20.0">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <h1>Authority Suite</h1>
     <p id="startupMessage">Starting application…</p>
     <div class="startupProgress"><span id="startupBar"></span></div>
-    <small id="startupVersion">v4.19.2</small>
+    <small id="startupVersion">v4.20.0</small>
   </div>
 </div>
 <div id="fatalError" class="fatalError hidden" role="alert">
@@ -32,6 +32,29 @@
     <button id="openDiagnostics">Diagnostics</button>
   </div>
 </div>
+<header class="suite-header">
+  <a class="suite-brand" href="./" aria-label="2NC Authority Suite home">
+    <img src="icons/icon-192.png" alt="2NC">
+    <span><strong>Authority Suite</strong><small>Buying Authority Reference</small></span>
+  </a>
+  <details class="app-menu" id="app-menu">
+    <summary>2NC Apps<i aria-hidden="true"></i></summary>
+    <nav aria-label="2NC applications">
+      <a href="https://jonathoncox.com/store-operations/">
+        <span class="app-menu-icon" aria-hidden="true">▦</span>
+        <span><strong>Store Operations</strong><small>Command Center</small></span>
+      </a>
+      <a href="https://jonathoncox.com/performance-analytics/">
+        <span class="app-menu-icon" aria-hidden="true">▥</span>
+        <span><strong>Performance Analytics</strong><small>Company Reporting</small></span>
+      </a>
+      <a class="current" href="./" aria-current="page">
+        <span class="app-menu-icon" aria-hidden="true">▤</span>
+        <span><strong>Authority Suite</strong><small>Buying Authority Reference</small></span>
+      </a>
+    </nav>
+  </details>
+</header>
 <div id="app">
   <aside class="sidebar">
     <div class="brand"><span class="brandmark">2NC</span><span>Authority<br>Suite</span></div>
@@ -51,7 +74,7 @@
     <div><h1 id="pageTitle">Quick Lookup</h1><p id="pageSub">Find where any comic or artist belongs</p></div>
     <div class="topStatus">
       <button id="debugBadge" class="debugBadge" hidden>Debug</button>
-      <div class="versionBadge" id="versionBadge">v4.19.2</div>
+      <div class="versionBadge" id="versionBadge">v4.20.0</div>
       <div class="dbStatus" id="dbStatus">Loading databases…</div>
       <div class="queuePill" id="queuePill">0 queued</div>
     </div>
@@ -184,15 +207,24 @@ ACTION FIGURES"></textarea></label>
   <nav class="mobileNav" id="mobileNav"><button data-mode="quick" class="active">Lookup</button><button data-mode="vinyl">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="treasure">Treasures</button><button data-mode="station">Station</button><button data-mode="manager">Data</button></nav>
 </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=4.19.2"></script>
-<script src="js/logger.js?v=4.19.2"></script>
-<script src="js/db.js?v=4.19.2"></script>
-<script src="js/sync.js?v=4.19.2"></script>
-<script src="js/print-station.js?v=4.19.2"></script>
+<script src="js/config.js?v=4.20.0"></script>
+<script src="js/logger.js?v=4.20.0"></script>
+<script src="js/db.js?v=4.20.0"></script>
+<script src="js/sync.js?v=4.20.0"></script>
+<script src="js/print-station.js?v=4.20.0"></script>
 <script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
-<script src="js/pdf.js?v=4.19.2"></script>
-<script src="js/labels.js?v=4.19.2"></script>
-<script src="js/ui.js?v=4.19.2"></script>
-<script src="app.js?v=4.19.2"></script>
+<script src="js/pdf.js?v=4.20.0"></script>
+<script src="js/labels.js?v=4.20.0"></script>
+<script src="js/ui.js?v=4.20.0"></script>
+<script src="app.js?v=4.20.0"></script>
+<script>
+  document.addEventListener('click', event => {
+    const menu = document.getElementById('app-menu');
+    if (menu?.open && !event.target.closest('#app-menu')) menu.removeAttribute('open');
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') document.getElementById('app-menu')?.removeAttribute('open');
+  });
+</script>
 </body>
 </html>
