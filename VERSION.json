@@ -1,6 +1,6 @@
 {
-  "version": "4.20.0",
-  "name": "Shared 2NC Application Shell",
-  "release": "2NC Authority Suite GitHub v4.20.0",
-  "notes": "Adds the shared 2NC header and application switcher used by Store Operations and Performance Analytics while preserving the Authority Suite workspace, databases, migrations, label geometry, and offline behavior."
+  "version": "4.20.1",
+  "name": "Command Center Visual Alignment",
+  "release": "2NC Authority Suite GitHub v4.20.1",
+  "notes": "Moves the shared header below the iPhone safe area and applies the Store Operations Command Center palette to the Authority Suite workspace while preserving layout, databases, migrations, label geometry, and offline behavior."
 }
