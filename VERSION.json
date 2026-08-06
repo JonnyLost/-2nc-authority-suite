@@ -1,6 +1,6 @@
 {
-  "version": "4.19.2",
-  "name": "Measured 30-up Comic Label Layout Fix",
-  "release": "2NC Authority Suite GitHub v4.19.2",
-  "notes": "Matches the measured Amazon stock: 3.5 × 0.667 inch comic labels, 2 columns by 15 rows on portrait US Letter, in both browser printing and PDF output."
+  "version": "4.20.0",
+  "name": "Shared 2NC Application Shell",
+  "release": "2NC Authority Suite GitHub v4.20.0",
+  "notes": "Adds the shared 2NC header and application switcher used by Store Operations and Performance Analytics while preserving the Authority Suite workspace, databases, migrations, label geometry, and offline behavior."
 }
