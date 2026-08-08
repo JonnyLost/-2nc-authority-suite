@@ -1,4 +1,4 @@
-const CACHE = '2nc-authority-suite-v4.21.4';
+const CACHE = '2nc-authority-suite-v4.22.0';
 const CORE = [
   './','./index.html','./404.html','./styles.css','./app.js','./manifest.webmanifest','./VERSION.json',
   './js/config.js','./js/logger.js','./js/db.js','./js/sync.js','./js/print-station.js','./js/pdf.js','./js/labels.js','./js/ui.js',
@@ -52,3 +52,4 @@ self.addEventListener('fetch', event => {
   const shell = url.pathname.endsWith('/') || /\.(html|js|css|json|webmanifest)$/.test(url.pathname);
   event.respondWith(shell ? networkFirst(event.request) : cacheFirst(event.request));
 });
+
