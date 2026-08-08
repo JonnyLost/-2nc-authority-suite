@@ -1,6 +1,6 @@
 {
-  "version": "4.21.3",
-  "name": "Unified Liquid Glass Shell",
-  "release": "2NC Authority Suite GitHub v4.21.3",
-  "notes": "Locks the shared five-region desktop header to one line, preserves the matching responsive mobile shell and single All Tools drawer, and keeps all lookup, label, print, database, sync, and offline behavior intact."
+  "version": "4.21.4",
+  "name": "Quick Lookup Action Cleanup",
+  "release": "2NC Authority Suite GitHub v4.21.4",
+  "notes": "Removes redundant Quick Lookup navigation shortcuts and keeps Add to queue as the single full-width action beneath the filing answer, with lookup, queue, label, print, sync, database, and offline behavior unchanged."
 }
