@@ -450,3 +450,27 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 @media screen and (max-width:760px){
   .sidebar{display:flex!important}
 }
+
+
+/* v4.21.4 — one clear Quick Lookup action below the answer field */
+.quickTools.quickQueueAction{
+  display:block!important;
+  width:100%;
+  margin-top:2px;
+}
+.quickTools.quickQueueAction .quickQueueButton{
+  display:block;
+  width:100%!important;
+  min-height:54px;
+  padding:13px 18px!important;
+  border-radius:14px;
+  font-size:14px!important;
+  font-weight:800;
+  letter-spacing:.01em;
+}
+@media screen and (max-width:760px){
+  .quickTools.quickQueueAction .quickQueueButton{
+    min-height:50px;
+    font-size:13px!important;
+  }
+}
