@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=4.20.3">
+  <link rel="stylesheet" href="styles.css?v=4.21.1">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <h1>Authority Suite</h1>
     <p id="startupMessage">Starting application…</p>
     <div class="startupProgress"><span id="startupBar"></span></div>
-    <small id="startupVersion">v4.20.3</small>
+    <small id="startupVersion">v4.21.1</small>
   </div>
 </div>
 <div id="fatalError" class="fatalError hidden" role="alert">
@@ -32,31 +32,27 @@
     <button id="openDiagnostics">Diagnostics</button>
   </div>
 </div>
-<header class="suite-header">
-  <a class="suite-brand" href="./" aria-label="2NC Authority Suite home">
+<header class="suite-header apple-pro-header">
+  <a class="suite-brand" href="./" aria-label="Open Authority Suite">
     <img src="icons/icon-192.png" alt="2NC">
     <span><strong>Authority Suite</strong><small>Buying Authority Reference</small></span>
   </a>
-  <details class="app-menu" id="app-menu">
-    <summary>2NC Apps<i aria-hidden="true"></i></summary>
-    <nav aria-label="2NC applications">
-      <a href="https://jonathoncox.com/store-operations/">
-        <span class="app-menu-icon" aria-hidden="true">▦</span>
-        <span><strong>Store Operations</strong><small>Command Center</small></span>
-      </a>
-      <a href="https://jonathoncox.com/performance-analytics/">
-        <span class="app-menu-icon" aria-hidden="true">▥</span>
-        <span><strong>Performance Analytics</strong><small>Company Reporting</small></span>
-      </a>
-      <a class="current" href="./" aria-current="page">
-        <span class="app-menu-icon" aria-hidden="true">▤</span>
-        <span><strong>Authority Suite</strong><small>Buying Authority Reference</small></span>
-      </a>
-    </nav>
-  </details>
+  <div class="suite-live-strip" aria-live="polite">
+    <span class="suite-time-context"><span id="live-date">—</span><span id="live-time">—</span></span>
+    <span class="suite-place-context"><span id="live-location">Dayton, OH</span><span class="live-weather"><b id="live-weather-icon" aria-hidden="true">○</b><span id="live-weather">Local weather</span></span></span>
+  </div>
+  <nav class="suite-spaces" aria-label="2NC applications">
+    <a href="https://jonathoncox.com/store-operations/">Today</a>
+    <a href="https://jonathoncox.com/performance-analytics/">Insights</a>
+    <a class="current" href="./" aria-current="page">Authority Suite</a>
+  </nav>
+  <div class="suite-header-actions">
+    <button type="button" class="suite-tools-button" id="all-tools-button" aria-controls="authority-tools" aria-expanded="false"><span class="tools-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span>All tools</button>
+  </div>
 </header>
+<div class="tabs-scrim" id="tabs-scrim" hidden></div>
 <div id="app">
-  <aside class="sidebar">
+  <aside class="sidebar" id="authority-tools">
     <div class="brand"><span class="brandmark">2NC</span><span>Authority<br>Suite</span></div>
     <nav id="modeNav">
       <button data-mode="quick" class="active"><span>⌕</span>Lookup</button>
@@ -74,7 +70,7 @@
     <div><h1 id="pageTitle">Quick Lookup</h1><p id="pageSub">Find where any comic or artist belongs</p></div>
     <div class="topStatus">
       <button id="debugBadge" class="debugBadge" hidden>Debug</button>
-      <div class="versionBadge" id="versionBadge">v4.20.3</div>
+      <div class="versionBadge" id="versionBadge">v4.21.1</div>
       <div class="dbStatus" id="dbStatus">Loading databases…</div>
       <div class="queuePill" id="queuePill">0 queued</div>
     </div>
@@ -204,19 +200,18 @@ ACTION FIGURES"></textarea></label>
       <div id="stationJobs" class="stationJobs"><div class="empty">No print jobs loaded.</div></div>
     </section>
   </main>
-  <nav class="mobileNav" id="mobileNav"><button data-mode="quick" class="active">Lookup</button><button data-mode="vinyl">Vinyl</button><button data-mode="cd">CD</button><button data-mode="comic">Comics</button><button data-mode="instrument">Tags</button><button data-mode="treasure">Treasures</button><button data-mode="station">Station</button><button data-mode="manager">Data</button></nav>
-</div>
+  </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=4.20.3"></script>
-<script src="js/logger.js?v=4.20.3"></script>
-<script src="js/db.js?v=4.20.3"></script>
-<script src="js/sync.js?v=4.20.3"></script>
-<script src="js/print-station.js?v=4.20.3"></script>
+<script src="js/config.js?v=4.21.1"></script>
+<script src="js/logger.js?v=4.21.1"></script>
+<script src="js/db.js?v=4.21.1"></script>
+<script src="js/sync.js?v=4.21.1"></script>
+<script src="js/print-station.js?v=4.21.1"></script>
 <script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
-<script src="js/pdf.js?v=4.20.3"></script>
-<script src="js/labels.js?v=4.20.3"></script>
-<script src="js/ui.js?v=4.20.3"></script>
-<script src="app.js?v=4.20.3"></script>
+<script src="js/pdf.js?v=4.21.1"></script>
+<script src="js/labels.js?v=4.21.1"></script>
+<script src="js/ui.js?v=4.21.1"></script>
+<script src="app.js?v=4.21.1"></script>
 <script>
   document.addEventListener('click', event => {
     const menu = document.getElementById('app-menu');
@@ -225,6 +220,45 @@ ACTION FIGURES"></textarea></label>
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') document.getElementById('app-menu')?.removeAttribute('open');
   });
+</script>
+<script>
+(() => {
+  const body = document.body;
+  const tools = document.querySelector('#authority-tools');
+  const button = document.querySelector('#all-tools-button');
+  const scrim = document.querySelector('#tabs-scrim');
+  const updateHeaderSize = () => document.documentElement.style.setProperty('--suite-header-bottom', Math.round(document.querySelector('.suite-header').getBoundingClientRect().bottom) + 'px');
+  const setTools = open => {
+    body.classList.toggle('authority-nav-open', open);
+    button?.setAttribute('aria-expanded', String(open));
+    if (scrim) scrim.hidden = !open;
+  };
+  button?.addEventListener('click', () => setTools(!body.classList.contains('authority-nav-open')));
+  scrim?.addEventListener('click', () => setTools(false));
+  tools?.querySelectorAll('button').forEach(item => item.addEventListener('click', () => setTools(false)));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') setTools(false); });
+  const symbol = code => code === 0 ? '☀︎' : [1,2].includes(code) ? '☼' : [3,45,48].includes(code) ? '☁︎' : ((code >= 51 && code <= 67) || (code >= 80 && code <= 82)) ? '☂︎' : (code >= 71 && code <= 77) ? '❄︎' : code >= 95 ? '⚡︎' : '☁︎';
+  const refreshClock = () => {
+    const now = new Date();
+    const options = {timeZone:'America/New_York'};
+    document.querySelector('#live-date').textContent = new Intl.DateTimeFormat('en-US',{...options,weekday:'long',month:'long',day:'numeric'}).format(now);
+    document.querySelector('#live-time').textContent = new Intl.DateTimeFormat('en-US',{...options,hour:'numeric',minute:'2-digit'}).format(now);
+  };
+  const refreshWeather = async () => {
+    try {
+      const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=39.7589&longitude=-84.1916&current_weather=true&temperature_unit=fahrenheit&timezone=America%2FNew_York');
+      const payload = await response.json();
+      const weather = payload.current_weather;
+      if (!weather) throw new Error('Unavailable');
+      document.querySelector('#live-weather').textContent = Math.round(weather.temperature) + '°';
+      document.querySelector('#live-weather-icon').textContent = symbol(Number(weather.weathercode));
+    } catch (error) {
+      document.querySelector('#live-weather').textContent = 'Weather unavailable';
+    }
+  };
+  updateHeaderSize(); window.addEventListener('resize', updateHeaderSize);
+  refreshClock(); refreshWeather(); setInterval(refreshClock,30000); setInterval(refreshWeather,900000);
+})();
 </script>
 </body>
 </html>
