@@ -355,7 +355,7 @@ body{background:#f2f0eb;color:var(--text);color-scheme:light}
   body{background-color:#171717}
   #app{background-color:#f2f0eb}
 }
-/* 2NC Liquid Glass suite — Authority v4.21.1 */
+/* 2NC Liquid Glass suite — Authority v4.21.2 */
 @media screen{
 :root{--bg:#111014;--panel:#21161c;--panel2:#2c1b23;--line:rgba(218,135,155,.2);--text:#fbf7f8;--muted:#bba7ae;--orange:#a9364c;--orange2:#7f2438;--shadow:0 22px 68px rgba(9,2,6,.38)}
 html{background:#0f0d11}body{min-height:100vh;background:radial-gradient(circle at 15% -5%,rgba(140,34,58,.32),transparent 34%),radial-gradient(circle at 84% 10%,rgba(82,22,42,.24),transparent 31%),linear-gradient(150deg,#0f0d11 0%,#1a1016 48%,#100e12 100%);color:var(--text);background-attachment:fixed}
@@ -433,4 +433,14 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
   }
   body[data-mode="quick"] .workspace{height:auto!important;min-height:0!important;overflow:visible!important}
   .queuePanel{padding-bottom:16px!important}
+}
+
+
+/* v4.21.2 — keep the five shared desktop header regions on one row */
+@media screen and (min-width:961px){
+  .suite-brand{grid-column:1;grid-row:1}
+  .suite-time-context{grid-column:2;grid-row:1}
+  .suite-spaces{grid-column:3;grid-row:1}
+  .suite-place-context{grid-column:4;grid-row:1}
+  .suite-header-actions{grid-column:5;grid-row:1}
 }
