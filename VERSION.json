@@ -1,6 +1,6 @@
 {
-  "version": "4.21.1",
+  "version": "4.21.2",
   "name": "Unified Liquid Glass Shell",
-  "release": "2NC Authority Suite GitHub v4.21.1",
-  "notes": "Publishes the shared Command Center header and All Tools drawer, graphite and oxblood Liquid Glass theme, removes the redundant mobile bottom navigation, and refreshes the PWA shell while preserving lookup, label, print, database, sync, and offline behavior."
+  "release": "2NC Authority Suite GitHub v4.21.2",
+  "notes": "Locks the shared five-region desktop header to one line, preserves the matching responsive mobile shell and single All Tools drawer, and keeps all lookup, label, print, database, sync, and offline behavior intact."
 }
