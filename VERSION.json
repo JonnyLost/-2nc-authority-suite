@@ -1,6 +1,6 @@
 {
-  "version": "4.21.4",
-  "name": "Quick Lookup Action Cleanup",
-  "release": "2NC Authority Suite GitHub v4.21.4",
-  "notes": "Removes redundant Quick Lookup navigation shortcuts and keeps Add to queue as the single full-width action beneath the filing answer, with lookup, queue, label, print, sync, database, and offline behavior unchanged."
+  "version": "4.22.0",
+  "name": "Rock, Pop, Alternative, Punk & Metal Deep Dive",
+  "release": "2NC Authority Suite GitHub v4.22.0",
+  "notes": "Adds 700 audited music authorities across rock, pop, alternative, punk, and metal, with a primary and secondary subgenre for every new artist while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
 }
