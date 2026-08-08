@@ -1,45 +1,29 @@
-# 2NC Authority Suite v4.19.2 — 30-up Comic Label Layout Fix
+# 2NC Authority Suite v4.22.0 — Music Genre Deep Dive
 
-This release follows the publisher deep dives with a title-by-title Marvel audit. It covers exact publication runs—not only major character, team, and event families—so short miniseries, one-shots, licensed books, repeated volumes, and historical Timely/Atlas titles can be found without creating custom labels.
+This release expands the store-floor music filing authority across rock, pop, alternative, punk, and heavy metal. Punk remains filed under Alternative and heavy metal remains filed under Metal, matching the established Authority taxonomy.
 
-The recognizable property, character, team, event, or title family remains the shelf-visible filing authority. Publisher and historical publishing-line data remain supporting metadata.
+## v4.22.0 changes
 
-## v4.19.2 changes
-
-- Corrects comic labels to the measured Amazon stock: 3½ × ⅔ inches.
-- Prints 30 comic labels per portrait US Letter sheet in 2 columns of 15.
-- Uses exact ½-inch outer margins and center gutter in browser printing, calibration sheets, and generated PDFs.
-
-## v4.19 changes
-
-- Audited 5,295 Marvel publication runs across the complete A–Z history index.
-- Audited 380 additional Timely Comics and Atlas Comics publication runs.
-- Added 1,120 primary filing authorities and 4,886 run-specific subordinate records over v4.18.
-- Reused 788 exact runs already represented in the Authority Suite instead of duplicating them.
-- Added start and end years to new run records so repeated titles and volumes remain distinguishable in lookup.
-- Corrected the inherited 2017 **Bullseye** series to file under **BULLSEYE**.
-- Packaged the Marvel expansion in small supplemental bundles so the offline cache and GitHub synchronization path can load the much larger catalog reliably.
-- Preserved Quick Lookup, one-tap Clear, queueing, music lookup, label generators, printing, synchronization, and genuine Authority Manager edits.
-
-## User-reported examples
-
-- *Avataars: Covenant of the Shield* (2000) → **AVATAARS**
-- *Bullseye* (2017), *Bullseye: Greatest Hits* (2004–2005), and *Bullseye: Perfect Game* (2011) → **BULLSEYE**
-- *Battlefield* (1952–1953) → **BATTLEFIELD**, with Atlas Comics retained as publishing-line metadata
-- *Barbie* (1991–1996), *Barbie Fashion* (1991–1995), and *Barbie & Baby Sister Kelly* (1995) → **BARBIE**
+- Audited established reference highlights, historically important scenes, modern chart and award activity, and retail-relevant artists across the requested genres.
+- Added 700 previously missing artists: 86 Rock, 83 Pop, 304 Alternative (including Punk), and 227 Metal.
+- Added a primary and secondary subgenre to every new artist so vinyl and CD labels retain both requested descriptor lines.
+- Repaired the inherited Queensrÿche record that was missing its secondary label subgenre.
+- Assigned Essential, Recommended, or Optional divider levels based on historical influence, recognition, current relevance, and likely store-floor usefulness.
+- Preserved all existing artist IDs, locally edited Authority Manager records, retired/deleted records, comics, queues, labels, printing, synchronization, and offline behavior.
 
 ## Database
 
-- Music records: 4,606
-- Comic records: 13,287
-- Primary comic authorities: 3,579
-- Subordinate comic records: 9,708
-- Net new comic records: 6,006
-- Publication runs audited: 5,675
-- Duplicate comic IDs: 0
+- Music records: 5,306
+- Net new music records: 700
+- Rock additions: 86
+- Pop additions: 83
+- Alternative and punk additions: 304
+- Metal additions: 227
+- Music records missing a primary subgenre: 0
+- Music records missing a secondary subgenre: 0
 - Duplicate music IDs: 0
-- Unresolved parent authorities: 0
+- Comic records: 13,287
 
 ## Upgrade
 
-Open the published site once with `?v=4.19`, then fully close and reopen any installed PWA. The app merges the expanded bundle and applies the audited Bullseye filing repair while preserving records explicitly edited in Authority Manager.
+Open the published site once with ?v=4.22.0, then fully close and reopen the installed web app. The updated bundle is merged into the device database while preserving genuine Authority Manager edits and device-local custom records.
