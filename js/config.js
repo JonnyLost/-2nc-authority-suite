@@ -1,12 +1,12 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '4.21.4',
-  build: '2026-08-08-quick-lookup-action-cleanup',
+  version: '4.22.0',
+  build: '2026-08-08-music-genre-deep-dive',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],
-  cacheName: '2nc-authority-suite-v4.21.4',
-  expectedMinimums: { music: 4500, comic: 13200 },
+  cacheName: '2nc-authority-suite-v4.22.0',
+  expectedMinimums: { music: 5300, comic: 13200 },
   bundledFiles: {
     music: 'data/music.json',
     comic: [
@@ -19,3 +19,4 @@ window.APP_CONFIG = Object.freeze({
     ]
   }
 });
+
