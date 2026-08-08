@@ -1,6 +1,6 @@
 {
-  "version": "4.20.3",
-  "name": "Mobile Bottom Canvas Finish",
-  "release": "2NC Authority Suite GitHub v4.20.3",
-  "notes": "Paints the mobile page canvas behind the fixed navigation black, removing the lower iPhone blank strip while preserving the cream workspace, white top status area, application behavior, databases, migrations, and label geometry."
+  "version": "4.21.1",
+  "name": "Unified Liquid Glass Shell",
+  "release": "2NC Authority Suite GitHub v4.21.1",
+  "notes": "Publishes the shared Command Center header and All Tools drawer, graphite and oxblood Liquid Glass theme, removes the redundant mobile bottom navigation, and refreshes the PWA shell while preserving lookup, label, print, database, sync, and offline behavior."
 }
