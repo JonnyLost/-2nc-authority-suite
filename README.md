@@ -1,27 +1,26 @@
-# 2NC Authority Suite v4.27.0 — Jazz & Swing Expansion
+# 2NC Authority Suite v4.28.0 — Latin & World Music Expansion
 
-This release completes a deep retail-coverage audit of Jazz and Swing while preserving Jazz as the established top-level Authority section.
+This release completes a deep retail-coverage audit of Latin and World Music while preserving both established top-level Authority sections.
 
-## v4.27.0 changes
+## v4.28.0 changes
 
-- Added 212 previously missing Jazz authorities across Swing / Big Band, Bop / Mainstream, Fusion / Contemporary, Avant-Garde / Global, and Vocal / Current coverage.
-- Assigned 67 Essential and 145 Recommended authority levels after a final retail-usefulness review.
+- Added 449 previously missing authorities: 236 Latin and 213 World Music.
+- Assigned 147 Essential and 302 Recommended authority levels after a final retail-usefulness review.
+- Expanded Latin pop, regional Mexican, Tejano, salsa, Cuban music, merengue, bachata, cumbia, vallenato, Brazilian music, Latin urban, reggae, African music, South Asia, the Middle East, Celtic and European traditions, East/Central Asia, the Pacific, and Indigenous music.
 - Added a primary and secondary subgenre to every new artist so vinyl and CD labels retain both requested descriptor lines.
-- Preserved all 6,697 existing music records and IDs, locally edited Authority Manager records, retired/deleted records, comics, queues, labels, printing, synchronization, and offline behavior.
-- Avoided cross-genre duplication, including Big Bad Voodoo Daddy, whose existing Rock authority remains the canonical lookup.
+- Preserved all 6,909 existing music records and IDs, locally edited Authority Manager records, retired/deleted records, comics, queues, labels, printing, synchronization, and offline behavior.
+- Avoided cross-genre duplication for artists already filed in Pop, Rock, Jazz, Classical, Alternative, Folk, and other appropriate sections.
 
 ## Database
 
-- Music records: 6,909
-- Net new music records: 212
-- Jazz authorities: 536
-- Swing / Big Band additions: 49
-- Bop / Mainstream additions: 43
-- Fusion / Contemporary additions: 33
-- Avant-Garde / Global additions: 37
-- Vocal / Current additions: 50
-- Essential additions: 67
-- Recommended additions: 145
+- Music records: 7,358
+- Net new music records: 449
+- Latin authorities: 354
+- World Music authorities: 330
+- Latin additions: 236
+- World Music additions: 213
+- Essential additions: 147
+- Recommended additions: 302
 - Music records missing a primary subgenre: 0
 - Music records missing a secondary subgenre: 0
 - Duplicate music IDs: 0
@@ -29,4 +28,4 @@ This release completes a deep retail-coverage audit of Jazz and Swing while pres
 
 ## Upgrade
 
-Open the published site once with ?v=4.27.0, then fully close and reopen the installed web app. The updated bundle is merged into the device database while preserving genuine Authority Manager edits and device-local custom records.
+Open the published site once with ?v=4.28.0, then fully close and reopen the installed web app. The updated bundle is merged into the device database while preserving genuine Authority Manager edits and device-local custom records.

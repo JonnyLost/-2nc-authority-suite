@@ -1,6 +1,6 @@
 {
-  "version": "4.27.0",
-  "name": "Jazz & Swing Expansion",
-  "release": "2NC Authority Suite GitHub v4.27.0",
-  "notes": "Adds 212 retail-useful Jazz authorities across Swing, Big Band, Bop, Fusion, Contemporary, Avant-Garde, Global, and Vocal Jazz, with both label subcategories populated while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
+  "version": "4.28.0",
+  "name": "Latin & World Music Expansion",
+  "release": "2NC Authority Suite GitHub v4.28.0",
+  "notes": "Adds 449 retail-useful music authorities across Latin and World Music, including regional Mexican, tropical, Brazilian, reggae, African, South Asian, Middle Eastern, Celtic, European, Asian, Pacific, and Indigenous traditions, with both label subcategories populated while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
 }
