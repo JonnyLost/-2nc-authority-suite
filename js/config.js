@@ -1,12 +1,12 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '4.24.0',
-  build: '2026-08-08-roots-music-deep-dive',
+  version: '4.25.0',
+  build: '2026-08-08-film-classical-composer-expansion',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],
-  cacheName: '2nc-authority-suite-v4.24.0',
-  expectedMinimums: { music: 6030, comic: 13200 },
+  cacheName: '2nc-authority-suite-v4.25.0',
+  expectedMinimums: { music: 6290, comic: 13200 },
   bundledFiles: {
     music: 'data/music.json',
     comic: [

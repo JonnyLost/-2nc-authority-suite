@@ -1,6 +1,6 @@
 {
-  "version": "4.24.0",
-  "name": "Roots Music Deep Dive",
-  "release": "2NC Authority Suite GitHub v4.24.0",
-  "notes": "Adds 367 retail-useful music authorities across country, blues, folk, bluegrass, and Americana, with both label subcategories populated while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
+  "version": "4.25.0",
+  "name": "Film & Classical Composer Expansion",
+  "release": "2NC Authority Suite GitHub v4.25.0",
+  "notes": "Adds 260 retail-useful composer authorities—91 film and screen composers plus 169 concert composers—with both label subcategories populated while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
 }
