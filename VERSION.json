@@ -1,6 +1,6 @@
 {
-  "version": "4.22.0",
-  "name": "Rock, Pop, Alternative, Punk & Metal Deep Dive",
-  "release": "2NC Authority Suite GitHub v4.22.0",
-  "notes": "Adds 700 audited music authorities across rock, pop, alternative, punk, and metal, with a primary and secondary subgenre for every new artist while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
+  "version": "4.23.0",
+  "name": "Music Genre Gap Closure",
+  "release": "2NC Authority Suite GitHub v4.23.0",
+  "notes": "Adds 363 retail-useful music authorities across rock, pop, alternative, punk, and metal, with both label subcategories populated while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
 }
