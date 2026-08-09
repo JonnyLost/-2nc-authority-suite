@@ -1,6 +1,6 @@
 {
-  "version": "4.23.0",
-  "name": "Music Genre Gap Closure",
-  "release": "2NC Authority Suite GitHub v4.23.0",
-  "notes": "Adds 363 retail-useful music authorities across rock, pop, alternative, punk, and metal, with both label subcategories populated while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
+  "version": "4.24.0",
+  "name": "Roots Music Deep Dive",
+  "release": "2NC Authority Suite GitHub v4.24.0",
+  "notes": "Adds 367 retail-useful music authorities across country, blues, folk, bluegrass, and Americana, with both label subcategories populated while preserving lookup, labels, queueing, printing, synchronization, comics, and offline behavior."
 }
