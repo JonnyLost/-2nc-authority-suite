@@ -399,8 +399,8 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
   }
   .suite-brand{grid-column:1;grid-row:1}
   .suite-header-actions{grid-column:2;grid-row:1}
-  .suite-spaces{grid-column:1/-1;grid-row:2;justify-self:center;padding:3px}
-  .suite-spaces a{padding:7px 10px;font-size:11px}
+  .suite-spaces{grid-column:1/-1;grid-row:2;justify-self:center;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100%,370px);height:36px;padding:3px}
+  .suite-spaces a{display:grid;place-items:center;padding:5px 8px;font-size:11px}
   .suite-live-strip{
     grid-column:1/-1;grid-row:3;display:flex;align-items:center;justify-content:center;
     gap:6px;min-width:0;overflow:hidden;font-size:9.5px
