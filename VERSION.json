@@ -1,6 +1,6 @@
 {
-  "version": "4.28.1",
-  "name": "Shared Mobile Switcher",
-  "release": "2NC Authority Suite GitHub v4.28.1",
-  "notes": "Enlarges the three-button mobile application switcher to match Insights while preserving the Authority Suite color palette and all application behavior."
+  "version": "4.29.0",
+  "name": "Independent Comics Expansion",
+  "release": "2NC Authority Suite GitHub v4.29.0",
+  "notes": "Adds more than 1,100 independent-comics series authorities across IDW, Dynamite, Archie, AfterShock, Zenescope, Valiant, Oni Press, Vault, Aspen, Avatar, Action Lab, Antarctic Press, Fantagraphics, First, Eclipse, Comico, Chaos!, Defiant, Acclaim and related publishers while preserving existing authority data and local edits."
 }
