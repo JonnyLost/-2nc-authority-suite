@@ -1,12 +1,12 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '4.29.0',
-  build: '2026-10-06-independent-comics-expansion',
+  version: '4.30.0',
+  build: '2026-10-06-independent-comics-deep-dive',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],
-  cacheName: '2nc-authority-suite-v4.29.0',
-  expectedMinimums: { music: 7350, comic: 14350 },
+  cacheName: '2nc-authority-suite-v4.30.0',
+  expectedMinimums: { music: 7350, comic: 15150 },
   bundledFiles: {
     music: 'data/music.json',
     comic: [
@@ -16,7 +16,8 @@ window.APP_CONFIG = Object.freeze({
       'data/comics-v4.19-07.json', 'data/comics-v4.19-08.json', 'data/comics-v4.19-09.json',
       'data/comics-v4.19-10.json', 'data/comics-v4.19-11.json', 'data/comics-v4.19-12.json',
       'data/comics-v4.19-13.json',
-      'data/comics-indie-expansion-v4.29.json'
+      'data/comics-indie-expansion-v4.29.json',
+      'data/comics-indie-deep-dive-v4.30.json'
     ]
   }
 });
