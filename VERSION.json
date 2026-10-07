@@ -1,6 +1,6 @@
 {
-  "version": "4.29.0",
-  "name": "Independent Comics Expansion",
-  "release": "2NC Authority Suite GitHub v4.29.0",
-  "notes": "Adds more than 1,100 independent-comics series authorities across IDW, Dynamite, Archie, AfterShock, Zenescope, Valiant, Oni Press, Vault, Aspen, Avatar, Action Lab, Antarctic Press, Fantagraphics, First, Eclipse, Comico, Chaos!, Defiant, Acclaim and related publishers while preserving existing authority data and local edits."
+  "version": "4.30.0",
+  "name": "Independent Comics Deep Dive",
+  "release": "2NC Authority Suite GitHub v4.30.0",
+  "notes": "Adds 803 additional independent and historical direct-market comics authorities across Top Cow, Mad Cave, Scout, Devil's Due, AWA, Malibu, Caliber, NOW, Source Point, Red 5, Kitchen Sink, Moonstone, Dreamwave, Top Shelf, Pacific, Innovation, Titan, Zenescope and many other publishers. Complements the v4.29 expansion while preserving existing records and local edits."
 }
