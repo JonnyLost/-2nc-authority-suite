@@ -1,6 +1,6 @@
 {
-  "version": "4.32.0",
-  "name": "Independent and Media Tie-In Comics",
-  "release": "2NC Authority Suite GitHub v4.32.0",
-  "notes": "Adds 183 additional series-label entries for independent comics and film, television and licensed tie-ins, including Deep Beyond, Django Unchained, Diablo House, Dracula and Dresden Files-related entries. Existing data, primary authorities and saved edits are preserved."
+  "version": "4.33.0",
+  "name": "Independent Comics Deep Dive Five",
+  "release": "2NC Authority Suite GitHub v4.33.0",
+  "notes": "Adds 63 series-label entries across independent comics publishers, including Electropolis, Elle(s), Engineward, Eve: Children of the Moon, Harvest and distinct Hellshock series. Extraordinary and Forsaken require identification."
 }
