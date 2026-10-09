@@ -1,6 +1,6 @@
 {
-  "version": "4.34.1",
-  "name": "Verified Independent Comics Series",
-  "release": "2NC Authority Suite GitHub v4.34.1",
-  "notes": "Adds verified mixed-case series labels for Horror Comics (Antarctic Press), I Love Trouble (Image), Iron and the Maiden (Aspen) and its collected-title variant The Iron Saint (Top Cow). Existing records and local edits preserved."
+  "version": "4.35.0",
+  "name": "Image Comics Historical Catalog Expansion — Batch 1",
+  "release": "2NC Authority Suite GitHub v4.35.0",
+  "notes": "Adds 65 mixed-case Image Comics series authorities in data/comics-image-series-v4.35.json. Existing catalog files and IDs retained. Publisher-wide A–Z audit is ongoing."
 }
