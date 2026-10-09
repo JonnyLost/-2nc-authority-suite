@@ -1,6 +1,6 @@
 {
-  "version": "4.30.0",
-  "name": "Independent Comics Deep Dive",
-  "release": "2NC Authority Suite GitHub v4.30.0",
-  "notes": "Adds 803 additional independent and historical direct-market comics authorities across Top Cow, Mad Cave, Scout, Devil's Due, AWA, Malibu, Caliber, NOW, Source Point, Red 5, Kitchen Sink, Moonstone, Dreamwave, Top Shelf, Pacific, Innovation, Titan, Zenescope and many other publishers. Complements the v4.29 expansion while preserving existing records and local edits."
+  "version": "4.30.1",
+  "name": "Uniform Independent Comics Labels",
+  "release": "2NC Authority Suite GitHub v4.30.1",
+  "notes": "Adds 1,909 series-level companions for all independent-comics authorities introduced in v4.29 and v4.30. Series results are preferred over primary authorities for uniform mixed-case comic labels. Existing primary authorities and saved records are retained."
 }
