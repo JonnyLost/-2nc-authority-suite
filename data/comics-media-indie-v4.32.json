@@ -52,19 +52,6 @@
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
-    "id": "IND4-00005",
-    "display": "The Nice House on the Lake",
-    "parent": "The Nice House on the Lake",
-    "series": "The Nice House on the Lake",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Nice House on the Lake",
-    "printedTitle": "The Nice House on the Lake",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
     "id": "IND4-00006",
     "display": "The Walking Dead: The Alien",
     "parent": "The Walking Dead: The Alien",
@@ -179,19 +166,6 @@
     "level": "Recommended",
     "sort": "Jupiter's Legacy: Requiem",
     "printedTitle": "Jupiter's Legacy: Requiem",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00015",
-    "display": "The Massive-Verse",
-    "parent": "The Massive-Verse",
-    "series": "The Massive-Verse",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Massive-Verse",
-    "printedTitle": "The Massive-Verse",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -439,19 +413,6 @@
     "level": "Recommended",
     "sort": "Dresden Files: Storm Front: Maelstrom",
     "printedTitle": "The Dresden Files: Storm Front: Maelstrom",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00035",
-    "display": "The Dresden Files: The Dresden Files Omnibus",
-    "parent": "The Dresden Files: The Dresden Files Omnibus",
-    "series": "The Dresden Files: The Dresden Files Omnibus",
-    "primary": false,
-    "publisher": "Dynamite",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Dresden Files: The Dresden Files Omnibus",
-    "printedTitle": "The Dresden Files: The Dresden Files Omnibus",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -741,19 +702,6 @@
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
-    "id": "IND4-00058",
-    "display": "Star Trek: Picard: Academy",
-    "parent": "Star Trek: Picard: Academy",
-    "series": "Star Trek: Picard: Academy",
-    "primary": false,
-    "publisher": "IDW",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Star Trek: Picard: Academy",
-    "printedTitle": "Star Trek: Picard: Academy",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
     "id": "IND4-00059",
     "display": "Star Trek: Strange New Worlds: The Illyrian Enigma",
     "parent": "Star Trek: Strange New Worlds: The Illyrian Enigma",
@@ -816,19 +764,6 @@
     "level": "Recommended",
     "sort": "Star Trek: Lower Decks: Warp Your Own Way",
     "printedTitle": "Star Trek: Lower Decks: Warp Your Own Way",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00064",
-    "display": "Star Trek: Lower Decks: Crew Handbook",
-    "parent": "Star Trek: Lower Decks: Crew Handbook",
-    "series": "Star Trek: Lower Decks: Crew Handbook",
-    "primary": false,
-    "publisher": "IDW",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Star Trek: Lower Decks: Crew Handbook",
-    "printedTitle": "Star Trek: Lower Decks: Crew Handbook",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -1115,19 +1050,6 @@
     "level": "Recommended",
     "sort": "Mars Attacks: Zombies vs. Robots",
     "printedTitle": "Mars Attacks: Zombies vs. Robots",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00087",
-    "display": "Bram Stoker's Dracula: Vlad the Impaler",
-    "parent": "Bram Stoker's Dracula: Vlad the Impaler",
-    "series": "Bram Stoker's Dracula: Vlad the Impaler",
-    "primary": false,
-    "publisher": "Topps Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Bram Stoker's Dracula: Vlad the Impaler",
-    "printedTitle": "Bram Stoker's Dracula: Vlad the Impaler",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -1482,32 +1404,6 @@
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
-    "id": "IND4-00115",
-    "display": "Doctor Who: The Fifteenth Doctor",
-    "parent": "Doctor Who: The Fifteenth Doctor",
-    "series": "Doctor Who: The Fifteenth Doctor",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Fifteenth Doctor",
-    "printedTitle": "Doctor Who: The Fifteenth Doctor",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00116",
-    "display": "Doctor Who: The Fugitive Doctor",
-    "parent": "Doctor Who: The Fugitive Doctor",
-    "series": "Doctor Who: The Fugitive Doctor",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Fugitive Doctor",
-    "printedTitle": "Doctor Who: The Fugitive Doctor",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
     "id": "IND4-00117",
     "display": "Doctor Who: Missy",
     "parent": "Doctor Who: Missy",
@@ -1560,19 +1456,6 @@
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
-    "id": "IND4-00121",
-    "display": "Doctor Who: The Many Lives of Doctor Who",
-    "parent": "Doctor Who: The Many Lives of Doctor Who",
-    "series": "Doctor Who: The Many Lives of Doctor Who",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Many Lives of Doctor Who",
-    "printedTitle": "Doctor Who: The Many Lives of Doctor Who",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
     "id": "IND4-00122",
     "display": "Doctor Who: Once Upon a Time Lord",
     "parent": "Doctor Who: Once Upon a Time Lord",
@@ -1583,45 +1466,6 @@
     "level": "Recommended",
     "sort": "Doctor Who: Once Upon a Time Lord",
     "printedTitle": "Doctor Who: Once Upon a Time Lord",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00123",
-    "display": "Doctor Who: The Star Beast",
-    "parent": "Doctor Who: The Star Beast",
-    "series": "Doctor Who: The Star Beast",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Star Beast",
-    "printedTitle": "Doctor Who: The Star Beast",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00124",
-    "display": "Doctor Who: The Road to the Thirteenth Doctor",
-    "parent": "Doctor Who: The Road to the Thirteenth Doctor",
-    "series": "Doctor Who: The Road to the Thirteenth Doctor",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Road to the Thirteenth Doctor",
-    "printedTitle": "Doctor Who: The Road to the Thirteenth Doctor",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00125",
-    "display": "Doctor Who: The Heralds of Destruction",
-    "parent": "Doctor Who: The Heralds of Destruction",
-    "series": "Doctor Who: The Heralds of Destruction",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Heralds of Destruction",
-    "printedTitle": "Doctor Who: The Heralds of Destruction",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -1674,58 +1518,6 @@
     "level": "Recommended",
     "sort": "Doctor Who: The Eighth Doctor",
     "printedTitle": "Doctor Who: The Eighth Doctor",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00130",
-    "display": "Doctor Who: The War Doctor",
-    "parent": "Doctor Who: The War Doctor",
-    "series": "Doctor Who: The War Doctor",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The War Doctor",
-    "printedTitle": "Doctor Who: The War Doctor",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00131",
-    "display": "Doctor Who: The Weeping Angels of Mons",
-    "parent": "Doctor Who: The Weeping Angels of Mons",
-    "series": "Doctor Who: The Weeping Angels of Mons",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Weeping Angels of Mons",
-    "printedTitle": "Doctor Who: The Weeping Angels of Mons",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00132",
-    "display": "Doctor Who: The Cybermen",
-    "parent": "Doctor Who: The Cybermen",
-    "series": "Doctor Who: The Cybermen",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Cybermen",
-    "printedTitle": "Doctor Who: The Cybermen",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00133",
-    "display": "Doctor Who: The Daleks",
-    "parent": "Doctor Who: The Daleks",
-    "series": "Doctor Who: The Daleks",
-    "primary": false,
-    "publisher": "Titan Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Doctor Who: The Daleks",
-    "printedTitle": "Doctor Who: The Daleks",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -1976,32 +1768,6 @@
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
-    "id": "IND4-00153",
-    "display": "The Witcher: The Lesser Evil",
-    "parent": "The Witcher: The Lesser Evil",
-    "series": "The Witcher: The Lesser Evil",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Witcher: The Lesser Evil",
-    "printedTitle": "The Witcher: The Lesser Evil",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00154",
-    "display": "The Witcher: The Edge of the World",
-    "parent": "The Witcher: The Edge of the World",
-    "series": "The Witcher: The Edge of the World",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Witcher: The Edge of the World",
-    "printedTitle": "The Witcher: The Edge of the World",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
     "id": "IND4-00155",
     "display": "Stranger Things: The Other Side",
     "parent": "Stranger Things: The Other Side",
@@ -2067,32 +1833,6 @@
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
-    "id": "IND4-00160",
-    "display": "Stranger Things: Erica the Great",
-    "parent": "Stranger Things: Erica the Great",
-    "series": "Stranger Things: Erica the Great",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Stranger Things: Erica the Great",
-    "printedTitle": "Stranger Things: Erica the Great",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00161",
-    "display": "Stranger Things: Zombie Boys",
-    "parent": "Stranger Things: Zombie Boys",
-    "series": "Stranger Things: Zombie Boys",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Stranger Things: Zombie Boys",
-    "printedTitle": "Stranger Things: Zombie Boys",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
     "id": "IND4-00162",
     "display": "The Legend of Korra: Patterns in Time",
     "parent": "The Legend of Korra: Patterns in Time",
@@ -2116,19 +1856,6 @@
     "level": "Recommended",
     "sort": "Legend of Korra: The Mystery of Penquan Island",
     "printedTitle": "The Legend of Korra: The Mystery of Penquan Island",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00164",
-    "display": "Mass Effect: Andromeda: Initiation",
-    "parent": "Mass Effect: Andromeda: Initiation",
-    "series": "Mass Effect: Andromeda: Initiation",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Mass Effect: Andromeda: Initiation",
-    "printedTitle": "Mass Effect: Andromeda: Initiation",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -2285,19 +2012,6 @@
     "level": "Recommended",
     "sort": "Star Wars: The Last Jedi",
     "printedTitle": "Star Wars: The Last Jedi",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00177",
-    "display": "Star Wars: The Rise of Skywalker",
-    "parent": "Star Wars: The Rise of Skywalker",
-    "series": "Star Wars: The Rise of Skywalker",
-    "primary": false,
-    "publisher": "Marvel",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Star Wars: The Rise of Skywalker",
-    "printedTitle": "Star Wars: The Rise of Skywalker",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
@@ -2535,19 +2249,6 @@
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
-    "id": "IND4-00196",
-    "display": "Disney's The Princess and the Frog",
-    "parent": "Disney's The Princess and the Frog",
-    "series": "Disney's The Princess and the Frog",
-    "primary": false,
-    "publisher": "Disney Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Disney's The Princess and the Frog",
-    "printedTitle": "Disney's The Princess and the Frog",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
     "id": "IND4-00197",
     "display": "Disney's Frozen",
     "parent": "Disney's Frozen",
@@ -2558,19 +2259,6 @@
     "level": "Recommended",
     "sort": "Disney's Frozen",
     "printedTitle": "Disney's Frozen",
-    "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
-  },
-  {
-    "id": "IND4-00198",
-    "display": "Disney's Moana",
-    "parent": "Disney's Moana",
-    "series": "Disney's Moana",
-    "primary": false,
-    "publisher": "Disney Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Disney's Moana",
-    "printedTitle": "Disney's Moana",
     "notes": "Movie/TV and independent comics series expansion; publisher attribution subject to ongoing catalog verification."
   },
   {
