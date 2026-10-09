@@ -1,6 +1,6 @@
 {
-  "version": "4.31.0",
-  "name": "Independent Comics Series Deep Dive 3",
-  "release": "2NC Authority Suite GitHub v4.31.0",
-  "notes": "Adds 537 additional series-level label entries across independent and historic publishers, including Classics Illustrated, Cyber Force spelling variants, Damsels, Dark Red and Deadworld. Preserves original primary authorities and earlier expansions. Ambiguous Cursed titles require publisher confirmation."
+  "version": "4.32.0",
+  "name": "Independent and Media Tie-In Comics",
+  "release": "2NC Authority Suite GitHub v4.32.0",
+  "notes": "Adds 183 additional series-label entries for independent comics and film, television and licensed tie-ins, including Deep Beyond, Django Unchained, Diablo House, Dracula and Dresden Files-related entries. Existing data, primary authorities and saved edits are preserved."
 }
