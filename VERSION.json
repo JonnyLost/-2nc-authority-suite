@@ -1,6 +1,6 @@
 {
-  "version": "4.35.0",
-  "name": "Image Comics Historical Catalog Expansion — Batch 1",
-  "release": "2NC Authority Suite GitHub v4.35.0",
-  "notes": "Adds 65 mixed-case Image Comics series authorities in data/comics-image-series-v4.35.json. Existing catalog files and IDs retained. Publisher-wide A–Z audit is ongoing."
+  "version": "4.36.0",
+  "name": "Independent Comics Missing Series Expansion",
+  "release": "2NC Authority Suite GitHub v4.36.0",
+  "notes": "Adds 44 series-level mixed-case comic labels spanning Image, IDW, WildStorm, Dark Horse, Dell, AWA, Marvel, DC and other publishers. Remaining ambiguous titles held for research; publisher-wide audit ongoing."
 }
