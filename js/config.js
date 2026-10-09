@@ -26,7 +26,10 @@ window.APP_CONFIG = Object.freeze({
       'data/comics-indie-series-v4.34.1.json',
       'data/comics-image-series-v4.35.json',
       'data/comics-missing-series-v4.36.json',
-      'data/comics-verified-obscure-v4.37.0.json'
+      'data/comics-verified-obscure-v4.36.1.json',
+      'data/comics-image-deep-dive-v4.37.json',
+      'data/comics-image-deep-dive-v4.37-b.json',
+      'data/comics-image-deep-dive-v4.37-c.json'
     ]
   }
 });
