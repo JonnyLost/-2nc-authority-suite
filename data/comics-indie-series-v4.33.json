@@ -678,19 +678,6 @@
     "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
   },
   {
-    "id": "IND5-00059",
-    "display": "Electropolis",
-    "parent": "Electropolis",
-    "series": "Electropolis",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Electropolis",
-    "printedTitle": "Electropolis",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
     "id": "IND5-00060",
     "display": "Mister X: Condemned",
     "parent": "Mister X: Condemned",
