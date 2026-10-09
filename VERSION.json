@@ -1,6 +1,6 @@
 {
-  "version": "4.34.0",
-  "name": "Independent Comics Deep Dive Six",
-  "release": "2NC Authority Suite GitHub v4.34.0",
-  "notes": "Adds 66 additional series-label entries across Dark Horse, BOOM!, Oni Press, IDW, Mad Cave, AWA and licensed comics. Preserves prior authority data and user edits."
+  "version": "4.34.1",
+  "name": "Verified Independent Comics Series",
+  "release": "2NC Authority Suite GitHub v4.34.1",
+  "notes": "Adds verified mixed-case series labels for Horror Comics (Antarctic Press), I Love Trouble (Image), Iron and the Maiden (Aspen) and its collected-title variant The Iron Saint (Top Cow). Existing records and local edits preserved."
 }
