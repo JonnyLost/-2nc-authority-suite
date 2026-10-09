@@ -1,6 +1,6 @@
 {
-  "version": "4.37.0",
-  "name": "Image Comics Deep Dive Batch",
-  "release": "2NC Authority Suite GitHub v4.37.0",
-  "notes": "Adds 60 mixed-case Image series records in three expansion files. Historical publisher-wide audit remains in progress."
+  "version": "4.38.0",
+  "name": "Early Image and WildStorm Historical Expansion",
+  "release": "2NC Authority Suite GitHub v4.38.0",
+  "notes": "Adds ten early Image-era series and specials as mixed-case series-level records. Existing records and catalog files retained; wider 1992–2005 historical audit continues."
 }
