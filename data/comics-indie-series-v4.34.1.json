@@ -1,0 +1,58 @@
+[
+  {
+    "id": "IND7-00001",
+    "display": "Horror Comics",
+    "parent": "Horror Comics",
+    "series": "Horror Comics",
+    "primary": false,
+    "publisher": "Antarctic Press",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Horror Comics",
+    "printedTitle": "Horror Comics",
+    "startYear": 2019,
+    "notes": "Verified comic series / collected-title variant. Series-level label; mixed case."
+  },
+  {
+    "id": "IND7-00002",
+    "display": "I Love Trouble",
+    "parent": "I Love Trouble",
+    "series": "I Love Trouble",
+    "primary": false,
+    "publisher": "Image",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "I Love Trouble",
+    "printedTitle": "I Love Trouble",
+    "startYear": 2012,
+    "notes": "Verified comic series / collected-title variant. Series-level label; mixed case."
+  },
+  {
+    "id": "IND7-00003",
+    "display": "Iron and the Maiden",
+    "parent": "Iron and the Maiden",
+    "series": "Iron and the Maiden",
+    "primary": false,
+    "publisher": "Aspen Comics",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Iron and the Maiden",
+    "printedTitle": "Iron and the Maiden",
+    "startYear": 2007,
+    "notes": "Verified comic series / collected-title variant. Series-level label; mixed case."
+  },
+  {
+    "id": "IND7-00004",
+    "display": "The Iron Saint",
+    "parent": "Iron and the Maiden",
+    "series": "The Iron Saint",
+    "primary": false,
+    "publisher": "Top Cow",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Iron Saint",
+    "printedTitle": "The Iron Saint",
+    "startYear": 2010,
+    "notes": "Verified comic series / collected-title variant. Series-level label; mixed case."
+  }
+]
