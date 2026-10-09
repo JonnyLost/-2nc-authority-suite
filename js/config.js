@@ -23,7 +23,7 @@ window.APP_CONFIG = Object.freeze({
       'data/comics-media-indie-v4.32.json',
       'data/comics-indie-series-v4.33.json',
       'data/comics-indie-series-v4.34.json',
-      'data/comics-indie-series-v4.35.0.json'
+      'data/comics-image-series-v4.35.json'
     ]
   }
 });
