@@ -111,84 +111,6 @@
     "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
   },
   {
-    "id": "IND5-00009",
-    "display": "The Red Star: Nokgorka",
-    "parent": "The Red Star: Nokgorka",
-    "series": "The Red Star: Nokgorka",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Red Star: Nokgorka",
-    "printedTitle": "The Red Star: Nokgorka",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00010",
-    "display": "The Red Star: Sword of Lies",
-    "parent": "The Red Star: Sword of Lies",
-    "series": "The Red Star: Sword of Lies",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Red Star: Sword of Lies",
-    "printedTitle": "The Red Star: Sword of Lies",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00011",
-    "display": "The Red Star: The Battle of Kar Dathra's Gate",
-    "parent": "The Red Star: The Battle of Kar Dathra's Gate",
-    "series": "The Red Star: The Battle of Kar Dathra's Gate",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Red Star: The Battle of Kar Dathra's Gate",
-    "printedTitle": "The Red Star: The Battle of Kar Dathra's Gate",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00012",
-    "display": "The Red Star: The Sword of Lies",
-    "parent": "The Red Star: The Sword of Lies",
-    "series": "The Red Star: The Sword of Lies",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Red Star: The Sword of Lies",
-    "printedTitle": "The Red Star: The Sword of Lies",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00013",
-    "display": "The Red Star: The Prison of Souls",
-    "parent": "The Red Star: The Prison of Souls",
-    "series": "The Red Star: The Prison of Souls",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Red Star: The Prison of Souls",
-    "printedTitle": "The Red Star: The Prison of Souls",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00014",
-    "display": "The Red Star: Run Makita Run",
-    "parent": "The Red Star: Run Makita Run",
-    "series": "The Red Star: Run Makita Run",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Red Star: Run Makita Run",
-    "printedTitle": "The Red Star: Run Makita Run",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
     "id": "IND5-00015",
     "display": "Elle(s)",
     "parent": "Elle(s)",
@@ -216,19 +138,6 @@
     "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
   },
   {
-    "id": "IND5-00017",
-    "display": "Elle(s): The Elle-Verse",
-    "parent": "Elle(s): The Elle-Verse",
-    "series": "Elle(s): The Elle-Verse",
-    "primary": false,
-    "publisher": "ABLAZE",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Elle(s): The Elle-Verse",
-    "printedTitle": "Elle(s): The Elle-Verse",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
     "id": "IND5-00018",
     "display": "Elle(s): Elle Together",
     "parent": "Elle(s): Elle Together",
@@ -252,32 +161,6 @@
     "level": "Recommended",
     "sort": "Boogyman",
     "printedTitle": "The Boogyman",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00020",
-    "display": "The Sickness",
-    "parent": "The Sickness",
-    "series": "The Sickness",
-    "primary": false,
-    "publisher": "ABLAZE",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Sickness",
-    "printedTitle": "The Sickness",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00021",
-    "display": "Traveling to Mars",
-    "parent": "Traveling to Mars",
-    "series": "Traveling to Mars",
-    "primary": false,
-    "publisher": "ABLAZE",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Traveling to Mars",
-    "printedTitle": "Traveling to Mars",
     "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
   },
   {
@@ -870,34 +753,6 @@
     "level": "Recommended",
     "sort": "Terminal City: Aerial Graffiti",
     "printedTitle": "Terminal City: Aerial Graffiti",
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00065",
-    "display": "Hellwitch Forsaken",
-    "parent": "Hellwitch Forsaken",
-    "series": "Hellwitch Forsaken",
-    "primary": false,
-    "publisher": "Coffin Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Hellwitch Forsaken",
-    "printedTitle": "Hellwitch Forsaken",
-    "startYear": 2020,
-    "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
-  },
-  {
-    "id": "IND5-00066",
-    "display": "Hellwitch Forbidden",
-    "parent": "Hellwitch Forbidden",
-    "series": "Hellwitch Forbidden",
-    "primary": false,
-    "publisher": "Coffin Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Hellwitch Forbidden",
-    "printedTitle": "Hellwitch Forbidden",
-    "startYear": 2023,
     "notes": "Independent comics catalog expansion; verify specific edition when multiple publishers or series share a title."
   },
   {
