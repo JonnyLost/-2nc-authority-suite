@@ -98,7 +98,7 @@
       else if (coverage >= .5) best = Math.max(best, 38 + coverage * 28);
       if (query.length > 3 && name.length > 3 && editDistance(query, name) <= (query.length > 8 ? 2 : 1)) best = Math.max(best, 82);
     });
-    if (kind === 'comic' && row.primary) best += .25;
+    if (kind === 'comic') best += row.primary ? 0 : .25;
     return best;
   }
 
@@ -195,7 +195,7 @@
     all.sort((a, b) => {
       if (state.sort === 'category') return recordCategory(a).localeCompare(recordCategory(b)) || resultName(a).localeCompare(resultName(b));
       if (state.sort === 'level') return (levelRank[a.level] ?? 9) - (levelRank[b.level] ?? 9) || resultName(a).localeCompare(resultName(b));
-      return resultName(a).localeCompare(resultName(b));
+      return resultName(a).localeCompare(resultName(b)) || (state.mode === 'comic' ? Number(Boolean(a.primary)) - Number(Boolean(b.primary)) : 0);
     });
     const rows = all.slice(0, 400);
     text('#resultCount', `${all.length.toLocaleString()} results${all.length > 400 ? ' (showing first 400)' : ''}`);
