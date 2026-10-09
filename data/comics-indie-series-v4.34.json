@@ -117,19 +117,6 @@
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
-    "id": "IND6-00010",
-    "display": "The Mask: I Pledge Allegiance to the Mask",
-    "parent": "The Mask: I Pledge Allegiance to the Mask",
-    "series": "The Mask: I Pledge Allegiance to the Mask",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Mask: I Pledge Allegiance to the Mask",
-    "printedTitle": "The Mask: I Pledge Allegiance to the Mask",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
     "id": "IND6-00011",
     "display": "The Mask/Marshal Law",
     "parent": "The Mask/Marshal Law",
@@ -156,32 +143,6 @@
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
-    "id": "IND6-00013",
-    "display": "The Mask/Striker",
-    "parent": "The Mask/Striker",
-    "series": "The Mask/Striker",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Mask/Striker",
-    "printedTitle": "The Mask/Striker",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00014",
-    "display": "The Mask: Southern Discomfort",
-    "parent": "The Mask: Southern Discomfort",
-    "series": "The Mask: Southern Discomfort",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Mask: Southern Discomfort",
-    "printedTitle": "The Mask: Southern Discomfort",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
     "id": "IND6-00015",
     "display": "The Cull",
     "parent": "The Cull",
@@ -205,32 +166,6 @@
     "level": "Recommended",
     "sort": "Displaced",
     "printedTitle": "The Displaced",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00017",
-    "display": "The Woods: Yearbook",
-    "parent": "The Woods: Yearbook",
-    "series": "The Woods: Yearbook",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Woods: Yearbook",
-    "printedTitle": "The Woods: Yearbook",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00018",
-    "display": "The Last Witch: Blood and Betrayal",
-    "parent": "The Last Witch: Blood and Betrayal",
-    "series": "The Last Witch: Blood and Betrayal",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Last Witch: Blood and Betrayal",
-    "printedTitle": "The Last Witch: Blood and Betrayal",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
@@ -283,84 +218,6 @@
     "level": "Recommended",
     "sort": "Darker Shade of Magic: The Steel Prince",
     "printedTitle": "A Darker Shade of Magic: The Steel Prince",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00023",
-    "display": "The Killer: Modus Vivendi",
-    "parent": "The Killer: Modus Vivendi",
-    "series": "The Killer: Modus Vivendi",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Killer: Modus Vivendi",
-    "printedTitle": "The Killer: Modus Vivendi",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00024",
-    "display": "The Killer: Secret Agenda",
-    "parent": "The Killer: Secret Agenda",
-    "series": "The Killer: Secret Agenda",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Killer: Secret Agenda",
-    "printedTitle": "The Killer: Secret Agenda",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00025",
-    "display": "The Killer: The End",
-    "parent": "The Killer: The End",
-    "series": "The Killer: The End",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Killer: The End",
-    "printedTitle": "The Killer: The End",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00026",
-    "display": "The Killer: Heart of Darkness",
-    "parent": "The Killer: Heart of Darkness",
-    "series": "The Killer: Heart of Darkness",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Killer: Heart of Darkness",
-    "printedTitle": "The Killer: Heart of Darkness",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00027",
-    "display": "The Killer: The Fairway",
-    "parent": "The Killer: The Fairway",
-    "series": "The Killer: The Fairway",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Killer: The Fairway",
-    "printedTitle": "The Killer: The Fairway",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00028",
-    "display": "The Slaughterverse",
-    "parent": "The Slaughterverse",
-    "series": "The Slaughterverse",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Slaughterverse",
-    "printedTitle": "The Slaughterverse",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
@@ -507,19 +364,6 @@
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
-    "id": "IND6-00040",
-    "display": "The Sickness: Volume Two",
-    "parent": "The Sickness: Volume Two",
-    "series": "The Sickness: Volume Two",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Sickness: Volume Two",
-    "printedTitle": "The Sickness: Volume Two",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
     "id": "IND6-00041",
     "display": "The Moth Keeper",
     "parent": "The Moth Keeper",
@@ -543,19 +387,6 @@
     "level": "Recommended",
     "sort": "Night Mother",
     "printedTitle": "The Night Mother",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00043",
-    "display": "The Night Mother: Volume Two",
-    "parent": "The Night Mother: Volume Two",
-    "series": "The Night Mother: Volume Two",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Night Mother: Volume Two",
-    "printedTitle": "The Night Mother: Volume Two",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
@@ -585,19 +416,6 @@
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
-    "id": "IND6-00046",
-    "display": "The Cemetery Kids Don't Die: Volume Two",
-    "parent": "The Cemetery Kids Don't Die: Volume Two",
-    "series": "The Cemetery Kids Don't Die: Volume Two",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cemetery Kids Don't Die: Volume Two",
-    "printedTitle": "The Cemetery Kids Don't Die: Volume Two",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
     "id": "IND6-00047",
     "display": "The Deviant",
     "parent": "The Deviant",
@@ -608,32 +426,6 @@
     "level": "Recommended",
     "sort": "Deviant",
     "printedTitle": "The Deviant",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00048",
-    "display": "The Sixth Gun: Road to the Six",
-    "parent": "The Sixth Gun: Road to the Six",
-    "series": "The Sixth Gun: Road to the Six",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Sixth Gun: Road to the Six",
-    "printedTitle": "The Sixth Gun: Road to the Six",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00049",
-    "display": "The Sixth Gun: Gunslinger Edition",
-    "parent": "The Sixth Gun: Gunslinger Edition",
-    "series": "The Sixth Gun: Gunslinger Edition",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Sixth Gun: Gunslinger Edition",
-    "printedTitle": "The Sixth Gun: Gunslinger Edition",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
@@ -673,32 +465,6 @@
     "level": "Recommended",
     "sort": "Rick and Morty: Finals Week",
     "printedTitle": "Rick and Morty: Finals Week",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00053",
-    "display": "Rick and Morty: Kingdom Balls",
-    "parent": "Rick and Morty: Kingdom Balls",
-    "series": "Rick and Morty: Kingdom Balls",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Rick and Morty: Kingdom Balls",
-    "printedTitle": "Rick and Morty: Kingdom Balls",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00054",
-    "display": "Rick and Morty: Maximum Overture",
-    "parent": "Rick and Morty: Maximum Overture",
-    "series": "Rick and Morty: Maximum Overture",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Rick and Morty: Maximum Overture",
-    "printedTitle": "Rick and Morty: Maximum Overture",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
@@ -819,19 +585,6 @@
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
-    "id": "IND6-00064",
-    "display": "The Rocketeer: Breaks Free",
-    "parent": "The Rocketeer: Breaks Free",
-    "series": "The Rocketeer: Breaks Free",
-    "primary": false,
-    "publisher": "IDW",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Rocketeer: Breaks Free",
-    "printedTitle": "The Rocketeer: Breaks Free",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
     "id": "IND6-00065",
     "display": "The Rocketeer: In the Den of Thieves",
     "parent": "The Rocketeer: In the Den of Thieves",
@@ -894,58 +647,6 @@
     "level": "Recommended",
     "sort": "Rocketeer: The Complete Adventures",
     "printedTitle": "The Rocketeer: The Complete Adventures",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00070",
-    "display": "The Rocketeer: The Island",
-    "parent": "The Rocketeer: The Island",
-    "series": "The Rocketeer: The Island",
-    "primary": false,
-    "publisher": "IDW",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Rocketeer: The Island",
-    "printedTitle": "The Rocketeer: The Island",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00071",
-    "display": "The Rocketeer: The Last Flight",
-    "parent": "The Rocketeer: The Last Flight",
-    "series": "The Rocketeer: The Last Flight",
-    "primary": false,
-    "publisher": "IDW",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Rocketeer: The Last Flight",
-    "printedTitle": "The Rocketeer: The Last Flight",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00072",
-    "display": "The Rocketeer: The New Adventures",
-    "parent": "The Rocketeer: The New Adventures",
-    "series": "The Rocketeer: The New Adventures",
-    "primary": false,
-    "publisher": "IDW",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Rocketeer: The New Adventures",
-    "printedTitle": "The Rocketeer: The New Adventures",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00073",
-    "display": "The Rocketeer: The Spirit: Pulp Friction",
-    "parent": "The Rocketeer: The Spirit: Pulp Friction",
-    "series": "The Rocketeer: The Spirit: Pulp Friction",
-    "primary": false,
-    "publisher": "IDW",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Rocketeer: The Spirit: Pulp Friction",
-    "printedTitle": "The Rocketeer: The Spirit: Pulp Friction",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
@@ -1053,19 +754,6 @@
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
-    "id": "IND6-00082",
-    "display": "The Phantom: The Ghost Who Walks Returns",
-    "parent": "The Phantom: The Ghost Who Walks Returns",
-    "series": "The Phantom: The Ghost Who Walks Returns",
-    "primary": false,
-    "publisher": "Mad Cave Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Phantom: The Ghost Who Walks Returns",
-    "printedTitle": "The Phantom: The Ghost Who Walks Returns",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
     "id": "IND6-00083",
     "display": "The Last Session: Roll for Romance",
     "parent": "The Last Session: Roll for Romance",
@@ -1076,45 +764,6 @@
     "level": "Recommended",
     "sort": "Last Session: Roll for Romance",
     "printedTitle": "The Last Session: Roll for Romance",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00084",
-    "display": "The Last Session: Reroll",
-    "parent": "The Last Session: Reroll",
-    "series": "The Last Session: Reroll",
-    "primary": false,
-    "publisher": "Mad Cave Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Last Session: Reroll",
-    "printedTitle": "The Last Session: Reroll",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00085",
-    "display": "The Last Session: No Longer a Hero",
-    "parent": "The Last Session: No Longer a Hero",
-    "series": "The Last Session: No Longer a Hero",
-    "primary": false,
-    "publisher": "Mad Cave Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Last Session: No Longer a Hero",
-    "printedTitle": "The Last Session: No Longer a Hero",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00086",
-    "display": "The Last Session: Return to the Table",
-    "parent": "The Last Session: Return to the Table",
-    "series": "The Last Session: Return to the Table",
-    "primary": false,
-    "publisher": "Mad Cave Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Last Session: Return to the Table",
-    "printedTitle": "The Last Session: Return to the Table",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
@@ -1180,19 +829,6 @@
     "level": "Recommended",
     "sort": "Hotell: Volume 2",
     "printedTitle": "Hotell: Volume 2",
-    "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
-  },
-  {
-    "id": "IND6-00092",
-    "display": "The Wrong Earth",
-    "parent": "The Wrong Earth",
-    "series": "The Wrong Earth",
-    "primary": false,
-    "publisher": "AWA Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Wrong Earth",
-    "printedTitle": "The Wrong Earth",
     "notes": "Independent and licensed comics catalog expansion; publication attribution requires continuing verification."
   },
   {
