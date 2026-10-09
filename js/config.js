@@ -1,11 +1,11 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '4.36.1',
+  version: '4.37.0',
   build: '2026-10-09-verified-obscure-series',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],
-  cacheName: '2nc-authority-suite-v4.36.1',
+  cacheName: '2nc-authority-suite-v4.37.0',
   expectedMinimums: { music: 7350, comic: 17850 },
   bundledFiles: {
     music: 'data/music.json',
@@ -26,7 +26,7 @@ window.APP_CONFIG = Object.freeze({
       'data/comics-indie-series-v4.34.1.json',
       'data/comics-image-series-v4.35.json',
       'data/comics-missing-series-v4.36.json',
-      'data/comics-verified-obscure-v4.36.1.json'
+      'data/comics-verified-obscure-v4.37.0.json'
     ]
   }
 });
