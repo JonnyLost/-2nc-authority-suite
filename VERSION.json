@@ -1,6 +1,6 @@
 {
-  "version": "4.36.1",
-  "name": "Researched Obscure Comics Series",
-  "release": "2NC Authority Suite GitHub v4.36.1",
-  "notes": "Adds nine series-level mixed-case authorities across independent publishers, preserving previous catalog files and IDs. Further ambiguous titles remain under review."
+  "version": "4.37.0",
+  "name": "Image Comics Deep Dive Batch",
+  "release": "2NC Authority Suite GitHub v4.37.0",
+  "notes": "Adds 60 mixed-case Image series records in three expansion files. Historical publisher-wide audit remains in progress."
 }
