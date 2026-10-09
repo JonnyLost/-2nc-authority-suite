@@ -1924,32 +1924,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00149",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00150",
-    "display": "Cursed: The Series",
-    "parent": "Cursed: The Series",
-    "series": "Cursed: The Series",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed: The Series",
-    "printedTitle": "Cursed: The Series",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00151",
     "display": "The Curse of the Spawn",
     "parent": "The Curse of the Spawn",
@@ -2561,45 +2535,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00198",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00199",
-    "display": "Cursed: The Illustrated Novel",
-    "parent": "Cursed: The Illustrated Novel",
-    "series": "Cursed: The Illustrated Novel",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed: The Illustrated Novel",
-    "printedTitle": "Cursed: The Illustrated Novel",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00200",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Dark Horse",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00201",
     "display": "Black Hammer: Visions",
     "parent": "Black Hammer: Visions",
@@ -2847,45 +2782,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00220",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00221",
-    "display": "Cursed: A Fairy Tale",
-    "parent": "Cursed: A Fairy Tale",
-    "series": "Cursed: A Fairy Tale",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed: A Fairy Tale",
-    "printedTitle": "Cursed: A Fairy Tale",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00222",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Boom! Studios",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00223",
     "display": "Something Is Killing the Children: House of Slaughter",
     "parent": "Something Is Killing the Children: House of Slaughter",
@@ -3107,19 +3003,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00240",
-    "display": "Classics Illustrated",
-    "parent": "Classics Illustrated",
-    "series": "Classics Illustrated",
-    "primary": false,
-    "publisher": "Archie",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Classics Illustrated",
-    "printedTitle": "Classics Illustrated",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00241",
     "display": "The Cursed Library",
     "parent": "The Cursed Library",
@@ -3247,32 +3130,6 @@
     "level": "Recommended",
     "sort": "Archie 1941: The Lost Years",
     "printedTitle": "Archie 1941: The Lost Years",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00251",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Valiant",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00252",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Valiant",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -3624,32 +3481,6 @@
     "level": "Recommended",
     "sort": "Stand: The Night Has Come",
     "printedTitle": "The Stand: The Night Has Come",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00280",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Scout Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00281",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Scout Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -4056,32 +3887,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00313",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Antarctic Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00314",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Antarctic Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00315",
     "display": "Ninja High School: Pocket Manga",
     "parent": "Ninja High School: Pocket Manga",
@@ -4222,32 +4027,6 @@
     "level": "Recommended",
     "sort": "Tomorrow Girl: Tomorrow's Yesterday",
     "printedTitle": "Tomorrow Girl: Tomorrow's Yesterday",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00326",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Vault Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00327",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Vault Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -4901,19 +4680,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00378",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "CrossGen",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00379",
     "display": "The First: CrossGen Chronicles",
     "parent": "The First: CrossGen Chronicles",
@@ -5028,19 +4794,6 @@
     "level": "Recommended",
     "sort": "Saurians",
     "printedTitle": "Saurians",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00388",
-    "display": "Classics Illustrated",
-    "parent": "Classics Illustrated",
-    "series": "Classics Illustrated",
-    "primary": false,
-    "publisher": "Gold Key",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Classics Illustrated",
-    "printedTitle": "Classics Illustrated",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -5200,19 +4953,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00401",
-    "display": "Classics Illustrated",
-    "parent": "Classics Illustrated",
-    "series": "Classics Illustrated",
-    "primary": false,
-    "publisher": "Dell",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Classics Illustrated",
-    "printedTitle": "Classics Illustrated",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00402",
     "display": "Four Color",
     "parent": "Four Color",
@@ -5353,19 +5093,6 @@
     "level": "Recommended",
     "sort": "Dark Shadows",
     "printedTitle": "Dark Shadows",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00413",
-    "display": "Classics Illustrated",
-    "parent": "Classics Illustrated",
-    "series": "Classics Illustrated",
-    "primary": false,
-    "publisher": "Fantagraphics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Classics Illustrated",
-    "printedTitle": "Classics Illustrated",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -5548,32 +5275,6 @@
     "level": "Recommended",
     "sort": "Complete Life and Times of Scrooge McDuck",
     "printedTitle": "The Complete Life and Times of Scrooge McDuck",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00428",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00429",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Oni Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -5824,32 +5525,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00449",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Devil's Due",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00450",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Devil's Due",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00451",
     "display": "G.I. Joe: Special Missions",
     "parent": "G.I. Joe: Special Missions",
@@ -5990,32 +5665,6 @@
     "level": "Recommended",
     "sort": "Hack/Slash vs. Chaos!",
     "printedTitle": "Hack/Slash vs. Chaos!",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00462",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Moonstone Books",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00463",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Moonstone Books",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -6172,32 +5821,6 @@
     "level": "Recommended",
     "sort": "Airboy: 1942",
     "printedTitle": "Airboy: 1942",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00476",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Red 5 Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00477",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Red 5 Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -6396,32 +6019,6 @@
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
-    "id": "IND3-00493",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Comico",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00494",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Comico",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
     "id": "IND3-00495",
     "display": "Grendel: Devil by the Deed",
     "parent": "Grendel: Devil by the Deed",
@@ -6614,32 +6211,6 @@
     "level": "Recommended",
     "sort": "Sam & Max: Freelance Police",
     "printedTitle": "Sam & Max: Freelance Police",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00510",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Eclipse Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00511",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Eclipse Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -6848,32 +6419,6 @@
     "level": "Recommended",
     "sort": "Aztec Ace: The Complete Collection",
     "printedTitle": "Aztec Ace: The Complete Collection",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00528",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Avatar Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00529",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Avatar Press",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -7121,32 +6666,6 @@
     "level": "Recommended",
     "sort": "Lady Death: The Odyssey",
     "printedTitle": "Lady Death: The Odyssey",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00549",
-    "display": "Cursed",
-    "parent": "Cursed",
-    "series": "Cursed",
-    "primary": false,
-    "publisher": "Chaos! Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "Cursed",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00550",
-    "display": "The Cursed",
-    "parent": "The Cursed",
-    "series": "The Cursed",
-    "primary": false,
-    "publisher": "Chaos! Comics",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Cursed",
-    "printedTitle": "The Cursed",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   },
   {
@@ -7459,32 +6978,6 @@
     "level": "Recommended",
     "sort": "Witchblade/Aliens/Darkness/Predator",
     "printedTitle": "Witchblade/Aliens/Darkness/Predator",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00575",
-    "display": "Classics Illustrated",
-    "parent": "Classics Illustrated",
-    "series": "Classics Illustrated",
-    "primary": false,
-    "publisher": "Classics Illustrated",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Classics Illustrated",
-    "printedTitle": "Classics Illustrated",
-    "notes": "Indie series coverage expansion v4.31; series label entry."
-  },
-  {
-    "id": "IND3-00576",
-    "display": "Classics Illustrated Junior",
-    "parent": "Classics Illustrated Junior",
-    "series": "Classics Illustrated Junior",
-    "primary": false,
-    "publisher": "Classics Illustrated",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Classics Illustrated Junior",
-    "printedTitle": "Classics Illustrated Junior",
     "notes": "Indie series coverage expansion v4.31; series label entry."
   }
 ]
