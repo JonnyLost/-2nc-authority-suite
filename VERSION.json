@@ -1,6 +1,6 @@
 {
-  "version": "4.41.0",
-  "name": "Dynamite Entertainment Catalog Expansion",
-  "release": "2NC Authority Suite GitHub v4.41.0",
-  "notes": "Adds 22 Dynamite Entertainment series and specials after comparison with existing independent comics expansion files. First publisher audit pass; additional Dynamite titles remain to be researched."
+  "version": "4.42.0",
+  "name": "Dynamite Dispatches Publisher Catalog Expansion",
+  "release": "2NC Authority Suite GitHub v4.42.0",
+  "notes": "Adds 30 series-level mixed-case Dynamite comic series and specials from publisher solicitations, including licensed Hanna-Barbera, Disney, Terminator, and Vampirella titles. Earlier publisher versions remain separate; Dynamite historical catalog audit continues."
 }
