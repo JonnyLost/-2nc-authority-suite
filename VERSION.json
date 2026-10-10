@@ -1,6 +1,6 @@
 {
-  "version": "4.42.0",
-  "name": "Dynamite Dispatches Publisher Catalog Expansion",
-  "release": "2NC Authority Suite GitHub v4.42.0",
-  "notes": "Adds 30 series-level mixed-case Dynamite comic series and specials from publisher solicitations, including licensed Hanna-Barbera, Disney, Terminator, and Vampirella titles. Earlier publisher versions remain separate; Dynamite historical catalog audit continues."
+  "version": "4.43.0",
+  "name": "Dynamite Historical Franchise Deep Dive",
+  "release": "2NC Authority Suite GitHub v4.43.0",
+  "notes": "Adds 20 historical Army of Darkness and Vampirella series-level records after comparing 45 candidates against existing independent comics expansion files. Existing records preserved; broader publisher audit continues."
 }
