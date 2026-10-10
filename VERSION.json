@@ -1,6 +1,6 @@
 {
-  "version": "4.39.0",
-  "name": "Image Comics Catalog Directory Audit",
-  "release": "2NC Authority Suite GitHub v4.39.0",
-  "notes": "Adds six series-level Image Comics titles missing from the locally audited 18,137-record repository snapshot. Historical and imprint-specific exhaustive verification remains open; no existing records changed."
+  "version": "4.40.0",
+  "name": "Image Historical Catalog Comparison",
+  "release": "2NC Authority Suite GitHub v4.40.0",
+  "notes": "Adds 59 historical Image-era series and specials after comparison against the existing indie expansion files and prior Image additions. Studio/imprint and issue-level validation continues; no existing records removed."
 }
