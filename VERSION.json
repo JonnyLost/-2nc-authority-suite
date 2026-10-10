@@ -1,6 +1,6 @@
 {
-  "version": "4.40.0",
-  "name": "Image Historical Catalog Comparison",
-  "release": "2NC Authority Suite GitHub v4.40.0",
-  "notes": "Adds 59 historical Image-era series and specials after comparison against the existing indie expansion files and prior Image additions. Studio/imprint and issue-level validation continues; no existing records removed."
+  "version": "4.41.0",
+  "name": "Dynamite Entertainment Catalog Expansion",
+  "release": "2NC Authority Suite GitHub v4.41.0",
+  "notes": "Adds 22 Dynamite Entertainment series and specials after comparison with existing independent comics expansion files. First publisher audit pass; additional Dynamite titles remain to be researched."
 }
