@@ -1,6 +1,6 @@
 {
-  "version": "4.38.1",
-  "name": "Early Image Historical Catalog Audit",
-  "release": "2NC Authority Suite GitHub v4.38.1",
-  "notes": "Adds 15 early Image, WildStorm and Top Cow historical series and specials. Compared against locally uploaded repository catalog; further issue-level and publisher-history verification remains ongoing."
+  "version": "4.39.0",
+  "name": "Image Comics Catalog Directory Audit",
+  "release": "2NC Authority Suite GitHub v4.39.0",
+  "notes": "Adds six series-level Image Comics titles missing from the locally audited 18,137-record repository snapshot. Historical and imprint-specific exhaustive verification remains open; no existing records changed."
 }
