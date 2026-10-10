@@ -1,6 +1,6 @@
 {
-  "version": "4.38.0",
-  "name": "Early Image and WildStorm Historical Expansion",
-  "release": "2NC Authority Suite GitHub v4.38.0",
-  "notes": "Adds ten early Image-era series and specials as mixed-case series-level records. Existing records and catalog files retained; wider 1992–2005 historical audit continues."
+  "version": "4.38.1",
+  "name": "Early Image Historical Catalog Audit",
+  "release": "2NC Authority Suite GitHub v4.38.1",
+  "notes": "Adds 15 early Image, WildStorm and Top Cow historical series and specials. Compared against locally uploaded repository catalog; further issue-level and publisher-history verification remains ongoing."
 }
