@@ -112,20 +112,6 @@
     "notes": "Historical catalog comparison; confirm individual issue's original imprint where publisher changed."
   },
   {
-    "id": "IMG40-00009",
-    "display": "The Authority: Revolution",
-    "parent": "The Authority",
-    "series": "The Authority: Revolution",
-    "primary": false,
-    "publisher": "WildStorm",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Authority: Revolution",
-    "printedTitle": "The Authority: Revolution",
-    "startYear": 2004,
-    "notes": "Historical catalog comparison; confirm individual issue's original imprint where publisher changed."
-  },
-  {
     "id": "IMG40-00010",
     "display": "The Authority: Scorched Earth",
     "parent": "The Authority",
@@ -683,62 +669,6 @@
     "sort": "Tokyo Knights",
     "printedTitle": "Tokyo Knights",
     "startYear": 2001,
-    "notes": "Historical catalog comparison; confirm individual issue's original imprint where publisher changed."
-  },
-  {
-    "id": "IMG40-00050",
-    "display": "Witchblade: Animated",
-    "parent": "Witchblade",
-    "series": "Witchblade: Animated",
-    "primary": false,
-    "publisher": "Top Cow",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Witchblade: Animated",
-    "printedTitle": "Witchblade: Animated",
-    "startYear": 2005,
-    "notes": "Historical catalog comparison; confirm individual issue's original imprint where publisher changed."
-  },
-  {
-    "id": "IMG40-00051",
-    "display": "Spawn: The Undead",
-    "parent": "Spawn",
-    "series": "Spawn: The Undead",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Spawn: The Undead",
-    "printedTitle": "Spawn: The Undead",
-    "startYear": 1999,
-    "notes": "Historical catalog comparison; confirm individual issue's original imprint where publisher changed."
-  },
-  {
-    "id": "IMG40-00052",
-    "display": "Spawn: The Impaler",
-    "parent": "Spawn",
-    "series": "Spawn: The Impaler",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Spawn: The Impaler",
-    "printedTitle": "Spawn: The Impaler",
-    "startYear": 1996,
-    "notes": "Historical catalog comparison; confirm individual issue's original imprint where publisher changed."
-  },
-  {
-    "id": "IMG40-00053",
-    "display": "Spawn: Blood and Shadows",
-    "parent": "Spawn",
-    "series": "Spawn: Blood and Shadows",
-    "primary": false,
-    "publisher": "Image",
-    "type": "Series",
-    "level": "Recommended",
-    "sort": "Spawn: Blood and Shadows",
-    "printedTitle": "Spawn: Blood and Shadows",
-    "startYear": 1999,
     "notes": "Historical catalog comparison; confirm individual issue's original imprint where publisher changed."
   },
   {
