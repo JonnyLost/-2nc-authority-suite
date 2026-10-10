@@ -1,0 +1,80 @@
+[
+  {
+    "id": "IMG39-00001",
+    "display": "Assassin's Guild",
+    "parent": "Assassin's Guild",
+    "series": "Assassin's Guild",
+    "primary": false,
+    "publisher": "Image Comics",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Assassin's Guild",
+    "printedTitle": "Assassin's Guild",
+    "notes": "Listed in Image Comics official series directory; catalog audit addition."
+  },
+  {
+    "id": "IMG39-00002",
+    "display": "Doll Parts: A Lovesick Tale",
+    "parent": "Doll Parts: A Lovesick Tale",
+    "series": "Doll Parts: A Lovesick Tale",
+    "primary": false,
+    "publisher": "Image Comics",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Doll Parts: A Lovesick Tale",
+    "printedTitle": "Doll Parts: A Lovesick Tale",
+    "notes": "Listed in Image Comics official series directory; catalog audit addition."
+  },
+  {
+    "id": "IMG39-00003",
+    "display": "Free Agents",
+    "parent": "Free Agents",
+    "series": "Free Agents",
+    "primary": false,
+    "publisher": "Image Comics",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Free Agents",
+    "printedTitle": "Free Agents",
+    "notes": "Listed in Image Comics official series directory; catalog audit addition."
+  },
+  {
+    "id": "IMG39-00004",
+    "display": "Geiger (2024)",
+    "parent": "Geiger (2024)",
+    "series": "Geiger (2024)",
+    "primary": false,
+    "publisher": "Image Comics",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Geiger (2024)",
+    "printedTitle": "Geiger (2024)",
+    "notes": "Listed in Image Comics official series directory; catalog audit addition."
+  },
+  {
+    "id": "IMG39-00005",
+    "display": "Gigantic",
+    "parent": "Gigantic",
+    "series": "Gigantic",
+    "primary": false,
+    "publisher": "Image Comics",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Gigantic",
+    "printedTitle": "Gigantic",
+    "notes": "Listed in Image Comics official series directory; catalog audit addition."
+  },
+  {
+    "id": "IMG39-00006",
+    "display": "Nullhunter",
+    "parent": "Nullhunter",
+    "series": "Nullhunter",
+    "primary": false,
+    "publisher": "Image Comics",
+    "type": "Series",
+    "level": "Recommended",
+    "sort": "Nullhunter",
+    "printedTitle": "Nullhunter",
+    "notes": "Listed in Image Comics official series directory; catalog audit addition."
+  }
+]
