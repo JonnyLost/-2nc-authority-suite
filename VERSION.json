@@ -1,6 +1,6 @@
 {
-  "version": "4.44.1",
-  "name": "Treasures Header and Automatic Item Layout",
-  "release": "2NC Authority Suite GitHub v4.44.1",
-  "notes": "Recreates the photographed orange Treasures header as original scalable SVG artwork for preview and printing (including PDF); automatically centers 1–4 item-and-price entries in equal-height slots with count-based sizing and per-entry text fitting. Existing catalogs and 3.5 x 5 inch four-up printing remain unchanged."
+  "version": "4.44.2",
+  "name": "Optional Treasure Subheaders",
+  "release": "2NC Authority Suite GitHub v4.44.2",
+  "notes": "Adds free-text optional Treasure subheaders to queued tags, preview, print and PDF, preserving existing layouts when blank."
 }
