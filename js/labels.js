@@ -58,6 +58,10 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .treasureMultiPrint.count-3{grid-template-rows:repeat(3,minmax(0,1fr));font-size:18pt}
 .treasureMultiPrint.count-4{grid-template-rows:repeat(4,minmax(0,1fr));font-size:14pt}
 .treasureMultiPrint.count-1{font-size:31pt}
+.treasureMultiPrint.count-5{grid-template-rows:repeat(5,minmax(0,1fr));font-size:12pt}
+.treasureMultiPrint.count-6{grid-template-rows:repeat(6,minmax(0,1fr));font-size:11pt}
+.treasureMultiPrint.count-7{grid-template-rows:repeat(7,minmax(0,1fr));font-size:10pt}
+.treasureMultiPrint.count-8{grid-template-rows:repeat(8,minmax(0,1fr));font-size:9pt}
 .treasureMultiPrint .treasureEntryPrint{width:100%;height:100%;min-height:0;overflow:hidden;display:grid;place-items:center;text-align:center;padding:2pt 0;line-height:1.13}
 .treasureEntryContentPrint{display:block;width:100%;max-width:100%;overflow-wrap:break-word}
 .treasurePricePrint{white-space:nowrap}
@@ -71,7 +75,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 
   function renderTreasureItems(row) {
     const entries = Array.isArray(row.items) && row.items.length
-      ? row.items.slice(0, 4).filter(item => item && String(item.product || '').trim())
+      ? row.items.slice(0, 8).filter(item => item && String(item.product || '').trim())
       : [{ product: row.product || '', price: '' }];
     const count = Math.max(1, entries.length);
     return '<div class="treasureProductPrint treasureMultiPrint count-' + count + '">' +
@@ -140,7 +144,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
       const content = slot.querySelector('.treasureEntryContentPrint');
       if (!content) return;
       let size = parseFloat(doc.defaultView.getComputedStyle(content).fontSize);
-      while (size > 10 && content.scrollHeight > slot.clientHeight - 4) {
+      while (size > 7 && (content.scrollHeight > slot.clientHeight - 3 || content.scrollWidth > slot.clientWidth + 2)) {
         size -= .75;
         content.style.fontSize = size + 'px';
       }
