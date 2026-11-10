@@ -445,7 +445,7 @@
 
   const MAX_TREASURE_ITEMS = 8;
   function treasureRowCount() {
-    return $('#treasureEntries .treasureEntry').length;
+    return $$('#treasureEntries .treasureEntry').length;
   }
   function setTreasureRowCount(count) {
     const container = $('#treasureEntries');
