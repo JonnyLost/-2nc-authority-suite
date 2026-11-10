@@ -297,7 +297,19 @@
 
   function reopenQueueItem(index) {
     const item = state.queue[index];
-    if (!item || ['instrument', 'treasure'].includes(item.mode)) return;
+    if (!item || item.mode === 'instrument') return;
+    if (item.mode === 'treasure') {
+      setMode('treasure');
+      state.editingQueueIndex = index;
+      const entries = Array.isArray(item.items) && item.items.length ? item.items : [{ product: item.product || '', price: '' }];
+      for (let i = 1; i <= 4; i++) {
+        if ($('#treasureItem' + i)) $('#treasureItem' + i).value = entries[i - 1]?.product || '';
+        if ($('#treasurePrice' + i)) $('#treasurePrice' + i).value = entries[i - 1]?.price || '';
+      }
+      renderTreasurePreview();
+      $('#treasurePanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
     setMode(item.mode);
     state.editingQueueIndex = index;
     if (item.mode === 'comic') {
@@ -429,9 +441,1047 @@
   }
 
 
-  function addTreasureTag(product) {
-    product = String(product).trim(); if (!product) return;
-    state.queue.push({ uid: safeId(), mode: 'treasure', product }); saveQueue();
+  function treasureFormItems() {
+    const items = [];
+    for (let i = 1; i <= 4; i++) {
+      const product = String($('#treasureItem' + i)?.value || '').trim();
+      const input = String($('#treasurePrice' + i)?.value || '').trim();
+      if (!product && !input) continue;
+      if (!product || !input) throw new Error('Enter both an item name and price for row ' + i + '.');
+      const numeric = input.replace(/[$,\s]/g, '');
+      if (!/^\d+(?:\.\d{1,2})?$/.test(numeric)) throw new Error('Enter a valid price for row ' + i + ', such as 35 or 35.99.');
+      items.push({ product, price: '
+
+  function makeId(kind) { return `${kind === 'music' ? 'MUS' : 'COM'}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`; }
+
+  function ensurePublicationYearFields() {
+    if ($('#publicationYearsField')) return;
+    const eraField = $('#publishingEraField');
+    if (!eraField) return;
+    const fields = document.createElement('div');
+    fields.id = 'publicationYearsField';
+    fields.className = 'twoCol hidden';
+    fields.innerHTML = '<label>Start year<input id="editStartYear" inputmode="numeric" maxlength="4" placeholder="1985"></label><label>End year<input id="editEndYear" inputmode="numeric" maxlength="7" placeholder="Present"></label>';
+    eraField.before(fields);
+  }
+
+  async function renderManager() {
+    if (state.mode !== 'manager') return;
+    const dataset = $('#managerDataset')?.value || state.managerDataset;
+    state.managerDataset = dataset;
+    const query = ($('#managerSearch')?.value || '').toLowerCase();
+    const status = $('#managerStatus')?.value || 'active';
+    let rows = await AuthorityDB.getAll(dataset);
+    rows = rows.filter(row => (status === 'all' || (row.status || 'active') === status) && (!query || JSON.stringify(row).toLowerCase().includes(query))).sort((a, b) => (a.sort || a.display || a.name || '').localeCompare(b.sort || b.display || b.name || ''));
+    text('#managerCount', `${rows.length.toLocaleString()} records`);
+    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publishingLine, row.publishingEra, comicYearRange(row), row.publisher, row.id].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
+    $$('#managerResults .resultCard').forEach(element => element.addEventListener('click', () => { state.managerSelected = rows.find(row => row.id === element.dataset.id); fillEditor(state.managerSelected); renderManager(); }));
+  }
+
+  function fillEditor(row) {
+    ensurePublicationYearFields();
+    show('#editorEmpty', false); show('#authorityForm', true);
+    const comic = state.managerDataset === 'comic';
+    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publicationYearsField', comic); show('#publishingEraField', comic); show('#publishingLineField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
+    const values = {
+      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editStartYear: row.startYear || '', editEndYear: row.endYear || '', editPublishingEra: row.publishingEra || '', editPublishingLine: row.publishingLine || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
+    };
+    Object.entries(values).forEach(([id, value]) => { const element = document.getElementById(id); if (element) element.value = value; });
+    text('#retireRecord', row.status === 'retired' ? 'Restore' : 'Retire');
+  }
+
+  function newAuthority() { state.managerSelected = { id: '', status: 'active' }; fillEditor(state.managerSelected); }
+  async function saveAuthority(event) {
+    event.preventDefault();
+    const kind = state.managerDataset, comic = kind === 'comic', old = state.managerSelected || {};
+    const display = ($('#editDisplay')?.value || '').trim(); if (!display) return;
+    const row = { ...old, id: $('#editId')?.value || makeId(kind), display, name: ($('#editName')?.value || '').trim() || display, type: ($('#editType')?.value || '').trim(), level: $('#editLevel')?.value || 'Recommended', status: old.status || 'active', notes: ($('#editNotes')?.value || '').trim(), updatedAt: new Date().toISOString(), _localEdited: true };
+    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.startYear = ($('#editStartYear')?.value || '').trim(); row.endYear = ($('#editEndYear')?.value || '').trim(); row.publishingEra = ($('#editPublishingEra')?.value || '').trim(); row.publishingLine = ($('#editPublishingLine')?.value || '').trim(); row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
+    else { row.genre = ($('#editGenre')?.value || '').trim(); row.primarySubgenre = ($('#editPrimarySubgenre')?.value || '').trim(); row.secondarySubgenre = ($('#editSecondarySubgenre')?.value || '').trim(); row.subgenre = row.primarySubgenre; row.sort = row.display; }
+    await AuthorityDB.put(kind, row); state.managerSelected = row; await reloadData(); alert('Authority saved.');
+  }
+  async function toggleRetire() { if (!state.managerSelected?.id) return; state.managerSelected.status = state.managerSelected.status === 'retired' ? 'active' : 'retired'; state.managerSelected.updatedAt = new Date().toISOString(); state.managerSelected._localEdited = true; await AuthorityDB.put(state.managerDataset, state.managerSelected); await reloadData(); fillEditor(state.managerSelected); }
+  async function deleteSelected() { if (!state.managerSelected?.id || !confirm('Permanently delete this authority?')) return; await AuthorityDB.remove(state.managerDataset, state.managerSelected.id); state.managerSelected = null; show('#authorityForm', false); show('#editorEmpty', true); await reloadData(); }
+
+  async function exportBackup() {
+    const payload = await AuthorityDB.exportBackup();
+    const anchor = document.createElement('a');
+    anchor.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }));
+    anchor.download = `2NC_Authority_Backup_${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.click(); URL.revokeObjectURL(anchor.href);
+  }
+  async function importBackup(file) { if (!file) return; const payload = JSON.parse(await file.text()); if (!confirm('Replace the internal Music and Comic databases with this backup?')) return; await AuthorityDB.importBackup(payload); await reloadData(); alert('Backup imported.'); }
+
+  async function repairDatabase() {
+    if (!confirm('Repair from the bundled authority files? All locally edited fields, custom records, retired records, and deletions will be preserved.')) return;
+    await AuthorityDB.ensureSeeded({ force: true }); await reloadData(); alert('Database repair complete.');
+  }
+
+  function syncStatusText() {
+    if (!window.AuthoritySync) return 'GitHub sync module unavailable';
+    const status = AuthoritySync.status();
+    if (!status.settings.owner || !status.settings.repo) return 'Not connected';
+    const repo = `${status.settings.owner}/${status.settings.repo}`;
+    return status.lastSync ? `${repo} · Last sync ${new Date(status.lastSync).toLocaleString()}` : `${repo} · Ready to sync`;
+  }
+
+  function renderSyncStatus() { text('#syncStatus', syncStatusText()); }
+
+  function openSyncSettings() {
+    const status = AuthoritySync.status();
+    const value = status.settings;
+    showModal('Connection', `<p class="modalIntro">Connect authority data and the Print Station to the GitHub repository. The token is kept only for this browser session and is never included in backups.</p>
+      <div class="twoCol"><label>Repository owner<input id="syncOwner" autocomplete="off" value="${escapeHtml(value.owner)}"></label><label>Repository name<input id="syncRepo" autocomplete="off" value="${escapeHtml(value.repo)}"></label></div>
+      <div class="twoCol"><label>Authority branch<input id="syncBranch" autocomplete="off" value="${escapeHtml(value.branch)}"></label><label>This device name<input id="syncDeviceName" autocomplete="off" placeholder="Sales Floor iPad or Back Office PC" value="${escapeHtml(value.deviceName || '')}"></label></div>
+      <div class="twoCol"><label>Music file<input id="syncMusicPath" value="${escapeHtml(value.musicPath)}"></label><label>Comic file<input id="syncComicPath" value="${escapeHtml(value.comicPath)}"></label></div>
+      <div class="twoCol"><label>Print queue branch<input id="syncPrintBranch" value="${escapeHtml(value.printBranch || 'print-queue')}"></label><label>Print queue file<input id="syncPrintPath" value="${escapeHtml(value.printQueuePath || 'print-queue.json')}"></label></div>
+      <label>GitHub token<input id="syncToken" type="password" autocomplete="off" placeholder="${status.hasToken ? 'Token active for this session' : 'Fine-grained token with Contents access'}"></label>
+      <small>Use a fine-grained token limited to this repository with Contents read/write permission. The separate print-queue branch prevents print jobs from triggering a website deployment.</small>
+      <button id="saveSyncSettings" class="primaryButton">Save connection</button>`);
+    on('#saveSyncSettings', 'click', () => {
+      AuthoritySync.saveSettings({
+        owner: $('#syncOwner')?.value, repo: $('#syncRepo')?.value, branch: $('#syncBranch')?.value,
+        musicPath: $('#syncMusicPath')?.value, comicPath: $('#syncComicPath')?.value,
+        printBranch: $('#syncPrintBranch')?.value, printQueuePath: $('#syncPrintPath')?.value,
+        deviceName: $('#syncDeviceName')?.value, token: $('#syncToken')?.value
+      });
+      renderSyncStatus(); renderStationConnection(); closeModal(); alert('Connection saved for this device.');
+    });
+  }
+
+  function renderStationConnection() {
+    const status = AuthoritySync.status();
+    const name = status.settings.deviceName || 'Unnamed device';
+    text('#stationConnection', status.hasToken ? `${name} · Connected` : `${name} · Token needed`);
+  }
+
+  function jobTitle(job) {
+    if (job.note) return job.note;
+    const first = job.items?.[0];
+    const label = first ? (first.mode === 'comic' ? (first.primary ? first.name : first.series) : first.mode === 'instrument' || first.mode === 'treasure' ? first.product : first.name) : 'Print job';
+    return job.itemCount > 1 ? `${label} + ${job.itemCount - 1} more` : label;
+  }
+
+  function jobKinds(job) {
+    const counts = {};
+    (job.items || []).forEach(item => { counts[item.mode] = (counts[item.mode] || 0) + 1; });
+    return Object.entries(counts).map(([kind, count]) => `${count} ${kind}`).join(' · ');
+  }
+
+  function stationJobHtml(job) {
+    const active = job.status === 'pending' || job.status === 'printing';
+    const age = new Date(job.createdAt).toLocaleString();
+    const statusLabel = { pending: 'Waiting', printing: 'In progress', completed: 'Completed', cancelled: 'Cancelled' }[job.status] || job.status;
+    const action = job.status === 'pending'
+      ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print job</button><button class="secondaryButton stationCancel" data-id="${escapeHtml(job.id)}">Cancel</button>`
+      : job.status === 'printing'
+        ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print again</button><button class="secondaryButton stationComplete" data-id="${escapeHtml(job.id)}">Mark complete</button>`
+        : `<button class="secondaryButton stationReopen" data-id="${escapeHtml(job.id)}">Return to queue</button>`;
+    return `<article class="stationJob ${active ? 'active' : ''}" data-status="${escapeHtml(job.status)}">
+      <div class="stationJobMain"><div class="stationJobHeading"><span class="jobStatus">${escapeHtml(statusLabel)}</span><time>${escapeHtml(age)}</time></div>
+      <h3>${escapeHtml(jobTitle(job))}</h3><p>${escapeHtml(jobKinds(job))}</p><small>From ${escapeHtml(job.from || 'Sales floor device')}${job.station ? ` · ${escapeHtml(job.station)}` : ''}</small></div>
+      <div class="stationJobActions">${action}</div></article>`;
+  }
+
+  function bindStationJobActions() {
+    $$('.stationPrint').forEach(button => button.addEventListener('click', () => printStationJob(button.dataset.id)));
+    $$('.stationComplete').forEach(button => button.addEventListener('click', () => updateStationJob('complete', button.dataset.id)));
+    $$('.stationReopen').forEach(button => button.addEventListener('click', () => updateStationJob('reopen', button.dataset.id)));
+    $$('.stationCancel').forEach(button => button.addEventListener('click', () => updateStationJob('cancel', button.dataset.id)));
+  }
+
+  function renderStationJobs() {
+    const pending = state.stationJobs.filter(job => job.status === 'pending');
+    const printing = state.stationJobs.filter(job => job.status === 'printing');
+    const completed = state.stationJobs.filter(job => ['completed', 'cancelled'].includes(job.status));
+    text('#pendingJobCount', pending.length);
+    text('#printingJobCount', printing.length);
+    text('#completedJobCount', completed.length);
+    text('#stationUpdated', `Updated ${new Date().toLocaleTimeString()} · Refreshes automatically every 20 seconds`);
+    const ordered = [...pending, ...printing, ...completed.slice(0, 20)];
+    requireElement('#stationJobs').innerHTML = ordered.map(stationJobHtml).join('') || '<div class="empty">No print jobs are waiting.</div>';
+    bindStationJobActions();
+  }
+
+  function showStationError(error) {
+    AppLog.warn('Print Station refresh failed', error);
+    text('#stationUpdated', error.message || String(error));
+    renderStationConnection();
+  }
+
+  async function refreshStation() {
+    if (state.stationBusy) return;
+    state.stationBusy = true;
+    try {
+      renderStationConnection();
+      if (!AuthoritySync.hasToken()) throw new Error('Enter the GitHub token under Connection to load print jobs.');
+      state.stationJobs = await PrintStation.list();
+      renderStationJobs();
+    } finally { state.stationBusy = false; }
+  }
+
+  function startStationPolling() {
+    stopStationPolling();
+    state.stationTimer = setInterval(() => {
+      if (state.mode === 'station' && !document.hidden) refreshStation().catch(showStationError);
+    }, 20000);
+  }
+
+  function stopStationPolling() {
+    if (state.stationTimer) clearInterval(state.stationTimer);
+    state.stationTimer = null;
+  }
+
+  async function sendToStation() {
+    if (!state.queue.length) throw new Error('Add at least one item to the print queue.');
+    const note = prompt('Optional job name or note:', '') ?? '';
+    const job = await PrintStation.send(state.queue, note);
+    alert(`Sent ${job.itemCount} item${job.itemCount === 1 ? '' : 's'} to the Print Station.`);
+  }
+
+  async function sharePrintPacket() {
+    const result = await PrintPacket.share(state.queue);
+    if (!result.shared) alert(`The share sheet is not available in this browser, so ${result.name} was downloaded instead.`);
+  }
+
+  async function printStationJob(id) {
+    const job = state.stationJobs.find(item => item.id === id);
+    if (!job) return;
+    const popup = window.open('', '_blank');
+    if (!popup) return alert('Pop-ups are blocked. Allow pop-ups for this site so the print sheet can open.');
+    popup.document.write('<!doctype html><title>Preparing 2NC print job…</title><p style="font:16px system-ui;padding:24px">Preparing print job…</p>');
+    try {
+      if (job.status === 'pending') await PrintStation.claim(id);
+      LabelEngine.printQueue(job.items, popup);
+      await refreshStation();
+    } catch (error) {
+      popup.close();
+      alert(error.message);
+    }
+  }
+
+  async function updateStationJob(action, id) {
+    if (action === 'cancel' && !confirm('Cancel this print job?')) return;
+    await PrintStation[action](id);
+    await refreshStation();
+  }
+
+  async function pullFromGitHub() {
+    if (!confirm('Pull the latest Music and Comic authorities from GitHub? This replaces the database on this device.')) return;
+    const result = await AuthoritySync.pull();
+    await reloadData(); renderSyncStatus();
+    alert(`GitHub data pulled: ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records.`);
+  }
+
+  async function publishToGitHub() {
+    if (!confirm('Publish this device’s complete Music and Comic authorities to GitHub? This updates the live source files and may trigger a GitHub Pages deployment.')) return;
+    const result = await AuthoritySync.push();
+    renderSyncStatus();
+    alert(`Published ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records to GitHub.`);
+  }
+
+  function diagnosticsHtml() {
+    const diagnostics = AppLog.diagnostics({ counts: { music: state.music.length, comic: state.comic.length }, mode: state.mode });
+    return `<p><strong>${escapeHtml(APP_CONFIG.name)} v${escapeHtml(APP_CONFIG.version)}</strong></p><p>Build: ${escapeHtml(APP_CONFIG.build)}</p><p>Music: ${state.music.length.toLocaleString()} · Comics: ${state.comic.length.toLocaleString()}</p><label class="debugToggle"><input id="debugToggle" type="checkbox" ${AppLog.enabled ? 'checked' : ''}> Enable developer logging</label><textarea id="diagnosticText" rows="12" readonly>${escapeHtml(JSON.stringify(diagnostics, null, 2))}</textarea><button id="copyDiagnostics" class="secondaryButton">Copy diagnostics</button>`;
+  }
+  function showAbout() {
+    showModal('About & Diagnostics', diagnosticsHtml());
+    on('#debugToggle', 'change', event => AppLog.setEnabled(event.target.checked));
+    on('#copyDiagnostics', 'click', async () => { await navigator.clipboard.writeText($('#diagnosticText')?.value || ''); alert('Diagnostics copied.'); });
+  }
+
+  async function reloadData() {
+    state.music = (await AuthorityDB.getAll('music')).filter(row => row.status !== 'retired');
+    state.comic = (await AuthorityDB.getAll('comic')).filter(row => row.status !== 'retired');
+    text('#dbStatus', `Music ${state.music.length.toLocaleString()} · Comics ${state.comic.length.toLocaleString()}`);
+    if (state.mode === 'quick') renderLookup();
+    else if (state.mode !== 'manager') { populateCategoryFilter(); renderResults(); renderPreview(); }
+    await renderManager();
+  }
+
+  function bindEvents() {
+    $$('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+    $$('[data-quick-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.quickMode)));
+    $$('[data-lookup-kind]').forEach(button => button.addEventListener('click', () => setLookupKind(button.dataset.lookupKind)));
+    on('#quickInput', 'input', event => { state.lookupQuery = event.target.value; state.lookupSelectedId = ''; renderLookup(); });
+    on('#quickInput', 'keydown', event => { if (event.key === 'Escape') clearLookup(); });
+    on('#quickClear', 'click', clearLookup);
+    on('#quickAddQueue', 'click', addLookupToQueue);
+    on('#quickChoices', 'click', event => { const destination = event.target.closest('[data-quick-mode]'); if (destination) setMode(destination.dataset.quickMode); });
+    on('#searchInput', 'input', event => { state.query = event.target.value; renderResults(); });
+    on('#levelFilter', 'change', event => { state.level = event.target.value; renderResults(); });
+    on('#categoryFilter', 'change', event => { state.category = event.target.value; renderResults(); });
+    on('#comicTypeFilter', 'change', event => { state.comicType = event.target.value; state.selected = null; state.editingQueueIndex = null; renderResults(); renderPreview(); });
+    on('#sortFilter', 'change', event => { state.sort = event.target.value; renderResults(); });
+    on('#clearSearch', 'click', () => { state.query = ''; state.level = ''; state.category = ''; state.comicType = ''; state.sort = 'name'; if ($('#searchInput')) $('#searchInput').value = ''; if ($('#levelFilter')) $('#levelFilter').value = ''; if ($('#comicTypeFilter')) $('#comicTypeFilter').value = ''; populateCategoryFilter(); renderResults(); renderPreview(); });
+    on('#addSelected', 'click', addSelected); on('#addAll', 'click', addAll); on('#addHierarchy', 'click', addHierarchy);
+    on('#showComicAuthority', 'change', event => { state.showComicAuthority = event.target.checked; localStorage.setItem('2ncShowComicAuthority', String(state.showComicAuthority)); renderPreview(); });
+    on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
+    on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
+    on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
+    on('#sharePdfBtn', 'click', () => sharePrintPacket().catch(error => { if (error.name !== 'AbortError') alert(error.message); }));
+    on('#sendStationBtn', 'click', () => sendToStation().catch(error => alert(error.message)));
+    on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode); } catch (error) { alert(error.message); } });
+    on('#customBtn', 'click', customLabel);
+    on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
+    on('#addTreasureTag', 'click', addTreasureTag);
+    on('#priceInput', 'input', event => { const element = $('.tagPrice'); if (element) element.textContent = event.target.value ? (event.target.value.startsWith('$') ? event.target.value : `$${event.target.value}`) : '$239'; });
+    on('#productInput', 'input', event => { const element = $('.tagProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
+    for (let i = 1; i <= 4; i++) {
+      on('#treasureItem' + i, 'input', renderTreasurePreview);
+      on('#treasurePrice' + i, 'input', renderTreasurePreview);
+    }
+    on('#closeModal', 'click', closeModal); on('#modal', 'click', event => { if (event.target.id === 'modal') closeModal(); });
+    on('#aboutBtn', 'click', showAbout); on('#debugBadge', 'click', showAbout);
+    on('#managerDataset', 'change', () => { state.managerSelected = null; renderManager(); }); on('#managerSearch', 'input', renderManager); on('#managerStatus', 'change', renderManager);
+    on('#newAuthority', 'click', newAuthority); on('#authorityForm', 'submit', saveAuthority); on('#retireRecord', 'click', toggleRetire); on('#deleteRecord', 'click', deleteSelected);
+    on('#exportBackup', 'click', exportBackup); on('#importBackup', 'change', event => importBackup(event.target.files[0]).catch(error => alert(error.message)));
+    on('#repairDatabase', 'click', () => repairDatabase().catch(error => alert(error.message)));
+    on('#syncSettings', 'click', openSyncSettings);
+    on('#syncPull', 'click', () => pullFromGitHub().catch(error => alert(error.message)));
+    on('#syncPush', 'click', () => publishToGitHub().catch(error => alert(error.message)));
+    on('#stationRefresh', 'click', () => refreshStation().catch(showStationError));
+    on('#stationConnectionBtn', 'click', openSyncSettings);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && state.mode === 'station') refreshStation().catch(showStationError); });
+  }
+
+  function appendSelectGroup(selector, label, values) {
+    const select = $(selector);
+    if (!select) return;
+    const existing = new Set(Array.from(select.options).map(option => option.value));
+    const group = document.createElement('optgroup');
+    group.label = label;
+    values.filter(value => !existing.has(value)).forEach(value => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      group.appendChild(option);
+    });
+    if (group.children.length) select.appendChild(group);
+  }
+
+  function installMarvelPublishingOptions() {
+    appendSelectGroup('#editPublishingEra', 'Marvel', [
+      'Marvel NOW!', 'All-New Marvel NOW!', 'All-New, All-Different Marvel',
+      'Marvel NOW! 2.0', 'Marvel Legacy', 'Fresh Start', 'Dawn of X',
+      'Reign of X', 'Destiny of X', 'Fall of X', 'From the Ashes'
+    ]);
+    appendSelectGroup('#editPublishingLine', 'Marvel', [
+      'Ultimate Universe', 'Marvel Knights', 'MAX', '2099',
+      'Marvel Zombies', 'Star Wars', 'Alien / Predator'
+    ]);
+  }
+
+  async function initialize() {
+    installMarvelPublishingOptions();
+    bindEvents();
+    const authorityToggle = $('#showComicAuthority'); if (authorityToggle) authorityToggle.checked = state.showComicAuthority;
+    const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
+    await reloadData();
+    renderQueue(); setMode('quick');
+    text('#versionBadge', `v${APP_CONFIG.version}`);
+    renderSyncStatus();
+    renderStationConnection();
+  }
+
+  window.AppUI = { initialize, reloadData, setMode, showAbout, state };
+})();
+ + numeric });
+    }
+    return items;
+  }
+
+  function renderTreasurePreview() {
+    const element = $('.treasureProduct');
+    if (!element) return;
+    const items = Array.from({ length: 4 }, (_, i) => {
+      const product = ($('#treasureItem' + (i + 1))?.value || '').trim();
+      const price = ($('#treasurePrice' + (i + 1))?.value || '').trim();
+      return product ? { product, price: price ? (price.startsWith('
+
+  function makeId(kind) { return `${kind === 'music' ? 'MUS' : 'COM'}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`; }
+
+  function ensurePublicationYearFields() {
+    if ($('#publicationYearsField')) return;
+    const eraField = $('#publishingEraField');
+    if (!eraField) return;
+    const fields = document.createElement('div');
+    fields.id = 'publicationYearsField';
+    fields.className = 'twoCol hidden';
+    fields.innerHTML = '<label>Start year<input id="editStartYear" inputmode="numeric" maxlength="4" placeholder="1985"></label><label>End year<input id="editEndYear" inputmode="numeric" maxlength="7" placeholder="Present"></label>';
+    eraField.before(fields);
+  }
+
+  async function renderManager() {
+    if (state.mode !== 'manager') return;
+    const dataset = $('#managerDataset')?.value || state.managerDataset;
+    state.managerDataset = dataset;
+    const query = ($('#managerSearch')?.value || '').toLowerCase();
+    const status = $('#managerStatus')?.value || 'active';
+    let rows = await AuthorityDB.getAll(dataset);
+    rows = rows.filter(row => (status === 'all' || (row.status || 'active') === status) && (!query || JSON.stringify(row).toLowerCase().includes(query))).sort((a, b) => (a.sort || a.display || a.name || '').localeCompare(b.sort || b.display || b.name || ''));
+    text('#managerCount', `${rows.length.toLocaleString()} records`);
+    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publishingLine, row.publishingEra, comicYearRange(row), row.publisher, row.id].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
+    $$('#managerResults .resultCard').forEach(element => element.addEventListener('click', () => { state.managerSelected = rows.find(row => row.id === element.dataset.id); fillEditor(state.managerSelected); renderManager(); }));
+  }
+
+  function fillEditor(row) {
+    ensurePublicationYearFields();
+    show('#editorEmpty', false); show('#authorityForm', true);
+    const comic = state.managerDataset === 'comic';
+    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publicationYearsField', comic); show('#publishingEraField', comic); show('#publishingLineField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
+    const values = {
+      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editStartYear: row.startYear || '', editEndYear: row.endYear || '', editPublishingEra: row.publishingEra || '', editPublishingLine: row.publishingLine || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
+    };
+    Object.entries(values).forEach(([id, value]) => { const element = document.getElementById(id); if (element) element.value = value; });
+    text('#retireRecord', row.status === 'retired' ? 'Restore' : 'Retire');
+  }
+
+  function newAuthority() { state.managerSelected = { id: '', status: 'active' }; fillEditor(state.managerSelected); }
+  async function saveAuthority(event) {
+    event.preventDefault();
+    const kind = state.managerDataset, comic = kind === 'comic', old = state.managerSelected || {};
+    const display = ($('#editDisplay')?.value || '').trim(); if (!display) return;
+    const row = { ...old, id: $('#editId')?.value || makeId(kind), display, name: ($('#editName')?.value || '').trim() || display, type: ($('#editType')?.value || '').trim(), level: $('#editLevel')?.value || 'Recommended', status: old.status || 'active', notes: ($('#editNotes')?.value || '').trim(), updatedAt: new Date().toISOString(), _localEdited: true };
+    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.startYear = ($('#editStartYear')?.value || '').trim(); row.endYear = ($('#editEndYear')?.value || '').trim(); row.publishingEra = ($('#editPublishingEra')?.value || '').trim(); row.publishingLine = ($('#editPublishingLine')?.value || '').trim(); row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
+    else { row.genre = ($('#editGenre')?.value || '').trim(); row.primarySubgenre = ($('#editPrimarySubgenre')?.value || '').trim(); row.secondarySubgenre = ($('#editSecondarySubgenre')?.value || '').trim(); row.subgenre = row.primarySubgenre; row.sort = row.display; }
+    await AuthorityDB.put(kind, row); state.managerSelected = row; await reloadData(); alert('Authority saved.');
+  }
+  async function toggleRetire() { if (!state.managerSelected?.id) return; state.managerSelected.status = state.managerSelected.status === 'retired' ? 'active' : 'retired'; state.managerSelected.updatedAt = new Date().toISOString(); state.managerSelected._localEdited = true; await AuthorityDB.put(state.managerDataset, state.managerSelected); await reloadData(); fillEditor(state.managerSelected); }
+  async function deleteSelected() { if (!state.managerSelected?.id || !confirm('Permanently delete this authority?')) return; await AuthorityDB.remove(state.managerDataset, state.managerSelected.id); state.managerSelected = null; show('#authorityForm', false); show('#editorEmpty', true); await reloadData(); }
+
+  async function exportBackup() {
+    const payload = await AuthorityDB.exportBackup();
+    const anchor = document.createElement('a');
+    anchor.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }));
+    anchor.download = `2NC_Authority_Backup_${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.click(); URL.revokeObjectURL(anchor.href);
+  }
+  async function importBackup(file) { if (!file) return; const payload = JSON.parse(await file.text()); if (!confirm('Replace the internal Music and Comic databases with this backup?')) return; await AuthorityDB.importBackup(payload); await reloadData(); alert('Backup imported.'); }
+
+  async function repairDatabase() {
+    if (!confirm('Repair from the bundled authority files? All locally edited fields, custom records, retired records, and deletions will be preserved.')) return;
+    await AuthorityDB.ensureSeeded({ force: true }); await reloadData(); alert('Database repair complete.');
+  }
+
+  function syncStatusText() {
+    if (!window.AuthoritySync) return 'GitHub sync module unavailable';
+    const status = AuthoritySync.status();
+    if (!status.settings.owner || !status.settings.repo) return 'Not connected';
+    const repo = `${status.settings.owner}/${status.settings.repo}`;
+    return status.lastSync ? `${repo} · Last sync ${new Date(status.lastSync).toLocaleString()}` : `${repo} · Ready to sync`;
+  }
+
+  function renderSyncStatus() { text('#syncStatus', syncStatusText()); }
+
+  function openSyncSettings() {
+    const status = AuthoritySync.status();
+    const value = status.settings;
+    showModal('Connection', `<p class="modalIntro">Connect authority data and the Print Station to the GitHub repository. The token is kept only for this browser session and is never included in backups.</p>
+      <div class="twoCol"><label>Repository owner<input id="syncOwner" autocomplete="off" value="${escapeHtml(value.owner)}"></label><label>Repository name<input id="syncRepo" autocomplete="off" value="${escapeHtml(value.repo)}"></label></div>
+      <div class="twoCol"><label>Authority branch<input id="syncBranch" autocomplete="off" value="${escapeHtml(value.branch)}"></label><label>This device name<input id="syncDeviceName" autocomplete="off" placeholder="Sales Floor iPad or Back Office PC" value="${escapeHtml(value.deviceName || '')}"></label></div>
+      <div class="twoCol"><label>Music file<input id="syncMusicPath" value="${escapeHtml(value.musicPath)}"></label><label>Comic file<input id="syncComicPath" value="${escapeHtml(value.comicPath)}"></label></div>
+      <div class="twoCol"><label>Print queue branch<input id="syncPrintBranch" value="${escapeHtml(value.printBranch || 'print-queue')}"></label><label>Print queue file<input id="syncPrintPath" value="${escapeHtml(value.printQueuePath || 'print-queue.json')}"></label></div>
+      <label>GitHub token<input id="syncToken" type="password" autocomplete="off" placeholder="${status.hasToken ? 'Token active for this session' : 'Fine-grained token with Contents access'}"></label>
+      <small>Use a fine-grained token limited to this repository with Contents read/write permission. The separate print-queue branch prevents print jobs from triggering a website deployment.</small>
+      <button id="saveSyncSettings" class="primaryButton">Save connection</button>`);
+    on('#saveSyncSettings', 'click', () => {
+      AuthoritySync.saveSettings({
+        owner: $('#syncOwner')?.value, repo: $('#syncRepo')?.value, branch: $('#syncBranch')?.value,
+        musicPath: $('#syncMusicPath')?.value, comicPath: $('#syncComicPath')?.value,
+        printBranch: $('#syncPrintBranch')?.value, printQueuePath: $('#syncPrintPath')?.value,
+        deviceName: $('#syncDeviceName')?.value, token: $('#syncToken')?.value
+      });
+      renderSyncStatus(); renderStationConnection(); closeModal(); alert('Connection saved for this device.');
+    });
+  }
+
+  function renderStationConnection() {
+    const status = AuthoritySync.status();
+    const name = status.settings.deviceName || 'Unnamed device';
+    text('#stationConnection', status.hasToken ? `${name} · Connected` : `${name} · Token needed`);
+  }
+
+  function jobTitle(job) {
+    if (job.note) return job.note;
+    const first = job.items?.[0];
+    const label = first ? (first.mode === 'comic' ? (first.primary ? first.name : first.series) : first.mode === 'instrument' || first.mode === 'treasure' ? first.product : first.name) : 'Print job';
+    return job.itemCount > 1 ? `${label} + ${job.itemCount - 1} more` : label;
+  }
+
+  function jobKinds(job) {
+    const counts = {};
+    (job.items || []).forEach(item => { counts[item.mode] = (counts[item.mode] || 0) + 1; });
+    return Object.entries(counts).map(([kind, count]) => `${count} ${kind}`).join(' · ');
+  }
+
+  function stationJobHtml(job) {
+    const active = job.status === 'pending' || job.status === 'printing';
+    const age = new Date(job.createdAt).toLocaleString();
+    const statusLabel = { pending: 'Waiting', printing: 'In progress', completed: 'Completed', cancelled: 'Cancelled' }[job.status] || job.status;
+    const action = job.status === 'pending'
+      ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print job</button><button class="secondaryButton stationCancel" data-id="${escapeHtml(job.id)}">Cancel</button>`
+      : job.status === 'printing'
+        ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print again</button><button class="secondaryButton stationComplete" data-id="${escapeHtml(job.id)}">Mark complete</button>`
+        : `<button class="secondaryButton stationReopen" data-id="${escapeHtml(job.id)}">Return to queue</button>`;
+    return `<article class="stationJob ${active ? 'active' : ''}" data-status="${escapeHtml(job.status)}">
+      <div class="stationJobMain"><div class="stationJobHeading"><span class="jobStatus">${escapeHtml(statusLabel)}</span><time>${escapeHtml(age)}</time></div>
+      <h3>${escapeHtml(jobTitle(job))}</h3><p>${escapeHtml(jobKinds(job))}</p><small>From ${escapeHtml(job.from || 'Sales floor device')}${job.station ? ` · ${escapeHtml(job.station)}` : ''}</small></div>
+      <div class="stationJobActions">${action}</div></article>`;
+  }
+
+  function bindStationJobActions() {
+    $$('.stationPrint').forEach(button => button.addEventListener('click', () => printStationJob(button.dataset.id)));
+    $$('.stationComplete').forEach(button => button.addEventListener('click', () => updateStationJob('complete', button.dataset.id)));
+    $$('.stationReopen').forEach(button => button.addEventListener('click', () => updateStationJob('reopen', button.dataset.id)));
+    $$('.stationCancel').forEach(button => button.addEventListener('click', () => updateStationJob('cancel', button.dataset.id)));
+  }
+
+  function renderStationJobs() {
+    const pending = state.stationJobs.filter(job => job.status === 'pending');
+    const printing = state.stationJobs.filter(job => job.status === 'printing');
+    const completed = state.stationJobs.filter(job => ['completed', 'cancelled'].includes(job.status));
+    text('#pendingJobCount', pending.length);
+    text('#printingJobCount', printing.length);
+    text('#completedJobCount', completed.length);
+    text('#stationUpdated', `Updated ${new Date().toLocaleTimeString()} · Refreshes automatically every 20 seconds`);
+    const ordered = [...pending, ...printing, ...completed.slice(0, 20)];
+    requireElement('#stationJobs').innerHTML = ordered.map(stationJobHtml).join('') || '<div class="empty">No print jobs are waiting.</div>';
+    bindStationJobActions();
+  }
+
+  function showStationError(error) {
+    AppLog.warn('Print Station refresh failed', error);
+    text('#stationUpdated', error.message || String(error));
+    renderStationConnection();
+  }
+
+  async function refreshStation() {
+    if (state.stationBusy) return;
+    state.stationBusy = true;
+    try {
+      renderStationConnection();
+      if (!AuthoritySync.hasToken()) throw new Error('Enter the GitHub token under Connection to load print jobs.');
+      state.stationJobs = await PrintStation.list();
+      renderStationJobs();
+    } finally { state.stationBusy = false; }
+  }
+
+  function startStationPolling() {
+    stopStationPolling();
+    state.stationTimer = setInterval(() => {
+      if (state.mode === 'station' && !document.hidden) refreshStation().catch(showStationError);
+    }, 20000);
+  }
+
+  function stopStationPolling() {
+    if (state.stationTimer) clearInterval(state.stationTimer);
+    state.stationTimer = null;
+  }
+
+  async function sendToStation() {
+    if (!state.queue.length) throw new Error('Add at least one item to the print queue.');
+    const note = prompt('Optional job name or note:', '') ?? '';
+    const job = await PrintStation.send(state.queue, note);
+    alert(`Sent ${job.itemCount} item${job.itemCount === 1 ? '' : 's'} to the Print Station.`);
+  }
+
+  async function sharePrintPacket() {
+    const result = await PrintPacket.share(state.queue);
+    if (!result.shared) alert(`The share sheet is not available in this browser, so ${result.name} was downloaded instead.`);
+  }
+
+  async function printStationJob(id) {
+    const job = state.stationJobs.find(item => item.id === id);
+    if (!job) return;
+    const popup = window.open('', '_blank');
+    if (!popup) return alert('Pop-ups are blocked. Allow pop-ups for this site so the print sheet can open.');
+    popup.document.write('<!doctype html><title>Preparing 2NC print job…</title><p style="font:16px system-ui;padding:24px">Preparing print job…</p>');
+    try {
+      if (job.status === 'pending') await PrintStation.claim(id);
+      LabelEngine.printQueue(job.items, popup);
+      await refreshStation();
+    } catch (error) {
+      popup.close();
+      alert(error.message);
+    }
+  }
+
+  async function updateStationJob(action, id) {
+    if (action === 'cancel' && !confirm('Cancel this print job?')) return;
+    await PrintStation[action](id);
+    await refreshStation();
+  }
+
+  async function pullFromGitHub() {
+    if (!confirm('Pull the latest Music and Comic authorities from GitHub? This replaces the database on this device.')) return;
+    const result = await AuthoritySync.pull();
+    await reloadData(); renderSyncStatus();
+    alert(`GitHub data pulled: ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records.`);
+  }
+
+  async function publishToGitHub() {
+    if (!confirm('Publish this device’s complete Music and Comic authorities to GitHub? This updates the live source files and may trigger a GitHub Pages deployment.')) return;
+    const result = await AuthoritySync.push();
+    renderSyncStatus();
+    alert(`Published ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records to GitHub.`);
+  }
+
+  function diagnosticsHtml() {
+    const diagnostics = AppLog.diagnostics({ counts: { music: state.music.length, comic: state.comic.length }, mode: state.mode });
+    return `<p><strong>${escapeHtml(APP_CONFIG.name)} v${escapeHtml(APP_CONFIG.version)}</strong></p><p>Build: ${escapeHtml(APP_CONFIG.build)}</p><p>Music: ${state.music.length.toLocaleString()} · Comics: ${state.comic.length.toLocaleString()}</p><label class="debugToggle"><input id="debugToggle" type="checkbox" ${AppLog.enabled ? 'checked' : ''}> Enable developer logging</label><textarea id="diagnosticText" rows="12" readonly>${escapeHtml(JSON.stringify(diagnostics, null, 2))}</textarea><button id="copyDiagnostics" class="secondaryButton">Copy diagnostics</button>`;
+  }
+  function showAbout() {
+    showModal('About & Diagnostics', diagnosticsHtml());
+    on('#debugToggle', 'change', event => AppLog.setEnabled(event.target.checked));
+    on('#copyDiagnostics', 'click', async () => { await navigator.clipboard.writeText($('#diagnosticText')?.value || ''); alert('Diagnostics copied.'); });
+  }
+
+  async function reloadData() {
+    state.music = (await AuthorityDB.getAll('music')).filter(row => row.status !== 'retired');
+    state.comic = (await AuthorityDB.getAll('comic')).filter(row => row.status !== 'retired');
+    text('#dbStatus', `Music ${state.music.length.toLocaleString()} · Comics ${state.comic.length.toLocaleString()}`);
+    if (state.mode === 'quick') renderLookup();
+    else if (state.mode !== 'manager') { populateCategoryFilter(); renderResults(); renderPreview(); }
+    await renderManager();
+  }
+
+  function bindEvents() {
+    $$('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+    $$('[data-quick-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.quickMode)));
+    $$('[data-lookup-kind]').forEach(button => button.addEventListener('click', () => setLookupKind(button.dataset.lookupKind)));
+    on('#quickInput', 'input', event => { state.lookupQuery = event.target.value; state.lookupSelectedId = ''; renderLookup(); });
+    on('#quickInput', 'keydown', event => { if (event.key === 'Escape') clearLookup(); });
+    on('#quickClear', 'click', clearLookup);
+    on('#quickAddQueue', 'click', addLookupToQueue);
+    on('#quickChoices', 'click', event => { const destination = event.target.closest('[data-quick-mode]'); if (destination) setMode(destination.dataset.quickMode); });
+    on('#searchInput', 'input', event => { state.query = event.target.value; renderResults(); });
+    on('#levelFilter', 'change', event => { state.level = event.target.value; renderResults(); });
+    on('#categoryFilter', 'change', event => { state.category = event.target.value; renderResults(); });
+    on('#comicTypeFilter', 'change', event => { state.comicType = event.target.value; state.selected = null; state.editingQueueIndex = null; renderResults(); renderPreview(); });
+    on('#sortFilter', 'change', event => { state.sort = event.target.value; renderResults(); });
+    on('#clearSearch', 'click', () => { state.query = ''; state.level = ''; state.category = ''; state.comicType = ''; state.sort = 'name'; if ($('#searchInput')) $('#searchInput').value = ''; if ($('#levelFilter')) $('#levelFilter').value = ''; if ($('#comicTypeFilter')) $('#comicTypeFilter').value = ''; populateCategoryFilter(); renderResults(); renderPreview(); });
+    on('#addSelected', 'click', addSelected); on('#addAll', 'click', addAll); on('#addHierarchy', 'click', addHierarchy);
+    on('#showComicAuthority', 'change', event => { state.showComicAuthority = event.target.checked; localStorage.setItem('2ncShowComicAuthority', String(state.showComicAuthority)); renderPreview(); });
+    on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
+    on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
+    on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
+    on('#sharePdfBtn', 'click', () => sharePrintPacket().catch(error => { if (error.name !== 'AbortError') alert(error.message); }));
+    on('#sendStationBtn', 'click', () => sendToStation().catch(error => alert(error.message)));
+    on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode); } catch (error) { alert(error.message); } });
+    on('#customBtn', 'click', customLabel);
+    on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
+    on('#addTreasureTag', 'click', () => addTreasureTag($('#treasureProductInput')?.value || ''));
+    on('#priceInput', 'input', event => { const element = $('.tagPrice'); if (element) element.textContent = event.target.value ? (event.target.value.startsWith('$') ? event.target.value : `$${event.target.value}`) : '$239'; });
+    on('#productInput', 'input', event => { const element = $('.tagProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
+    on('#treasureProductInput', 'input', event => { const element = $('.treasureProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
+    on('#closeModal', 'click', closeModal); on('#modal', 'click', event => { if (event.target.id === 'modal') closeModal(); });
+    on('#aboutBtn', 'click', showAbout); on('#debugBadge', 'click', showAbout);
+    on('#managerDataset', 'change', () => { state.managerSelected = null; renderManager(); }); on('#managerSearch', 'input', renderManager); on('#managerStatus', 'change', renderManager);
+    on('#newAuthority', 'click', newAuthority); on('#authorityForm', 'submit', saveAuthority); on('#retireRecord', 'click', toggleRetire); on('#deleteRecord', 'click', deleteSelected);
+    on('#exportBackup', 'click', exportBackup); on('#importBackup', 'change', event => importBackup(event.target.files[0]).catch(error => alert(error.message)));
+    on('#repairDatabase', 'click', () => repairDatabase().catch(error => alert(error.message)));
+    on('#syncSettings', 'click', openSyncSettings);
+    on('#syncPull', 'click', () => pullFromGitHub().catch(error => alert(error.message)));
+    on('#syncPush', 'click', () => publishToGitHub().catch(error => alert(error.message)));
+    on('#stationRefresh', 'click', () => refreshStation().catch(showStationError));
+    on('#stationConnectionBtn', 'click', openSyncSettings);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && state.mode === 'station') refreshStation().catch(showStationError); });
+  }
+
+  function appendSelectGroup(selector, label, values) {
+    const select = $(selector);
+    if (!select) return;
+    const existing = new Set(Array.from(select.options).map(option => option.value));
+    const group = document.createElement('optgroup');
+    group.label = label;
+    values.filter(value => !existing.has(value)).forEach(value => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      group.appendChild(option);
+    });
+    if (group.children.length) select.appendChild(group);
+  }
+
+  function installMarvelPublishingOptions() {
+    appendSelectGroup('#editPublishingEra', 'Marvel', [
+      'Marvel NOW!', 'All-New Marvel NOW!', 'All-New, All-Different Marvel',
+      'Marvel NOW! 2.0', 'Marvel Legacy', 'Fresh Start', 'Dawn of X',
+      'Reign of X', 'Destiny of X', 'Fall of X', 'From the Ashes'
+    ]);
+    appendSelectGroup('#editPublishingLine', 'Marvel', [
+      'Ultimate Universe', 'Marvel Knights', 'MAX', '2099',
+      'Marvel Zombies', 'Star Wars', 'Alien / Predator'
+    ]);
+  }
+
+  async function initialize() {
+    installMarvelPublishingOptions();
+    bindEvents();
+    const authorityToggle = $('#showComicAuthority'); if (authorityToggle) authorityToggle.checked = state.showComicAuthority;
+    const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
+    await reloadData();
+    renderQueue(); setMode('quick');
+    text('#versionBadge', `v${APP_CONFIG.version}`);
+    renderSyncStatus();
+    renderStationConnection();
+  }
+
+  window.AppUI = { initialize, reloadData, setMode, showAbout, state };
+})();
+) ? price : '
+
+  function makeId(kind) { return `${kind === 'music' ? 'MUS' : 'COM'}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`; }
+
+  function ensurePublicationYearFields() {
+    if ($('#publicationYearsField')) return;
+    const eraField = $('#publishingEraField');
+    if (!eraField) return;
+    const fields = document.createElement('div');
+    fields.id = 'publicationYearsField';
+    fields.className = 'twoCol hidden';
+    fields.innerHTML = '<label>Start year<input id="editStartYear" inputmode="numeric" maxlength="4" placeholder="1985"></label><label>End year<input id="editEndYear" inputmode="numeric" maxlength="7" placeholder="Present"></label>';
+    eraField.before(fields);
+  }
+
+  async function renderManager() {
+    if (state.mode !== 'manager') return;
+    const dataset = $('#managerDataset')?.value || state.managerDataset;
+    state.managerDataset = dataset;
+    const query = ($('#managerSearch')?.value || '').toLowerCase();
+    const status = $('#managerStatus')?.value || 'active';
+    let rows = await AuthorityDB.getAll(dataset);
+    rows = rows.filter(row => (status === 'all' || (row.status || 'active') === status) && (!query || JSON.stringify(row).toLowerCase().includes(query))).sort((a, b) => (a.sort || a.display || a.name || '').localeCompare(b.sort || b.display || b.name || ''));
+    text('#managerCount', `${rows.length.toLocaleString()} records`);
+    requireElement('#managerResults').innerHTML = rows.slice(0, 700).map(row => `<div class="resultCard ${state.managerSelected && state.managerSelected.id === row.id ? 'selected' : ''}" data-id="${escapeHtml(row.id)}"><div><strong>${escapeHtml(row.display || row.name)}</strong><br><small>${escapeHtml(dataset === 'comic' ? [row.parent, row.series, row.printedTitle && row.printedTitle !== row.series ? `Print: ${row.printedTitle}` : '', row.publishingLine, row.publishingEra, comicYearRange(row), row.publisher, row.id].filter(Boolean).join(' · ') : [row.genre, musicSubgenreLine(row), row.type].filter(Boolean).join(' · '))}</small><div class="recordFlags"><span class="flag">${escapeHtml(row.level || '')}</span>${row.status === 'retired' ? '<span class="flag retired">Retired</span>' : ''}</div></div></div>`).join('') || '<div class="empty">No records</div>';
+    $$('#managerResults .resultCard').forEach(element => element.addEventListener('click', () => { state.managerSelected = rows.find(row => row.id === element.dataset.id); fillEditor(state.managerSelected); renderManager(); }));
+  }
+
+  function fillEditor(row) {
+    ensurePublicationYearFields();
+    show('#editorEmpty', false); show('#authorityForm', true);
+    const comic = state.managerDataset === 'comic';
+    show('#parentField', comic); show('#seriesField', comic); show('#printTitleField', comic); show('#publicationYearsField', comic); show('#publishingEraField', comic); show('#publishingLineField', comic); show('#publisherField', comic); show('#genreField', !comic); show('#musicDescriptorFields', !comic);
+    const values = {
+      editId: row.id || '', editDisplay: row.display || row.name || '', editName: row.name || row.display || '', editParent: row.parent || '', editSeries: row.series || '', editPrintTitle: row.printedTitle || row.series || row.display || '', editStartYear: row.startYear || '', editEndYear: row.endYear || '', editPublishingEra: row.publishingEra || '', editPublishingLine: row.publishingLine || '', editType: row.type || '', editLevel: row.level || 'Recommended', editGenre: row.genre || '', editPrimarySubgenre: row.primarySubgenre || row.subgenre || '', editSecondarySubgenre: row.secondarySubgenre || '', editPublisher: row.publisher || '', editNotes: row.notes || ''
+    };
+    Object.entries(values).forEach(([id, value]) => { const element = document.getElementById(id); if (element) element.value = value; });
+    text('#retireRecord', row.status === 'retired' ? 'Restore' : 'Retire');
+  }
+
+  function newAuthority() { state.managerSelected = { id: '', status: 'active' }; fillEditor(state.managerSelected); }
+  async function saveAuthority(event) {
+    event.preventDefault();
+    const kind = state.managerDataset, comic = kind === 'comic', old = state.managerSelected || {};
+    const display = ($('#editDisplay')?.value || '').trim(); if (!display) return;
+    const row = { ...old, id: $('#editId')?.value || makeId(kind), display, name: ($('#editName')?.value || '').trim() || display, type: ($('#editType')?.value || '').trim(), level: $('#editLevel')?.value || 'Recommended', status: old.status || 'active', notes: ($('#editNotes')?.value || '').trim(), updatedAt: new Date().toISOString(), _localEdited: true };
+    if (comic) { row.parent = ($('#editParent')?.value || '').trim(); row.series = ($('#editSeries')?.value || '').trim(); row.printedTitle = ($('#editPrintTitle')?.value || '').trim() || row.series || row.display; row.startYear = ($('#editStartYear')?.value || '').trim(); row.endYear = ($('#editEndYear')?.value || '').trim(); row.publishingEra = ($('#editPublishingEra')?.value || '').trim(); row.publishingLine = ($('#editPublishingLine')?.value || '').trim(); row.publisher = ($('#editPublisher')?.value || '').trim(); row.primary = !row.parent; row.sort = row.series || row.display; }
+    else { row.genre = ($('#editGenre')?.value || '').trim(); row.primarySubgenre = ($('#editPrimarySubgenre')?.value || '').trim(); row.secondarySubgenre = ($('#editSecondarySubgenre')?.value || '').trim(); row.subgenre = row.primarySubgenre; row.sort = row.display; }
+    await AuthorityDB.put(kind, row); state.managerSelected = row; await reloadData(); alert('Authority saved.');
+  }
+  async function toggleRetire() { if (!state.managerSelected?.id) return; state.managerSelected.status = state.managerSelected.status === 'retired' ? 'active' : 'retired'; state.managerSelected.updatedAt = new Date().toISOString(); state.managerSelected._localEdited = true; await AuthorityDB.put(state.managerDataset, state.managerSelected); await reloadData(); fillEditor(state.managerSelected); }
+  async function deleteSelected() { if (!state.managerSelected?.id || !confirm('Permanently delete this authority?')) return; await AuthorityDB.remove(state.managerDataset, state.managerSelected.id); state.managerSelected = null; show('#authorityForm', false); show('#editorEmpty', true); await reloadData(); }
+
+  async function exportBackup() {
+    const payload = await AuthorityDB.exportBackup();
+    const anchor = document.createElement('a');
+    anchor.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }));
+    anchor.download = `2NC_Authority_Backup_${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.click(); URL.revokeObjectURL(anchor.href);
+  }
+  async function importBackup(file) { if (!file) return; const payload = JSON.parse(await file.text()); if (!confirm('Replace the internal Music and Comic databases with this backup?')) return; await AuthorityDB.importBackup(payload); await reloadData(); alert('Backup imported.'); }
+
+  async function repairDatabase() {
+    if (!confirm('Repair from the bundled authority files? All locally edited fields, custom records, retired records, and deletions will be preserved.')) return;
+    await AuthorityDB.ensureSeeded({ force: true }); await reloadData(); alert('Database repair complete.');
+  }
+
+  function syncStatusText() {
+    if (!window.AuthoritySync) return 'GitHub sync module unavailable';
+    const status = AuthoritySync.status();
+    if (!status.settings.owner || !status.settings.repo) return 'Not connected';
+    const repo = `${status.settings.owner}/${status.settings.repo}`;
+    return status.lastSync ? `${repo} · Last sync ${new Date(status.lastSync).toLocaleString()}` : `${repo} · Ready to sync`;
+  }
+
+  function renderSyncStatus() { text('#syncStatus', syncStatusText()); }
+
+  function openSyncSettings() {
+    const status = AuthoritySync.status();
+    const value = status.settings;
+    showModal('Connection', `<p class="modalIntro">Connect authority data and the Print Station to the GitHub repository. The token is kept only for this browser session and is never included in backups.</p>
+      <div class="twoCol"><label>Repository owner<input id="syncOwner" autocomplete="off" value="${escapeHtml(value.owner)}"></label><label>Repository name<input id="syncRepo" autocomplete="off" value="${escapeHtml(value.repo)}"></label></div>
+      <div class="twoCol"><label>Authority branch<input id="syncBranch" autocomplete="off" value="${escapeHtml(value.branch)}"></label><label>This device name<input id="syncDeviceName" autocomplete="off" placeholder="Sales Floor iPad or Back Office PC" value="${escapeHtml(value.deviceName || '')}"></label></div>
+      <div class="twoCol"><label>Music file<input id="syncMusicPath" value="${escapeHtml(value.musicPath)}"></label><label>Comic file<input id="syncComicPath" value="${escapeHtml(value.comicPath)}"></label></div>
+      <div class="twoCol"><label>Print queue branch<input id="syncPrintBranch" value="${escapeHtml(value.printBranch || 'print-queue')}"></label><label>Print queue file<input id="syncPrintPath" value="${escapeHtml(value.printQueuePath || 'print-queue.json')}"></label></div>
+      <label>GitHub token<input id="syncToken" type="password" autocomplete="off" placeholder="${status.hasToken ? 'Token active for this session' : 'Fine-grained token with Contents access'}"></label>
+      <small>Use a fine-grained token limited to this repository with Contents read/write permission. The separate print-queue branch prevents print jobs from triggering a website deployment.</small>
+      <button id="saveSyncSettings" class="primaryButton">Save connection</button>`);
+    on('#saveSyncSettings', 'click', () => {
+      AuthoritySync.saveSettings({
+        owner: $('#syncOwner')?.value, repo: $('#syncRepo')?.value, branch: $('#syncBranch')?.value,
+        musicPath: $('#syncMusicPath')?.value, comicPath: $('#syncComicPath')?.value,
+        printBranch: $('#syncPrintBranch')?.value, printQueuePath: $('#syncPrintPath')?.value,
+        deviceName: $('#syncDeviceName')?.value, token: $('#syncToken')?.value
+      });
+      renderSyncStatus(); renderStationConnection(); closeModal(); alert('Connection saved for this device.');
+    });
+  }
+
+  function renderStationConnection() {
+    const status = AuthoritySync.status();
+    const name = status.settings.deviceName || 'Unnamed device';
+    text('#stationConnection', status.hasToken ? `${name} · Connected` : `${name} · Token needed`);
+  }
+
+  function jobTitle(job) {
+    if (job.note) return job.note;
+    const first = job.items?.[0];
+    const label = first ? (first.mode === 'comic' ? (first.primary ? first.name : first.series) : first.mode === 'instrument' || first.mode === 'treasure' ? first.product : first.name) : 'Print job';
+    return job.itemCount > 1 ? `${label} + ${job.itemCount - 1} more` : label;
+  }
+
+  function jobKinds(job) {
+    const counts = {};
+    (job.items || []).forEach(item => { counts[item.mode] = (counts[item.mode] || 0) + 1; });
+    return Object.entries(counts).map(([kind, count]) => `${count} ${kind}`).join(' · ');
+  }
+
+  function stationJobHtml(job) {
+    const active = job.status === 'pending' || job.status === 'printing';
+    const age = new Date(job.createdAt).toLocaleString();
+    const statusLabel = { pending: 'Waiting', printing: 'In progress', completed: 'Completed', cancelled: 'Cancelled' }[job.status] || job.status;
+    const action = job.status === 'pending'
+      ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print job</button><button class="secondaryButton stationCancel" data-id="${escapeHtml(job.id)}">Cancel</button>`
+      : job.status === 'printing'
+        ? `<button class="primaryButton stationPrint" data-id="${escapeHtml(job.id)}">Print again</button><button class="secondaryButton stationComplete" data-id="${escapeHtml(job.id)}">Mark complete</button>`
+        : `<button class="secondaryButton stationReopen" data-id="${escapeHtml(job.id)}">Return to queue</button>`;
+    return `<article class="stationJob ${active ? 'active' : ''}" data-status="${escapeHtml(job.status)}">
+      <div class="stationJobMain"><div class="stationJobHeading"><span class="jobStatus">${escapeHtml(statusLabel)}</span><time>${escapeHtml(age)}</time></div>
+      <h3>${escapeHtml(jobTitle(job))}</h3><p>${escapeHtml(jobKinds(job))}</p><small>From ${escapeHtml(job.from || 'Sales floor device')}${job.station ? ` · ${escapeHtml(job.station)}` : ''}</small></div>
+      <div class="stationJobActions">${action}</div></article>`;
+  }
+
+  function bindStationJobActions() {
+    $$('.stationPrint').forEach(button => button.addEventListener('click', () => printStationJob(button.dataset.id)));
+    $$('.stationComplete').forEach(button => button.addEventListener('click', () => updateStationJob('complete', button.dataset.id)));
+    $$('.stationReopen').forEach(button => button.addEventListener('click', () => updateStationJob('reopen', button.dataset.id)));
+    $$('.stationCancel').forEach(button => button.addEventListener('click', () => updateStationJob('cancel', button.dataset.id)));
+  }
+
+  function renderStationJobs() {
+    const pending = state.stationJobs.filter(job => job.status === 'pending');
+    const printing = state.stationJobs.filter(job => job.status === 'printing');
+    const completed = state.stationJobs.filter(job => ['completed', 'cancelled'].includes(job.status));
+    text('#pendingJobCount', pending.length);
+    text('#printingJobCount', printing.length);
+    text('#completedJobCount', completed.length);
+    text('#stationUpdated', `Updated ${new Date().toLocaleTimeString()} · Refreshes automatically every 20 seconds`);
+    const ordered = [...pending, ...printing, ...completed.slice(0, 20)];
+    requireElement('#stationJobs').innerHTML = ordered.map(stationJobHtml).join('') || '<div class="empty">No print jobs are waiting.</div>';
+    bindStationJobActions();
+  }
+
+  function showStationError(error) {
+    AppLog.warn('Print Station refresh failed', error);
+    text('#stationUpdated', error.message || String(error));
+    renderStationConnection();
+  }
+
+  async function refreshStation() {
+    if (state.stationBusy) return;
+    state.stationBusy = true;
+    try {
+      renderStationConnection();
+      if (!AuthoritySync.hasToken()) throw new Error('Enter the GitHub token under Connection to load print jobs.');
+      state.stationJobs = await PrintStation.list();
+      renderStationJobs();
+    } finally { state.stationBusy = false; }
+  }
+
+  function startStationPolling() {
+    stopStationPolling();
+    state.stationTimer = setInterval(() => {
+      if (state.mode === 'station' && !document.hidden) refreshStation().catch(showStationError);
+    }, 20000);
+  }
+
+  function stopStationPolling() {
+    if (state.stationTimer) clearInterval(state.stationTimer);
+    state.stationTimer = null;
+  }
+
+  async function sendToStation() {
+    if (!state.queue.length) throw new Error('Add at least one item to the print queue.');
+    const note = prompt('Optional job name or note:', '') ?? '';
+    const job = await PrintStation.send(state.queue, note);
+    alert(`Sent ${job.itemCount} item${job.itemCount === 1 ? '' : 's'} to the Print Station.`);
+  }
+
+  async function sharePrintPacket() {
+    const result = await PrintPacket.share(state.queue);
+    if (!result.shared) alert(`The share sheet is not available in this browser, so ${result.name} was downloaded instead.`);
+  }
+
+  async function printStationJob(id) {
+    const job = state.stationJobs.find(item => item.id === id);
+    if (!job) return;
+    const popup = window.open('', '_blank');
+    if (!popup) return alert('Pop-ups are blocked. Allow pop-ups for this site so the print sheet can open.');
+    popup.document.write('<!doctype html><title>Preparing 2NC print job…</title><p style="font:16px system-ui;padding:24px">Preparing print job…</p>');
+    try {
+      if (job.status === 'pending') await PrintStation.claim(id);
+      LabelEngine.printQueue(job.items, popup);
+      await refreshStation();
+    } catch (error) {
+      popup.close();
+      alert(error.message);
+    }
+  }
+
+  async function updateStationJob(action, id) {
+    if (action === 'cancel' && !confirm('Cancel this print job?')) return;
+    await PrintStation[action](id);
+    await refreshStation();
+  }
+
+  async function pullFromGitHub() {
+    if (!confirm('Pull the latest Music and Comic authorities from GitHub? This replaces the database on this device.')) return;
+    const result = await AuthoritySync.pull();
+    await reloadData(); renderSyncStatus();
+    alert(`GitHub data pulled: ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records.`);
+  }
+
+  async function publishToGitHub() {
+    if (!confirm('Publish this device’s complete Music and Comic authorities to GitHub? This updates the live source files and may trigger a GitHub Pages deployment.')) return;
+    const result = await AuthoritySync.push();
+    renderSyncStatus();
+    alert(`Published ${result.music.toLocaleString()} Music and ${result.comic.toLocaleString()} Comic records to GitHub.`);
+  }
+
+  function diagnosticsHtml() {
+    const diagnostics = AppLog.diagnostics({ counts: { music: state.music.length, comic: state.comic.length }, mode: state.mode });
+    return `<p><strong>${escapeHtml(APP_CONFIG.name)} v${escapeHtml(APP_CONFIG.version)}</strong></p><p>Build: ${escapeHtml(APP_CONFIG.build)}</p><p>Music: ${state.music.length.toLocaleString()} · Comics: ${state.comic.length.toLocaleString()}</p><label class="debugToggle"><input id="debugToggle" type="checkbox" ${AppLog.enabled ? 'checked' : ''}> Enable developer logging</label><textarea id="diagnosticText" rows="12" readonly>${escapeHtml(JSON.stringify(diagnostics, null, 2))}</textarea><button id="copyDiagnostics" class="secondaryButton">Copy diagnostics</button>`;
+  }
+  function showAbout() {
+    showModal('About & Diagnostics', diagnosticsHtml());
+    on('#debugToggle', 'change', event => AppLog.setEnabled(event.target.checked));
+    on('#copyDiagnostics', 'click', async () => { await navigator.clipboard.writeText($('#diagnosticText')?.value || ''); alert('Diagnostics copied.'); });
+  }
+
+  async function reloadData() {
+    state.music = (await AuthorityDB.getAll('music')).filter(row => row.status !== 'retired');
+    state.comic = (await AuthorityDB.getAll('comic')).filter(row => row.status !== 'retired');
+    text('#dbStatus', `Music ${state.music.length.toLocaleString()} · Comics ${state.comic.length.toLocaleString()}`);
+    if (state.mode === 'quick') renderLookup();
+    else if (state.mode !== 'manager') { populateCategoryFilter(); renderResults(); renderPreview(); }
+    await renderManager();
+  }
+
+  function bindEvents() {
+    $$('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+    $$('[data-quick-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.quickMode)));
+    $$('[data-lookup-kind]').forEach(button => button.addEventListener('click', () => setLookupKind(button.dataset.lookupKind)));
+    on('#quickInput', 'input', event => { state.lookupQuery = event.target.value; state.lookupSelectedId = ''; renderLookup(); });
+    on('#quickInput', 'keydown', event => { if (event.key === 'Escape') clearLookup(); });
+    on('#quickClear', 'click', clearLookup);
+    on('#quickAddQueue', 'click', addLookupToQueue);
+    on('#quickChoices', 'click', event => { const destination = event.target.closest('[data-quick-mode]'); if (destination) setMode(destination.dataset.quickMode); });
+    on('#searchInput', 'input', event => { state.query = event.target.value; renderResults(); });
+    on('#levelFilter', 'change', event => { state.level = event.target.value; renderResults(); });
+    on('#categoryFilter', 'change', event => { state.category = event.target.value; renderResults(); });
+    on('#comicTypeFilter', 'change', event => { state.comicType = event.target.value; state.selected = null; state.editingQueueIndex = null; renderResults(); renderPreview(); });
+    on('#sortFilter', 'change', event => { state.sort = event.target.value; renderResults(); });
+    on('#clearSearch', 'click', () => { state.query = ''; state.level = ''; state.category = ''; state.comicType = ''; state.sort = 'name'; if ($('#searchInput')) $('#searchInput').value = ''; if ($('#levelFilter')) $('#levelFilter').value = ''; if ($('#comicTypeFilter')) $('#comicTypeFilter').value = ''; populateCategoryFilter(); renderResults(); renderPreview(); });
+    on('#addSelected', 'click', addSelected); on('#addAll', 'click', addAll); on('#addHierarchy', 'click', addHierarchy);
+    on('#showComicAuthority', 'change', event => { state.showComicAuthority = event.target.checked; localStorage.setItem('2ncShowComicAuthority', String(state.showComicAuthority)); renderPreview(); });
+    on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
+    on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
+    on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
+    on('#sharePdfBtn', 'click', () => sharePrintPacket().catch(error => { if (error.name !== 'AbortError') alert(error.message); }));
+    on('#sendStationBtn', 'click', () => sendToStation().catch(error => alert(error.message)));
+    on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode); } catch (error) { alert(error.message); } });
+    on('#customBtn', 'click', customLabel);
+    on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
+    on('#addTreasureTag', 'click', () => addTreasureTag($('#treasureProductInput')?.value || ''));
+    on('#priceInput', 'input', event => { const element = $('.tagPrice'); if (element) element.textContent = event.target.value ? (event.target.value.startsWith('$') ? event.target.value : `$${event.target.value}`) : '$239'; });
+    on('#productInput', 'input', event => { const element = $('.tagProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
+    on('#treasureProductInput', 'input', event => { const element = $('.treasureProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
+    on('#closeModal', 'click', closeModal); on('#modal', 'click', event => { if (event.target.id === 'modal') closeModal(); });
+    on('#aboutBtn', 'click', showAbout); on('#debugBadge', 'click', showAbout);
+    on('#managerDataset', 'change', () => { state.managerSelected = null; renderManager(); }); on('#managerSearch', 'input', renderManager); on('#managerStatus', 'change', renderManager);
+    on('#newAuthority', 'click', newAuthority); on('#authorityForm', 'submit', saveAuthority); on('#retireRecord', 'click', toggleRetire); on('#deleteRecord', 'click', deleteSelected);
+    on('#exportBackup', 'click', exportBackup); on('#importBackup', 'change', event => importBackup(event.target.files[0]).catch(error => alert(error.message)));
+    on('#repairDatabase', 'click', () => repairDatabase().catch(error => alert(error.message)));
+    on('#syncSettings', 'click', openSyncSettings);
+    on('#syncPull', 'click', () => pullFromGitHub().catch(error => alert(error.message)));
+    on('#syncPush', 'click', () => publishToGitHub().catch(error => alert(error.message)));
+    on('#stationRefresh', 'click', () => refreshStation().catch(showStationError));
+    on('#stationConnectionBtn', 'click', openSyncSettings);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && state.mode === 'station') refreshStation().catch(showStationError); });
+  }
+
+  function appendSelectGroup(selector, label, values) {
+    const select = $(selector);
+    if (!select) return;
+    const existing = new Set(Array.from(select.options).map(option => option.value));
+    const group = document.createElement('optgroup');
+    group.label = label;
+    values.filter(value => !existing.has(value)).forEach(value => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      group.appendChild(option);
+    });
+    if (group.children.length) select.appendChild(group);
+  }
+
+  function installMarvelPublishingOptions() {
+    appendSelectGroup('#editPublishingEra', 'Marvel', [
+      'Marvel NOW!', 'All-New Marvel NOW!', 'All-New, All-Different Marvel',
+      'Marvel NOW! 2.0', 'Marvel Legacy', 'Fresh Start', 'Dawn of X',
+      'Reign of X', 'Destiny of X', 'Fall of X', 'From the Ashes'
+    ]);
+    appendSelectGroup('#editPublishingLine', 'Marvel', [
+      'Ultimate Universe', 'Marvel Knights', 'MAX', '2099',
+      'Marvel Zombies', 'Star Wars', 'Alien / Predator'
+    ]);
+  }
+
+  async function initialize() {
+    installMarvelPublishingOptions();
+    bindEvents();
+    const authorityToggle = $('#showComicAuthority'); if (authorityToggle) authorityToggle.checked = state.showComicAuthority;
+    const eraToggle = $('#showComicEra'); if (eraToggle) eraToggle.checked = state.showComicEra;
+    await reloadData();
+    renderQueue(); setMode('quick');
+    text('#versionBadge', `v${APP_CONFIG.version}`);
+    renderSyncStatus();
+    renderStationConnection();
+  }
+
+  window.AppUI = { initialize, reloadData, setMode, showAbout, state };
+})();
+ + price) : '' } : null;
+    }).filter(Boolean);
+    const visible = items.length ? items : [{ product: 'ITEM NAME', price: '$35' }];
+    element.className = 'treasureProduct treasureProducts count-' + Math.min(visible.length, 4);
+    element.innerHTML = visible.map(item => '<div class="treasureEntryText">' + escapeHtml(item.product).replace(/\n/g, '<br>') + (item.price ? ' <span class="treasurePriceText">' + escapeHtml(item.price) + '</span>' : '') + '</div>').join('');
+  }
+
+  function addTreasureTag() {
+    let items;
+    try { items = treasureFormItems(); } catch (error) { alert(error.message); return; }
+    if (!items.length) { alert('Add at least one item and price.'); return; }
+    const product = items.map(item => item.product + ' ' + item.price).join(' / ');
+    const record = { uid: safeId(), mode: 'treasure', product, items };
+    if (state.editingQueueIndex !== null && state.queue[state.editingQueueIndex]?.mode === 'treasure') {
+      record.uid = state.queue[state.editingQueueIndex].uid;
+      state.queue[state.editingQueueIndex] = record;
+      state.editingQueueIndex = null;
+    } else state.queue.push(record);
+    saveQueue();
   }
 
   function makeId(kind) { return `${kind === 'music' ? 'MUS' : 'COM'}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`; }
