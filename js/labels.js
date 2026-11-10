@@ -2,6 +2,7 @@
   const escapeHtml = value => String(value ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const subgenreLine = row => [row.primarySubgenre || row.subgenre, row.secondarySubgenre].filter(Boolean).join(' • ');
   const instrumentLogoUrl = new URL('assets/2nc-logo-white.png', window.location.href).href;
+  const treasureHeaderUrl = new URL('assets/treasures-header.svg', window.location.href).href;
   const lengthClass = value => { const n = String(value || '').length; return n > 34 ? ' tight' : n > 22 ? ' compact' : ''; };
 
   function printStyles() {
@@ -49,6 +50,17 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .treasureMultiPrint.count-3{font-size:17pt}
 .treasureMultiPrint.count-4{font-size:14pt}
 .treasureMultiPrint.count-4 .treasureEntryPrint{padding:3pt 0}
+
+.treasureHeaderGeneratedPrint{top:.17in;left:.24in;right:.24in;height:1.33in}
+.treasureHeaderArtPrint{width:100%;height:100%;object-fit:contain;display:block}
+.treasureProductPrint.treasureMultiPrint{top:1.85in;bottom:.35in;left:.30in;right:.30in;display:grid;grid-template-rows:repeat(1,minmax(0,1fr));align-items:stretch;justify-items:stretch;gap:0;overflow:hidden}
+.treasureMultiPrint.count-2{grid-template-rows:repeat(2,minmax(0,1fr));font-size:23pt}
+.treasureMultiPrint.count-3{grid-template-rows:repeat(3,minmax(0,1fr));font-size:18pt}
+.treasureMultiPrint.count-4{grid-template-rows:repeat(4,minmax(0,1fr));font-size:14pt}
+.treasureMultiPrint.count-1{font-size:31pt}
+.treasureMultiPrint .treasureEntryPrint{width:100%;height:100%;min-height:0;overflow:hidden;display:grid;place-items:center;text-align:center;padding:2pt 0;line-height:1.13}
+.treasureEntryContentPrint{display:block;width:100%;max-width:100%;overflow-wrap:break-word}
+.treasurePricePrint{white-space:nowrap}
 .calibrationLabel{position:relative;background:#fff}.calibrationLabel:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt)),linear-gradient(0deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt));pointer-events:none}.calibrationLabel b{z-index:1}.ruler{position:absolute;left:.1in;bottom:.03in;font-size:6pt;color:#555}
 @media screen{body{padding:12px}.sheet{outline:1px solid #ddd;margin:12px auto}.printNotice{display:block}}
 @media print{.printNotice{display:none}body{padding:0}.sheet{outline:none;margin:0 auto}}
@@ -56,12 +68,15 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
   }
 
   function renderTreasureItems(row) {
-    if (!Array.isArray(row.items) || !row.items.length) return '<div class="treasureProductPrint">' + escapeHtml(row.product || '').replace(/\n/g, '<br>') + '</div>';
-    const entries = row.items.slice(0, 4).filter(item => item && String(item.product || '').trim());
-    return '<div class="treasureProductPrint treasureMultiPrint count-' + entries.length + '">' +
-      entries.map(item => '<div class="treasureEntryPrint">' + escapeHtml(item.product).replace(/\n/g, '<br>') +
+    const entries = Array.isArray(row.items) && row.items.length
+      ? row.items.slice(0, 4).filter(item => item && String(item.product || '').trim())
+      : [{ product: row.product || '', price: '' }];
+    const count = Math.max(1, entries.length);
+    return '<div class="treasureProductPrint treasureMultiPrint count-' + count + '">' +
+      entries.map(item => '<div class="treasureEntryPrint"><span class="treasureEntryContentPrint">' +
+        escapeHtml(item.product || '').replace(/\n/g, '<br>') +
         (item.price ? ' <span class="treasurePricePrint">' + escapeHtml(item.price) + '</span>' : '') +
-        '</div>').join('') + '</div>';
+        '</span></div>').join('') + '</div>';
   }
 
   function buildPrintDocument(groups) {
@@ -80,7 +95,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
           } else if (kind === 'instrument') {
             pages += `<div class="tag"><div class="orange"><span>${escapeHtml(row.price)}</span><img class="brandLogo" src="${instrumentLogoUrl}" alt="2nd & Charles"></div><div class="prod">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div><footer>2ndandcharles.com</footer></div>`;
           } else if (kind === 'treasure') {
-            pages += `<div class="treasureTagPrint"><div class="treasureInner"><div class="treasureHeaderGeneratedPrint" aria-label="2nd & Charles Treasures"><div class="treasureBrandPrint"><span class="treasure2ndPrint">2ND</span><span class="treasureAndPrint">&amp; CHARLES</span></div><div class="treasureWordPrint">TREASURES</div></div>${renderTreasureItems(row)}</div></div>`;
+            pages += `<div class="treasureTagPrint"><div class="treasureInner"><div class="treasureHeaderGeneratedPrint" aria-label="2nd & Charles Treasures"><img class="treasureHeaderArtPrint" src="${treasureHeaderUrl}" alt="2nd & Charles Treasures"></div>${renderTreasureItems(row)}</div></div>`;
           } else {
             pages += `<div class="pl ${kind}${lengthClass(row.name)}"><div class="musicGenre">${escapeHtml(row.genre || '')}</div><b>${escapeHtml(row.name)}</b><div class="musicSubgenres">${escapeHtml(subgenreLine(row))}</div></div>`;
           }
@@ -118,7 +133,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
     popup.document.write(html);
     popup.document.close();
     popup.focus();
-    setTimeout(() => popup.print(), 700);
+    Promise.all(Array.from(popup.document.images).map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve())).then(() => setTimeout(() => popup.print(), 150));
   }
 
   function printQueue(queue, targetWindow) {
