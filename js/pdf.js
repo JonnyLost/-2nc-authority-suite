@@ -147,8 +147,25 @@
       ? item.items.slice(0, 4).filter(entry => entry && String(entry.product || '').trim())
       : [{ product: item.product || '', price: '' }];
     const count = Math.max(1, entries.length);
+    const subheader = ascii(item.subheader || '').toUpperCase();
+    if (subheader) {
+      const subWidth = width - 47;
+      let subSize = 19;
+      let subLines = wrap(fonts.bold, subheader, subWidth, subSize, 40);
+      while (subSize > 8 && (subLines.length * subSize * 1.1 > 34 || subLines.some(line => fonts.bold.widthOfTextAtSize(line, subSize) > subWidth))) {
+        subSize -= .5;
+        subLines = wrap(fonts.bold, subheader, subWidth, subSize, 40);
+      }
+      const subLineHeight = subSize * 1.1;
+      const subTotal = subLines.length * subLineHeight;
+      const subCenterY = y + height - 137;
+      subLines.forEach((line, index) => {
+        const baseline = subCenterY + subTotal / 2 - (index + 1) * subLineHeight + 2;
+        drawCentered(page, fonts.bold, line, x + width / 2, baseline, subWidth, subSize, 8, colors.black);
+      });
+    }
     const areaBottom = y + 25;
-    const availableHeight = 201;
+    const availableHeight = subheader ? 180 : 201;
     const slotHeight = availableHeight / count;
     entries.forEach((entry, slot) => {
       const text = (String(entry.product || '') + (entry.price ? ' ' + String(entry.price) : '')).toUpperCase();
