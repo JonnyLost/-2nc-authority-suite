@@ -42,10 +42,26 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .treasureInner{width:100%;height:100%;background:#fff;position:relative;overflow:hidden}
 .treasureHeaderGeneratedPrint{position:absolute;left:.26in;right:.26in;top:.20in;height:1.40in;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f58220;text-align:center}
 .treasureBrandPrint{display:flex;flex-direction:column;align-items:center;line-height:.88;margin-bottom:.04in}.treasure2ndPrint{font-family:Impact,'Arial Black',Arial,sans-serif;font-size:25pt;letter-spacing:-1.2pt;border:2.2pt solid #f58220;border-bottom-width:1.7pt;padding:0 5pt;line-height:.82}.treasureAndPrint{font-family:Impact,'Arial Narrow',Arial,sans-serif;font-size:10pt;letter-spacing:.2pt;margin-top:2pt}.treasureWordPrint{font-family:Georgia,'Times New Roman',serif;font-size:38pt;font-weight:900;line-height:.86;letter-spacing:-2.1pt;color:#f58220;-webkit-text-stroke:.7pt #1f1f1f;text-shadow:.7pt .7pt 0 #1f1f1f,1.4pt 1.4pt 0 #1f1f1f}.treasureProductPrint{position:absolute;left:.18in;right:.18in;top:1.60in;bottom:.22in;display:flex;align-items:center;justify-content:center;text-align:center;color:#202020;font-family:Impact,'Arial Narrow',Arial,sans-serif;font-size:29pt;line-height:1.28;text-transform:uppercase}
+.treasureProductPrint.treasureMultiPrint{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:0;font-size:24pt;line-height:1.12}
+.treasureEntryPrint{flex:0 1 auto;min-height:0;overflow-wrap:anywhere;padding:5pt 0;text-align:center}
+.treasurePricePrint{white-space:nowrap}
+.treasureMultiPrint.count-2{font-size:21pt}
+.treasureMultiPrint.count-3{font-size:17pt}
+.treasureMultiPrint.count-4{font-size:14pt}
+.treasureMultiPrint.count-4 .treasureEntryPrint{padding:3pt 0}
 .calibrationLabel{position:relative;background:#fff}.calibrationLabel:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt)),linear-gradient(0deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt));pointer-events:none}.calibrationLabel b{z-index:1}.ruler{position:absolute;left:.1in;bottom:.03in;font-size:6pt;color:#555}
 @media screen{body{padding:12px}.sheet{outline:1px solid #ddd;margin:12px auto}.printNotice{display:block}}
 @media print{.printNotice{display:none}body{padding:0}.sheet{outline:none;margin:0 auto}}
 </style>`;
+  }
+
+  function renderTreasureItems(row) {
+    if (!Array.isArray(row.items) || !row.items.length) return '<div class="treasureProductPrint">' + escapeHtml(row.product || '').replace(/\n/g, '<br>') + '</div>';
+    const entries = row.items.slice(0, 4).filter(item => item && String(item.product || '').trim());
+    return '<div class="treasureProductPrint treasureMultiPrint count-' + entries.length + '">' +
+      entries.map(item => '<div class="treasureEntryPrint">' + escapeHtml(item.product).replace(/\n/g, '<br>') +
+        (item.price ? ' <span class="treasurePricePrint">' + escapeHtml(item.price) + '</span>' : '') +
+        '</div>').join('') + '</div>';
   }
 
   function buildPrintDocument(groups) {
@@ -64,7 +80,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
           } else if (kind === 'instrument') {
             pages += `<div class="tag"><div class="orange"><span>${escapeHtml(row.price)}</span><img class="brandLogo" src="${instrumentLogoUrl}" alt="2nd & Charles"></div><div class="prod">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div><footer>2ndandcharles.com</footer></div>`;
           } else if (kind === 'treasure') {
-            pages += `<div class="treasureTagPrint"><div class="treasureInner"><div class="treasureHeaderGeneratedPrint" aria-label="2nd & Charles Treasures"><div class="treasureBrandPrint"><span class="treasure2ndPrint">2ND</span><span class="treasureAndPrint">&amp; CHARLES</span></div><div class="treasureWordPrint">TREASURES</div></div><div class="treasureProductPrint">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div></div></div>`;
+            pages += `<div class="treasureTagPrint"><div class="treasureInner"><div class="treasureHeaderGeneratedPrint" aria-label="2nd & Charles Treasures"><div class="treasureBrandPrint"><span class="treasure2ndPrint">2ND</span><span class="treasureAndPrint">&amp; CHARLES</span></div><div class="treasureWordPrint">TREASURES</div></div>${renderTreasureItems(row)}</div></div>`;
           } else {
             pages += `<div class="pl ${kind}${lengthClass(row.name)}"><div class="musicGenre">${escapeHtml(row.genre || '')}</div><b>${escapeHtml(row.name)}</b><div class="musicSubgenres">${escapeHtml(subgenreLine(row))}</div></div>`;
           }
