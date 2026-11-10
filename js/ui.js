@@ -465,7 +465,25 @@
     }).filter(Boolean);
     const visible = items.length ? items : [{ product: 'ITEM NAME', price: '$35' }];
     element.className = 'treasureProduct treasureProducts count-' + Math.min(visible.length, 4);
-    element.innerHTML = visible.map(item => '<div class="treasureEntryText">' + escapeHtml(item.product).replace(/\n/g, '<br>') + (item.price ? ' <span class="treasurePriceText">' + escapeHtml(item.price) + '</span>' : '') + '</div>').join('');
+    element.innerHTML = visible.map(item =>
+      '<div class="treasureEntryText"><span class="treasureEntryContent">' +
+      escapeHtml(item.product).replace(/\n/g, '<br>') +
+      (item.price ? ' <span class="treasurePriceText">' + escapeHtml(item.price) + '</span>' : '') +
+      '</span></div>'
+    ).join('');
+    requestAnimationFrame(() => {
+      const initialSizes = [0, 37, 28, 22, 18];
+      const scale = Math.max(.55, Math.min(1.1, element.clientWidth / 280));
+      element.querySelectorAll('.treasureEntryText').forEach(slot => {
+        const content = slot.querySelector('.treasureEntryContent');
+        let size = initialSizes[visible.length] * scale;
+        content.style.fontSize = size + 'px';
+        while (size > 10 && content.scrollHeight > slot.clientHeight - 4) {
+          size -= .75;
+          content.style.fontSize = size + 'px';
+        }
+      });
+    });
   }
 
   function addTreasureTag() {
