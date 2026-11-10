@@ -1,6 +1,6 @@
 {
-  "version": "4.43.0",
-  "name": "Dynamite Historical Franchise Deep Dive",
-  "release": "2NC Authority Suite GitHub v4.43.0",
-  "notes": "Adds 20 historical Army of Darkness and Vampirella series-level records after comparing 45 candidates against existing independent comics expansion files. Existing records preserved; broader publisher audit continues."
+  "version": "4.44.0",
+  "name": "Treasures Multi-Item Pricing",
+  "release": "2NC Authority Suite GitHub v4.44.0",
+  "notes": "Treasures signs support one to four item/price pairs with responsive live preview, edit-in-queue support, and matching HTML and PDF print layouts. Existing catalogs, legacy Treasures labels, and 3.5 x 5 inch, four-up paper geometry retained."
 }
