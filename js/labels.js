@@ -126,6 +126,18 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
     return `<!doctype html><html><head><meta charset="utf-8"><title>2NC Calibration</title>${printStyles()}</head><body><div class="printNotice"><strong>Calibration:</strong> print at Actual Size / 100%, then measure one dashed box.</div><section class="sheet ${mode}">${labels}</section></body></html>`;
   }
 
+  function fitTreasurePrintEntries(doc) {
+    doc.querySelectorAll('.treasureEntryPrint').forEach(slot => {
+      const content = slot.querySelector('.treasureEntryContentPrint');
+      if (!content) return;
+      let size = parseFloat(doc.defaultView.getComputedStyle(content).fontSize);
+      while (size > 10 && content.scrollHeight > slot.clientHeight - 4) {
+        size -= .75;
+        content.style.fontSize = size + 'px';
+      }
+    });
+  }
+
   function openPrintWindow(html, targetWindow) {
     const popup = targetWindow || window.open('', '_blank');
     if (!popup) throw new Error('Pop-ups are blocked. Allow pop-ups for this site so the print sheet can open.');
@@ -133,7 +145,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
     popup.document.write(html);
     popup.document.close();
     popup.focus();
-    Promise.all(Array.from(popup.document.images).map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve())).then(() => setTimeout(() => popup.print(), 150));
+    Promise.all([popup.document.fonts?.ready || Promise.resolve(), ...Array.from(popup.document.images).map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve())]).then(() => { fitTreasurePrintEntries(popup.document); setTimeout(() => popup.print(), 150); });
   }
 
   function printQueue(queue, targetWindow) {
