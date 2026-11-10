@@ -1,6 +1,6 @@
 {
-  "version": "4.44.3",
-  "name": "Treasure Labels: One to Eight Items",
-  "release": "2NC Authority Suite GitHub v4.44.3",
-  "notes": "Adds expandable one-through-eight item entry controls with automatic layout for preview, browser printing and PDF. Maintains optional subheader and 3.5 x 5 inch four-up printing."
+  "version": "4.44.4",
+  "name": "Treasure Add Item Fix",
+  "release": "2NC Authority Suite GitHub v4.44.4",
+  "notes": "Fixes row counting for expandable one-to-eight item Treasure labels, including mobile Safari. Preserves existing labels, subheaders, print layout and PDF."
 }
