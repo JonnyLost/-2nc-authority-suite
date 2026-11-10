@@ -1,6 +1,6 @@
 {
-  "version": "4.44.0",
-  "name": "Treasures Multi-Item Pricing",
-  "release": "2NC Authority Suite GitHub v4.44.0",
-  "notes": "Treasures signs support one to four item/price pairs with responsive live preview, edit-in-queue support, and matching HTML and PDF print layouts. Existing catalogs, legacy Treasures labels, and 3.5 x 5 inch, four-up paper geometry retained."
+  "version": "4.44.1",
+  "name": "Treasures Header and Automatic Item Layout",
+  "release": "2NC Authority Suite GitHub v4.44.1",
+  "notes": "Recreates the photographed orange Treasures header as original scalable SVG artwork for preview and printing (including PDF); automatically centers 1–4 item-and-price entries in equal-height slots with count-based sizing and per-entry text fitting. Existing catalogs and 3.5 x 5 inch four-up printing remain unchanged."
 }
