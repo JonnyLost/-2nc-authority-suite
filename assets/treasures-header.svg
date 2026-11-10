@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="500" viewBox="0 0 620 250" role="img" aria-label="2nd &amp; Charles Treasures">
+  <title>2nd &amp; Charles Treasures</title>
+  <rect width="620" height="250" fill="#ffffff" fill-opacity="0"/>
+  <g text-anchor="middle">
+    <rect x="256" y="4" width="108" height="90" fill="#ffffff" stroke="#df7526" stroke-width="5"/>
+    <text x="310" y="74" font-family="Impact, Haettenschweiler, Arial Narrow, Arial, sans-serif" font-size="72" font-weight="900" fill="#e27623" stroke="#3b291e" stroke-width="1.3" paint-order="stroke" textLength="101" lengthAdjust="spacingAndGlyphs">2ND</text>
+    <text x="310" y="120" font-family="Impact, Haettenschweiler, Arial Narrow, Arial, sans-serif" font-size="29" font-weight="900" fill="#b95416" stroke="#38291e" stroke-width=".9" paint-order="stroke" textLength="130" lengthAdjust="spacingAndGlyphs">&amp; CHARLES</text>
+    <text x="311" y="226" font-family="Georgia, Times New Roman, serif" font-size="115" font-weight="900" fill="#2c1d15" stroke="#2c1d15" stroke-width="6" stroke-linejoin="round" paint-order="stroke" textLength="590" lengthAdjust="spacingAndGlyphs">TREASURES</text>
+    <text x="308" y="222" font-family="Georgia, Times New Roman, serif" font-size="115" font-weight="900" fill="#ef852f" stroke="#e4a665" stroke-width="1.1" stroke-linejoin="round" paint-order="stroke" textLength="590" lengthAdjust="spacingAndGlyphs">TREASURES</text>
+  </g>
+</svg>
