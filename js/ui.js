@@ -302,7 +302,8 @@
       setMode('treasure');
       state.editingQueueIndex = index;
       const entries = Array.isArray(item.items) && item.items.length ? item.items : [{ product: item.product || '', price: '' }];
-      for (let i = 1; i <= 4; i++) {
+      setTreasureRowCount(Math.max(1, Math.min(8, entries.length)));
+      for (let i = 1; i <= 8; i++) {
         if ($('#treasureItem' + i)) $('#treasureItem' + i).value = entries[i - 1]?.product || '';
         if ($('#treasurePrice' + i)) $('#treasurePrice' + i).value = entries[i - 1]?.price || '';
       }
@@ -442,9 +443,35 @@
   }
 
 
+  const MAX_TREASURE_ITEMS = 8;
+  function treasureRowCount() {
+    return $('#treasureEntries .treasureEntry').length;
+  }
+  function setTreasureRowCount(count) {
+    const container = $('#treasureEntries');
+    if (!container) return;
+    count = Math.max(1, Math.min(MAX_TREASURE_ITEMS, count));
+    while (treasureRowCount() < count) {
+      const i = treasureRowCount() + 1;
+      const row = document.createElement('div');
+      row.className = 'treasureEntry';
+      row.innerHTML = '<label>Item ' + i + '<textarea id="treasureItem' + i + '" rows="2" placeholder="Item description"></textarea></label>' +
+        '<label>Price ' + i + '<input id="treasurePrice' + i + '" inputmode="decimal" placeholder="$0"></label>';
+      container.appendChild(row);
+      row.querySelector('textarea').addEventListener('input', renderTreasurePreview);
+      row.querySelector('input').addEventListener('input', renderTreasurePreview);
+    }
+    while (treasureRowCount() > count) container.lastElementChild.remove();
+    const add = $('#addTreasureItem'), remove = $('#removeTreasureItem'), indicator = $('#treasureItemCount');
+    if (add) add.disabled = count >= MAX_TREASURE_ITEMS;
+    if (remove) remove.hidden = count <= 1;
+    if (indicator) indicator.textContent = count + ' of ' + MAX_TREASURE_ITEMS + ' item rows';
+    renderTreasurePreview();
+  }
+
   function treasureFormItems() {
     const items = [];
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= MAX_TREASURE_ITEMS; i++) {
       const product = String($('#treasureItem' + i)?.value || '').trim();
       const input = String($('#treasurePrice' + i)?.value || '').trim();
       if (!product && !input) continue;
@@ -459,7 +486,7 @@
   function renderTreasurePreview() {
     const element = $('.treasureProduct');
     if (!element) return;
-    const items = Array.from({ length: 4 }, (_, i) => {
+    const items = Array.from({ length: MAX_TREASURE_ITEMS }, (_, i) => {
       const product = ($('#treasureItem' + (i + 1))?.value || '').trim();
       const price = ($('#treasurePrice' + (i + 1))?.value || '').trim();
       return product ? { product, price: price ? (price.startsWith('$') ? price : '$' + price) : '' } : null;
@@ -481,7 +508,7 @@
         subheaderElement.style.fontSize = size + 'px';
       }
     });
-    element.className = 'treasureProduct treasureProducts count-' + Math.min(visible.length, 4);
+    element.className = 'treasureProduct treasureProducts count-' + visible.length;
     element.innerHTML = visible.map(item =>
       '<div class="treasureEntryText"><span class="treasureEntryContent">' +
       escapeHtml(item.product).replace(/\n/g, '<br>') +
@@ -489,13 +516,13 @@
       '</span></div>'
     ).join('');
     requestAnimationFrame(() => {
-      const initialSizes = [0, 37, 28, 22, 18];
+      const initialSizes = [0, 37, 28, 22, 18, 16, 14, 12.5, 11.5];
       const scale = Math.max(.55, Math.min(1.1, element.clientWidth / 280));
       element.querySelectorAll('.treasureEntryText').forEach(slot => {
         const content = slot.querySelector('.treasureEntryContent');
         let size = initialSizes[visible.length] * scale;
         content.style.fontSize = size + 'px';
-        while (size > 10 && content.scrollHeight > slot.clientHeight - 4) {
+        while (size > 7.5 && (content.scrollHeight > slot.clientHeight - 3 || content.scrollWidth > slot.clientWidth + 2)) {
           size -= .75;
           content.style.fontSize = size + 'px';
         }
@@ -791,9 +818,11 @@
     on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
     on('#addTreasureTag', 'click', addTreasureTag);
     on('#treasureSubheader', 'input', renderTreasurePreview);
+    on('#addTreasureItem', 'click', () => setTreasureRowCount(treasureRowCount() + 1));
+    on('#removeTreasureItem', 'click', () => setTreasureRowCount(treasureRowCount() - 1));
     on('#priceInput', 'input', event => { const element = $('.tagPrice'); if (element) element.textContent = event.target.value ? (event.target.value.startsWith('$') ? event.target.value : `$${event.target.value}`) : '$239'; });
     on('#productInput', 'input', event => { const element = $('.tagProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 1; i++) {
       on('#treasureItem' + i, 'input', renderTreasurePreview);
       on('#treasurePrice' + i, 'input', renderTreasurePreview);
     }
