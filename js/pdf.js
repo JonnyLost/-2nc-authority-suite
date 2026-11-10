@@ -118,14 +118,31 @@
     drawCutBox(page, x, y, width, height, colors.guide);
     drawCentered(page, fonts.bold, '2ND & CHARLES', x + width / 2, y + height - 45, width - 45, 16, 10, colors.orange);
     drawCentered(page, fonts.bold, 'TREASURES', x + width / 2, y + height - 85, width - 30, 34, 22, colors.orange);
-    let size = 29;
-    let lines = wrap(fonts.bold, String(item.product || '').toUpperCase(), width - 50, size, 7);
-    while (size > 15 && (lines.length * size * 1.2 > 205 || lines.some(line => fonts.bold.widthOfTextAtSize(line, size) > width - 50))) {
-      size -= 1;
-      lines = wrap(fonts.bold, String(item.product || '').toUpperCase(), width - 50, size, 7);
-    }
-    const total = lines.length * size * 1.2;
-    lines.forEach((line, index) => drawCentered(page, fonts.bold, line, x + width / 2, y + 34 + (205 + total) / 2 - (index + 1) * size * 1.2, width - 50, size, 13, colors.black));
+    const entries = Array.isArray(item.items) && item.items.length
+      ? item.items.slice(0, 4).filter(entry => entry && String(entry.product || '').trim())
+      : [{ product: item.product || '', price: '' }];
+    const count = Math.max(1, entries.length);
+    const availableHeight = 205;
+    const slotHeight = availableHeight / count;
+    entries.forEach((entry, slot) => {
+      const text = (String(entry.product || '') + (entry.price ? ' ' + String(entry.price) : '')).toUpperCase();
+      const maxWidth = width - 50;
+      let size = count === 1 ? 29 : count === 2 ? 22 : count === 3 ? 18 : 15;
+      let lines = wrap(fonts.bold, text, maxWidth, size, 30);
+      while (size > 8 && (lines.length * size * 1.16 > slotHeight - 5 || lines.some(line => fonts.bold.widthOfTextAtSize(line, size) > maxWidth))) {
+        size -= .5;
+        lines = wrap(fonts.bold, text, maxWidth, size, 30);
+      }
+      const maxLines = Math.max(1, Math.floor((slotHeight - 5) / (size * 1.16)));
+      lines = lines.slice(0, maxLines);
+      const lineHeight = size * 1.16;
+      const totalHeight = lines.length * lineHeight;
+      const slotBottom = y + 34 + availableHeight - (slot + 1) * slotHeight;
+      lines.forEach((line, index) => {
+        const baseline = slotBottom + (slotHeight + totalHeight) / 2 - (index + 1) * lineHeight + 2;
+        drawCentered(page, fonts.bold, line, x + width / 2, baseline, maxWidth, size, 8, colors.black);
+      });
+    });
   }
 
   async function createPdf(queue) {
