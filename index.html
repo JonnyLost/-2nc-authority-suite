@@ -148,14 +148,18 @@
     <section class="treasurePanel hidden" id="treasurePanel">
       <section class="panel treasureForm">
         <div class="panelTitle"><span>Create 2NC Treasures tag</span><span>3.5 × 5 in</span></div>
-        <p class="instrumentHelper">Enter the product name exactly as it should print.</p>
-        <label>Product name<textarea id="treasureProductInput" rows="7" placeholder="TITANTRON LIVE
-ACTION FIGURES"></textarea></label>
+        <p class="instrumentHelper">Add up to four items, each with its own price. Leave unused rows blank.</p>
+        <div class="treasureEntries">
+          <div class="treasureEntry"><label>Item 1<textarea id="treasureItem1" rows="2" placeholder="Signed Black Angel by John Connolly"></textarea></label><label>Price 1<input id="treasurePrice1" inputmode="decimal" placeholder="$35"></label></div>
+          <div class="treasureEntry"><label>Item 2<textarea id="treasureItem2" rows="2" placeholder="Signed Children of Anguish and Anarchy"></textarea></label><label>Price 2<input id="treasurePrice2" inputmode="decimal" placeholder="$34"></label></div>
+          <div class="treasureEntry"><label>Item 3<textarea id="treasureItem3" rows="2" placeholder="Optional item"></textarea></label><label>Price 3<input id="treasurePrice3" inputmode="decimal" placeholder="$0"></label></div>
+          <div class="treasureEntry"><label>Item 4<textarea id="treasureItem4" rows="2" placeholder="Optional item"></textarea></label><label>Price 4<input id="treasurePrice4" inputmode="decimal" placeholder="$0"></label></div>
+        </div>
         <button id="addTreasureTag" class="primaryButton">Add tag to queue</button>
       </section>
       <section class="panel treasurePreviewPanel">
         <div class="panelTitle"><span>Live preview</span><span>3.5 × 5 in</span></div>
-        <div class="treasurePreviewWrap"><div id="treasurePreview" class="treasureTag"><div class="treasureHeaderGenerated" aria-label="2nd & Charles Treasures"><div class="treasureBrand"><span class="treasure2nd">2ND</span><span class="treasureAnd">&amp; CHARLES</span></div><div class="treasureWord">TREASURES</div></div><div class="treasureProduct">TITANTRON LIVE<br>ACTION<br>FIGURES</div></div></div>
+        <div class="treasurePreviewWrap"><div id="treasurePreview" class="treasureTag"><div class="treasureHeaderGenerated" aria-label="2nd & Charles Treasures"><div class="treasureBrand"><span class="treasure2nd">2ND</span><span class="treasureAnd">&amp; CHARLES</span></div><div class="treasureWord">TREASURES</div></div><div class="treasureProduct treasureProducts count-1"><div class="treasureEntryText">ITEM NAME <span class="treasurePriceText">$35</span></div></div></div></div>
         <div class="selectedDetails">The preview updates as you type.</div>
       </section>
     </section>
