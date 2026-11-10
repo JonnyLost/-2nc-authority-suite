@@ -111,33 +111,59 @@
     drawCentered(page, fonts.regular, '2ndandcharles.com', x + width - 52, y + 9, 96, 7, 5, colors.muted);
   }
 
-  function drawTreasure(page, item, x, y, fonts, colors) {
+  async function embedTreasureHeader(document) {
+    try {
+      const source = new URL('assets/treasures-header.svg', window.location.href).href;
+      const image = new Image();
+      image.src = source;
+      await image.decode();
+      const canvas = document.createElement('canvas');
+      canvas.width = 1240;
+      canvas.height = 500;
+      const context = canvas.getContext('2d');
+      if (!context) throw new Error('Canvas unavailable');
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      return await document.embedPng(canvas.toDataURL('image/png'));
+    } catch (error) {
+      console.warn('Treasures vector header fallback', error);
+      return null;
+    }
+  }
+
+  function drawTreasure(page, item, x, y, fonts, colors, headerImage) {
     const width = 3.5 * PT, height = 5 * PT, inset = .16 * PT;
     page.drawRectangle({ x, y, width, height, color: colors.orange });
     page.drawRectangle({ x: x + inset, y: y + inset, width: width - inset * 2, height: height - inset * 2, color: colors.white });
     drawCutBox(page, x, y, width, height, colors.guide);
-    drawCentered(page, fonts.bold, '2ND & CHARLES', x + width / 2, y + height - 45, width - 45, 16, 10, colors.orange);
-    drawCentered(page, fonts.bold, 'TREASURES', x + width / 2, y + height - 85, width - 30, 34, 22, colors.orange);
+    if (headerImage) {
+      const imageWidth = width - 34;
+      const imageHeight = imageWidth * 500 / 1240;
+      page.drawImage(headerImage, { x: x + (width - imageWidth) / 2, y: y + height - 18 - imageHeight, width: imageWidth, height: imageHeight });
+    } else {
+      drawCentered(page, fonts.bold, '2ND & CHARLES', x + width / 2, y + height - 45, width - 45, 16, 10, colors.orange);
+      drawCentered(page, fonts.bold, 'TREASURES', x + width / 2, y + height - 85, width - 30, 34, 22, colors.orange);
+    }
     const entries = Array.isArray(item.items) && item.items.length
       ? item.items.slice(0, 4).filter(entry => entry && String(entry.product || '').trim())
       : [{ product: item.product || '', price: '' }];
     const count = Math.max(1, entries.length);
-    const availableHeight = 205;
+    const areaBottom = y + 25;
+    const availableHeight = 201;
     const slotHeight = availableHeight / count;
     entries.forEach((entry, slot) => {
       const text = (String(entry.product || '') + (entry.price ? ' ' + String(entry.price) : '')).toUpperCase();
-      const maxWidth = width - 50;
-      let size = count === 1 ? 29 : count === 2 ? 22 : count === 3 ? 18 : 15;
-      let lines = wrap(fonts.bold, text, maxWidth, size, 30);
-      while (size > 8 && (lines.length * size * 1.16 > slotHeight - 5 || lines.some(line => fonts.bold.widthOfTextAtSize(line, size) > maxWidth))) {
+      const maxWidth = width - 47;
+      let size = count === 1 ? 30 : count === 2 ? 23 : count === 3 ? 18 : 14;
+      let lines = wrap(fonts.bold, text, maxWidth, size, 25);
+      while (size > 8 && (lines.length * size * 1.15 > slotHeight - 5 || lines.some(line => fonts.bold.widthOfTextAtSize(line, size) > maxWidth))) {
         size -= .5;
-        lines = wrap(fonts.bold, text, maxWidth, size, 30);
+        lines = wrap(fonts.bold, text, maxWidth, size, 25);
       }
-      const maxLines = Math.max(1, Math.floor((slotHeight - 5) / (size * 1.16)));
+      const lineHeight = size * 1.15;
+      const maxLines = Math.max(1, Math.floor((slotHeight - 5) / lineHeight));
       lines = lines.slice(0, maxLines);
-      const lineHeight = size * 1.16;
       const totalHeight = lines.length * lineHeight;
-      const slotBottom = y + 34 + availableHeight - (slot + 1) * slotHeight;
+      const slotBottom = areaBottom + availableHeight - (slot + 1) * slotHeight;
       lines.forEach((line, index) => {
         const baseline = slotBottom + (slotHeight + totalHeight) / 2 - (index + 1) * lineHeight + 2;
         drawCentered(page, fonts.bold, line, x + width / 2, baseline, maxWidth, size, 8, colors.black);
@@ -163,6 +189,7 @@
     };
     const groups = { vinyl: [], cd: [], comic: [], instrument: [], treasure: [] };
     queue.forEach(item => { if (groups[item.mode]) groups[item.mode].push(item); });
+    const treasureHeaderImage = groups.treasure.length ? await embedTreasureHeader(document) : null;
     const configs = {
       vinyl: { page: LANDSCAPE, perPage: 24, cols: 2, rows: 12, w: 5 * PT, h: .675 * PT, x: .5 * PT, y: .2 * PT },
       comic: { page: LETTER, perPage: 30, cols: 2, rows: 15, w: 3.5 * PT, h: (2 / 3) * PT, x: .5 * PT, y: .5 * PT, gapX: .5 * PT },
@@ -182,7 +209,7 @@
           if (kind === 'vinyl' || kind === 'cd') drawMusicLabel(page, item, kind, x, y, config.w, config.h, fonts, colors);
           else if (kind === 'comic') drawComicLabel(page, item, x, y, config.w, config.h, fonts, colors);
           else if (kind === 'instrument') drawInstrument(page, item, x, y, fonts, colors);
-          else drawTreasure(page, item, x, y, fonts, colors);
+          else drawTreasure(page, item, x, y, fonts, colors, treasureHeaderImage);
         });
       }
     });
