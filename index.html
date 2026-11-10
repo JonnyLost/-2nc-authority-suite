@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=4.44.1">
+  <link rel="stylesheet" href="styles.css?v=4.44.2">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -149,6 +149,7 @@
       <section class="panel treasureForm">
         <div class="panelTitle"><span>Create 2NC Treasures tag</span><span>3.5 × 5 in</span></div>
         <p class="instrumentHelper">Add up to four items, each with its own price. Leave unused rows blank.</p>
+        <label class="treasureSubheaderField">Optional subheader / category<input id="treasureSubheader" type="text" maxlength="80" placeholder="Masks, Funko, Books…"></label>
         <div class="treasureEntries">
           <div class="treasureEntry"><label>Item 1<textarea id="treasureItem1" rows="2" placeholder="Signed Black Angel by John Connolly"></textarea></label><label>Price 1<input id="treasurePrice1" inputmode="decimal" placeholder="$35"></label></div>
           <div class="treasureEntry"><label>Item 2<textarea id="treasureItem2" rows="2" placeholder="Signed Children of Anguish and Anarchy"></textarea></label><label>Price 2<input id="treasurePrice2" inputmode="decimal" placeholder="$34"></label></div>
@@ -159,7 +160,7 @@
       </section>
       <section class="panel treasurePreviewPanel">
         <div class="panelTitle"><span>Live preview</span><span>3.5 × 5 in</span></div>
-        <div class="treasurePreviewWrap"><div id="treasurePreview" class="treasureTag"><div class="treasureHeaderGenerated" aria-label="2nd & Charles Treasures"><img class="treasureHeaderArt" src="assets/treasures-header.svg" alt="2nd & Charles Treasures"></div><div class="treasureProduct treasureProducts count-1"><div class="treasureEntryText"><span class="treasureEntryContent">ITEM NAME <span class="treasurePriceText">$35</span></span></div></div></div></div>
+        <div class="treasurePreviewWrap"><div id="treasurePreview" class="treasureTag"><div class="treasureHeaderGenerated" aria-label="2nd & Charles Treasures"><img class="treasureHeaderArt" src="assets/treasures-header.svg" alt="2nd & Charles Treasures"></div><div id="treasureSubheaderPreview" class="treasureSubheaderPreview" hidden></div><div class="treasureProduct treasureProducts count-1"><div class="treasureEntryText"><span class="treasureEntryContent">ITEM NAME <span class="treasurePriceText">$35</span></span></div></div></div></div>
         <div class="selectedDetails">The preview updates as you type.</div>
       </section>
     </section>
@@ -202,16 +203,16 @@
   </main>
   </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=4.44.1"></script>
-<script src="js/logger.js?v=4.44.1"></script>
-<script src="js/db.js?v=4.44.1"></script>
-<script src="js/sync.js?v=4.44.1"></script>
-<script src="js/print-station.js?v=4.44.1"></script>
+<script src="js/config.js?v=4.44.2"></script>
+<script src="js/logger.js?v=4.44.2"></script>
+<script src="js/db.js?v=4.44.2"></script>
+<script src="js/sync.js?v=4.44.2"></script>
+<script src="js/print-station.js?v=4.44.2"></script>
 <script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
-<script src="js/pdf.js?v=4.44.1"></script>
-<script src="js/labels.js?v=4.44.1"></script>
-<script src="js/ui.js?v=4.44.1"></script>
-<script src="app.js?v=4.44.1"></script>
+<script src="js/pdf.js?v=4.44.2"></script>
+<script src="js/labels.js?v=4.44.2"></script>
+<script src="js/ui.js?v=4.44.2"></script>
+<script src="app.js?v=4.44.2"></script>
 <script>
   document.addEventListener('click', event => {
     const menu = document.getElementById('app-menu');
