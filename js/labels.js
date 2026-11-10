@@ -61,6 +61,8 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .treasureMultiPrint .treasureEntryPrint{width:100%;height:100%;min-height:0;overflow:hidden;display:grid;place-items:center;text-align:center;padding:2pt 0;line-height:1.13}
 .treasureEntryContentPrint{display:block;width:100%;max-width:100%;overflow-wrap:break-word}
 .treasurePricePrint{white-space:nowrap}
+.treasureSubheaderPrint{position:absolute;top:1.48in;left:.30in;right:.30in;height:.43in;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:18pt;font-weight:900;text-transform:uppercase;line-height:1.05;overflow:hidden;overflow-wrap:anywhere;color:#2c1d15}
+.treasureInner.hasTreasureSubheader .treasureProductPrint.treasureMultiPrint{top:2.08in;bottom:.35in}
 .calibrationLabel{position:relative;background:#fff}.calibrationLabel:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt)),linear-gradient(0deg,transparent calc(50% - .25pt),#bbb calc(50% - .25pt),#bbb calc(50% + .25pt),transparent calc(50% + .25pt));pointer-events:none}.calibrationLabel b{z-index:1}.ruler{position:absolute;left:.1in;bottom:.03in;font-size:6pt;color:#555}
 @media screen{body{padding:12px}.sheet{outline:1px solid #ddd;margin:12px auto}.printNotice{display:block}}
 @media print{.printNotice{display:none}body{padding:0}.sheet{outline:none;margin:0 auto}}
@@ -95,7 +97,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
           } else if (kind === 'instrument') {
             pages += `<div class="tag"><div class="orange"><span>${escapeHtml(row.price)}</span><img class="brandLogo" src="${instrumentLogoUrl}" alt="2nd & Charles"></div><div class="prod">${escapeHtml(row.product).replace(/\n/g, '<br>')}</div><footer>2ndandcharles.com</footer></div>`;
           } else if (kind === 'treasure') {
-            pages += `<div class="treasureTagPrint"><div class="treasureInner"><div class="treasureHeaderGeneratedPrint" aria-label="2nd & Charles Treasures"><img class="treasureHeaderArtPrint" src="${treasureHeaderUrl}" alt="2nd & Charles Treasures"></div>${renderTreasureItems(row)}</div></div>`;
+            pages += `<div class="treasureTagPrint"><div class="treasureInner${String(row.subheader || '').trim() ? ' hasTreasureSubheader' : ''}"><div class="treasureHeaderGeneratedPrint" aria-label="2nd & Charles Treasures"><img class="treasureHeaderArtPrint" src="${treasureHeaderUrl}" alt="2nd & Charles Treasures"></div>${String(row.subheader || '').trim() ? '<div class="treasureSubheaderPrint">' + escapeHtml(String(row.subheader).trim()) + '</div>' : ''}${renderTreasureItems(row)}</div></div>`;
           } else {
             pages += `<div class="pl ${kind}${lengthClass(row.name)}"><div class="musicGenre">${escapeHtml(row.genre || '')}</div><b>${escapeHtml(row.name)}</b><div class="musicSubgenres">${escapeHtml(subgenreLine(row))}</div></div>`;
           }
@@ -127,6 +129,13 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
   }
 
   function fitTreasurePrintEntries(doc) {
+    doc.querySelectorAll('.treasureSubheaderPrint').forEach(content => {
+      let size = parseFloat(doc.defaultView.getComputedStyle(content).fontSize);
+      while (size > 9 && (content.scrollWidth > content.clientWidth + 1 || content.scrollHeight > content.clientHeight + 1)) {
+        size -= .5;
+        content.style.fontSize = size + 'px';
+      }
+    });
     doc.querySelectorAll('.treasureEntryPrint').forEach(slot => {
       const content = slot.querySelector('.treasureEntryContentPrint');
       if (!content) return;
