@@ -144,7 +144,7 @@
       drawCentered(page, fonts.bold, 'TREASURES', x + width / 2, y + height - 85, width - 30, 34, 22, colors.orange);
     }
     const entries = Array.isArray(item.items) && item.items.length
-      ? item.items.slice(0, 4).filter(entry => entry && String(entry.product || '').trim())
+      ? item.items.slice(0, 8).filter(entry => entry && String(entry.product || '').trim())
       : [{ product: item.product || '', price: '' }];
     const count = Math.max(1, entries.length);
     const subheader = ascii(item.subheader || '').toUpperCase();
@@ -170,14 +170,14 @@
     entries.forEach((entry, slot) => {
       const text = (String(entry.product || '') + (entry.price ? ' ' + String(entry.price) : '')).toUpperCase();
       const maxWidth = width - 47;
-      let size = count === 1 ? 30 : count === 2 ? 23 : count === 3 ? 18 : 14;
+      let size = count === 1 ? 30 : count === 2 ? 23 : count === 3 ? 18 : count === 4 ? 14 : count === 5 ? 12 : count === 6 ? 11 : count === 7 ? 10 : 9;
       let lines = wrap(fonts.bold, text, maxWidth, size, 25);
-      while (size > 8 && (lines.length * size * 1.15 > slotHeight - 5 || lines.some(line => fonts.bold.widthOfTextAtSize(line, size) > maxWidth))) {
+      while (size > 6 && (lines.length * size * 1.15 > slotHeight - 3 || lines.some(line => fonts.bold.widthOfTextAtSize(line, size) > maxWidth))) {
         size -= .5;
         lines = wrap(fonts.bold, text, maxWidth, size, 25);
       }
       const lineHeight = size * 1.15;
-      const maxLines = Math.max(1, Math.floor((slotHeight - 5) / lineHeight));
+      const maxLines = Math.max(1, Math.floor((slotHeight - 3) / lineHeight));
       lines = lines.slice(0, maxLines);
       const totalHeight = lines.length * lineHeight;
       const slotBottom = areaBottom + availableHeight - (slot + 1) * slotHeight;
