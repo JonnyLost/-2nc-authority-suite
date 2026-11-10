@@ -1,11 +1,11 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '4.43.0',
-  build: '2026-10-10-dynamite-historical-expansion',
+  version: '4.44.0',
+  build: '2026-11-10-treasures-four-item-prices',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],
-  cacheName: '2nc-authority-suite-v4.43.0',
+  cacheName: '2nc-authority-suite-v4.44.0',
   expectedMinimums: { music: 7350, comic: 17850 },
   bundledFiles: {
     music: 'data/music.json',
