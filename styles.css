@@ -474,3 +474,18 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
     font-size:13px!important;
   }
 }
+
+
+/* Treasures: up to four independently priced items on one 3.5 x 5 tag. */
+.treasureEntries{display:flex;flex-direction:column;gap:10px;min-width:0}
+.treasureEntry{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:10px;align-items:start;padding:9px;border:1px solid rgba(213,118,140,.2);border-radius:12px}
+.treasureForm .treasureEntry textarea{min-height:66px;height:66px;resize:vertical}
+.treasureForm .treasureEntry input{width:100%;padding:12px 9px;border-radius:10px;border:1px solid var(--line);font-size:15px}
+.treasureProduct.treasureProducts{display:flex;flex-direction:column;justify-content:center;gap:0;left:10%;right:10%;top:36%;bottom:7%;overflow:hidden;font-size:clamp(18px,3.7vw,33px)}
+.treasureProducts .treasureEntryText{flex:0 1 auto;min-height:0;width:100%;padding:5px 1px;overflow-wrap:anywhere;font-weight:850;line-height:1.12}
+.treasureProducts .treasurePriceText{white-space:nowrap}
+.treasureProducts.count-2{font-size:clamp(17px,3.1vw,27px)}
+.treasureProducts.count-3{font-size:clamp(15px,2.6vw,22px)}
+.treasureProducts.count-4{font-size:clamp(13px,2.2vw,18px)}
+.treasureProducts.count-3 .treasureEntryText,.treasureProducts.count-4 .treasureEntryText{padding:3px 1px}
+@media(max-width:700px){.treasureEntry{grid-template-columns:minmax(0,1fr) 92px}.treasureProducts.count-4{font-size:clamp(13px,4vw,18px)}.treasureProducts.count-3{font-size:clamp(15px,4.6vw,22px)}}
