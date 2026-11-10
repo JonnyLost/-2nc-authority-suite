@@ -111,19 +111,19 @@
     drawCentered(page, fonts.regular, '2ndandcharles.com', x + width - 52, y + 9, 96, 7, 5, colors.muted);
   }
 
-  async function embedTreasureHeader(document) {
+  async function embedTreasureHeader(pdfDocument) {
     try {
       const source = new URL('assets/treasures-header.svg', window.location.href).href;
       const image = new Image();
       image.src = source;
       await image.decode();
-      const canvas = document.createElement('canvas');
+      const canvas = window.document.createElement('canvas');
       canvas.width = 1240;
       canvas.height = 500;
       const context = canvas.getContext('2d');
       if (!context) throw new Error('Canvas unavailable');
       context.drawImage(image, 0, 0, canvas.width, canvas.height);
-      return await document.embedPng(canvas.toDataURL('image/png'));
+      return await pdfDocument.embedPng(canvas.toDataURL('image/png'));
     } catch (error) {
       console.warn('Treasures vector header fallback', error);
       return null;
