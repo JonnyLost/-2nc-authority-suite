@@ -501,3 +501,10 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 .treasureProducts .treasureEntryText{height:100%;width:100%;min-height:0;display:grid;place-items:center;line-height:1.12;overflow:hidden;padding:2px 0;text-align:center;box-sizing:border-box}
 .treasureProducts .treasureEntryContent{display:block;width:100%;max-width:100%;overflow-wrap:break-word;white-space:normal}
 .treasureProducts .treasurePriceText{white-space:nowrap}
+
+/* v4.44.2: optional Treasures subheader; unchanged layout when absent. */
+.treasureSubheaderField{display:flex;flex-direction:column;gap:6px}
+.treasureSubheaderField input{width:100%;padding:12px 9px;border-radius:10px;border:1px solid var(--line);font-size:15px}
+.treasureSubheaderPreview{position:absolute;top:34%;height:10%;left:10%;right:10%;display:flex;align-items:center;justify-content:center;text-align:center;color:#2c1d15;font-family:Georgia,'Times New Roman',serif;font-weight:900;line-height:1.05;text-transform:uppercase;overflow-wrap:anywhere;overflow:hidden}
+.treasureSubheaderPreview[hidden]{display:none!important}
+.treasureTag.hasTreasureSubheader .treasureProduct.treasureProducts{top:46%;bottom:7%}
