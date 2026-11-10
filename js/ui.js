@@ -306,6 +306,7 @@
         if ($('#treasureItem' + i)) $('#treasureItem' + i).value = entries[i - 1]?.product || '';
         if ($('#treasurePrice' + i)) $('#treasurePrice' + i).value = entries[i - 1]?.price || '';
       }
+      if ($('#treasureSubheader')) $('#treasureSubheader').value = item.subheader || '';
       renderTreasurePreview();
       $('#treasurePanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
@@ -464,6 +465,22 @@
       return product ? { product, price: price ? (price.startsWith('$') ? price : '$' + price) : '' } : null;
     }).filter(Boolean);
     const visible = items.length ? items : [{ product: 'ITEM NAME', price: '$35' }];
+    const subheader = String($('#treasureSubheader')?.value || '').trim();
+    const tag = $('#treasurePreview');
+    const subheaderElement = $('#treasureSubheaderPreview');
+    if (subheaderElement) {
+      subheaderElement.textContent = subheader;
+      subheaderElement.hidden = !subheader;
+    }
+    tag?.classList.toggle('hasTreasureSubheader', !!subheader);
+    if (subheaderElement && subheader) requestAnimationFrame(() => {
+      let size = 22;
+      subheaderElement.style.fontSize = size + 'px';
+      while (size > 11 && (subheaderElement.scrollWidth > subheaderElement.clientWidth + 1 || subheaderElement.scrollHeight > subheaderElement.clientHeight + 1)) {
+        size -= .5;
+        subheaderElement.style.fontSize = size + 'px';
+      }
+    });
     element.className = 'treasureProduct treasureProducts count-' + Math.min(visible.length, 4);
     element.innerHTML = visible.map(item =>
       '<div class="treasureEntryText"><span class="treasureEntryContent">' +
@@ -491,7 +508,7 @@
     try { items = treasureFormItems(); } catch (error) { alert(error.message); return; }
     if (!items.length) { alert('Add at least one item and price.'); return; }
     const product = items.map(item => item.product + ' ' + item.price).join(' / ');
-    const record = { uid: safeId(), mode: 'treasure', product, items };
+    const record = { uid: safeId(), mode: 'treasure', product, items, subheader: String($('#treasureSubheader')?.value || '').trim() };
     if (state.editingQueueIndex !== null && state.queue[state.editingQueueIndex]?.mode === 'treasure') {
       record.uid = state.queue[state.editingQueueIndex].uid;
       state.queue[state.editingQueueIndex] = record;
@@ -773,6 +790,7 @@
     on('#customBtn', 'click', customLabel);
     on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
     on('#addTreasureTag', 'click', addTreasureTag);
+    on('#treasureSubheader', 'input', renderTreasurePreview);
     on('#priceInput', 'input', event => { const element = $('.tagPrice'); if (element) element.textContent = event.target.value ? (event.target.value.startsWith('$') ? event.target.value : `$${event.target.value}`) : '$239'; });
     on('#productInput', 'input', event => { const element = $('.tagProduct'); if (element) element.innerHTML = escapeHtml(event.target.value || 'PRODUCT NAME').replace(/\n/g, '<br>'); });
     for (let i = 1; i <= 4; i++) {
