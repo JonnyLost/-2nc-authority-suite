@@ -1,6 +1,6 @@
 {
-  "version": "4.44.2",
-  "name": "Optional Treasure Subheaders",
-  "release": "2NC Authority Suite GitHub v4.44.2",
-  "notes": "Adds free-text optional Treasure subheaders to queued tags, preview, print and PDF, preserving existing layouts when blank."
+  "version": "4.44.3",
+  "name": "Treasure Labels: One to Eight Items",
+  "release": "2NC Authority Suite GitHub v4.44.3",
+  "notes": "Adds expandable one-through-eight item entry controls with automatic layout for preview, browser printing and PDF. Maintains optional subheader and 3.5 x 5 inch four-up printing."
 }
