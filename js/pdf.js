@@ -55,18 +55,18 @@
   }
 
   function drawMusicLabel(page, item, kind, x, y, width, height, fonts, colors) {
-    drawCutBox(page, x, y, width, height, colors.guide);
-    page.drawLine({ start: { x: x + 13, y: y + 8 }, end: { x: x + width - 13, y: y + 8 }, thickness: .3, color: colors.light });
-    page.drawLine({ start: { x: x + 13, y: y + height - 8 }, end: { x: x + width - 13, y: y + height - 8 }, thickness: .3, color: colors.light });
-    const genreSize = kind === 'vinyl' ? 6.2 : 5.1;
-    const subSize = kind === 'vinyl' ? 5.8 : 4.7;
-    const mainSize = kind === 'vinyl' ? 16 : 10.4;
+    if (kind !== 'vinyl') drawCutBox(page, x, y, width, height, colors.guide);
+    if (kind !== 'vinyl') page.drawLine({ start: { x: x + 13, y: y + 8 }, end: { x: x + width - 13, y: y + 8 }, thickness: .3, color: colors.light });
+    if (kind !== 'vinyl') page.drawLine({ start: { x: x + 13, y: y + height - 8 }, end: { x: x + width - 13, y: y + height - 8 }, thickness: .3, color: colors.light });
+    const genreSize = kind === 'vinyl' ? 6 : 5.1;
+    const subSize = kind === 'vinyl' ? 5.5 : 4.7;
+    const mainSize = kind === 'vinyl' ? 11 : 10.4;
     const centerX = x + width / 2;
     const genre = ascii(item.genre || '').toUpperCase();
     const sub = ascii([item.primarySubgenre || item.subgenre, item.secondarySubgenre].filter(Boolean).join(' / '));
     drawCentered(page, fonts.bold, genre, centerX, y + height - genreSize - 5, width - 12, genreSize, 4, colors.muted);
-    const fitted = fitSize(fonts.bold, ascii(item.name), width - 12, mainSize, kind === 'vinyl' ? 8 : 6);
-    drawCentered(page, fonts.bold, item.name, centerX, y + (height - fitted) / 2 - 1, width - 12, mainSize, kind === 'vinyl' ? 8 : 6, colors.black);
+    const fitted = fitSize(fonts.bold, ascii(item.name), width - 12, mainSize, kind === 'vinyl' ? 6 : 6);
+    drawCentered(page, fonts.bold, item.name, centerX, y + (height - fitted) / 2 - 1, width - 12, mainSize, kind === 'vinyl' ? 6 : 6, colors.black);
     drawCentered(page, fonts.regular, sub, centerX, y + 5, width - 12, subSize, 3.5, colors.muted);
   }
 
@@ -208,7 +208,7 @@
     queue.forEach(item => { if (groups[item.mode]) groups[item.mode].push(item); });
     const treasureHeaderImage = groups.treasure.length ? await embedTreasureHeader(document) : null;
     const configs = {
-      vinyl: { page: LANDSCAPE, perPage: 24, cols: 2, rows: 12, w: 5 * PT, h: .675 * PT, x: .5 * PT, y: .2 * PT },
+      vinyl: { page: LETTER, perPage: 30, cols: 3, rows: 10, w: 2.625 * PT, h: 1 * PT, x: .1875 * PT, y: .5 * PT, gapX: .125 * PT },
       comic: { page: LETTER, perPage: 30, cols: 2, rows: 15, w: 3.5 * PT, h: (2 / 3) * PT, x: .5 * PT, y: .5 * PT, gapX: .5 * PT },
       cd: { page: LETTER, perPage: 60, cols: 4, rows: 15, w: 2 * PT, h: .675 * PT, x: .25 * PT, y: .25 * PT },
       instrument: { page: LETTER, perPage: 2, cols: 1, rows: 2, w: 6 * PT, h: 4 * PT, x: 1.25 * PT, y: .25 * PT, gapY: .25 * PT },
