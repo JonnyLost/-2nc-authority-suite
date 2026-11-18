@@ -1,6 +1,6 @@
 {
-  "version": "4.44.4",
-  "name": "Treasure Add Item Fix",
-  "release": "2NC Authority Suite GitHub v4.44.4",
-  "notes": "Fixes row counting for expandable one-to-eight item Treasure labels, including mobile Safari. Preserves existing labels, subheaders, print layout and PDF."
+  "version": "4.44.5",
+  "name": "Avery 5260 Vinyl Label Layout",
+  "release": "2NC Authority Suite GitHub v4.44.5",
+  "notes": "Formats vinyl labels as 30 per US Letter page (3 columns x 10 rows), Avery 5260/5160 compatible 2-5/8 x 1 inch, with matching browser print and PDF export. Other label formats unchanged."
 }
