@@ -83,7 +83,7 @@
       if (directWidth <= maxWidth) {
         lines = [name]; break;
       }
-      const words = name.split(/\\s+/).filter(Boolean);
+      const words = name.split(/\s+/).filter(Boolean);
       const candidate = [];
       let current = '';
       words.forEach(word => {
