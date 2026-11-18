@@ -1,6 +1,6 @@
 {
-  "version": "4.44.8",
-  "name": "Larger Music Labels and Optional Genre Lines",
-  "release": "2NC Authority Suite GitHub v4.44.8",
-  "notes": "Enlarges Vinyl and CD artist and genre typography in previews, browser print, and PDFs. Adds independent main-genre and subgenre checkboxes and saves the display choices per queued label. Matches the vinyl preview to Avery 5260 proportions."
+  "version": "4.44.9",
+  "name": "Apply Genre Settings to All Queued Music Labels",
+  "release": "2NC Authority Suite GitHub v4.44.9",
+  "notes": "Adds an explicit button below the music genre checkboxes to apply their current settings to every queued label of the selected type (Vinyl or CD), while retaining per-label edits and persistent defaults for new labels."
 }
