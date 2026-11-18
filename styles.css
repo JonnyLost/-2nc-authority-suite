@@ -572,3 +572,14 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
   .vinylLabel.compact .musicArtist{font-size:clamp(22px,6.2vw,27px)!important}
   .vinylLabel.tight .musicArtist{font-size:clamp(20px,5.5vw,24px)!important}
 }
+
+/* v4.44.8: clearer artist and genre on CD dividers, without changing CD sheet dimensions. */
+.cdLabel{gap:3px;justify-content:center}
+.cdLabel .musicArtist{max-width:100%;min-width:0;overflow-wrap:anywhere;line-height:1.05;font-size:clamp(22px,3vw,31px)!important}
+.cdLabel .musicGenre{font-size:clamp(10px,1.55vw,13px)}
+.cdLabel .musicSubgenres{font-size:clamp(9px,1.45vw,12px)}
+@media screen and (max-width:700px){
+  .cdLabel .musicArtist{font-size:clamp(20px,6vw,27px)!important}
+  .cdLabel .musicGenre{font-size:clamp(9px,2.7vw,12px)}
+  .cdLabel .musicSubgenres{font-size:clamp(8px,2.5vw,11px)}
+}
