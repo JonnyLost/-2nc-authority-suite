@@ -238,7 +238,7 @@
       box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)} ${!genre && !subgenres ? 'artistOnly' : ''}`;
       box.innerHTML = `${genre ? '<div class="musicGenre">' + escapeHtml(row.genre) + '</div>' : ''}<strong class="musicArtist">${escapeHtml(row.name)}</strong>${subgenres ? '<div class="musicSubgenres">' + escapeHtml(subgenres) + '</div>' : ''}`;
       const name = box.querySelector('.musicArtist');
-      if (name && state.mode === 'vinyl') requestAnimationFrame(() => {
+      if (name && (state.mode === 'vinyl' || state.mode === 'cd')) requestAnimationFrame(() => {
         if (!name.isConnected) return;
         let size = parseFloat(window.getComputedStyle(name).fontSize);
         const others = Array.from(box.children).filter(child => child !== name);
