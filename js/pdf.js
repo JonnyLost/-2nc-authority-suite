@@ -62,7 +62,7 @@
     const genre = item.showGenre === false ? '' : ascii(item.genre || '').toUpperCase();
     const sub = item.showSubgenres === false ? '' : ascii([item.primarySubgenre || item.subgenre, item.secondarySubgenre].filter(Boolean).join(' / '));
     if (kind !== 'vinyl') {
-      const genreSize = 5.1, subSize = 4.7, mainSize = 10.4;
+      const genreSize = 6.5, subSize = 5.5, mainSize = 12.5;
       if (genre) drawCentered(page, fonts.bold, genre, centerX, y + height - genreSize - 5, width - 12, genreSize, 4, colors.muted);
       const fitted = fitSize(fonts.bold, ascii(item.name), width - 12, mainSize, 6);
       drawCentered(page, fonts.bold, item.name, centerX, y + (height - fitted) / 2 - 1, width - 12, mainSize, 6, colors.black);
