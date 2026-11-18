@@ -7,7 +7,7 @@
 
   function printStyles() {
     return `<style>
-@page vinylPage{size:letter landscape;margin:.2in .5in}
+@page vinylPage{size:letter portrait;margin:0}
 @page comicPage{size:letter portrait;margin:0}
 @page cdPage{size:letter portrait;margin:.25in}
 @page instrumentPage{size:letter portrait;margin:.25in}
@@ -17,18 +17,18 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .printNotice{padding:12px 16px;font-size:14px;background:#fff3cd;border:1px solid #e5c76b;margin:12px auto;width:calc(100% - 24px);max-width:900px}
 .sheet{break-after:page;page-break-after:always;display:grid;align-content:start;justify-content:center;margin:0 auto;position:relative}
 .sheet:last-child{break-after:auto;page-break-after:auto}
-.sheet.vinyl{page:vinylPage;width:10in;height:8.1in;grid-template-columns:repeat(2,5in);grid-template-rows:repeat(12,.675in)}
+.sheet.vinyl{page:vinylPage;width:8.5in;height:11in;grid-template-columns:repeat(3,2.625in);grid-template-rows:repeat(10,1in);column-gap:.125in;padding:.5in .1875in;justify-content:start}
 .sheet.comic{page:comicPage;width:7.5in;height:10in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(15,.6666667in);column-gap:.5in;margin:.5in auto 0}
 .sheet.cd{page:cdPage;width:8in;height:10.125in;grid-template-columns:repeat(4,2in);grid-template-rows:repeat(15,.675in)}
 .sheet.instrument{page:instrumentPage;width:6in;grid-template-columns:6in;grid-auto-rows:4in;gap:.25in}
 .sheet.treasure{page:treasurePage;width:7.25in;height:10.25in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(2,5in);gap:.25in}
-.sheet.vinyl:after,.sheet.treasure:after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:.65pt dashed #999;pointer-events:none;z-index:5}
+.sheet.treasure:after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:.65pt dashed #999;pointer-events:none;z-index:5}
 .pl{height:.675in;border:.5pt dashed #999;display:flex;align-items:center;justify-content:center;text-align:center;padding:.0625in;overflow:hidden;line-height:1;position:relative;font-family:'Arial Narrow','Avenir Next Condensed',Arial,sans-serif}.pl:before,.pl:after{content:'';position:absolute;left:.10in;right:.10in;height:.35pt;background:#d0d0d0}.pl:before{top:.045in}.pl:after{bottom:.045in}
-.pl.vinyl{width:5in}.pl.cd{width:2in}.pl.comic{width:3.5in;height:.6666667in;flex-direction:column;padding:.045in .10in}
+.pl.vinyl{width:2.625in;height:1in;border:0}.pl.cd{width:2in}.pl.comic{width:3.5in;height:.6666667in;flex-direction:column;padding:.045in .10in}
 .pl.vinyl,.pl.cd{flex-direction:column;justify-content:center;gap:1.2pt;padding:.045in .075in}
 .pl .musicGenre{font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#5f6368;line-height:1;text-transform:uppercase;letter-spacing:.65pt;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pl .musicSubgenres{font-family:Arial,Helvetica,sans-serif;color:#777b80;letter-spacing:.12pt;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pl.vinyl .musicGenre{font-size:6.2pt}.pl.vinyl b{font-size:16pt;line-height:.92;font-weight:800;letter-spacing:.2pt}.pl.vinyl .musicSubgenres{font-size:5.8pt}
+.pl.vinyl:before,.pl.vinyl:after{display:none}.pl.vinyl.calibrationLabel{border:.5pt dashed #999}.pl.vinyl.calibrationLabel:before{display:block}.pl.vinyl .musicGenre{font-size:6pt}.pl.vinyl b{font-size:11pt;line-height:1;font-weight:800;letter-spacing:0;overflow-wrap:anywhere}.pl.vinyl .musicSubgenres{font-size:5.5pt}.pl.vinyl.compact b{font-size:9pt}.pl.vinyl.tight b{font-size:7.5pt}
 .pl.cd .musicGenre{font-size:5.1pt}.pl.cd b{font-size:10.4pt;line-height:.92;font-weight:800;letter-spacing:.1pt}.pl.cd .musicSubgenres{font-size:4.7pt}
 .pl.comic{gap:1pt}.pl.comic small{font-family:Arial,Helvetica,sans-serif;font-size:6pt;font-weight:700;text-transform:uppercase;letter-spacing:.55pt;color:#6d7176;margin-bottom:0;line-height:1}.pl.comic b{font-size:14pt;font-weight:800;letter-spacing:.1pt;line-height:.9}.pl.comic.primary b{text-transform:uppercase;letter-spacing:.6pt}.pl.comic.compact b{font-size:11pt!important}.pl.comic.tight b{font-size:9pt!important;letter-spacing:0!important}
 .pl.comic .comicEra{position:absolute;right:.10in;bottom:.045in;font-family:Arial,Helvetica,sans-serif;font-size:4.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.35pt;color:#747980;line-height:1}
@@ -87,7 +87,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 
   function buildPrintDocument(groups) {
     let pages = '';
-    const perPage = { vinyl: 24, cd: 60, comic: 30, instrument: 2, treasure: 4 };
+    const perPage = { vinyl: 30, cd: 60, comic: 30, instrument: 2, treasure: 4 };
     Object.entries(groups).forEach(([kind, items]) => {
       if (!items.length) return;
       for (let index = 0; index < items.length; index += perPage[kind]) {
@@ -114,12 +114,12 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 
   function buildCalibrationDocument(mode) {
     const config = {
-      vinyl: { count: 24, label: 'VINYL 5.00 × 0.675 IN' },
+      vinyl: { count: 30, label: 'AVERY 5260 / VINYL 2.625 × 1 IN' },
       cd: { count: 60, label: 'CD 2.00 × 0.675 IN' },
       comic: { count: 30, label: 'COMIC 3.50 × 0.667 IN' },
       instrument: { count: 2, label: 'INSTRUMENT TAG 6.00 × 4.00 IN' },
       treasure: { count: 4, label: 'TREASURES TAG 3.50 × 5.00 IN' }
-    }[mode] || { count: 24, label: 'VINYL 5.00 × 0.675 IN' };
+    }[mode] || { count: 30, label: 'AVERY 5260 / VINYL 2.625 × 1 IN' };
     let labels = '';
     for (let i = 0; i < config.count; i += 1) {
       labels += mode === 'instrument'
