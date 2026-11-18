@@ -58,16 +58,56 @@
     if (kind !== 'vinyl') drawCutBox(page, x, y, width, height, colors.guide);
     if (kind !== 'vinyl') page.drawLine({ start: { x: x + 13, y: y + 8 }, end: { x: x + width - 13, y: y + 8 }, thickness: .3, color: colors.light });
     if (kind !== 'vinyl') page.drawLine({ start: { x: x + 13, y: y + height - 8 }, end: { x: x + width - 13, y: y + height - 8 }, thickness: .3, color: colors.light });
-    const genreSize = kind === 'vinyl' ? 6 : 5.1;
-    const subSize = kind === 'vinyl' ? 5.5 : 4.7;
-    const mainSize = kind === 'vinyl' ? 11 : 10.4;
     const centerX = x + width / 2;
-    const genre = ascii(item.genre || '').toUpperCase();
-    const sub = ascii([item.primarySubgenre || item.subgenre, item.secondarySubgenre].filter(Boolean).join(' / '));
-    drawCentered(page, fonts.bold, genre, centerX, y + height - genreSize - 5, width - 12, genreSize, 4, colors.muted);
-    const fitted = fitSize(fonts.bold, ascii(item.name), width - 12, mainSize, kind === 'vinyl' ? 6 : 6);
-    drawCentered(page, fonts.bold, item.name, centerX, y + (height - fitted) / 2 - 1, width - 12, mainSize, kind === 'vinyl' ? 6 : 6, colors.black);
-    drawCentered(page, fonts.regular, sub, centerX, y + 5, width - 12, subSize, 3.5, colors.muted);
+    const genre = item.showGenre === false ? '' : ascii(item.genre || '').toUpperCase();
+    const sub = item.showSubgenres === false ? '' : ascii([item.primarySubgenre || item.subgenre, item.secondarySubgenre].filter(Boolean).join(' / '));
+    if (kind !== 'vinyl') {
+      const genreSize = 5.1, subSize = 4.7, mainSize = 10.4;
+      if (genre) drawCentered(page, fonts.bold, genre, centerX, y + height - genreSize - 5, width - 12, genreSize, 4, colors.muted);
+      const fitted = fitSize(fonts.bold, ascii(item.name), width - 12, mainSize, 6);
+      drawCentered(page, fonts.bold, item.name, centerX, y + (height - fitted) / 2 - 1, width - 12, mainSize, 6, colors.black);
+      if (sub) drawCentered(page, fonts.regular, sub, centerX, y + 5, width - 12, subSize, 3.5, colors.muted);
+      return;
+    }
+    const maxWidth = width - 15;
+    if (genre) drawCentered(page, fonts.bold, genre, centerX, y + height - 12, maxWidth, 9, 6, colors.muted);
+    if (sub) drawCentered(page, fonts.regular, sub, centerX, y + 8, maxWidth, 7.5, 4.8, colors.muted);
+    const bottom = sub ? 19 : 6;
+    const top = genre ? height - 20 : height - 7;
+    const available = top - bottom;
+    const name = ascii(item.name || '');
+    let size = !genre && !sub ? 23 : 19;
+    let lines = [];
+    while (size >= 7) {
+      const directWidth = fonts.bold.widthOfTextAtSize(name, size);
+      if (directWidth <= maxWidth) {
+        lines = [name]; break;
+      }
+      const words = name.split(/\\s+/).filter(Boolean);
+      const candidate = [];
+      let current = '';
+      words.forEach(word => {
+        const next = current ? current + ' ' + word : word;
+        if (current && fonts.bold.widthOfTextAtSize(next, size) > maxWidth) {
+          candidate.push(current);
+          current = word;
+        } else current = next;
+      });
+      if (current) candidate.push(current);
+      if (candidate.length <= 2 && candidate.every(line => fonts.bold.widthOfTextAtSize(line, size) <= maxWidth) && candidate.length * size * 1.08 <= available) {
+        lines = candidate; break;
+      }
+      size -= .5;
+    }
+    if (!lines.length) {
+      size = fitSize(fonts.bold, name, maxWidth, 7, 5);
+      lines = [name];
+    }
+    const lineHeight = size * 1.08;
+    const blockHeight = lines.length * lineHeight;
+    const centerY = y + bottom + available / 2;
+    const firstBaseline = centerY + blockHeight / 2 - size;
+    lines.forEach((line, index) => drawCentered(page, fonts.bold, line, centerX, firstBaseline - index * lineHeight, maxWidth, size, size, colors.black));
   }
 
   function drawComicLabel(page, item, x, y, width, height, fonts, colors) {
