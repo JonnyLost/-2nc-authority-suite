@@ -238,23 +238,17 @@
       box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)} ${!genre && !subgenres ? 'artistOnly' : ''}`;
       box.innerHTML = `${genre ? '<div class="musicGenre">' + escapeHtml(row.genre) + '</div>' : ''}<strong class="musicArtist">${escapeHtml(row.name)}</strong>${subgenres ? '<div class="musicSubgenres">' + escapeHtml(subgenres) + '</div>' : ''}`;
       const name = box.querySelector('.musicArtist');
-      if (name) requestAnimationFrame(() => {
+      if (name && state.mode === 'vinyl') requestAnimationFrame(() => {
         if (!name.isConnected) return;
-        const computed = window.getComputedStyle(name);
-        const maxWidth = Math.max(1, box.clientWidth - 28);
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-        if (!context) return;
-        const baseSize = parseFloat(computed.fontSize);
-        const fontFamily = computed.fontFamily;
-        const fontWeight = computed.fontWeight;
-        let size = baseSize;
-        context.font = `${fontWeight} ${size}px ${fontFamily}`;
-        while (size > 11 && context.measureText(name.textContent).width > maxWidth) {
+        let size = parseFloat(window.getComputedStyle(name).fontSize);
+        const others = Array.from(box.children).filter(child => child !== name);
+        const otherHeight = others.reduce((total, child) => total + child.offsetHeight, 0);
+        const availableHeight = box.clientHeight - otherHeight - 22;
+        const availableWidth = box.clientWidth - 28;
+        while (size > 12 && (name.scrollHeight > availableHeight || name.scrollWidth > availableWidth)) {
           size -= .5;
-          context.font = `${fontWeight} ${size}px ${fontFamily}`;
+          name.style.setProperty('font-size', size + 'px', 'important');
         }
-        name.style.fontSize = size + 'px';
       });
       if (hierarchy) hierarchy.classList.add('hidden');
     }
