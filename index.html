@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-title" content="2NC Authority">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="styles.css?v=4.44.7">
+  <link rel="stylesheet" href="styles.css?v=4.44.8">
   <title>2NC Authority Suite</title>
 </head>
 <body>
@@ -104,7 +104,11 @@
       <div id="results" class="results"></div>
     </section>
     <section class="panel previewPanel">
-      <div class="panelTitle"><span>Live preview</span><span id="dimensionText">5 × 0.675 in</span></div>
+      <div class="panelTitle"><span>Live preview</span><span id="dimensionText">2⅝ × 1 in · 30 per sheet</span></div>
+      <div id="musicLabelToggles" class="comicLabelToggles hidden">
+        <label class="eraToggle"><input id="showMusicGenre" type="checkbox" checked><span>Show main genre above artist</span></label>
+        <label class="eraToggle"><input id="showMusicSubgenres" type="checkbox" checked><span>Show subgenres below artist</span></label>
+      </div>
       <div id="comicLabelToggles" class="comicLabelToggles hidden">
         <label class="eraToggle"><input id="showComicAuthority" type="checkbox" checked><span>Show authority name above series title</span></label>
         <label class="eraToggle"><input id="showComicEra" type="checkbox" checked><span>Show publishing era or imprint in corner</span></label>
@@ -196,16 +200,16 @@
   </main>
   </div>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="modalClose">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
-<script src="js/config.js?v=4.44.7"></script>
-<script src="js/logger.js?v=4.44.7"></script>
-<script src="js/db.js?v=4.44.7"></script>
-<script src="js/sync.js?v=4.44.7"></script>
-<script src="js/print-station.js?v=4.44.7"></script>
+<script src="js/config.js?v=4.44.8"></script>
+<script src="js/logger.js?v=4.44.8"></script>
+<script src="js/db.js?v=4.44.8"></script>
+<script src="js/sync.js?v=4.44.8"></script>
+<script src="js/print-station.js?v=4.44.8"></script>
 <script src="vendor/pdf-lib.min.js?v=1.17.1"></script>
-<script src="js/pdf.js?v=4.44.7"></script>
-<script src="js/labels.js?v=4.44.7"></script>
-<script src="js/ui.js?v=4.44.7"></script>
-<script src="app.js?v=4.44.7"></script>
+<script src="js/pdf.js?v=4.44.8"></script>
+<script src="js/labels.js?v=4.44.8"></script>
+<script src="js/ui.js?v=4.44.8"></script>
+<script src="app.js?v=4.44.8"></script>
 <script>
   document.addEventListener('click', event => {
     const menu = document.getElementById('app-menu');
