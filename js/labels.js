@@ -28,7 +28,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .pl.vinyl,.pl.cd{flex-direction:column;justify-content:center;gap:1.2pt;padding:.045in .075in}
 .pl .musicGenre{font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#5f6368;line-height:1;text-transform:uppercase;letter-spacing:.65pt;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pl .musicSubgenres{font-family:Arial,Helvetica,sans-serif;color:#777b80;letter-spacing:.12pt;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pl.vinyl:before,.pl.vinyl:after{display:none}.pl.vinyl.calibrationLabel{border:.5pt dashed #999}.pl.vinyl.calibrationLabel:before{display:block}.pl.vinyl .musicGenre{font-size:6pt}.pl.vinyl b{font-size:11pt;line-height:1;font-weight:800;letter-spacing:0;overflow-wrap:anywhere}.pl.vinyl .musicSubgenres{font-size:5.5pt}.pl.vinyl.compact b{font-size:9pt}.pl.vinyl.tight b{font-size:7.5pt}
+.pl.vinyl:before,.pl.vinyl:after{display:none}.pl.vinyl.calibrationLabel{border:.5pt dashed #999}.pl.vinyl.calibrationLabel:before{display:block}.pl.vinyl{gap:3pt;padding:.065in .085in}.pl.vinyl .musicGenre{font-size:9pt;letter-spacing:.5pt}.pl.vinyl b{font-size:19pt;line-height:1.04;font-weight:800;letter-spacing:0;display:block;max-width:100%;overflow-wrap:anywhere}.pl.vinyl .musicSubgenres{font-size:7.5pt;letter-spacing:0}.pl.vinyl.artistOnly b{font-size:23pt}.pl.vinyl.compact b{font-size:16pt}.pl.vinyl.tight b{font-size:14pt}
 .pl.cd .musicGenre{font-size:5.1pt}.pl.cd b{font-size:10.4pt;line-height:.92;font-weight:800;letter-spacing:.1pt}.pl.cd .musicSubgenres{font-size:4.7pt}
 .pl.comic{gap:1pt}.pl.comic small{font-family:Arial,Helvetica,sans-serif;font-size:6pt;font-weight:700;text-transform:uppercase;letter-spacing:.55pt;color:#6d7176;margin-bottom:0;line-height:1}.pl.comic b{font-size:14pt;font-weight:800;letter-spacing:.1pt;line-height:.9}.pl.comic.primary b{text-transform:uppercase;letter-spacing:.6pt}.pl.comic.compact b{font-size:11pt!important}.pl.comic.tight b{font-size:9pt!important;letter-spacing:0!important}
 .pl.comic .comicEra{position:absolute;right:.10in;bottom:.045in;font-family:Arial,Helvetica,sans-serif;font-size:4.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.35pt;color:#747980;line-height:1}
@@ -103,7 +103,9 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
           } else if (kind === 'treasure') {
             pages += `<div class="treasureTagPrint"><div class="treasureInner${String(row.subheader || '').trim() ? ' hasTreasureSubheader' : ''}"><div class="treasureHeaderGeneratedPrint" aria-label="2nd & Charles Treasures"><img class="treasureHeaderArtPrint" src="${treasureHeaderUrl}" alt="2nd & Charles Treasures"></div>${String(row.subheader || '').trim() ? '<div class="treasureSubheaderPrint">' + escapeHtml(String(row.subheader).trim()) + '</div>' : ''}${renderTreasureItems(row)}</div></div>`;
           } else {
-            pages += `<div class="pl ${kind}${lengthClass(row.name)}"><div class="musicGenre">${escapeHtml(row.genre || '')}</div><b>${escapeHtml(row.name)}</b><div class="musicSubgenres">${escapeHtml(subgenreLine(row))}</div></div>`;
+            const genre = row.showGenre !== false ? String(row.genre || '') : '';
+            const subgenres = row.showSubgenres !== false ? subgenreLine(row) : '';
+            pages += `<div class="pl ${kind}${lengthClass(row.name)}${kind === 'vinyl' && !genre && !subgenres ? ' artistOnly' : ''}">${genre ? '<div class="musicGenre">' + escapeHtml(genre) + '</div>' : ''}<b>${escapeHtml(row.name)}</b>${subgenres ? '<div class="musicSubgenres">' + escapeHtml(subgenres) + '</div>' : ''}</div>`;
           }
         });
         pages += '</section>';
@@ -151,6 +153,23 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
     });
   }
 
+  function fitVinylPrintEntries(doc) {
+    doc.querySelectorAll('.pl.vinyl:not(.calibrationLabel)').forEach(label => {
+      const artist = label.querySelector('b');
+      if (!artist) return;
+      const win = doc.defaultView;
+      let size = parseFloat(win.getComputedStyle(artist).fontSize);
+      const freeHeight = label.clientHeight - Array.from(label.children)
+        .filter(child => child !== artist)
+        .reduce((total, child) => total + child.offsetHeight, 0) - 17;
+      const usableWidth = label.clientWidth - 16;
+      while (size > 9 && (artist.scrollHeight > freeHeight || artist.scrollWidth > usableWidth)) {
+        size -= .5;
+        artist.style.fontSize = size + 'px';
+      }
+    });
+  }
+
   function openPrintWindow(html, targetWindow) {
     const popup = targetWindow || window.open('', '_blank');
     if (!popup) throw new Error('Pop-ups are blocked. Allow pop-ups for this site so the print sheet can open.');
@@ -158,7 +177,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
     popup.document.write(html);
     popup.document.close();
     popup.focus();
-    Promise.all([popup.document.fonts?.ready || Promise.resolve(), ...Array.from(popup.document.images).map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve())]).then(() => { fitTreasurePrintEntries(popup.document); setTimeout(() => popup.print(), 150); });
+    Promise.all([popup.document.fonts?.ready || Promise.resolve(), ...Array.from(popup.document.images).map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve())]).then(() => { fitTreasurePrintEntries(popup.document); fitVinylPrintEntries(popup.document); setTimeout(() => popup.print(), 150); });
   }
 
   function printQueue(queue, targetWindow) {
