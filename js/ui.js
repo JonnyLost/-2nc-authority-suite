@@ -288,9 +288,34 @@
     if (editingUid) state.editingQueueIndex = state.queue.findIndex(row => row.uid === editingUid);
   }
 
+  function updateMusicBulkAction() {
+    const button = $('#applyMusicSettingsAll');
+    if (!button) return;
+    const mode = state.mode === 'cd' ? 'cd' : 'vinyl';
+    const count = state.queue.filter(item => item.mode === mode).length;
+    const type = mode === 'cd' ? 'CD' : 'Vinyl';
+    button.disabled = count === 0;
+    button.textContent = count
+      ? `Apply to all ${count} queued ${type} label${count === 1 ? '' : 's'}`
+      : `No ${type} labels queued yet`;
+  }
+
+  function applyMusicSettingsAll() {
+    if (state.mode !== 'vinyl' && state.mode !== 'cd') return;
+    const matching = state.queue.filter(item => item.mode === state.mode);
+    if (!matching.length) return;
+    matching.forEach(item => {
+      item.showGenre = state.showMusicGenre;
+      item.showSubgenres = state.showMusicSubgenres;
+    });
+    saveQueue();
+    text('#musicBulkFeedback', `Applied to all ${matching.length} queued ${state.mode === 'cd' ? 'CD' : 'Vinyl'} label${matching.length === 1 ? '' : 's'}.`);
+  }
+
   function saveQueue() { localStorage.setItem('2ncQueue', JSON.stringify(state.queue)); renderQueue(); }
   function renderQueue() {
     text('#queuePill', `${state.queue.length.toLocaleString()} queued`);
+    updateMusicBulkAction();
     requireElement('#queue').innerHTML = state.queue.map((row, index) => `<div class="queueItem" data-index="${index}" role="button" tabindex="0" aria-label="Reopen ${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}"><div><strong>${escapeHtml(row.mode === 'comic' ? (row.primary ? row.name : row.series) : row.mode === 'instrument' || row.mode === 'treasure' ? row.product : row.name)}</strong><br><small>${escapeHtml(row.mode === 'comic' ? (row.primary ? 'Primary authority' : [row.parent, row.showMarker === false ? '' : comicMarker(row)].filter(Boolean).join(' · ')) : row.mode === 'instrument' ? row.price : row.mode === 'treasure' ? '2NC TREASURES' : row.mode.toUpperCase())}</small></div><button data-index="${index}" aria-label="Remove">×</button></div>`).join('') || '<div class="empty">Your print queue is empty.</div>';
     $$('.queueItem').forEach(item => {
       item.addEventListener('click', event => { if (!event.target.closest('button')) reopenQueueItem(Number(item.dataset.index)); });
@@ -393,6 +418,8 @@
     show('#managerPanel', mode === 'manager');
     show('#comicLabelToggles', mode === 'comic');
     show('#musicLabelToggles', mode === 'vinyl' || mode === 'cd');
+    updateMusicBulkAction();
+    text('#musicBulkFeedback', '');
     if (mode === 'station') {
       refreshStation().catch(error => showStationError(error));
       startStationPolling();
@@ -833,8 +860,9 @@
     on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
     if ($('#showMusicGenre')) $('#showMusicGenre').checked = state.showMusicGenre;
     if ($('#showMusicSubgenres')) $('#showMusicSubgenres').checked = state.showMusicSubgenres;
-    on('#showMusicGenre', 'change', event => { state.showMusicGenre = event.target.checked; localStorage.setItem('2ncShowMusicGenre', String(state.showMusicGenre)); renderPreview(); });
-    on('#showMusicSubgenres', 'change', event => { state.showMusicSubgenres = event.target.checked; localStorage.setItem('2ncShowMusicSubgenres', String(state.showMusicSubgenres)); renderPreview(); });
+    on('#showMusicGenre', 'change', event => { state.showMusicGenre = event.target.checked; localStorage.setItem('2ncShowMusicGenre', String(state.showMusicGenre)); text('#musicBulkFeedback', ''); renderPreview(); });
+    on('#showMusicSubgenres', 'change', event => { state.showMusicSubgenres = event.target.checked; localStorage.setItem('2ncShowMusicSubgenres', String(state.showMusicSubgenres)); text('#musicBulkFeedback', ''); renderPreview(); });
+    on('#applyMusicSettingsAll', 'click', applyMusicSettingsAll);
     on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
     on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
     on('#sharePdfBtn', 'click', () => sharePrintPacket().catch(error => { if (error.name !== 'AbortError') alert(error.message); }));
