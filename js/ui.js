@@ -6,7 +6,7 @@
 
   const profiles = {
     quick: { title: 'Quick Lookup', sub: 'Find where any comic or artist belongs', dim: '' },
-    vinyl: { title: 'Vinyl Dividers', sub: 'Search the internal Music Authority', dim: '5 × 0.675 in' },
+    vinyl: { title: 'Vinyl Dividers', sub: 'Search the internal Music Authority', dim: '2⅝ × 1 in · 30 per sheet' },
     cd: { title: 'CD Dividers', sub: 'Search the internal Music Authority', dim: '2 × 0.675 in' },
     comic: { title: 'Comic Dividers', sub: 'Search the internal Comic Authority', dim: '3½ × ⅔ in · 30 per sheet' },
     instrument: { title: 'Instrument Tags', sub: 'Create 4 × 6 retail instrument tags', dim: '6 × 4 in' },
@@ -22,7 +22,9 @@
     music: [], comic: [], managerDataset: 'music', managerSelected: null,
     stationJobs: [], stationTimer: null, stationBusy: false, editingQueueIndex: null,
     showComicAuthority: localStorage.getItem('2ncShowComicAuthority') !== 'false',
-    showComicEra: localStorage.getItem('2ncShowComicEra') !== 'false'
+    showComicEra: localStorage.getItem('2ncShowComicEra') !== 'false',
+    showMusicGenre: localStorage.getItem('2ncShowMusicGenre') !== 'false',
+    showMusicSubgenres: localStorage.getItem('2ncShowMusicSubgenres') !== 'false'
   };
 
   function requireElement(selector) {
@@ -231,8 +233,29 @@
         : `${state.showComicAuthority && row.parent ? `<div class="cue">${escapeHtml(row.parent)}</div>` : ''}<div class="series">${escapeHtml(comicPrintTitle(row))}</div>${state.showComicEra && comicMarker(row) ? `<div class="era">${escapeHtml(comicMarker(row))}</div>` : ''}`;
       if (hierarchy) hierarchy.classList.toggle('hidden', !row.parent && !row.primary);
     } else {
-      box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)}`;
-      box.innerHTML = `<div class="musicGenre">${escapeHtml(row.genre || '')}</div><strong>${escapeHtml(row.name)}</strong><div class="musicSubgenres">${escapeHtml(musicSubgenreLine(row))}</div>`;
+      const genre = state.showMusicGenre && row.genre;
+      const subgenres = state.showMusicSubgenres && musicSubgenreLine(row);
+      box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)} ${!genre && !subgenres ? 'artistOnly' : ''}`;
+      box.innerHTML = `${genre ? '<div class="musicGenre">' + escapeHtml(row.genre) + '</div>' : ''}<strong class="musicArtist">${escapeHtml(row.name)}</strong>${subgenres ? '<div class="musicSubgenres">' + escapeHtml(subgenres) + '</div>' : ''}`;
+      const name = box.querySelector('.musicArtist');
+      if (name) requestAnimationFrame(() => {
+        if (!name.isConnected) return;
+        const computed = window.getComputedStyle(name);
+        const maxWidth = Math.max(1, box.clientWidth - 28);
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        if (!context) return;
+        const baseSize = parseFloat(computed.fontSize);
+        const fontFamily = computed.fontFamily;
+        const fontWeight = computed.fontWeight;
+        let size = baseSize;
+        context.font = `${fontWeight} ${size}px ${fontFamily}`;
+        while (size > 11 && context.measureText(name.textContent).width > maxWidth) {
+          size -= .5;
+          context.font = `${fontWeight} ${size}px ${fontFamily}`;
+        }
+        name.style.fontSize = size + 'px';
+      });
       if (hierarchy) hierarchy.classList.add('hidden');
     }
     text('#selectedDetails', resultSub(row));
@@ -242,7 +265,7 @@
     const targetMode = modeOverride || state.mode;
     return targetMode === 'comic'
       ? { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: 'comic', primary: row.primary, showAuthority: state.showComicAuthority, showMarker: state.showComicEra, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: row.publishingEra || '', publishingLine: row.publishingLine || '', startYear: row.startYear || '', endYear: row.endYear || '', name: row.display || row.name, publisher: row.publisher || '' }
-      : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: targetMode, name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
+      : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: targetMode, showGenre: state.showMusicGenre, showSubgenres: state.showMusicSubgenres, name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
   }
 
   function addLookupToQueue() {
@@ -321,6 +344,10 @@
       const markerToggle = $('#showComicEra'); if (markerToggle) markerToggle.checked = state.showComicEra;
       state.selected = { id: item.sourceId || '', display: item.name || item.series, name: item.name || item.series, primary: Boolean(item.primary), parent: item.parent || '', series: item.canonicalSeries || item.series || '', printedTitle: item.printedTitle || item.series || '', publishingEra: item.publishingEra || '', publishingLine: item.publishingLine || '', startYear: item.startYear || '', endYear: item.endYear || '', publisher: item.publisher || 'DC', type: item.primary ? 'Character' : 'Series', level: 'Recommended' };
     } else {
+      state.showMusicGenre = item.showGenre !== false;
+      state.showMusicSubgenres = item.showSubgenres !== false;
+      const genreToggle = $('#showMusicGenre'); if (genreToggle) genreToggle.checked = state.showMusicGenre;
+      const subgenreToggle = $('#showMusicSubgenres'); if (subgenreToggle) subgenreToggle.checked = state.showMusicSubgenres;
       state.selected = { id: item.sourceId || '', display: item.name, name: item.name, genre: item.genre || '', primarySubgenre: item.primarySubgenre || '', secondarySubgenre: item.secondarySubgenre || '', level: 'Recommended' };
     }
     renderResults(); renderPreview();
@@ -371,6 +398,7 @@
     show('#stationPanel', mode === 'station');
     show('#managerPanel', mode === 'manager');
     show('#comicLabelToggles', mode === 'comic');
+    show('#musicLabelToggles', mode === 'vinyl' || mode === 'cd');
     if (mode === 'station') {
       refreshStation().catch(error => showStationError(error));
       startStationPolling();
@@ -809,6 +837,10 @@
     on('#addSelected', 'click', addSelected); on('#addAll', 'click', addAll); on('#addHierarchy', 'click', addHierarchy);
     on('#showComicAuthority', 'change', event => { state.showComicAuthority = event.target.checked; localStorage.setItem('2ncShowComicAuthority', String(state.showComicAuthority)); renderPreview(); });
     on('#showComicEra', 'change', event => { state.showComicEra = event.target.checked; localStorage.setItem('2ncShowComicEra', String(state.showComicEra)); renderPreview(); });
+    if ($('#showMusicGenre')) $('#showMusicGenre').checked = state.showMusicGenre;
+    if ($('#showMusicSubgenres')) $('#showMusicSubgenres').checked = state.showMusicSubgenres;
+    on('#showMusicGenre', 'change', event => { state.showMusicGenre = event.target.checked; localStorage.setItem('2ncShowMusicGenre', String(state.showMusicGenre)); renderPreview(); });
+    on('#showMusicSubgenres', 'change', event => { state.showMusicSubgenres = event.target.checked; localStorage.setItem('2ncShowMusicSubgenres', String(state.showMusicSubgenres)); renderPreview(); });
     on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
     on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
     on('#sharePdfBtn', 'click', () => sharePrintPacket().catch(error => { if (error.name !== 'AbortError') alert(error.message); }));
