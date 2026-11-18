@@ -519,3 +519,23 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 .treasureProduct.treasureProducts.count-8{grid-template-rows:repeat(8,minmax(0,1fr))}
 .treasureProducts.count-5,.treasureProducts.count-6{font-size:14px}
 .treasureProducts.count-7,.treasureProducts.count-8{font-size:12px}
+
+/* v4.44.7: compact header without the redundant Authority Suite navigation strip. */
+.suite-header.apple-pro-header{grid-template-columns:max-content minmax(0,1fr) minmax(0,1fr) max-content}
+.suite-time-context{grid-column:2}
+.suite-place-context{grid-column:3}
+.suite-header-actions{grid-column:4}
+@media screen and (max-width:960px){
+  .suite-header.apple-pro-header{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;grid-template-rows:auto auto}
+  .suite-brand{grid-column:1;grid-row:1}
+  .suite-header-actions{grid-column:3;grid-row:1}
+  .suite-time-context{grid-column:1/2;grid-row:2;justify-self:end}
+  .suite-place-context{grid-column:2/4;grid-row:2;justify-self:start}
+}
+@media screen and (max-width:760px){
+  .suite-header.apple-pro-header{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto}
+  .suite-brand{grid-column:1;grid-row:1}
+  .suite-header-actions{grid-column:2;grid-row:1}
+  .suite-live-strip{grid-column:1/-1;grid-row:2}
+  .suite-time-context,.suite-place-context{grid-column:auto;grid-row:auto;justify-self:auto}
+}
