@@ -1,6 +1,6 @@
 {
-  "version": "4.44.9",
-  "name": "Apply Genre Settings to All Queued Music Labels",
-  "release": "2NC Authority Suite GitHub v4.44.9",
-  "notes": "Adds an explicit button below the music genre checkboxes to apply their current settings to every queued label of the selected type (Vinyl or CD), while retaining per-label edits and persistent defaults for new labels."
+  "version": "4.44.10",
+  "name": "Authority Suite Home Screen Icon",
+  "release": "2NC Authority Suite GitHub v4.44.10",
+  "notes": "Activates the new cinematic Authority Suite artwork uploaded to the 180, 192 and 512 pixel icon files, refreshes PWA and Apple touch icon references, and bumps the service worker cache."
 }
