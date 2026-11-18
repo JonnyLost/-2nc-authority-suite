@@ -1,6 +1,6 @@
 {
-  "version": "4.44.7",
-  "name": "Compact Header Without Navigation Bar",
-  "release": "2NC Authority Suite GitHub v4.44.7",
-  "notes": "Removes the full Authority Suite navigation bar, retaining the app logo, date, time, local weather and All Tools control. Mobile/desktop header rows compact accordingly."
+  "version": "4.44.8",
+  "name": "Larger Music Labels and Optional Genre Lines",
+  "release": "2NC Authority Suite GitHub v4.44.8",
+  "notes": "Enlarges Vinyl and CD artist and genre typography in previews, browser print, and PDFs. Adds independent main-genre and subgenre checkboxes and saves the display choices per queued label. Matches the vinyl preview to Avery 5260 proportions."
 }
