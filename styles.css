@@ -583,3 +583,9 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
   .cdLabel .musicGenre{font-size:clamp(9px,2.7vw,12px)}
   .cdLabel .musicSubgenres{font-size:clamp(8px,2.5vw,11px)}
 }
+
+/* v4.44.9: one-tap bulk settings for queued Vinyl or CD labels. */
+.musicApplyAll{width:100%;margin:5px 0 0;padding:10px 12px;min-height:40px;font-size:12px}
+.musicApplyAll:disabled{opacity:.5;cursor:not-allowed}
+.musicBulkFeedback{display:block;min-height:0;color:var(--muted);font-size:12px;line-height:1.35}
+.musicBulkFeedback:empty{display:none}
