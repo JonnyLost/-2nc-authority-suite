@@ -1,6 +1,6 @@
 {
-  "version": "4.44.11",
-  "name": "Optional Avery 30-Up Dividers",
-  "release": "2NC Authority Suite GitHub v4.44.11",
-  "notes": "Adds independent optional Avery 5260 and compatible Office Depot 30-up stock for CD and comic dividers across browser print, calibration, PDF and Print Station. Existing layouts remain the defaults."
+  "version": "4.44.12",
+  "name": "Comic Publisher Group Filters",
+  "release": "2NC Authority Suite GitHub v4.44.12",
+  "notes": "Adds All DC, All Independent and All Marvel to Comic Dividers while preserving every individual publisher and existing filter."
 }
