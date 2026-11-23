@@ -5,6 +5,19 @@
   const treasureHeaderUrl = new URL('assets/treasures-header.svg', window.location.href).href;
   const lengthClass = value => { const n = String(value || '').length; return n > 34 ? ' tight' : n > 22 ? ' compact' : ''; };
 
+  // Shared Letter geometry in inches, also consumed by PrintPacket.
+  const addressStock = Object.freeze({ perPage: 30, cols: 3, rows: 10, w: 2.625, h: 1, x: .1875, y: .5, gapX: .125 });
+  const supportsAddressStock = mode => mode === 'cd' || mode === 'comic';
+  const usesAddressStock = row => supportsAddressStock(row.mode) && row.printStock === 'address30';
+  const stockGroups = queue => {
+    const groups = { vinyl: [], cd: [], cdAddress: [], comic: [], comicAddress: [], instrument: [], treasure: [] };
+    queue.forEach(row => {
+      const key = usesAddressStock(row) ? row.mode + 'Address' : row.mode;
+      if (Object.hasOwn(groups, key)) groups[key].push(row);
+    });
+    return groups;
+  };
+
   function printStyles() {
     return `<style>
 @page vinylPage{size:letter portrait;margin:0}
@@ -17,9 +30,9 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .printNotice{padding:12px 16px;font-size:14px;background:#fff3cd;border:1px solid #e5c76b;margin:12px auto;width:calc(100% - 24px);max-width:900px}
 .sheet{break-after:page;page-break-after:always;display:grid;align-content:start;justify-content:center;margin:0 auto;position:relative}
 .sheet:last-child{break-after:auto;page-break-after:auto}
-.sheet.vinyl{page:vinylPage;width:8.5in;height:11in;grid-template-columns:repeat(3,2.625in);grid-template-rows:repeat(10,1in);column-gap:.125in;padding:.5in .1875in;justify-content:start}
-.sheet.comic{page:comicPage;width:7.5in;height:10in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(15,.6666667in);column-gap:.5in;margin:.5in auto 0}
-.sheet.cd{page:cdPage;width:8in;height:10.125in;grid-template-columns:repeat(4,2in);grid-template-rows:repeat(15,.675in)}
+.sheet.vinyl,.sheet.address30{page:vinylPage;width:8.5in;height:11in;grid-template-columns:repeat(${addressStock.cols},${addressStock.w}in);grid-template-rows:repeat(${addressStock.rows},${addressStock.h}in);column-gap:${addressStock.gapX}in;padding:${addressStock.y}in ${addressStock.x}in;justify-content:start}
+.sheet.comic:not(.address30){page:comicPage;width:7.5in;height:10in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(15,.6666667in);column-gap:.5in;margin:.5in auto 0}
+.sheet.cd:not(.address30){page:cdPage;width:8in;height:10.125in;grid-template-columns:repeat(4,2in);grid-template-rows:repeat(15,.675in)}
 .sheet.instrument{page:instrumentPage;width:6in;grid-template-columns:6in;grid-auto-rows:4in;gap:.25in}
 .sheet.treasure{page:treasurePage;width:7.25in;height:10.25in;grid-template-columns:repeat(2,3.5in);grid-template-rows:repeat(2,5in);gap:.25in}
 .sheet.treasure:after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:.65pt dashed #999;pointer-events:none;z-index:5}
@@ -32,6 +45,17 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .pl.cd .musicGenre{font-size:6.5pt}.pl.cd b{font-size:12.5pt;line-height:1;font-weight:800;letter-spacing:0;max-width:100%;overflow-wrap:anywhere}.pl.cd .musicSubgenres{font-size:5.5pt}
 .pl.comic{gap:1pt}.pl.comic small{font-family:Arial,Helvetica,sans-serif;font-size:6pt;font-weight:700;text-transform:uppercase;letter-spacing:.55pt;color:#6d7176;margin-bottom:0;line-height:1}.pl.comic b{font-size:14pt;font-weight:800;letter-spacing:.1pt;line-height:.9}.pl.comic.primary b{text-transform:uppercase;letter-spacing:.6pt}.pl.comic.compact b{font-size:11pt!important}.pl.comic.tight b{font-size:9pt!important;letter-spacing:0!important}
 .pl.comic .comicEra{position:absolute;right:.10in;bottom:.045in;font-family:Arial,Helvetica,sans-serif;font-size:4.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.35pt;color:#747980;line-height:1}
+.address30 .pl{width:${addressStock.w}in;height:${addressStock.h}in;border:0;padding:.08in .09in}
+.address30 .pl:not(.calibrationLabel):before,.address30 .pl:not(.calibrationLabel):after{display:none}
+.address30 .pl.calibrationLabel{border:.5pt dashed #999}
+.address30 .pl.cd{gap:3pt}
+.address30 .pl.cd b{font-size:17pt}
+.address30 .pl.cd .musicGenre{font-size:8pt}
+.address30 .pl.cd .musicSubgenres{font-size:7pt}
+.address30 .pl.comic{gap:2pt}.address30 .pl>*{flex-shrink:0}
+.address30 .pl.comic b{display:block;max-width:100%;overflow-wrap:anywhere;line-height:1.05;font-size:14pt!important}
+.address30 .pl.comic small{max-width:100%;overflow-wrap:anywhere}
+.address30 .pl.comic .comicEra{position:static;align-self:flex-end;max-width:100%;overflow-wrap:anywhere}
 .tag{width:6in;height:4in;position:relative;overflow:hidden;color:#df7748;background:#fff}
 .tag:after{content:"";position:absolute;inset:0;border:.75pt dashed #777;pointer-events:none;z-index:20}
 .orange{position:absolute;left:0;top:0;width:1.55in;height:4in;background:#df7748;color:white;overflow:hidden}
@@ -87,12 +111,15 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 
   function buildPrintDocument(groups) {
     let pages = '';
-    const perPage = { vinyl: 30, cd: 60, comic: 30, instrument: 2, treasure: 4 };
-    Object.entries(groups).forEach(([kind, items]) => {
+    const perPage = { vinyl: addressStock.perPage, cd: 60, comic: 30, instrument: 2, treasure: 4 };
+    Object.entries(groups).forEach(([key, items]) => {
       if (!items.length) return;
-      for (let index = 0; index < items.length; index += perPage[kind]) {
-        pages += `<section class="sheet ${kind}">`;
-        items.slice(index, index + perPage[kind]).forEach(row => {
+      const address = key.endsWith('Address');
+      const kind = address ? key.slice(0, -7) : key;
+      const count = address ? addressStock.perPage : perPage[kind];
+      for (let index = 0; index < items.length; index += count) {
+        pages += `<section class="sheet ${kind}${address ? ' address30' : ''}">`;
+        items.slice(index, index + count).forEach(row => {
           if (kind === 'comic') {
             const title = row.primary ? row.name : (row.printedTitle || row.series);
             const marker = row.showMarker === false ? '' : (row.publishingLine || row.publishingEra || '');
@@ -114,8 +141,9 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
     return `<!doctype html><html><head><meta charset="utf-8"><title>2NC Labels</title>${printStyles()}</head><body><div class="printNotice"><strong>Print setting:</strong> choose Actual Size / 100%. Do not use Fit to Page or Scale to Fit.</div>${pages}</body></html>`;
   }
 
-  function buildCalibrationDocument(mode) {
-    const config = {
+  function buildCalibrationDocument(mode, printStock) {
+    const address = usesAddressStock({ mode, printStock });
+    const config = address ? { count: addressStock.perPage, label: `AVERY 5260 / ${mode.toUpperCase()} 2.625 × 1 IN` } : {
       vinyl: { count: 30, label: 'AVERY 5260 / VINYL 2.625 × 1 IN' },
       cd: { count: 60, label: 'CD 2.00 × 0.675 IN' },
       comic: { count: 30, label: 'COMIC 3.50 × 0.667 IN' },
@@ -131,7 +159,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
         :
         `<div class="pl ${mode} calibrationLabel"><b>${config.label}</b><span class="ruler">Actual size</span></div>`;
     }
-    return `<!doctype html><html><head><meta charset="utf-8"><title>2NC Calibration</title>${printStyles()}</head><body><div class="printNotice"><strong>Calibration:</strong> print at Actual Size / 100%, then measure one dashed box.</div><section class="sheet ${mode}">${labels}</section></body></html>`;
+    return `<!doctype html><html><head><meta charset="utf-8"><title>2NC Calibration</title>${printStyles()}</head><body><div class="printNotice"><strong>Calibration:</strong> print at Actual Size / 100%, then measure one dashed box.</div><section class="sheet ${mode}${address ? ' address30' : ''}">${labels}</section></body></html>`;
   }
 
   function fitTreasurePrintEntries(doc) {
@@ -154,7 +182,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
   }
 
   function fitMusicPrintEntries(doc) {
-    doc.querySelectorAll('.pl.vinyl:not(.calibrationLabel), .pl.cd:not(.calibrationLabel)').forEach(label => {
+    doc.querySelectorAll('.pl.vinyl:not(.calibrationLabel), .pl.cd:not(.calibrationLabel), .address30 .pl.comic:not(.calibrationLabel)').forEach(label => {
       const artist = label.querySelector('b');
       if (!artist) return;
       const win = doc.defaultView;
@@ -162,10 +190,10 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
       const freeHeight = label.clientHeight - Array.from(label.children)
         .filter(child => child !== artist)
         .reduce((total, child) => total + child.offsetHeight, 0) - 17;
-      const usableWidth = label.clientWidth - 16;
+      const usableWidth = label.clientWidth - (label.closest('.address30') ? 18 : 16);
       while (size > 9 && (artist.scrollHeight > freeHeight || artist.scrollWidth > usableWidth)) {
         size -= .5;
-        artist.style.fontSize = size + 'px';
+        artist.style.setProperty('font-size', size + 'px', label.closest('.address30') ? 'important' : '');
       }
     });
   }
@@ -182,11 +210,9 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 
   function printQueue(queue, targetWindow) {
     if (!queue.length) throw new Error('Add at least one item to the print queue.');
-    const groups = { vinyl: [], cd: [], comic: [], instrument: [], treasure: [] };
-    queue.forEach(row => { if (groups[row.mode]) groups[row.mode].push(row); });
-    openPrintWindow(buildPrintDocument(groups), targetWindow);
+    openPrintWindow(buildPrintDocument(stockGroups(queue)), targetWindow);
   }
 
-  function printCalibration(mode) { openPrintWindow(buildCalibrationDocument(mode)); }
-  window.LabelEngine = { printQueue, printCalibration, buildPrintDocument, buildCalibrationDocument, subgenreLine };
+  function printCalibration(mode, printStock) { openPrintWindow(buildCalibrationDocument(mode, printStock)); }
+  window.LabelEngine = { printQueue, printCalibration, buildPrintDocument, buildCalibrationDocument, subgenreLine, addressStock, supportsAddressStock, stockGroups };
 })();
