@@ -115,6 +115,19 @@
     };
   }
 
+  const essentialComicDividerIds = new Set(cfg.essentialComicDividerIds || []);
+
+  function mergeBundledRecord(kind, row, old) {
+    if (kind !== 'comic' || !row.primary || !essentialComicDividerIds.has(row.id)) return mergedRecord(row, old);
+    // A prior application of this default is not evidence of a local edit.
+    // Compare against the original catalog level, preserving every other field.
+    const compareOld = old && !old._localEdited && old.level === 'Essential'
+      ? { ...old, level: row.level }
+      : old;
+    const merged = mergedRecord(row, compareOld);
+    return merged._localEdited ? merged : { ...merged, level: 'Essential' };
+  }
+
   async function deletedIds(kind) {
     const metaRows = await getAll('meta');
     const prefix = `deleted:${kind}:`;
@@ -128,7 +141,7 @@
     const tx = db.transaction(kind, 'readwrite');
     const target = tx.objectStore(kind);
     rows.forEach(row => {
-      if (!deleted.has(row.id)) target.put(mergedRecord(row, existingMap.get(row.id)));
+      if (!deleted.has(row.id)) target.put(mergeBundledRecord(kind, row, existingMap.get(row.id)));
     });
     await transactionPromise(tx);
   }
@@ -143,7 +156,7 @@
     const target = tx.objectStore(kind);
     target.clear();
     rows.forEach(row => {
-      if (!deleted.has(row.id)) target.put(mergedRecord(row, existingMap.get(row.id)));
+      if (!deleted.has(row.id)) target.put(mergeBundledRecord(kind, row, existingMap.get(row.id)));
     });
     customRows.forEach(row => {
       if (!deleted.has(row.id)) target.put(row);
