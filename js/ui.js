@@ -171,6 +171,27 @@
 
   function currentData() { return state.mode === 'comic' ? state.comic : state.music; }
   function recordCategory(row) { return state.mode === 'comic' ? (row.publisher || 'Unknown Publisher') : (row.genre || 'Uncategorized'); }
+  // Group entries supplement, rather than replace, the exact publisher values.
+  const comicPublisherGroups = [
+    { value: '@publisher:dc', label: 'All DC', names: new Set([
+      'dc', 'dc comics', 'dc black label', 'vertigo', 'dc vertigo',
+      'milestone', 'milestone media', 'wildstorm', 'wildstorm productions'
+    ]) },
+    { value: '@publisher:independent', label: 'All Independent' },
+    { value: '@publisher:marvel', label: 'All Marvel', names: new Set([
+      'marvel', 'marvel comics', 'marvel entertainment', 'marvel uk', 'marvel knights',
+      'marvel max', 'max comics', 'epic comics', 'icon', 'icon comics', 'star',
+      'star comics', 'timely', 'timely comics', 'atlas comics'
+    ]) }
+  ];
+  function matchesCategory(row) {
+    if (!state.category) return true;
+    const group = state.mode === 'comic' && comicPublisherGroups.find(item => item.value === state.category);
+    if (!group) return recordCategory(row) === state.category;
+    const names = String(row.publisher || '').toLowerCase().split('/').map(name => name.trim());
+    if (group.names) return names.some(name => group.names.has(name));
+    return !comicPublisherGroups.some(item => item.names && names.some(name => item.names.has(name)));
+  }
   function resultName(row) { return state.mode === 'comic' ? (row.primary ? row.display : comicPrintTitle(row)) : row.name; }
   function resultSub(row) {
     return state.mode === 'comic'
@@ -186,7 +207,7 @@
       : [row.name, row.display, row.genre, row.primarySubgenre || row.subgenre, row.secondarySubgenre, row.type].join(' ');
     return (!query || haystack.toLowerCase().includes(query))
       && (!state.level || row.level === state.level)
-      && (!state.category || recordCategory(row) === state.category)
+      && matchesCategory(row)
       && (state.mode !== 'comic' || !state.comicType || (state.comicType === 'primary' ? Boolean(row.primary) : !row.primary));
   }
 
@@ -391,7 +412,10 @@
     const comicType = $('#comicTypeFilter');
     if (comicType) comicType.value = comic ? state.comicType : '';
     const values = Array.from(new Set(currentData().map(recordCategory).filter(Boolean))).sort((a, b) => a.localeCompare(b));
-    select.innerHTML = `<option value="">${comic ? 'All publishers' : 'All genres'}</option>` + values.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join('');
+    const groups = comic ? comicPublisherGroups : [];
+    select.innerHTML = `<option value="">${comic ? 'All publishers' : 'All genres'}</option>`
+      + groups.map(({value, label}) => `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join('')
+      + values.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join('');
     select.value = state.category;
     const search = $('#searchInput'); if (search) search.placeholder = comic ? 'Search characters, series, publishers...' : 'Search artists...';
     const sort = $('#sortFilter');
