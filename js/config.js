@@ -115,6 +115,129 @@ window.APP_CONFIG = Object.freeze({
     "CHR-00477", // Vampirella
     "CHR-00451", // The Walking Dead
     "CHR-00497", // Witchblade
+    // DC additional store-table dividers
+    "CHR-00021", // Animal Man
+    "CHR-00406", // The Atom
+    "CHR-DCX-0047", // Bane
+    "CHR-00041", // Batwoman
+    "CHR-DCX-0048", // Beast Boy
+    "CHR-DCX-0049", // Big Barda
+    "CHR-00052", // Black Lightning
+    "CHR-00056", // Blackhawk
+    "CHR-00065", // Booster Gold
+    "CHR-00072", // Captain Atom
+    "TEM-DCX-0064", // Creature Commandos
+    "EVT-00004", // Crisis Saga
+    "CHR-00108", // DCeased
+    "CHR-DCX-0070", // Deadman
+    "CHR-00137", // Etrigan the Demon
+    "CHR-00148", // Firestorm
+    "CHR-00157", // Gen13
+    "CHR-DCX-0026", // Hawkgirl
+    "CHR-00189", // Huntress
+    "CHR-00192", // Icon and Rocket
+    "CHR-00210", // Jonah Hex
+    "TEM-00011", // Justice League Dark
+    "CHR-DCX-0115", // Lex Luthor
+    "CHR-DCX-0028", // Lobo
+    "CHR-00251", // Metamorpho
+    "CHR-00260", // Mister Miracle / New Gods
+    "CHR-DCX-0029", // Mister Terrific
+    "CHR-00431", // The Outsiders
+    "CHR-00432", // The Peacemaker
+    "CHR-DCX-0133", // Penguin
+    "CHR-00298", // Plastic Man
+    "CHR-00302", // Power Girl
+    "CHR-00434", // The Question
+    "CHR-DCX-0143", // Riddler
+    "CHR-00351", // Secret Six
+    "CHR-00356", // Sgt. Rock / Easy Company
+    "CHR-00443", // The Spectre
+    "CHR-DCX-0032", // Starfire
+    "CHR-00385", // Static
+    "CHR-00386", // Steel
+    "CHR-00482", // Vixen
+    "CHR-00511", // Young Justice
+    // Marvel additional store-table dividers
+    "EVT-00001", // Adam Warlock
+    "CHR-00015", // Alpha Flight
+    "CHR-00042", // Beast
+    "CHR-00045", // Beta Ray Bill
+    "CHR-00074", // Carnage
+    "CHR-00080", // Champions
+    "EVT-00003", // Civil War
+    "CHR-00084", // Cloak and Dagger
+    "CHR-00086", // Colossus
+    "CHR-00096", // Cyclops
+    "CHR-00105", // Dazzler
+    "CHR-00111", // Deathlok
+    "CHR-00135", // Emma Frost
+    "MTA-0007", // Eternals
+    "MTA-0008", // Excalibur
+    "CHR-00143", // Falcon
+    "CHR-00158", // Generation X
+    "CHR-00196", // Infinity Saga
+    "CHR-00198", // Inhumans
+    "CHR-00201", // Iron Fist
+    "CHR-00205", // Jean Grey / Phoenix
+    "CHR-00221", // Kraven the Hunter
+    "CHR-00240", // Man-Thing
+    "CHR-00246", // Marvel Zombies
+    "MTA-0018", // Midnight Sons
+    "CHR-00266", // Morbius
+    "CHR-00270", // Mystique
+    "EVT-00011", // New Warriors
+    "CHR-00276", // Nightcrawler
+    "CHR-00285", // Nova
+    "MTA-0022", // Power Pack
+    "CHR-00337", // Runaways
+    "CHR-00338", // S.H.I.E.L.D.
+    "CHR-00339", // Sabretooth
+    "EVT-00014", // Secret Wars
+    "CHR-00353", // Sentry
+    "CHR-00361", // Shang-Chi
+    "CHR-00379", // Spider-Man 2099
+    "CHR-00380", // Spider-Woman (Jessica Drew)
+    "CHR-00381", // Squirrel Girl
+    "CHR-00457", // Thunderbolts
+    "CHR-00496", // Winter Soldier
+    "TEM-00024", // Young Avengers
+    // Independent and cross-publisher expansion additional store-table dividers
+    "CHR-00007", // Adventure Time
+    "CHR-00028", // Army of Darkness
+    "DHA-0099", // Avatar: The Last Airbender
+    "CHR-00051", // Black Hammer
+    "CHR-00061", // Bloodshot
+    "CHR-00067", // BRZRKR
+    "CHR-00411", // The Crow
+    "DHA-0102", // Cyberpunk 2077
+    "CHR-00412", // The Darkness
+    "CHR-00103", // Darkwing Duck
+    "CHR-00125", // Doctor Who
+    "BMA-0194", // DuckTales
+    "CHR-00133", // Elfquest
+    "BMA-0133", // Firefly
+    "INDX-00463", // Gargoyles
+    "CHR-00417", // The Goon
+    "CHR-00190", // Ice Cream Man
+    "INDX-00474", // James Bond
+    "CHR-00222", // Lady Death
+    "CHR-00236", // Lumberjanes
+    "BMA-0267", // Magic: The Gathering
+    "CHR-00427", // The Mask
+    "CHR-00249", // Mega Man
+    "CHR-00267", // Mouse Guard
+    "CHR-00433", // The Phantom
+    "CHR-00315", // Radiant Black
+    "CHR-00326", // Rick and Morty
+    "CHR-00437", // The Rocketeer
+    "CHR-00340", // Sabrina the Teenage Witch
+    "CHR-00345", // Savage Dragon
+    "CHR-00440", // The Simpsons
+    "DHA-0115", // Stranger Things
+    "EVT-00019", // Warhammer 40,000
+    "CHR-00455", // The X-Files
+    "EVT-00025", // X-O Manowar
   ]),
   expectedMinimums: { music: 7350, comic: 17850 },
   bundledFiles: {
