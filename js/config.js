@@ -238,6 +238,249 @@ window.APP_CONFIG = Object.freeze({
     "EVT-00019", // Warhammer 40,000
     "CHR-00455", // The X-Files
     "EVT-00025", // X-O Manowar
+    // DC expanded store-table dividers
+    "EVT-DCX-0013", // 52
+    "REF-00001", // Absolute Universe (2024 relaunch)
+    "CHR-00006", // Adam Strange
+    "TEM-00001", // All-Star Squadron
+    "CHR-DCX-0037", // Amethyst
+    "CHR-00407", // The Authority
+    "CHR-DCX-0050", // Bizarro
+    "CHR-DCX-0017", // Black Manta
+    "SER-DCX-0188", // Black Orchid
+    "DCA-0086", // Blackest Night
+    "DTA-0001", // Blood Syndicate
+    "SER-DCX-0189", // Blue Devil
+    "CHR-DCX-0054", // Brainiac
+    "CHR-DCX-0058", // Captain Cold
+    "CHR-00079", // Challengers of the Unknown
+    "DTA-0003", // Checkmate
+    "CHR-DCX-0164", // The Cheetah
+    "CHR-DCX-0063", // Clayface
+    "SER-DCX-0216", // The Creeper
+    "DTA-0004", // Crime Syndicate
+    "EVT-DCX-0015", // Dark Nights: Metal
+    "CHR-DCX-0071", // Deadshot
+    "CHR-DCX-0077", // Doomsday
+    "CHR-00134", // Elongated Man
+    "CHR-00141", // Fables
+    "EVT-DCX-0022", // Flashpoint
+    "DTA-0007", // Forever People
+    "CHR-00150", // Freedom Fighters
+    "CHR-DCX-0088", // Gorilla Grodd
+    "SER-DCX-0197", // Gotham Central
+    "DTA-0008", // Gotham City Sirens
+    "TEM-DCX-0090", // Green Lantern Corps
+    "CHR-DCX-0094", // Hawk and Dove
+    "CHR-00194", // Impulse / Kid Flash (Bart Allen)
+    "CHR-00197", // Infinity, Inc.
+    "DCA-0154", // Injustice
+    "CHR-DCX-0106", // Jimmy Olsen
+    "CHR-00216", // Kamandi
+    "CHR-DCX-0027", // Katana
+    "CHR-DCX-0110", // Killer Croc
+    "DCA-0157", // Kingdom Come
+    "CHR-DCX-0117", // Lois Lane
+    "SER-DCX-0202", // Madame Xanadu
+    "CHR-00242", // Manhunter
+    "CHR-DCX-0121", // Mera
+    "CHR-00250", // Metal Men
+    "CHR-00254", // Midnighter & Apollo
+    "CHR-DCX-0122", // Mister Freeze
+    "CHR-00289", // OMAC
+    "SER-DCX-0219", // The Omega Men
+    "CHR-DCX-0166", // The Phantom Stranger
+    "CHR-00304", // Preacher
+    "CHR-DCX-0137", // Ra's al Ghul
+    "SER-DCX-0208", // Resurrection Man
+    "CHR-DCX-0141", // Reverse-Flash
+    "CHR-DCX-0146", // Scarecrow
+    "DTA-0015", // Seven Soldiers
+    "CHR-00357", // Shade, the Changing Man
+    "CHR-DCX-0152", // Sinestro
+    "CHR-DCX-0153", // Solomon Grundy
+    "CHR-DCX-0154", // Stargirl
+    "CHR-00384", // Starman
+    "CHR-00389", // Stormwatch
+    "SER-DCX-0213", // Strange Adventures
+    "DTA-0017", // Super Sons
+    "CHR-00447", // The Terrifics
+    "CHR-DCX-0173", // Two-Face
+    "SER-DCX-0221", // Unknown Soldier
+    "CHR-00475", // V for Vendetta
+    "CHR-DCX-0006", // The Warlord
+    "CHR-00494", // WildC.A.T.s
+    "CHR-00495", // Wildcat
+    "CHR-DCX-0180", // Wonder Girl
+    "CHR-00500", // Wonder Twins
+    "CHR-DCX-0181", // Zod
+    // Marvel expanded store-table dividers
+    "MTA-0001", // A-Force
+    "MTA-0002", // Agents of Atlas
+    "CHR-00010", // Alias (Jessica Jones)
+    "CHR-00020", // Angel / Archangel
+    "MCA-0001", // Angela
+    "CHR-00023", // Annihilation Saga
+    "MEV-00108", // Avengers vs. X-Men
+    "MCA-0005", // Black Bolt
+    "MAR-BLACK-CAT-AUTHORITY", // Black Cat
+    "MEV-00188", // Blood Hunt
+    "MCA-0007", // Brother Voodoo / Doctor Voodoo
+    "M2A-00093", // Bullseye
+    "M2A-00097", // Captain Britain and MI13
+    "MTA-0005", // Damage Control
+    "TEM-00004", // Dark Avengers
+    "CHR-00101", // Darkhawk
+    "MCA-0136", // Death's Head
+    "MCA-0008", // Devil Dinosaur / Moon Girl
+    "CHR-00129", // Drax the Destroyer
+    "MCA-0009", // Echo
+    "MCA-0010", // Elsa Bloodstone
+    "CHR-00139", // Exiles
+    "MCA-0011", // Firestar
+    "MTA-0010", // Future Foundation
+    "M2A-00255", // Galactus the Devourer
+    "CHR-00155", // Gamora
+    "M2A-00279", // Green Goblin
+    "CHR-00173", // Groot
+    "MTA-0012", // Hellions
+    "CHR-00182", // Hercules
+    "CHR-00183", // Heroes for Hire
+    "MEV-00017", // House of M
+    "EVT-00010", // Howard the Duck
+    "CHR-00188", // Human Torch (Johnny Storm)
+    "CHR-00193", // Illuminati
+    "MTA-0014", // Invaders
+    "MCA-0016", // Ironheart
+    "MCA-0018", // Jeff the Land Shark
+    "MCA-0020", // Ka-Zar
+    "EVT-00043", // King in Black
+    "M2A-00393", // Loki
+    "CHR-00230", // Longshot
+    "MCA-0021", // Machine Man
+    "MTA-0016", // Marauders
+    "M2A-00411", // Marvel 1602
+    "MCA-0038", // Marvel Knights
+    "CHR-00247", // Marvelman / Miracleman
+    "MCA-0026", // Monica Rambeau / Photon
+    "M2A-00541", // Multiple Man
+    "CHR-00274", // Nextwave
+    "CHR-00275", // Nick Fury
+    "MEV-00204", // One World Under Doom
+    "MEV-00007", // Onslaught
+    "MTA-0021", // Pet Avengers
+    "MCA-0153", // Peter Porker, the Spectacular Spider-Ham
+    "CHR-00314", // Quicksilver
+    "M2A-00622", // Red Skull
+    "CHR-00333", // Rocket Raccoon
+    "CHR-00347", // Scarlet Spider (Ben Reilly)
+    "EVT-00045", // Secret Invasion
+    "CHR-00355", // Sgt. Fury and his Howling Commandos
+    "CHR-00365", // Silk
+    "M2A-00702", // Spider-Punk
+    "EVT-00046", // Spider-Verse
+    "MTA-0024", // Squadron Supreme
+    "CHR-00383", // Star-Lord
+    "MTA-0025", // Starjammers
+    "MCA-0032", // Strange Academy
+    "M2A-00745", // Taskmaster
+    "MCA-0036", // Tigra
+    "M2A-00791", // Ultron
+    "CHR-00473", // USAgent
+    "CHR-00476", // Valkyrie
+    "EVT-00018", // War Machine
+    "EVT-00047", // War of the Realms
+    "CHR-00486", // Wasp
+    "CHR-00490", // Weapon X
+    "CHR-00493", // What If?
+    "MCA-0037", // White Tiger
+    "CHR-00499", // Wonder Man
+    "MEV-00036", // World War Hulk
+    "EVT-00048", // X of Swords
+    "CHR-00507", // X-23 / Wolverine (Laura Kinney)
+    "CHR-00508", // X-Man (Nate Grey)
+    "MTA-0030", // X-Statix
+    // Independent and cross-publisher expanded store-table dividers
+    "CHR-00004", // 30 Days of Night
+    "CHR-00005", // 300
+    "DHA-0096", // Alien
+    "CHR-00026", // Archer & Armstrong
+    "CHR-00029", // Assassin's Creed
+    "CHR-00030", // Astro City
+    "CHR-00032", // B.P.R.D.
+    "CHR-00034", // Baltimore
+    "CHR-00040", // Battlestar Galactica
+    "CHR-00043", // Beasts of Burden
+    "IMA-0053", // Bitter Root
+    "CHR-00060", // Bloodborne
+    "CHR-00076", // Casper the Friendly Ghost
+    "CHR-00082", // Chew
+    "CHR-00091", // Criminal
+    "DHA-0103", // Critical Role
+    "CHR-00094", // Cyberforce
+    "CHR-00097", // Danger Girl
+    "CHR-00100", // Dark Souls
+    "CHR-00109", // Deadly Class
+    "CHR-00113", // Descender
+    "CHR-00114", // Dick Tracy
+    "INDX-00453", // Doc Savage
+    "CHR-00127", // Donald Duck
+    "DHA-0104", // Dragon Age
+    "CHR-00130", // East of West
+    "REF-00004", // EC Horror & Sci-Fi Line
+    "IMA-0143", // Eight Billion Genies
+    "CHR-00145", // Fathom
+    "CHR-00149", // Flash Gordon
+    "CHR-00151", // Futurama
+    "CHR-00162", // Gideon Falls
+    "CHR-00418", // The Green Hornet
+    "CHR-00169", // Grendel
+    "CHR-00172", // Groo the Wanderer
+    "CHR-00174", // Hack/Slash
+    "DHA-0107", // Halo
+    "CHR-00176", // Harrow County
+    "CHR-00195", // Indiana Jones
+    "CHR-00203", // Irredeemable
+    "CHR-00206", // Jim Henson's The Dark Crystal
+    "CHR-00215", // Jurassic Park
+    "IMA-0272", // Lazarus
+    "DHA-0100", // The Legend of Korra
+    "CHR-00425", // The Lone Ranger
+    "DHA-0086", // Lone Wolf and Cub
+    "CHR-00232", // Love and Rockets
+    "CHR-00237", // MAD Magazine
+    "CHR-00252", // Mickey Mouse
+    "CHR-00253", // Micronauts
+    "CHR-00269", // My Little Pony
+    "INDX-01032", // Nexus
+    "CHR-00281", // Ninjak
+    "CHR-00290", // Once & Future
+    "CHR-00292", // Paper Girls
+    "CHR-00301", // Popeye
+    "CHR-00303", // Powers
+    "DHA-0097", // Predator
+    "CHR-00313", // Quantum and Woody
+    "CHR-00317", // Rat Queens
+    "CHR-00324", // Resident Alien
+    "CHR-00325", // Richie Rich
+    "CHR-00328", // RoboCop
+    "CHR-00329", // Robotech
+    "CHR-00335", // ROM
+    "CHR-00438", // The Shadow
+    "CHR-00358", // Shadowhawk
+    "CHR-00359", // Shadowman
+    "CHR-00444", // The Spirit
+    "CHR-00391", // Street Fighter
+    "CHR-00446", // The Terminator
+    "DHA-0117", // Tomb Raider
+    "CHR-00472", // Uncle Scrooge
+    "CHR-00483", // Voltron
+    "CHR-00454", // The Wicked + The Divine
+    "DHA-0118", // The Witcher
+    "CHR-00505", // Wytches
+    "EVT-00026", // Xena, Warrior Princess
+    "CHR-00512", // Youngblood
+    "CHR-00515", // Zorro
   ]),
   expectedMinimums: { music: 7350, comic: 17850 },
   bundledFiles: {
