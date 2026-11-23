@@ -1,6 +1,6 @@
 {
-  "version": "4.44.10",
-  "name": "Authority Suite Home Screen Icon",
-  "release": "2NC Authority Suite GitHub v4.44.10",
-  "notes": "Activates the new cinematic Authority Suite artwork uploaded to the 180, 192 and 512 pixel icon files, refreshes PWA and Apple touch icon references, and bumps the service worker cache."
+  "version": "4.44.11",
+  "name": "Optional Avery 30-Up Dividers",
+  "release": "2NC Authority Suite GitHub v4.44.11",
+  "notes": "Adds independent optional Avery 5260 and compatible Office Depot 30-up stock for CD and comic dividers across browser print, calibration, PDF and Print Station. Existing layouts remain the defaults."
 }

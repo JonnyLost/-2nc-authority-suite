@@ -130,6 +130,35 @@
     }
   }
 
+  function drawAddressComic(page, item, x, y, width, height, fonts, colors) {
+    const title = ascii(item.primary ? item.name : (item.printedTitle || item.series));
+    const parent = !item.primary && item.showAuthority !== false ? ascii(item.parent).toUpperCase() : '';
+    const marker = !item.primary && item.showMarker !== false ? ascii(item.publishingLine || item.publishingEra || '') : '';
+    const center = x + width / 2, max = width - 18;
+    const text = item.primary ? title.toUpperCase() : title;
+    if (parent) drawCentered(page, fonts.bold, parent, center, y + height - 13, max, 6, 1, colors.muted);
+    if (marker) drawRight(page, fonts.bold, marker, x + width - 9, y + 8, max, 5, 1, colors.muted);
+
+    const available = height - (parent ? 17 : 7) - (marker ? 15 : 7);
+    let size = item.primary ? 16 : 14;
+    let lines = [];
+    for (; size >= 7; size -= .5) {
+      const candidates = wrap(fonts.bold, text, max, size, Infinity);
+      if (candidates.length <= 3 && candidates.length * size * 1.15 <= available
+          && candidates.every(line => fonts.bold.widthOfTextAtSize(line, size) <= max)) {
+        lines = candidates;
+        break;
+      }
+    }
+    if (!lines.length) {
+      const atOne = fonts.bold.widthOfTextAtSize(text, 1);
+      size = Math.min(7, atOne ? max / atOne : 7);
+      lines = [text];
+    }
+    const baseline = y + (marker ? 15 : 7) + available / 2 + (lines.length - 1) * size * .575 - size * .35;
+    lines.forEach((line, index) => drawCentered(page, fonts.bold, line, center, baseline - index * size * 1.15, max, size, size, colors.black));
+  }
+
   function drawInstrument(page, item, x, y, fonts, colors) {
     const width = 6 * PT, height = 4 * PT, strip = 1.55 * PT;
     page.drawRectangle({ x, y, width, height, color: colors.white });
@@ -244,11 +273,12 @@
       white: PDFLib.rgb(1, 1, 1), instrument: PDFLib.rgb(.875, .467, .282),
       orange: PDFLib.rgb(.96, .42, .10)
     };
-    const groups = { vinyl: [], cd: [], comic: [], instrument: [], treasure: [] };
-    queue.forEach(item => { if (groups[item.mode]) groups[item.mode].push(item); });
+    const groups = LabelEngine.stockGroups(queue);
+    const stock = LabelEngine.addressStock;
+    const address = { ...stock, page: LETTER, w: stock.w * PT, h: stock.h * PT, x: stock.x * PT, y: stock.y * PT, gapX: stock.gapX * PT };
     const treasureHeaderImage = groups.treasure.length ? await embedTreasureHeader(document) : null;
     const configs = {
-      vinyl: { page: LETTER, perPage: 30, cols: 3, rows: 10, w: 2.625 * PT, h: 1 * PT, x: .1875 * PT, y: .5 * PT, gapX: .125 * PT },
+      vinyl: address, cdAddress: address, comicAddress: address,
       comic: { page: LETTER, perPage: 30, cols: 2, rows: 15, w: 3.5 * PT, h: (2 / 3) * PT, x: .5 * PT, y: .5 * PT, gapX: .5 * PT },
       cd: { page: LETTER, perPage: 60, cols: 4, rows: 15, w: 2 * PT, h: .675 * PT, x: .25 * PT, y: .25 * PT },
       instrument: { page: LETTER, perPage: 2, cols: 1, rows: 2, w: 6 * PT, h: 4 * PT, x: 1.25 * PT, y: .25 * PT, gapY: .25 * PT },
@@ -263,7 +293,8 @@
           const row = Math.floor(index / config.cols);
           const x = config.x + col * (config.w + (config.gapX || 0));
           const y = config.page[1] - config.y - config.h - row * (config.h + (config.gapY || 0));
-          if (kind === 'vinyl' || kind === 'cd') drawMusicLabel(page, item, kind, x, y, config.w, config.h, fonts, colors);
+          if (kind === 'vinyl' || kind === 'cd' || kind === 'cdAddress') drawMusicLabel(page, item, kind === 'cdAddress' ? 'vinyl' : kind, x, y, config.w, config.h, fonts, colors);
+          else if (kind === 'comicAddress') drawAddressComic(page, item, x, y, config.w, config.h, fonts, colors);
           else if (kind === 'comic') drawComicLabel(page, item, x, y, config.w, config.h, fonts, colors);
           else if (kind === 'instrument') drawInstrument(page, item, x, y, fonts, colors);
           else drawTreasure(page, item, x, y, fonts, colors, treasureHeaderImage);

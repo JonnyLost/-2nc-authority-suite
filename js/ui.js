@@ -401,12 +401,23 @@
     }
   }
 
+  const stockKey = mode => `2ncPrintStock_${mode}`;
+  const printStock = mode => LabelEngine.supportsAddressStock(mode) && localStorage.getItem(stockKey(mode)) === 'address30'
+    ? 'address30' : 'default';
+  function outputQueue() {
+    return state.queue.map(row => LabelEngine.supportsAddressStock(row.mode)
+      ? { ...row, printStock: printStock(row.mode) } : row);
+  }
+  function updatePrintDimensions() {
+    text('#dimensionText', printStock(state.mode) === 'address30' ? '2⅝ × 1 in · 30 per sheet' : profiles[state.mode].dim);
+  }
+
   function setMode(mode) {
     if (!profiles[mode]) return;
     state.mode = mode; state.selected = null; state.editingQueueIndex = null; state.query = ''; state.level = ''; state.category = ''; state.comicType = ''; state.sort = 'name';
     document.body.dataset.mode = mode;
     const profile = profiles[mode];
-    text('#pageTitle', profile.title); text('#pageSub', profile.sub); text('#dimensionText', profile.dim);
+    text('#pageTitle', profile.title); text('#pageSub', profile.sub); updatePrintDimensions();
     $$('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode === mode));
     show('#quickPanel', mode === 'quick');
     show('#searchPanel', !['quick', 'instrument', 'treasure', 'station', 'manager'].includes(mode));
@@ -776,12 +787,12 @@
   async function sendToStation() {
     if (!state.queue.length) throw new Error('Add at least one item to the print queue.');
     const note = prompt('Optional job name or note:', '') ?? '';
-    const job = await PrintStation.send(state.queue, note);
+    const job = await PrintStation.send(outputQueue(), note);
     alert(`Sent ${job.itemCount} item${job.itemCount === 1 ? '' : 's'} to the Print Station.`);
   }
 
   async function sharePrintPacket() {
-    const result = await PrintPacket.share(state.queue);
+    const result = await PrintPacket.share(outputQueue());
     if (!result.shared) alert(`The share sheet is not available in this browser, so ${result.name} was downloaded instead.`);
   }
 
@@ -864,10 +875,17 @@
     on('#showMusicSubgenres', 'change', event => { state.showMusicSubgenres = event.target.checked; localStorage.setItem('2ncShowMusicSubgenres', String(state.showMusicSubgenres)); text('#musicBulkFeedback', ''); renderPreview(); });
     on('#applyMusicSettingsAll', 'click', applyMusicSettingsAll);
     on('#clearQueue', 'click', () => { state.queue = []; saveQueue(); });
-    on('#printBtn', 'click', () => { try { LabelEngine.printQueue(state.queue); } catch (error) { alert(error.message); } });
+    [['cd', '#cdPrintStock'], ['comic', '#comicPrintStock']].forEach(([mode, selector]) => {
+      if ($(selector)) $(selector).value = printStock(mode);
+      on(selector, 'change', event => {
+        localStorage.setItem(stockKey(mode), event.target.value === 'address30' ? 'address30' : 'default');
+        updatePrintDimensions();
+      });
+    });
+    on('#printBtn', 'click', () => { try { LabelEngine.printQueue(outputQueue()); } catch (error) { alert(error.message); } });
     on('#sharePdfBtn', 'click', () => sharePrintPacket().catch(error => { if (error.name !== 'AbortError') alert(error.message); }));
     on('#sendStationBtn', 'click', () => sendToStation().catch(error => alert(error.message)));
-    on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode); } catch (error) { alert(error.message); } });
+    on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode, printStock(state.mode)); } catch (error) { alert(error.message); } });
     on('#customBtn', 'click', customLabel);
     on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
     on('#addTreasureTag', 'click', addTreasureTag);
