@@ -59,6 +59,12 @@
     if (kind !== 'vinyl') page.drawLine({ start: { x: x + 13, y: y + 8 }, end: { x: x + width - 13, y: y + 8 }, thickness: .3, color: colors.light });
     if (kind !== 'vinyl') page.drawLine({ start: { x: x + 13, y: y + height - 8 }, end: { x: x + width - 13, y: y + height - 8 }, thickness: .3, color: colors.light });
     const centerX = x + width / 2;
+    if (item.dividerSymbol) {
+      const symbol = ascii(item.name || '');
+      const size = fitSize(fonts.bold, symbol, width - 14, kind === 'vinyl' ? 38 : 30, 12);
+      page.drawText(symbol, { x: centerX - fonts.bold.widthOfTextAtSize(symbol, size) / 2, y: y + (height - size) / 2 + size * .12, size, font: fonts.bold, color: colors.black });
+      return;
+    }
     const genre = item.showGenre === false ? '' : ascii(item.genre || '').toUpperCase();
     const sub = item.showSubgenres === false ? '' : ascii([item.primarySubgenre || item.subgenre, item.secondarySubgenre].filter(Boolean).join(' / '));
     if (kind !== 'vinyl') {
