@@ -592,3 +592,6 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 
 /* Keep both stock choices visible when a packet contains mixed label types. */
 .printStockOptions{display:grid;gap:.45rem;margin:.65rem 0}.printStockOptions label{display:grid;gap:.2rem;font-size:.85rem}.printStockOptions select{width:100%;min-width:0}
+
+/* v4.44.14: dedicated CD and vinyl section dividers */
+.musicDividerTools{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:8px 0 12px}.musicDividerTools span{font-size:12px;font-weight:700;color:#626873;margin-right:4px}.musicDividerTools button{padding:8px 12px}.characterDividerGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(49px,1fr));gap:7px;margin:14px 0 18px}.characterDividerGrid label{display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 2px;border:1px solid #ddd;border-radius:7px;cursor:pointer;font-weight:700}.characterDividerGrid input{accent-color:#e46b22}.label.characterDivider .musicArtist{font-size:clamp(44px,10vw,65px)!important;line-height:1!important}.label.cdLabel.characterDivider .musicArtist{font-size:clamp(38px,8vw,55px)!important}
