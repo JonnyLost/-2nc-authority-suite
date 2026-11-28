@@ -42,6 +42,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
 .pl .musicGenre{font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#5f6368;line-height:1;text-transform:uppercase;letter-spacing:.65pt;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pl .musicSubgenres{font-family:Arial,Helvetica,sans-serif;color:#777b80;letter-spacing:.12pt;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pl.vinyl:before,.pl.vinyl:after{display:none}.pl.vinyl.calibrationLabel{border:.5pt dashed #999}.pl.vinyl.calibrationLabel:before{display:block}.pl.vinyl{gap:3pt;padding:.065in .085in}.pl.vinyl .musicGenre{font-size:9pt;letter-spacing:.5pt}.pl.vinyl b{font-size:19pt;line-height:1.04;font-weight:800;letter-spacing:0;display:block;max-width:100%;overflow-wrap:anywhere}.pl.vinyl .musicSubgenres{font-size:7.5pt;letter-spacing:0}.pl.vinyl.artistOnly b{font-size:23pt}.pl.vinyl.compact b{font-size:16pt}.pl.vinyl.tight b{font-size:14pt}
+.pl.characterDivider b{font-size:36pt!important;line-height:1!important;font-weight:800!important}.pl.cd.characterDivider b{font-size:27pt!important}.address30 .pl.cd.characterDivider b{font-size:36pt!important}
 .pl.cd .musicGenre{font-size:6.5pt}.pl.cd b{font-size:12.5pt;line-height:1;font-weight:800;letter-spacing:0;max-width:100%;overflow-wrap:anywhere}.pl.cd .musicSubgenres{font-size:5.5pt}
 .pl.comic{gap:1pt}.pl.comic small{font-family:Arial,Helvetica,sans-serif;font-size:6pt;font-weight:700;text-transform:uppercase;letter-spacing:.55pt;color:#6d7176;margin-bottom:0;line-height:1}.pl.comic b{font-size:14pt;font-weight:800;letter-spacing:.1pt;line-height:.9}.pl.comic.primary b{text-transform:uppercase;letter-spacing:.6pt}.pl.comic.compact b{font-size:11pt!important}.pl.comic.tight b{font-size:9pt!important;letter-spacing:0!important}
 .pl.comic .comicEra{position:absolute;right:.10in;bottom:.045in;font-family:Arial,Helvetica,sans-serif;font-size:4.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.35pt;color:#747980;line-height:1}
@@ -132,7 +133,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacS
           } else {
             const genre = row.showGenre !== false ? String(row.genre || '') : '';
             const subgenres = row.showSubgenres !== false ? subgenreLine(row) : '';
-            pages += `<div class="pl ${kind}${lengthClass(row.name)}${kind === 'vinyl' && !genre && !subgenres ? ' artistOnly' : ''}">${genre ? '<div class="musicGenre">' + escapeHtml(genre) + '</div>' : ''}<b>${escapeHtml(row.name)}</b>${subgenres ? '<div class="musicSubgenres">' + escapeHtml(subgenres) + '</div>' : ''}</div>`;
+            pages += `<div class="pl ${kind}${lengthClass(row.name)}${kind === 'vinyl' && !genre && !subgenres ? ' artistOnly' : ''}${row.dividerSymbol ? ' characterDivider' : ''}">${genre ? '<div class="musicGenre">' + escapeHtml(genre) + '</div>' : ''}<b>${escapeHtml(row.name)}</b>${subgenres ? '<div class="musicSubgenres">' + escapeHtml(subgenres) + '</div>' : ''}</div>`;
           }
         });
         pages += '</section>';
