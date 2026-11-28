@@ -256,7 +256,7 @@
     } else {
       const genre = state.showMusicGenre && row.genre;
       const subgenres = state.showMusicSubgenres && musicSubgenreLine(row);
-      box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)} ${!genre && !subgenres ? 'artistOnly' : ''}`;
+      box.className = `label ${state.mode === 'cd' ? 'cdLabel' : 'vinylLabel'} ${lengthClass(row.name)} ${!genre && !subgenres ? 'artistOnly' : ''} ${row.dividerSymbol ? 'characterDivider' : ''}`;
       box.innerHTML = `${genre ? '<div class="musicGenre">' + escapeHtml(row.genre) + '</div>' : ''}<strong class="musicArtist">${escapeHtml(row.name)}</strong>${subgenres ? '<div class="musicSubgenres">' + escapeHtml(subgenres) + '</div>' : ''}`;
       const name = box.querySelector('.musicArtist');
       if (name && (state.mode === 'vinyl' || state.mode === 'cd')) requestAnimationFrame(() => {
@@ -280,7 +280,7 @@
     const targetMode = modeOverride || state.mode;
     return targetMode === 'comic'
       ? { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: 'comic', primary: row.primary, showAuthority: state.showComicAuthority, showMarker: state.showComicEra, parent: row.parent || '', series: row.primary ? row.display : comicPrintTitle(row), canonicalSeries: row.series || '', printedTitle: row.primary ? row.display : comicPrintTitle(row), publishingEra: row.publishingEra || '', publishingLine: row.publishingLine || '', startYear: row.startYear || '', endYear: row.endYear || '', name: row.display || row.name, publisher: row.publisher || '' }
-      : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: targetMode, showGenre: state.showMusicGenre, showSubgenres: state.showMusicSubgenres, name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
+      : { uid: existingUid || safeId(), sourceId: row.id || row.sourceId || '', mode: targetMode, showGenre: row.dividerSymbol ? false : state.showMusicGenre, showSubgenres: row.dividerSymbol ? false : state.showMusicSubgenres, dividerSymbol: Boolean(row.dividerSymbol), name: row.name || row.display, genre: row.genre || '', primarySubgenre: row.primarySubgenre || row.subgenre || '', secondarySubgenre: row.secondarySubgenre || '' };
   }
 
   function addLookupToQueue() {
@@ -388,7 +388,7 @@
       state.showMusicSubgenres = item.showSubgenres !== false;
       const genreToggle = $('#showMusicGenre'); if (genreToggle) genreToggle.checked = state.showMusicGenre;
       const subgenreToggle = $('#showMusicSubgenres'); if (subgenreToggle) subgenreToggle.checked = state.showMusicSubgenres;
-      state.selected = { id: item.sourceId || '', display: item.name, name: item.name, genre: item.genre || '', primarySubgenre: item.primarySubgenre || '', secondarySubgenre: item.secondarySubgenre || '', level: 'Recommended' };
+      state.selected = { id: item.sourceId || '', dividerSymbol: Boolean(item.dividerSymbol), display: item.name, name: item.name, genre: item.genre || '', primarySubgenre: item.primarySubgenre || '', secondarySubgenre: item.secondarySubgenre || '', level: 'Recommended' };
     }
     renderResults(); renderPreview();
     document.querySelector('.previewPanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -452,6 +452,7 @@
     show('#stationPanel', mode === 'station');
     show('#managerPanel', mode === 'manager');
     show('#comicLabelToggles', mode === 'comic');
+    show('#musicDividerTools', mode === 'vinyl' || mode === 'cd');
     show('#musicLabelToggles', mode === 'vinyl' || mode === 'cd');
     updateMusicBulkAction();
     text('#musicBulkFeedback', '');
@@ -474,6 +475,28 @@
 
   function showModal(title, html) { text('#modalTitle', title); requireElement('#modalBody').innerHTML = html; requireElement('#modal').classList.remove('hidden'); }
   function closeModal() { const modal = $('#modal'); if (modal) modal.classList.add('hidden'); }
+
+  function showCharacterDividers(type) {
+    if (state.mode !== 'cd' && state.mode !== 'vinyl') return;
+    const chars = type === 'number' ? '0123456789'.split('') : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const title = type === 'number' ? '0–9 Number Dividers' : 'A–Z Alphabet Dividers';
+    showModal(title, `<p>Select individual dividers or queue the complete set. Characters print large and centered, without genre or subgenre text.</p>
+      <div class="characterDividerGrid">${chars.map(char => `<label><input type="checkbox" class="characterDividerChoice" value="${char}"><span>${char}</span></label>`).join('')}</div>
+      <div class="customLabelActions"><button type="button" id="addCharacterSelected" class="primaryButton">Add selected to queue</button><button type="button" id="addCharacterAll" class="secondaryButton">Add complete ${type === 'number' ? '0–9' : 'A–Z'} set</button></div>`);
+    const addCharacters = characters => {
+      if (!characters.length) return alert('Select at least one character.');
+      for (const char of characters) state.queue.push({
+        uid: safeId(), sourceId: '', mode: state.mode, name: char,
+        genre: '', primarySubgenre: '', secondarySubgenre: '',
+        showGenre: false, showSubgenres: false, dividerSymbol: true
+      });
+      sortQueueAlphabetically();
+      saveQueue();
+      closeModal();
+    };
+    on('#addCharacterSelected', 'click', () => addCharacters($('.characterDividerChoice:checked').map(el => el.value)));
+    on('#addCharacterAll', 'click', () => addCharacters(chars));
+  }
 
   function customLabel() {
     if (state.mode === 'instrument') return showInstrumentModal();
@@ -911,6 +934,8 @@
     on('#sendStationBtn', 'click', () => sendToStation().catch(error => alert(error.message)));
     on('#calibrationBtn', 'click', () => { try { LabelEngine.printCalibration(state.mode === 'manager' ? 'vinyl' : state.mode, printStock(state.mode)); } catch (error) { alert(error.message); } });
     on('#customBtn', 'click', customLabel);
+    on('#alphabetDividers', 'click', () => showCharacterDividers('alphabet'));
+    on('#numberDividers', 'click', () => showCharacterDividers('number'));
     on('#addTag', 'click', () => addTagValues($('#priceInput')?.value || '', $('#productInput')?.value || ''));
     on('#addTreasureTag', 'click', addTreasureTag);
     on('#treasureSubheader', 'input', renderTreasurePreview);
