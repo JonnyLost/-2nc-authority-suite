@@ -1,11 +1,11 @@
 window.APP_CONFIG = Object.freeze({
   name: '2NC Authority Suite',
-  version: '4.44.13',
-  build: '2026-11-23-essential-comic-dividers',
+  version: '4.44.14',
+  build: '2026-11-28-cd-vinyl-alphabet-number-dividers',
   schema: 3,
   databaseName: '2nc-authority-db-v3',
   legacyDatabaseNames: ['2nc-authority-db-v2-5'],
-  cacheName: '2nc-authority-suite-v4.44.13',
+  cacheName: '2nc-authority-suite-v4.44.14',
   essentialComicDividerIds: Object.freeze([
     // DC
     "CHR-00025", // Aquaman
